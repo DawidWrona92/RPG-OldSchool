@@ -16,6 +16,10 @@ Repozytorium jest obecnie w fazie projektowej. Nie wybrano silnika i nie ma jesz
 | [Pakiet 03: bestiariusz](docs/bestiariusz-demo.md) | Sześć zwykłych typów wrogów, dwóch minibossów, Stróż | Do walidacji |
 | [Pakiet 03: spotkania i bossowie](docs/spotkania-i-bossowie.md) | Areny, fazy, telegraphy, rozwiązania, reset i nagrody | Do walidacji; zależny od 01–02 |
 | [Przegląd 02–03](docs/przeglad-pakietow-02-03.md) | Próby znalezienia luk w projekcie i wynik walidacji grafów | Analiza dokumentów, nie testy gry |
+| [Pakiet 04: mapa](docs/pakiet-04-mapa.md) | Układ Niemiru i lasu, drogi, skróty, odnogi i metryki przestrzeni | Do walidacji |
+| [Pakiet 04: początek](docs/pakiet-04-poczatek.md) | Prolog, nauka mechanik i pierwsza wyprawa | Do walidacji |
+| [Pakiet 04: obrazy](docs/pakiet-04-obrazy.md) | Brief siedmiu kadrów do następnego etapu | Propozycja; ilustracji jeszcze nie wykonano |
+| [Przegląd 04](docs/pakiet-04-przeglad.md) | Spójność, scenariusze graczy i walidacja połączeń mapy | Analiza projektu, nie testy gry |
 | [Przed prototypem](docs/przed-prototypem.md) | Dalsza kolejność pracy i decyzje techniczne | Plan roboczy |
 
 Autor przegląda większe pakiety i wskazuje poprawki; nowe propozycje nie stają się automatycznie zatwierdzonym projektem. Wartości liczbowe podane wcześniej są robocze. Nie ustalamy procentowego celu zużycia zapasów.

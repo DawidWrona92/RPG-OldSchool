@@ -57,3 +57,9 @@ Nie ma potrzeby projektowania całego świata przed pierwszym prototypem. Trzeba
 - [Przegląd scenariuszowy](przeglad-pakietow-02-03.md), z ograniczeniami walidacji strukturalnej.
 
 Autor doprecyzował, że na tym etapie potwory oznaczają bestiariusz i kompletne projekty walk do późniejszego wdrożenia. Pakiety nie są jeszcze zatwierdzonym kodem ani zastępstwem wyboru silnika.
+
+## Pakiet przestrzeni i przygotowanie ilustracji
+
+Przygotowano [mapę Niemiru i lasu](pakiet-04-mapa.md), [początek gry i pierwszą wyprawę](pakiet-04-poczatek.md) oraz [brief do obrazów](pakiet-04-obrazy.md). Status: propozycje do walidacji. [Przegląd 04](pakiet-04-przeglad.md) odróżnia kontrolę grafów od przyszłych testów gry.
+
+Następny uzgodniony etap: autor dostarczy repozytoria umiejętności rysowania, a obrazy pomogą wybrać kierunek wizualny. Nie wybrano jeszcze silnika ani formatu finalnych assetów. Pierwszy grywalny fragment nadal służy sprawdzeniu sterowania i wyprawy, nie produkcji całego demo naraz.
