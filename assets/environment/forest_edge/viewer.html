@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Welesza / ENV-01 — diagnostyka sceny</title>
+<style>
+:root{color-scheme:dark;font-family:ui-sans-serif,system-ui,sans-serif}*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#12150f;color:#ddd}
+canvas{width:100%;height:100%;display:block;cursor:crosshair}
+header{position:fixed;left:15px;top:12px;max-width:345px;background:#171b17ea;border:1px solid #60695970;border-radius:8px;padding:12px 15px;pointer-events:none}
+h1{font-size:15px;letter-spacing:.07em;margin:0 0 5px}p{font-size:12px;line-height:1.45;color:#aaa;margin:0 0 8px}.buttons{display:flex;gap:8px;pointer-events:auto}button{background:#333d2e;color:#e8ead9;border:1px solid #556448;padding:6px 11px;border-radius:5px;cursor:pointer;font:inherit;font-size:12px}button:hover{background:#536348}
+#status{font-size:11px;color:#c9c6a8;margin-top:9px;line-height:1.4}
+</style></head><body><canvas id="view"></canvas>
+<header><h1>WELESZA / ENV-01</h1><p>Prototyp techniczny skraju lasu. Kliknij, by sprawdzić miejsce bohatera; przeciągnij prawym przyciskiem, aby przesunąć widok. Kółko myszy: zoom. To NIE jest gotowy gameplay ani nawigacja.</p>
+<div class="buttons"><button id="collision">Kolizje: wył.</button><button id="reset">Reset widoku</button></div><div id="status">Wczytywanie assetów…</div></header>
+<script>
+'use strict';
+const canvas=document.getElementById('view'),ctx=canvas.getContext('2d');
+let scene=null,base=null,objects=[],zoom=1,panX=0,panY=0,collisions=false,player=null,dragging=false,last=null;
+const loadImage=(src)=>new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=()=>reject(new Error(src));i.src=src});
+function resize(){const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(innerWidth*dpr);canvas.height=Math.round(innerHeight*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);render()}
+function ptToScene(cx,cy){return {x:(cx-innerWidth/2-panX)/zoom+scene.scene_image[0]/2,y:(cy-innerHeight/2-panY)/zoom+scene.scene_image[1]/2}}
+function worldToScene(x,y){const p=scene.projection;return {x:p.screen_center_px[0]+(x-y)*Math.SQRT1_2*p.pixels_per_meter,y:p.screen_center_px[1]+(x+y)*Math.SQRT1_2*.5*p.pixels_per_meter}}
+function toWorld(sx,sy){const p=scene.projection,u=(sx-p.screen_center_px[0])/(p.pixels_per_meter*Math.SQRT1_2),v=(sy-p.screen_center_px[1])/(p.pixels_per_meter*Math.SQRT1_2*.5);return{x:(u+v)*.5,y:(v-u)*.5}}
+function collisionAt(x,y){return scene.objects.some(o=>o.collision_radius_m>0&&Math.hypot(o.world_m[0]-x,o.world_m[1]-y)<o.collision_radius_m+0.28)}
+function render(){ctx.clearRect(0,0,innerWidth,innerHeight);ctx.fillStyle='#12150f';ctx.fillRect(0,0,innerWidth,innerHeight);if(!scene||!base)return;
+ctx.save();ctx.translate(innerWidth/2+panX,innerHeight/2+panY);ctx.scale(zoom,zoom);ctx.translate(-scene.scene_image[0]/2,-scene.scene_image[1]/2);
+ctx.drawImage(base,0,0);
+const drawPlayer=()=>{if(!player)return;const p=worldToScene(player.x,player.y);ctx.fillStyle='rgba(0,0,0,.45)';ctx.beginPath();ctx.ellipse(p.x,p.y,11,4,0,0,Math.PI*2);ctx.fill();ctx.fillStyle=player.blocked?'#c05e42':'#d9c592';ctx.beginPath();ctx.arc(p.x,p.y-12,8,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#202920';ctx.lineWidth=2;ctx.stroke();};
+let playerDone=false;
+for(const o of objects){if(player&&!playerDone&&o.entry.screen_anchor[1]>worldToScene(player.x,player.y).y){drawPlayer();playerDone=true}
+ctx.drawImage(o.image,o.entry.screen_top_left[0],o.entry.screen_top_left[1]);}
+if(!playerDone)drawPlayer();
+if(collisions){for(const o of scene.objects){const r=o.collision_radius_m;if(r<=0)continue;const p=o.screen_anchor;ctx.beginPath();ctx.ellipse(p[0],p[1],r*60,r*30,0,0,Math.PI*2);ctx.strokeStyle='#e6ad598c';ctx.lineWidth=1.2/zoom;ctx.stroke();}}
+ctx.restore()}
+canvas.addEventListener('pointerdown',e=>{if(e.button===2){dragging=true;last=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId)}else if(e.button===0&&scene){const pt=ptToScene(e.clientX,e.clientY),w=toWorld(pt.x,pt.y),blocked=collisionAt(w.x,w.y);player={...w,blocked};document.getElementById('status').textContent=`Świat: x=${w.x.toFixed(2)} m, y=${w.y.toFixed(2)} m — ${blocked?'Punkt kolizyjny':'Bez kolizji statycznej (nawigacja niezweryfikowana)'}`;render()}});
+canvas.addEventListener('pointermove',e=>{if(!dragging)return;panX+=e.clientX-last[0];panY+=e.clientY-last[1];last=[e.clientX,e.clientY];render()});
+canvas.addEventListener('pointerup',()=>dragging=false);canvas.addEventListener('contextmenu',e=>e.preventDefault());
+canvas.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.35,Math.min(3.5,zoom*(e.deltaY<0?1.11:.9)));render()},{passive:false});
+document.getElementById('collision').onclick=()=>{collisions=!collisions;document.getElementById('collision').textContent='Kolizje: '+(collisions?'wł.':'wył.');render()};
+document.getElementById('reset').onclick=()=>{zoom=Math.min(innerWidth/1536,innerHeight/900);panX=panY=0;player=null;render()};
+(async()=>{try{scene=await (await fetch('output/scene.json')).json();base=await loadImage('output/'+scene.ground);const cached=new Map();for(const [id,ref] of Object.entries(scene.props_catalog))cached.set(id,await loadImage('output/'+ref.file));objects=scene.objects.map(o=>({entry:o,image:cached.get(o.type)}));zoom=Math.min(innerWidth/1536,innerHeight/900);resize();document.getElementById('status').textContent=`Wczytano ${objects.length} dekoracji i ${cached.size} typów assetów. Kliknij podłoże.`}catch(err){document.getElementById('status').textContent='Błąd wczytywania: '+err.message+'. Uruchom python -m http.server (nie file://).';console.error(err)}})();addEventListener('resize',resize);
+</script></body></html>
