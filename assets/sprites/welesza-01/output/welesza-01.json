@@ -1,5 +1,7 @@
 {
+  "style": "D2R-learned pass",
   "style_card": "style-card.md",
+  "learned_card": ".agents/skills/retro-rts-sprites/references/learned/welesza-d2r-sacred.md",
   "canvas": [
     96,
     116
@@ -13,24 +15,21 @@
   "light": "upper-left",
   "units": {
     "enm-zdziczaly-pies": {
-      "colors": 10,
-      "alpha_values": null,
+      "colors": 11,
       "size": [
         96,
         116
       ]
     },
     "enm-powrotnik": {
-      "colors": 9,
-      "alpha_values": null,
+      "colors": 10,
       "size": [
         96,
         116
       ]
     },
     "enm-drwal": {
-      "colors": 11,
-      "alpha_values": null,
+      "colors": 14,
       "size": [
         96,
         116
