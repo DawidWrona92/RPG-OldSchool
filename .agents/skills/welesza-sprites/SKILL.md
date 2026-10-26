@@ -90,6 +90,20 @@ Stałe są w `sdfkit.py` (`FRAME_SIZE`, `EXTENT`, `CENTER_Z`, `SUPERSAMPLE`, `EL
 - Szkic (`--szkic`) wystarcza do oceny ruchu; pełny render dopiero po poprawkach.
 - Nie dopieszczaj pojedynczego kadru. Autor ocenia postać w ruchu; doprowadź ją do czytelności i przejdź do póz/animacji.
 
+## Lista kontrolna przed oddaniem postaci (z recenzji Drwala i Psa)
+
+Sprawdź każdy punkt na GIF-ach i atlasie w skali 1×, na tle lasu, obok `output/drwal/`.
+
+- [ ] **Czytelność na tle lasu.** Główny materiał (futro, ubranie) ma albedo ≥ ~0,05; postać nie jest ciemniejszą plamą niż Drwal. Z kierunku N (od tyłu) dalej widać, co to jest — nie pniak ani kamień.
+- [ ] **Cechy gatunku widoczne w każdej pozie spoczynkowej i ruchu.** Psu stoją uszy, człowiekowi widać głowę i ramiona. Ukrywaj je (położone uszy, schowana głowa) tylko tam, gdzie to celowy sygnał — wtedy telegraf zyskuje kontrast z resztą animacji.
+- [ ] **Rekwizyty z karty mają co najmniej 3 px w 1×.** Rzemienie, łatki, szwy, cienkie kończyny: przesadź grubość i jasność. Kończyny poniżej stawu nie cieńsze niż ~0,035 m.
+- [ ] **Liczba klatek.** Zapowiedź ataku: 2–3 klatki narastającego ruchu, nie jedna zamrożona klatka. Cykl chodu/biegu: 6–8 klatek (4 to za mało — wygląda jak ślizganie). Śmierć: ≥ 5 klatek. Trafienie: ≥ 2.
+- [ ] **Wszystko mieści się w klatce** we wszystkich klatkach, kierunkach i wariantach (wzór w lekcjach). Pamiętaj o wypadach do przodu (kłapnięcie, cios) — czubek pyska czy broni łatwo przekracza `BOUND_R`.
+- [ ] **Jeden format eksportu:** `ANIMS` + `run_anim` (atlas na animację, JSON z `events`). Nie pisz własnego eksportera — gra ma mieć jeden importer. Warianty flagą `--wariant=<litera>`.
+- [ ] **Okna walki w `events`** dla każdego ataku: `zapowiedz`, `aktywne`, `trafienie`, `okazja`, `parowalny` (z karty w bestiariuszu).
+- [ ] **Zacommitowane PNG odpowiadają kodowi.** Po zmianie modelu lub póz wyrenderuj ponownie albo usuń stare klatki — nie zostawiaj wyników poprzedniej wersji.
+- [ ] **Ton zgodny z kartą.** Porównaj docstring i efekty (świecące oczy, krew, „demoniczność”) z opisem w bestiariuszu. Emisja tylko tam, gdzie karta lub zasady stylu jej wymagają; odblask oczu zwierzęcia — słaby. Rozbieżności zgłoś autorowi zamiast rozstrzygać.
+
 ## Praca równoległa wielu agentów
 
 - **Jedna postać = jeden plik `<id>.py` + jeden katalog `output/<id>/`.** Nie edytuj cudzych plików postaci.
