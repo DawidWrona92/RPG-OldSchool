@@ -25,3 +25,11 @@ Zachowano układ katalogów źródłowych wewnątrz `skills/`, w tym `shared/`, 
 Zachowane informacje o pochodzeniu: [LICENSE-NOTICE.md](skills/LICENSE-NOTICE.md) i [LICENSE-INSPIRATIONS.md](skills/LICENSE-INSPIRATIONS.md). Licencja MIT pierwszego pakietu nie jest przypisywana temu zestawowi.
 
 Instrukcje upstream: [README](skills/README.md). Bieżące wyniki weryfikacji: [instalacja skilli graficznych](../docs/skills-graficzne.md). Pliki `STATUS.json` i `tests/RESULTS_*` są niezmienionymi zapisami dostarczonymi przez źródłowe repozytorium.
+
+## Dodatkowy pixel-art — 1 skill
+
+Źródło: https://github.com/junyudev/pixel-art
+
+Wersja: `d3374bd93d56a0834704d7643496b7ebf07b9fda`. Zainstalowano 30 plików z `skills/pixel-art/` oraz główny `LICENSE`. Pliki upstream pozostają niezmienione; dodano lokalny `AGENTS.md` z regułami integracji. Nie kopiowano strony benchmarkowej ani jej assetów.
+
+Licencja i wyjątki: [pixel-art/LICENSE](skills/pixel-art/LICENSE). Wynik sprawdzenia zgodności oraz prób funkcjonalnych: [zgodność pixel-art](../docs/zgodnosc-pixel-art.md). Nowy warsztat uzupełnia zestaw jako osobny wariant pixel-artu; nie zastępuje pre-renderów ani nie narzuca stylu Eastward.

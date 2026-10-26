@@ -43,3 +43,11 @@ Skalę, światło, projekcję, kotwicę i filtrację trzeba uzgodnić przed łą
 Instalacja adaptera Godot nie zatwierdza wyboru silnika. Podane w jego instrukcji przykładowe konwencje projektu nie są automatycznie konwencjami Weleszy — projekt silnika gry jeszcze nie istnieje.
 
 Na tym etapie nie wygenerowano nowych ilustracji ani assetów Weleszy; obrazy w `demo/` są przykładami dostarczonymi przez repozytorium źródłowe.
+
+## Rozszerzenie: junyudev/pixel-art
+
+Dodano szósty skill graficzny: [pixel-art](../.agents/skills/pixel-art/SKILL.md), wersja `d3374bd93d56a0834704d7643496b7ebf07b9fda`. Działa jako dodatkowy warsztat prawdziwego pixel-artu, z tekstowym źródłem sprite'a. Nie zastępuje pozostałych narzędzi.
+
+[Przegląd zgodności](zgodnosc-pixel-art.md) opisuje rozdzielenie stylów, formatów i walidacji oraz wykrytą półprzezroczystość cienia w przykładzie upstream. Zasady lokalne: [AGENTS.md](../.agents/skills/pixel-art/AGENTS.md).
+
+Router nadal wybiera sposób wykonania: drobne ikony lub jawnie wybrany pixel-art mogą korzystać z nowego warsztatu; budynki malarskie i pre-renderowane zachowują swoje narzędzia oraz reguły. Własną kartę stylu Weleszy przygotowujemy przed łączeniem wyników.
