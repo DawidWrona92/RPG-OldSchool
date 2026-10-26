@@ -363,7 +363,8 @@ KEYS = {}
 KEYS["spoczynek"] = pose()
 
 # --- Oburecz chwyt (nieparowalny): odklada worek, prostuje ramiona, nabiera powietrza, krotki chwyt do przodu ---
-_SACK_GROUND = dict(neck=(0.02, -0.4, 0.12), dir=(-0.2, -1.0, 0.0), via=None)
+# Worek na ziemi lezy WZDLUZ ciala (za plecami), nie bokiem: zasieg przy ziemi w strone kamery <= ~1,1 m (kontrakt kadru)
+_SACK_GROUND = dict(neck=(-0.05, -0.34, 0.12), dir=(-1.0, -0.35, 0.0), via=None)
 KEYS["chwyt_opuszcza"] = pose(pelvis=(0.04, 0.0, 0.8), spine=(8.0, 42.0, 0.0), head=(0.0, 4.0), footL=(0.12, 0.17, 0.1), footR=(-0.04, -0.2, 0.1),
                               handR=(0.12, -0.38, 0.5), handL=("t", (0.14, 0.3, 0.9)), neck=(-0.04, -0.42, 0.5), dir=(-0.3, -0.4, -0.85),
                               via=None, poleR=(-0.5, -1.0, 0.0), fingersR=(0.1, 0.9))
@@ -395,8 +396,8 @@ KEYS["tobol_unosi"] = pose(pelvis=(0.0, 0.0, 0.9), spine=(-20.0, 14.0, 0.0), hea
                            fingersR=(0.1, 1.0), fingersL=(0.3, 0.9))
 KEYS["tobol_zamach"] = pose(pelvis=(-0.02, 0.0, 0.94), spine=(-38.0, 2.0, 0.0), head=(25.0, -4.0), hot=True,
                             footL=(0.16, 0.22, 0.1), footR=(-0.18, -0.2, 0.1),
-                            neck=(-0.2, -0.28, 2.02), dir=(-0.95, 0.15, -0.3), via=None,
-                            handR=(-0.18, -0.3, 1.94), handL=(-0.3, -0.12, 1.86), poleR=(0.3, -1.0, 0.2), poleL=(-0.4, 0.6, -1.0),
+                            neck=(-0.14, -0.3, 1.96), dir=(-0.8, 0.1, -0.6), via=None,
+                            handR=(-0.12, -0.32, 1.88), handL=(-0.22, -0.14, 1.8), poleR=(0.3, -1.0, 0.2), poleL=(-0.4, 0.6, -1.0),
                             fingersR=(0.1, 1.0), fingersL=(0.3, 0.9))
 KEYS["tobol_cios"] = pose(pelvis=(0.12, 0.0, 0.88), spine=(28.0, 22.0, 0.0), head=(-8.0, 10.0), hot=True,
                           footL=(0.3, 0.2, 0.1), footR=(-0.2, -0.24, 0.1),
@@ -420,14 +421,14 @@ KEYS["umiera_kolana"] = pose(pelvis=(0.02, 0.0, 0.68), spine=(0.0, 24.0, 0.0), h
                              footRotL=(10.0, 30.0), footRotR=(-10.0, 50.0), neck=("t", (-0.2, -0.3, 1.45)), dir=("t", (-0.6, -0.1, -0.8)))
 _KNEEL = dict(footL=(-0.35, 0.18, 0.08), footR=(-0.35, -0.18, 0.08), footRotL=(10.0, 60.0), footRotR=(-10.0, 60.0))
 KEYS["umiera_kleczy"] = pose(hold=False, pelvis=(0.05, 0.0, 0.5), spine=(0.0, 28.0, 0.0), hips=(0.0, 12.0, 0.0), head=(0.0, 30.0),
-                             handR=(0.24, -0.34, 0.5), handL=(0.22, 0.32, 0.55), neck=(-0.3, -0.5, 0.4), dir=(-0.4, -1.0, 0.0),
+                             handR=(0.24, -0.34, 0.5), handL=(0.22, 0.32, 0.55), neck=(-0.15, -0.4, 0.35), dir=(-0.9, -0.3, -0.25),
                              via=None, **_KNEEL)
 KEYS["umiera_pada"] = pose(hold=False, pelvis=(0.08, 0.0, 0.46), spine=(0.0, 50.0, 0.0), hips=(0.0, 30.0, 0.0), head=(0.0, 20.0),
                            handR=(0.5, -0.28, 0.15), handL=(0.5, 0.28, 0.15), poleR=(-1.0, -0.5, 0.2), poleL=(-1.0, 0.5, 0.2),
-                           neck=(-0.3, -0.55, 0.12), dir=(-0.3, -1.0, 0.0), via=None, **_KNEEL)
+                           neck=(-0.12, -0.42, 0.12), dir=(-0.9, -0.25, 0.0), via=None, **_KNEEL)
 KEYS["umiera_lezy"] = pose(hold=False, pelvis=(0.12, 0.0, 0.3), spine=(0.0, 84.0, 0.0), hips=(0.0, 72.0, 0.0), head=(15.0, 20.0),
                            handR=(0.72, -0.34, 0.05), handL=(0.82, 0.4, 0.05), poleR=(-1.0, -0.5, 0.5), poleL=(-1.0, 0.5, 0.5),
-                           neck=(-0.3, -0.6, 0.1), dir=(-0.2, -1.0, 0.0), via=None, **_KNEEL)
+                           neck=(0.0, -0.42, 0.1), dir=(-0.9, -0.25, 0.0), via=None, **_KNEEL)
 
 POSES = KEYS
 
