@@ -1,0 +1,129 @@
+{
+  "character": "korzeniec",
+  "frame_size": [
+    192,
+    192
+  ],
+  "anchor_px": [
+    96.0,
+    158.4
+  ],
+  "pixels_per_meter": 60.0,
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "direction_note": "wiersz atlasu = indeks kierunku; S = przodem do kamery, kolejne co 45° zgodnie z ruchem wskazówek zegara na ekranie",
+  "layout": "kolumny = klatki animacji, wiersze = kierunki",
+  "animations": {
+    "spoczynek": {
+      "file": "korzeniec_spoczynek.png",
+      "frames": 4,
+      "durations_ms": [
+        600,
+        600,
+        600,
+        600
+      ],
+      "loop": true,
+      "events": {}
+    },
+    "zagarniecie": {
+      "file": "korzeniec_zagarniecie.png",
+      "frames": 9,
+      "durations_ms": [
+        280,
+        220,
+        260,
+        300,
+        110,
+        140,
+        320,
+        280,
+        280
+      ],
+      "loop": false,
+      "events": {
+        "parowalny": false,
+        "zapowiedz": [
+          1,
+          2,
+          3
+        ],
+        "aktywne": [
+          4,
+          5
+        ],
+        "trafienie": 5,
+        "okazja": [
+          6,
+          7
+        ]
+      }
+    },
+    "przetoczenie": {
+      "file": "korzeniec_przetoczenie.png",
+      "frames": 8,
+      "durations_ms": [
+        200,
+        180,
+        220,
+        90,
+        120,
+        260,
+        220,
+        200
+      ],
+      "loop": false,
+      "events": {
+        "parowalny": false,
+        "zapowiedz": [
+          1,
+          2,
+          3
+        ],
+        "aktywne": [
+          4,
+          5
+        ],
+        "trafienie": 5,
+        "okazja": [
+          6
+        ]
+      }
+    },
+    "trafienie": {
+      "file": "korzeniec_trafienie.png",
+      "frames": 3,
+      "durations_ms": [
+        90,
+        180,
+        200
+      ],
+      "loop": false,
+      "events": {}
+    },
+    "smierc": {
+      "file": "korzeniec_smierc.png",
+      "frames": 6,
+      "durations_ms": [
+        140,
+        160,
+        200,
+        220,
+        260,
+        700
+      ],
+      "loop": false,
+      "events": {
+        "ostatnia_klatka": "kadlub osiada i zostaje jako kopiec korzeni"
+      }
+    }
+  }
+}
