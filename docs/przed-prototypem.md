@@ -49,3 +49,11 @@ Kryteria oceny: czy sterowanie jest czytelne, czy gracz rozumie przyczynę obra�
 Po ocenie walki połączyć fragment osady, wyprawę do lasu, jedno zadanie, zdobycz, rozmowę i powrót. Sprawdzić interakcje systemów oraz zapis postępu przed rozbudową do pełnego demo.
 
 Nie ma potrzeby projektowania całego świata przed pierwszym prototypem. Trzeba natomiast ustalić wewnętrzną logikę tajemnicy przed pisaniem ostatecznych dialogów i warunków zadań.
+
+## Materiały przygotowane do późniejszej walidacji
+
+- [Pakiet 02 — wyprawa i porażka](propozycja-wyprawy-02.md).
+- [Pakiet 03 — bestiariusz](bestiariusz-demo.md) i [projekty spotkań oraz bossów](spotkania-i-bossowie.md).
+- [Przegląd scenariuszowy](przeglad-pakietow-02-03.md), z ograniczeniami walidacji strukturalnej.
+
+Autor doprecyzował, że na tym etapie potwory oznaczają bestiariusz i kompletne projekty walk do późniejszego wdrożenia. Pakiety nie są jeszcze zatwierdzonym kodem ani zastępstwem wyboru silnika.
