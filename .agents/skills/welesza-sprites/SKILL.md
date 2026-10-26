@@ -99,6 +99,9 @@ Sprawdź każdy punkt na GIF-ach i atlasie w skali 1×, na tle lasu, obok `outpu
 - [ ] **Rekwizyty z karty mają co najmniej 3 px w 1×.** Rzemienie, łatki, szwy, cienkie kończyny: przesadź grubość i jasność. Kończyny poniżej stawu nie cieńsze niż ~0,035 m.
 - [ ] **Liczba klatek.** Zapowiedź ataku: 2–3 klatki narastającego ruchu, nie jedna zamrożona klatka. Cykl chodu/biegu: 6–8 klatek (4 to za mało — wygląda jak ślizganie). Śmierć: ≥ 5 klatek. Trafienie: ≥ 2.
 - [ ] **Wszystko mieści się w klatce** we wszystkich klatkach, kierunkach i wariantach (wzór w lekcjach). Pamiętaj o wypadach do przodu (kłapnięcie, cios) — czubek pyska czy broni łatwo przekracza `BOUND_R`.
+- [ ] **Zasięg przy ziemi w stronę kamery ≤ ~1,1 m od środka.** Punkt na ziemi w odległości r ląduje na ekranie na wysokości −1,04 − 0,5·r m, a klatka kończy się na −1,6 m. Długie korzenie, ogony, wypady i leżące ciała sprawdź z kierunków S, SW i SE. Jeśli postać musi sięgać dalej, zgłoś autorowi potrzebę większej klatki zamiast godzić się na ucięcie.
+- [ ] **Obie strony ciała są na miejscu.** Z kierunków S i N widać lewą i prawą kończynę (rękę, łapę, korzeń). Częsty błąd: współrzędne prawej strony podane już z minusem i dodatkowo mnożone przez `side = -1` — obie kończyny lądują po jednej stronie.
+- [ ] **Bez wpieczonego podłoża.** Żadnej trawy, ziemi ani „cokołu” pod postacią — teren rysuje gra, a podstawa przesuwałaby się razem z potworem i zostawała po śmierci. Dozwolony jest tylko cień z renderera.
 - [ ] **Jeden format eksportu:** `ANIMS` + `run_anim` (atlas na animację, JSON z `events`). Nie pisz własnego eksportera — gra ma mieć jeden importer. Warianty flagą `--wariant=<litera>`.
 - [ ] **Okna walki w `events`** dla każdego ataku: `zapowiedz`, `aktywne`, `trafienie`, `okazja`, `parowalny` (z karty w bestiariuszu).
 - [ ] **Zacommitowane PNG odpowiadają kodowi.** Po zmianie modelu lub póz wyrenderuj ponownie albo usuń stare klatki — nie zostawiaj wyników poprzedniej wersji.
