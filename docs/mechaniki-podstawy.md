@@ -14,8 +14,8 @@ Powiązania: [fabuła demo](demo-fabula.md), [kolejność prac](przed-prototypem
 | Tryb | Wyłącznie single player. |
 | Walka | Mniejsza liczba groźnych przeciwników, precyzyjne wyczucie momentu ataku. Przeciw potworom i zwierzętom: unik. Przeciw ludziom walczącym bronią i podobnym uzbrojonym przeciwnikom, np. szkieletom lub zombie: unik oraz parada. |
 | Unik | Osobny klawisz, krótki odskok w kierunku kursora zgodnie z zaakceptowaną rekomendacją. Koszt i ograniczenia pozostają otwarte. |
-| Atak i wiązanki | Atak na kliknięcie, bez ciągłego atakowania po przytrzymaniu. Bezładne klikanie daje podstawowy atak; trafianie kliknięciami w rytm uruchamia wiązankę, w której kolejne ciosy zadają większe obrażenia. Umiejętność określa długość łańcucha i jego premie: podstawowy stopień daje do trzech ciosów, III daje cztery i gwarantowany mocny finisz po poprawnym wykonaniu pełnego łańcucha. Liczby i otwarte szczegóły opisano w dokumencie walki. |
-| Sprawczość gracza | Autor odrzuca rozstrzyganie trafień kostką. Trafienia wręcz wynikają z kontaktu i obrony, dystansowe z toru lotu i sytuacji w świecie. Pancerz osłabia trafienie. Mocny finisz wynika z poprawnego wykonania łańcucha, bez losowego krytyka. |
+| Atak i wiązanki | Atak na kliknięcie, bez ciągłego atakowania po przytrzymaniu. Bezładne klikanie daje podstawowy atak; trafianie kliknięciami w rytm uruchamia wiązankę, w której kolejne ciosy zadają większe obrażenia. Umiejętność określa długość łańcucha i jego premie: podstawowy stopień daje do trzech ciosów, III daje cztery, a czwarty cios znacząco zwiększa szansę losowego krytyka. Liczby i otwarte szczegóły opisano w dokumencie walki. |
+| Sprawczość gracza | Autor odrzuca rozstrzyganie trafień kostką. Trafienia wręcz wynikają z kontaktu i obrony, dystansowe z toru lotu i sytuacji w świecie. Pancerz osłabia trafienie. Losowe krytyki pozostają osobnym efektem trafienia; poprawny czwarty cios znacząco zwiększa ich szansę, ale nie gwarantuje krytyka. |
 | Broń dystansowa | Autor proponuje kalkulację z uwzględnieniem umiejętności, dystansu i pancerza. Rozdzielenie trafienia oraz działania pancerza zostało zaakceptowane; szczegóły celowania pozostają otwarte, a losowe testy trafienia są odrzucone. |
 | Zagrożenie | Inspiracja WFRP: walka przeciw trzem przeciwnikom naraz ma być bardzo niebezpieczna. Nie ustalono automatycznej porażki ani konkretnej szansy przeżycia. |
 | Rozwój | Inspiracja WFRP; doświadczenie prowadzi do awansów, awanse dają Punkty Nauki (PN), a PN wydajemy u nauczycieli, na wzór Gothic. |
@@ -24,7 +24,7 @@ Powiązania: [fabuła demo](demo-fabula.md), [kolejność prac](przed-prototypem
 | Zasoby | Wymagające gospodarowanie zapasami. Autor wycofał procentowy cel ich wyczerpania; tempo zużycia i presję należy dopracować na podstawie testów gry. Rodzaje zasobów pozostają otwarte. |
 | Inspiracja wypraw | Darkest Dungeon w aspekcie gospodarowania zapasami. Zużycie zasobów będzie dopracowane w testach, a dobre przygotowanie ma dawać rzeczywistą przewagę, bez automatycznego zwiększania trudności niwelującego tę przewagę. |
 
-WFRP stanowi inspirację dla zagrożenia i rozwoju. Nie zatwierdzono przeniesienia rzutów kośćmi, losowego pudłowania, profesji, trwałych ran ani śmierci permanentnej. Gothic stanowi inspirację dla roli nauczycieli, nie automatyczne przyjęcie wszystkich jego zasad.
+WFRP stanowi inspirację dla zagrożenia i rozwoju. Nie zatwierdzono przeniesienia pełnego systemu rzutów WFRP, losowego pudłowania, profesji, trwałych ran ani śmierci permanentnej. Losowy krytyk jest odrębną, zatwierdzoną zasadą. Gothic stanowi inspirację dla roli nauczycieli, nie automatyczne przyjęcie wszystkich jego zasad.
 
 Darkest Dungeon stanowi inspirację dla presji zasobów podczas wyprawy. Nie zatwierdzono drużyny, walki turowej, stresu, głodu, systemu światła ani trwałych urazów. Fabularna latarnia pozostaje elementem zadań; nie wynika z tego automatycznie konieczność zużywania paliwa.
 

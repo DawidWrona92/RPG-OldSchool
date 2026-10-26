@@ -20,15 +20,15 @@ Podstawa: [mechaniki](mechaniki-podstawy.md).
 |---|---|
 | Podstawowy / I | Maksymalnie trzy elementy łańcucha. |
 | II | „+5% obrażeń na poziom” — robocza wartość; wymaga ustalenia, do jakiego poziomu odnosi się mnożnik. |
-| III | Cztery elementy łańcucha; poprawne wykonanie pełnego łańcucha gwarantuje mocny finisz. Bez losowego testu krytyka. Wartość premii pozostaje otwarta. |
+| III | Cztery elementy łańcucha; czwarty cios znacząco zwiększa szansę losowego krytyka. Nie gwarantuje krytyka. Docelowa premia pozostaje otwarta. |
 
-Osobną zatwierdzoną zasadą jest wzrost obrażeń kolejnych ciosów wykonanych w rytm. Nie należy utożsamiać go automatycznie z premią stopnia II. Nie określono wartości premii finiszu, kumulowania premii między stopniami ani interakcji z wyposażeniem. Na tym etapie nie obliczamy oczekiwanych obrażeń ani kosztów szkolenia.
+Osobną zatwierdzoną zasadą jest wzrost obrażeń kolejnych ciosów wykonanych w rytm. Nie należy utożsamiać go automatycznie z premią stopnia II. Nie określono bazowej szansy krytyka, mnożnika jego obrażeń, dokładnego zwiększenia szansy dla czwartego ciosu, kumulowania premii między stopniami ani interakcji z wyposażeniem. Wcześniej podane 20% było wartością roboczą; wymaga doprecyzowania, czy oznacza całkowitą szansę czwartego ciosu, czy premię do szansy bazowej. Na tym etapie nie obliczamy oczekiwanych obrażeń ani kosztów szkolenia.
 
 ## Zasada sprawczości gracza — aktualizacja autora
 
-Autor odrzuca sytuację, w której kostka decyduje za gracza. Trafienia są rozstrzygane przez wykonane działanie, kontakt i obronę, bez dodatkowego losowego testu. Dla pocisków obowiązuje tor lotu uwzględniający celowanie, ruch celu i przeszkody; bez losowego rozrzutu.
+Autor odrzuca losowy test pudła niezależny od działania gracza, ale zachowuje losowe krytyki. Trafienia są rozstrzygane przez wykonane działanie, kontakt i obronę, bez dodatkowego losowego testu. Dla pocisków obowiązuje tor lotu uwzględniający celowanie, ruch celu i przeszkody; bez losowego rozrzutu.
 
-Autor zatwierdził mocny finisz jako gwarantowaną nagrodę za poprawne wykonanie całego czterociosowego łańcucha. Zastępuje on wcześniejszą propozycję losowego krytyka. Gwarantowana jest premia wykonanego finiszu, nie automatyczne trafienie: ostatni cios nadal podlega zasadom kontaktu i obrony. Wartość premii pozostaje do ustalenia.
+Autor doprecyzował, że krytyk pozostaje losowy, a poprawnie wykonany czwarty cios znacząco zwiększa jego szansę. To zastępuje wcześniejszą interpretację o gwarantowanym mocnym finiszu. Najpierw rozstrzygamy kontakt i obronę, następnie efekt trafienia; losowy krytyk nie zmienia pudła ani skutecznie obronionego ciosu w trafienie.
 
 ## Zatwierdzony kierunek: kontakt, obrona i obrażenia
 
@@ -69,7 +69,7 @@ Pancerz uwzględniamy na etapie skutku trafienia: redukcji obrażeń lub przebic
 3. Czy rytmiczne wiązanki dotyczą wyłącznie broni wręcz? Zachowanie łuku i kuszy nie zostało doprecyzowane.
 4. Czym wykonujemy paradę: dowolną bronią, wybranymi rodzajami broni, tarczą? Jak oznaczamy ataki niemożliwe do sparowania?
 5. Jakie są ograniczenia uniku i parady, czy mogą przerwać atak i jak wpływają na wiązankę?
-6. Jak realizujemy celowanie łukiem i kuszą przy sterowaniu myszą, zgodnie z odrzuceniem losowych testów trafienia? Jaka jest wartość premii gwarantowanego finiszu?
+6. Jak realizujemy celowanie łukiem i kuszą przy sterowaniu myszą, zgodnie z odrzuceniem losowych testów trafienia? Jaka jest bazowa szansa krytyka i sposób zwiększania jej przy czwartym ciosie?
 
 ## Scenariusze przyszłych testów
 
