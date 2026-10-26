@@ -1,0 +1,157 @@
+{
+  "character": "drwal-b",
+  "frame_size": [
+    192,
+    192
+  ],
+  "anchor_px": [
+    96.0,
+    158.4
+  ],
+  "pixels_per_meter": 60.0,
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "direction_note": "wiersz atlasu = indeks kierunku; S = przodem do kamery, kolejne co 45° zgodnie z ruchem wskazówek zegara na ekranie",
+  "layout": "kolumny = klatki animacji, wiersze = kierunki",
+  "animations": {
+    "spoczynek": {
+      "file": "drwal-b_spoczynek.png",
+      "frames": 4,
+      "durations_ms": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "loop": true,
+      "events": {}
+    },
+    "chod": {
+      "file": "drwal-b_chod.png",
+      "frames": 8,
+      "durations_ms": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ],
+      "loop": true,
+      "root_speed_mps": 1.0,
+      "events": {}
+    },
+    "ciecie": {
+      "file": "drwal-b_ciecie.png",
+      "frames": 8,
+      "durations_ms": [
+        100,
+        120,
+        160,
+        200,
+        70,
+        80,
+        150,
+        150
+      ],
+      "loop": false,
+      "events": {
+        "parowalny": true,
+        "zapowiedz": [
+          1,
+          2,
+          3
+        ],
+        "aktywne": [
+          4,
+          5
+        ],
+        "trafienie": 4,
+        "okazja": [
+          5,
+          6
+        ]
+      }
+    },
+    "rozlupanie": {
+      "file": "drwal-b_rozlupanie.png",
+      "frames": 10,
+      "durations_ms": [
+        100,
+        140,
+        220,
+        240,
+        60,
+        90,
+        260,
+        260,
+        160,
+        140
+      ],
+      "loop": false,
+      "events": {
+        "parowalny": false,
+        "zapowiedz": [
+          1,
+          2,
+          3
+        ],
+        "sygnal": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "aktywne": [
+          4,
+          5
+        ],
+        "trafienie": 5,
+        "okazja": [
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "trafienie": {
+      "file": "drwal-b_trafienie.png",
+      "frames": 3,
+      "durations_ms": [
+        70,
+        140,
+        160
+      ],
+      "loop": false,
+      "events": {}
+    },
+    "smierc": {
+      "file": "drwal-b_smierc.png",
+      "frames": 8,
+      "durations_ms": [
+        120,
+        130,
+        150,
+        140,
+        150,
+        160,
+        200,
+        600
+      ],
+      "loop": false,
+      "events": {
+        "ostatnia_klatka": "zostaje jako zwłoki"
+      }
+    }
+  }
+}
