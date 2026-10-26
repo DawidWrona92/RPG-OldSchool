@@ -1,23 +1,27 @@
 # Decyzje przed prototypem
 
-Status: proponowana kolejność pracy, nie zatwierdzony projekt mechanik.
+Status: proponowana kolejność pracy. Fundament częściowo ustalony; reguły szczegółowe wymagają decyzji.
 Podstawa fabularna: [Welesza: Światło między drzewami](demo-fabula.md).
+Aktualne ustalenia i propozycje: [Podstawy mechanik](mechaniki-podstawy.md).
 
 ## 1. Fundament rozgrywki
 
-Najpierw uzgodnić z autorem:
+Uzgodniono z autorem:
 
-- Platformę i urządzenia wejściowe.
-- Perspektywę kamery oraz sposób przemieszczania i celowania.
-- Model gry: pojedynczy gracz czy również kooperacja.
-- Docelowe tempo walki oraz to, co gracz ma opanowywać: budowę postaci, zarządzanie zasobami, pozycjonowanie, refleks.
-- Uporządkowane filary rozgrywki, np. znaczenie walki i łupów wobec eksploracji i tajemnicy. Przykłady nie stanowią decyzji.
+- PC, mysz i klawiatura; możliwość późniejszego rozszerzenia o pada.
+- Kamerę i sterowanie w stylu Diablo 2.
+- Wyłącznie single player.
+- Niewielu groźnych przeciwników, uniki i wyczucie momentu ataku.
+- Rozwój inspirowany WFRP: doświadczenie prowadzi do awansów, awanse dają PN wydawane u nauczycieli w stylu Gothic; rzadkie, bardzo wartościowe łupy.
+- Wymagającą pętlę wyprawy, z zasobami na wyczerpaniu w jej końcowej części.
+
+Pozostają konkretne reguły systemów, źródła doświadczenia i kolejność priorytetów w razie konfliktu między wymaganiami.
 
 ## 2. Podstawowa pętla
 
 Opisać czynności i ich powody w skali pojedynczego starcia, krótkiej wyprawy i całej sesji. Dla każdego kroku wskazać cel, przeszkodę, informację zwrotną i nagrodę.
 
-Dopiero po ustaleniu sterowania zaprojektować ruch, atak, umiejętności, interakcję, zbieranie łupów oraz ewentualne mechaniki obronne. Unik, parowanie, wytrzymałość, głód i crafting nie są jeszcze zatwierdzone.
+Zaprojektować ruch, atak, umiejętności, interakcję, zbieranie łupów i unik. Kierunek oparty na unikach jest zatwierdzony; sposób ich wykonania pozostaje otwarty. Parowanie, wytrzymałość, głód i crafting nie są jeszcze zatwierdzone.
 
 ## 3. Minimalny model walki i rozwoju
 
