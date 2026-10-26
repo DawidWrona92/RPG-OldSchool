@@ -1,6 +1,6 @@
 # Pakiet 04 — brief do późniejszych obrazów
 
-Status: propozycja briefu, nie zatwierdzony styl graficzny. Nie wygenerowano ilustracji. Materiał przygotowuje następny etap po dostarczeniu przez autora repozytoriów z umiejętnościami rysowania.
+Status: propozycja briefu, nie zatwierdzony styl graficzny. Ilustracji kadrów jeszcze nie wykonano. Sprite'y postaci powstają metodą [welesza-sprites](../.agents/skills/welesza-sprites/SKILL.md).
 
 Podstawa: [mapa](pakiet-04-mapa.md), [początek](pakiet-04-poczatek.md), [bestiariusz](bestiariusz-demo.md). Obraz ma pokazywać konkretne miejsce albo decyzję gracza, nie tylko dekoracyjny nastrój.
 
@@ -36,4 +36,4 @@ Obraz koncepcyjny nie jest finalnym assetem gry, dowodem przechodniości areny a
 
 ## Przekazanie do kolejnego etapu
 
-Autor dostarcza repozytoria skilli rysowania. Najpierw sprawdzamy ich instrukcje, zgodność z potrzebnym typem obrazu i sposób użycia. Potem przygotowujemy małą serię porównawczą według powyższych kadrów, bez automatycznego zmieniania zatwierdzonej fabuły. Na tym etapie nie instalujemy nowych narzędzi ani nie wybieramy z góry stylu za autora.
+Autor przyjął prerender SDF jako metodę sprite'ów postaci (pierwszy wynik: Drwal, `assets/sprites/prerender/`). Kadry ART-01–07 można wykonać tym samym rendererem i tą samą kamerą, żeby zachować skalę i światło; zakres i kolejność ustala autor. Nie zmieniamy przy tym zatwierdzonej fabuły.

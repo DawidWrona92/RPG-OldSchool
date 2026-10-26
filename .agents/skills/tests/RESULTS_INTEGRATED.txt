@@ -1,6 +1,0 @@
-[PASS] three engines load
-[PASS] genuine meshkit material split for importer
-[PASS] retro PNG pixels encoded
-[PASS] painted raw image + separate masks
-[PASS] checker detects arbitrary duplicate direction pairs
-Passed 5 integration checks

@@ -26,7 +26,15 @@ Autor przegląda większe pakiety i wskazuje poprawki; nowe propozycje nie staj�
 
 ## Narzędzia projektowe
 
-W [.agents/skills](.agents/skills) znajduje się 25 skilli: 19 projektowych z `gamesdesigners-source/agent-game-design-skills`, 5 graficznych z `DawidWrona92/skills` oraz dodatkowy `pixel-art` z `junyudev/pixel-art`. [Przegląd zgodności nowego pixel-artu](docs/zgodnosc-pixel-art.md) określa granice jego użycia. Opis instalacji narzędzi graficznych: [skille graficzne](docs/skills-graficzne.md). Pochodzenie i licencja: [.agents/SKILLS-SOURCE.md](.agents/SKILLS-SOURCE.md). Zawarte skrypty używają standardowej biblioteki Python 3.
+W [.agents/skills](.agents/skills) znajduje się 19 skilli projektowych z `gamesdesigners-source/agent-game-design-skills` oraz własny skill graficzny [welesza-sprites](.agents/skills/welesza-sprites/SKILL.md). Pochodzenie i licencja: [.agents/SKILLS-SOURCE.md](.agents/SKILLS-SOURCE.md). Instrukcje dla agentów LLM: [AGENTS.md](AGENTS.md).
+
+## Grafika
+
+Sprite'y postaci i potworów powstają jako prerender brył SDF (Python, NumPy, Pillow) w kamerze Diablo 2, w 8 kierunkach: [assets/sprites/prerender](assets/sprites/prerender). Metoda, kontrakt kadru i zasady równoległej pracy: [welesza-sprites](.agents/skills/welesza-sprites/SKILL.md). Pierwsza gotowa postać: Drwal jako ożywieniec, poza zapowiedzi Rozłupania.
+
+```bash
+python3 assets/sprites/prerender/drwal.py rozlupanie all
+```
 
 Przykładowa weryfikacja grafu projektu:
 

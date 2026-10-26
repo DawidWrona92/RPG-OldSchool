@@ -62,4 +62,4 @@ Autor doprecyzował, że na tym etapie potwory oznaczają bestiariusz i kompletn
 
 Przygotowano [mapę Niemiru i lasu](pakiet-04-mapa.md), [początek gry i pierwszą wyprawę](pakiet-04-poczatek.md) oraz [brief do obrazów](pakiet-04-obrazy.md). Status: propozycje do walidacji. [Przegląd 04](pakiet-04-przeglad.md) odróżnia kontrolę grafów od przyszłych testów gry.
 
-Następny uzgodniony etap: autor dostarczy repozytoria umiejętności rysowania, a obrazy pomogą wybrać kierunek wizualny. Nie wybrano jeszcze silnika ani formatu finalnych assetów. Pierwszy grywalny fragment nadal służy sprawdzeniu sterowania i wyprawy, nie produkcji całego demo naraz.
+Kierunek wizualny sprite'ów: prerender SDF w kamerze Diablo 2, opisany w [welesza-sprites](../.agents/skills/welesza-sprites/SKILL.md); pierwsza postać to Drwal. Nie wybrano jeszcze silnika ani formatu finalnych assetów. Pierwszy grywalny fragment nadal służy sprawdzeniu sterowania i wyprawy, nie produkcji całego demo naraz.
