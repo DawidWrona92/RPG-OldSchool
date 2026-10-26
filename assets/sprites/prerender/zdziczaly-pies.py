@@ -174,8 +174,8 @@ KEYS = {
     "klapniecie_zapowiedz": pose(chest=(0.18, 0.40), rump=(-0.42, 0.36), arch=0.06, head=(0.40, 0.50), pitch=-0.35, open=1.0,
                                  ear=0.0, feet=_stand(fl=0.22, fr=0.26, hl=-0.26, hr=-0.22),
                                  tail=[(-0.13, 0.04), (-0.28, 0.12), (-0.40, 0.2)]),
-    "klapniecie": pose(chest=(0.42, 0.38), rump=(-0.30, 0.42), head=(1.0, 0.34), pitch=0.3, open=0.25, ear=0.1,
-                       feet=_stand(fl=0.62, fr=0.56, hl=-0.16, hr=-0.10)),
+    "klapniecie": pose(chest=(0.38, 0.38), rump=(-0.32, 0.42), head=(0.86, 0.34), pitch=0.3, open=0.25, ear=0.1,
+                       feet=_stand(fl=0.56, fr=0.50, hl=-0.18, hr=-0.12)),   # wypad <= ~1,1 m od srodka (cien w klatce)
     "odzyskanie_a": pose(chest=(0.30, 0.28), rump=(-0.36, 0.38), head=(0.70, 0.20), pitch=0.5, open=0.1, ear=0.4,
                          feet=dict(FL=(0.56, GROUND), FR=(0.50, GROUND), HL=(-0.16, GROUND), HR=(-0.12, GROUND))),
     "odzyskanie_b": pose(chest=(0.26, 0.44), rump=(-0.40, 0.45), head=(0.62, 0.40), pitch=0.1, open=0.5, ear=0.6,
