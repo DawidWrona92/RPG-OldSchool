@@ -14,6 +14,7 @@ Uzgodniono z autorem:
 - Niewielu groźnych przeciwników, uniki i wyczucie momentu ataku.
 - Rozwój inspirowany WFRP: doświadczenie prowadzi do awansów, awanse dają PN wydawane u nauczycieli w stylu Gothic; rzadkie, bardzo wartościowe łupy.
 - Wymagającą pętlę wyprawy, z zasobami na wyczerpaniu w jej końcowej części.
+- Inspirację Darkest Dungeon w gospodarowaniu zapasami; cel zużycia weryfikowany w testach, przy zachowaniu korzyści z dobrego przygotowania.
 
 Pozostają konkretne reguły systemów, źródła doświadczenia i kolejność priorytetów w razie konfliktu między wymaganiami.
 

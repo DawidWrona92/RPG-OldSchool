@@ -18,8 +18,11 @@ Powiązania: [fabuła demo](demo-fabula.md), [kolejność prac](przed-prototypem
 | Łupy | Rzadkie, bardzo cenne, dające wyraźne poczucie zwycięstwa i postępu. |
 | Wyprawa | Przygotowanie w osadzie → eksploracja → starcie → nagroda → powrót po nagrodę lub naganę. |
 | Zasoby | Wyprawa wymagająca; zasoby na wyczerpaniu około 90–95% jej przebiegu, aby skłaniać do kreatywności. Rodzaje zasobów i metoda oceny przebiegu wyprawy nie są jeszcze określone. |
+| Inspiracja wypraw | Darkest Dungeon w aspekcie gospodarowania zapasami. Autor potwierdził, że cel zużycia zasobów należy sprawdzać w testach, a dobre przygotowanie ma dawać rzeczywistą przewagę, bez automatycznego zwiększania trudności niwelującego tę przewagę. |
 
 WFRP stanowi inspirację dla zagrożenia i rozwoju. Nie zatwierdzono przeniesienia rzutów kośćmi, losowego pudłowania, profesji, trwałych ran ani śmierci permanentnej. Gothic stanowi inspirację dla roli nauczycieli, nie automatyczne przyjęcie wszystkich jego zasad.
+
+Darkest Dungeon stanowi inspirację dla presji zasobów podczas wyprawy. Nie zatwierdzono drużyny, walki turowej, stresu, głodu, systemu światła ani trwałych urazów. Fabularna latarnia pozostaje elementem zadań; nie wynika z tego automatycznie konieczność zużywania paliwa.
 
 ## 2. Proponowane przełożenie na rozgrywkę — do omówienia
 
@@ -33,7 +36,9 @@ Do wyboru pozostaje, czy unik oznacza osobną akcję, czy przede wszystkim zejś
 
 ### Zasoby i końcówka wyprawy
 
-Proponuję traktować 90–95% jako cel dla testowanej, typowej trasy przy określonym przygotowaniu. Świat nie powinien potajemnie odbierać zapasów ani dokładać przeciwników tylko dlatego, że gracz radzi sobie lepiej niż oczekiwano.
+Autor zaakceptował traktowanie 90–95% jako celu do weryfikacji w testach, z zachowaniem przewagi wynikającej z dobrego przygotowania. Proponowana metoda: mierzyć zużycie na typowej trasie przy określonym wyposażeniu i różnych poziomach wprawy. Świat nie powinien potajemnie odbierać zapasów ani dokładać przeciwników tylko dlatego, że gracz radzi sobie lepiej niż oczekiwano.
+
+W duchu Darkest Dungeon proponuję budować napięcie wokół oceny: „czy wystarczy mi zapasów na dalszy cel i powrót?”. Dodatkowa odnoga może oferować korzyść kosztem zapasów, a odwrót zachowywać część osiągnięć. Zakres zachowywanych nagród, możliwość uzupełniania zapasów i konsekwencje przerwania zadania wymagają decyzji autora. Procent odnosi się do przebiegu wyprawy, nie do nakazu zużycia identycznej części każdego zasobu.
 
 Przed balansowaniem należy określić, co się kończy: leczenie, amunicja, przedmioty pomocnicze czy inny zasób. Chwilowa zdolność do wykonania ataku lub uniku to inny problem niż zapasy na całą wyprawę.
 
