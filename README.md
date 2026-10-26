@@ -30,10 +30,11 @@ W [.agents/skills](.agents/skills) znajduje się 19 skilli projektowych z `games
 
 ## Grafika
 
-Sprite'y postaci i potworów powstają jako prerender brył SDF (Python, NumPy, Pillow) w kamerze Diablo 2, w 8 kierunkach: [assets/sprites/prerender](assets/sprites/prerender). Metoda, kontrakt kadru i zasady równoległej pracy: [welesza-sprites](.agents/skills/welesza-sprites/SKILL.md). Pierwsza gotowa postać: Drwal jako ożywieniec, poza zapowiedzi Rozłupania.
+Sprite'y postaci i potworów powstają jako prerender brył SDF (Python, NumPy, Pillow) w kamerze Diablo 2, w 8 kierunkach: [assets/sprites/prerender](assets/sprites/prerender). Metoda, kontrakt kadru i zasady równoległej pracy: [welesza-sprites](.agents/skills/welesza-sprites/SKILL.md). Gotowa do gry postać: Drwal jako ożywieniec — 6 animacji, 8 kierunków, 4 warianty wyglądu; format atlasu i JSON opisuje [README sprite'ów](assets/sprites/prerender/README.md).
 
 ```bash
-python3 assets/sprites/prerender/drwal.py rozlupanie all
+python3 assets/sprites/prerender/drwal.py anim all --szkic   # szybki podgląd ruchu
+python3 assets/sprites/prerender/drwal.py anim all           # pełny eksport do output/drwal/
 ```
 
 Przykładowa weryfikacja grafu projektu:

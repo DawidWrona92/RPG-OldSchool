@@ -104,26 +104,104 @@ def smin(a, b, k):
     return b + (a - b) * h - k * h * (1.0 - h)
 
 
+def prim_bound(prim):
+    """Kula otaczająca bryłę (środek, promień) — do pomijania dalekich grup."""
+    if isinstance(prim, Sub):
+        return prim_bound(prim.base)
+    if isinstance(prim, Isect):
+        return min((prim_bound(part) for part in prim.parts), key=lambda b: b[1])
+    par, kind = prim.params, prim.kind
+    if kind == "sphere":
+        return par["c"], par["r"]
+    if kind == "ellipsoid":
+        return par["c"], float(np.max(par["radii"]))
+    if kind == "cone":
+        return (par["a"] + par["b"]) / 2, np.linalg.norm(par["b"] - par["a"]) / 2 + max(par["r1"], par["r2"])
+    if kind == "box":
+        return par["c"], np.linalg.norm(par["half"]) + par.get("round", 0.0)
+    if kind == "cylinder":
+        return par["c"], math.hypot(par["r"], par["h"]) + par.get("round", 0.0)
+    if kind == "torus":
+        return par["c"], par["major"] + par["minor"]
+    raise ValueError(kind)
+
+
+def rotation(yaw=0.0, pitch=0.0, roll=0.0):
+    """Macierz obrotu (stopnie): yaw wokół z (w lewo), pitch wokół y (pochylenie do przodu), roll wokół x."""
+    cy, sy = math.cos(math.radians(yaw)), math.sin(math.radians(yaw))
+    cp, sp = math.cos(math.radians(pitch)), math.sin(math.radians(pitch))
+    cr, sr = math.cos(math.radians(roll)), math.sin(math.radians(roll))
+    rz = np.array([[cy, -sy, 0], [sy, cy, 0], [0, 0, 1]])
+    ry = np.array([[cp, 0, sp], [0, 1, 0], [-sp, 0, cp]])
+    rx = np.array([[1, 0, 0], [0, cr, -sr], [0, sr, cr]])
+    return rz @ ry @ rx
+
+
+class Xf:
+    """Ruch sztywny części ciała: świat = R·(lokalny − pivot) + pivot + offset.
+
+    Bryły grupy opisuje się w pozycji spoczynkowej (współrzędne świata), a Xf je obraca
+    i przesuwa. Szum faktury liczony jest w pozycji spoczynkowej, więc nie „pływa” w animacji.
+    """
+
+    def __init__(self, R=None, pivot=(0, 0, 0), offset=(0, 0, 0)):
+        self.R = np.eye(3) if R is None else np.asarray(R, float)
+        self.pivot = np.asarray(pivot, float)
+        self.offset = np.asarray(offset, float)
+
+    def to_local(self, points):
+        return (points - self.pivot - self.offset) @ self.R + self.pivot
+
+    def apply(self, point):
+        return self.R @ (np.asarray(point, float) - self.pivot) + self.pivot + self.offset
+
+    def then(self, other):
+        """Złożenie: najpierw self, potem other."""
+        return Xf(other.R @ self.R, (0, 0, 0), other.apply(self.apply(np.zeros(3))))
+
+
 class Model:
-    def __init__(self):
+    def __init__(self, clip_ground=False, scale=1.0):
         self.groups = []
+        self.clip_ground = clip_ground
+        self.scale = scale  # skala całej postaci względem stóp (warianty wzrostu)
 
-    def group(self, smooth, prims, disp=None):
-        """disp=(amplituda, częstotliwość): zaburzenie kształtu powierzchni szumem."""
-        self.groups.append((smooth, prims, disp))
+    def group(self, smooth, prims, disp=None, xf=None):
+        """disp=(amplituda, częstotliwość): zaburzenie kształtu powierzchni szumem; xf: ruch części ciała (Xf)."""
+        bounds = [prim_bound(prim) for prim in prims]
+        center = np.mean([np.asarray(b[0], float) for b in bounds], axis=0)
+        radius = max(np.linalg.norm(np.asarray(c, float) - center) + r for c, r in bounds)
+        radius += smooth * 0.25 + (disp[0] if disp is not None else 0.0) + 1e-4
+        if xf is not None:
+            center = xf.apply(center)
+        self.groups.append((smooth, prims, disp, xf, center, radius))
 
-    def eval(self, points, wantMat=False):
+    def eval(self, points, wantMat=False, wantTex=False):
+        if self.scale != 1.0:
+            result = self._eval(points / self.scale, wantMat, wantTex)
+            if isinstance(result, tuple):
+                return (result[0] * self.scale,) + result[1:]
+            return result * self.scale
+        return self._eval(points, wantMat, wantTex)
+
+    def _eval(self, points, wantMat=False, wantTex=False):
         dist = np.full(len(points), 1e9)
         mat = np.full(len(points), -1, dtype=np.int32) if wantMat else None
-        for smooth, prims, disp in self.groups:
+        tex = points.copy() if wantTex else None
+        for smooth, prims, disp, xf, center, radius in self.groups:
+            # grupa nie może być bliżej niż jej kula otaczająca — pomijamy punkty, którym nic nie zmieni
+            sel = np.where(np.linalg.norm(points - center, axis=1) - radius < dist)[0]
+            if len(sel) == 0:
+                continue
+            pts = points[sel] if xf is None else xf.to_local(points[sel])
             groupDist = None
             for prim in prims:
-                d = prim.eval(points)
+                d = prim.eval(pts)
                 if groupDist is None:
                     groupDist = d
                     if wantMat:
                         rawDist = d.copy()
-                        groupMat = np.full(len(points), prim.mat, dtype=np.int32)
+                        groupMat = np.full(len(pts), prim.mat, dtype=np.int32)
                     continue
                 if wantMat:
                     closer = d < rawDist
@@ -134,11 +212,18 @@ class Model:
                 amp, freq = disp
                 near = groupDist < amp * 3
                 if np.any(near):
-                    sel = np.where(near)[0]
-                    groupDist[sel] += amp * (2.0 * value_noise(points[sel] * freq + 11.3) - 1.0)
+                    idx = np.where(near)[0]
+                    groupDist[idx] += amp * (2.0 * value_noise(pts[idx] * freq + 11.3) - 1.0)
+            better = groupDist < dist[sel]
             if wantMat:
-                mat = np.where(groupDist < dist, groupMat, mat)
-            dist = np.minimum(dist, groupDist)
+                mat[sel[better]] = groupMat[better]
+            if wantTex:
+                tex[sel[better]] = pts[better]
+            dist[sel] = np.minimum(dist[sel], groupDist)
+        if self.clip_ground:
+            dist = np.maximum(dist, -points[:, 2])
+        if wantTex:
+            return dist, mat, tex
         return (dist, mat) if wantMat else dist
 
 
@@ -245,7 +330,7 @@ def render(model, materials, angle, size, extent, centerZ=1.0, shade_hook=None):
     origins = target + gridX.reshape(-1, 1) * RIGHT + gridY.reshape(-1, 1) * UP - FORWARD * 8.0
     dirs = np.tile(FORWARD, (len(origins), 1))
 
-    boundR, boundTop = 1.2, 2.8
+    boundR, boundTop = BOUND_R, 2.8
     tStart = np.zeros(len(origins))
     tEnd = np.zeros(len(origins))
     for axis in range(3):
@@ -266,7 +351,7 @@ def render(model, materials, angle, size, extent, centerZ=1.0, shade_hook=None):
     if len(hitIdx):
         worldPts = origins[hitIdx] + dirs[hitIdx] * t[hitIdx, None]
         localPts = to_local(worldPts, angle)
-        _, mats = model.eval(localPts, wantMat=True)
+        _, mats, texPts = model.eval(localPts, wantMat=True, wantTex=True)
 
         eps = 0.0015
         offsets = np.array([[1, -1, -1], [-1, -1, 1], [-1, 1, -1], [1, 1, 1]], float)
@@ -290,18 +375,18 @@ def render(model, materials, angle, size, extent, centerZ=1.0, shade_hook=None):
         hemi = 0.5 + 0.5 * normals[:, 2]
         rim = (1.0 - np.clip(normals @ viewDir, 0, 1)) ** 3 * np.clip(-normals @ normalize([LIGHT[0], LIGHT[1], 0]) + 0.3, 0, 1)
 
-        grain = fbm(localPts)
+        grain = fbm(texPts)
         for matId, matDef in materials.items():
             sel = mats == matId
             if not np.any(sel):
                 continue
             albedo = np.array(matDef["alb"])[None, :] * np.clip(1.0 + matDef["grit"] * 1.6 * (grain[sel] - 0.5), 0.2, 2.0)[:, None]
-            grime = np.clip(1.0 - localPts[sel, 2] / 0.6, 0, 1) * 0.5
+            grime = np.clip(1.0 - texPts[sel, 2] / 0.6, 0, 1) * 0.5
             albedo = albedo * (1.0 - grime)[:, None]
             emit = np.array(matDef.get("emit", (0.0, 0.0, 0.0)))[None, :].repeat(sel.sum(), 0)
             spec_k = np.full(sel.sum(), matDef["spec"])
             if shade_hook is not None:
-                albedo, spec_k, emit = shade_hook(matId, localPts[sel], normalLocal[sel], grain[sel], albedo, spec_k, emit)
+                albedo, spec_k, emit = shade_hook(matId, texPts[sel], normalLocal[sel], grain[sel], albedo, spec_k, emit)
             spec = spec_k * nDotH[sel] ** matDef["pw"] * shadow[sel]
             lit = albedo * (KEY_COLOR * diffuse[sel, None] + (SKY_COLOR * hemi[sel, None] + BOUNCE_COLOR * (1 - hemi[sel, None])) * ao[sel, None] * 1.4)
             lit += spec[:, None] * KEY_COLOR * matDef.get("specTint", 0.35)
@@ -337,6 +422,7 @@ def downsample(premul, factor):
 
 
 DIRECTIONS = ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
+BOUND_R = 1.5  # m: promień walca, w którym musi się zmieścić postać z bronią
 
 
 # ---------- wspólny kontrakt kadru i CLI postaci ----------
@@ -347,12 +433,20 @@ CENTER_Z = 1.2        # m: wysokość, na którą celuje kamera
 SUPERSAMPLE = 3       # wygładzanie krawędzi
 
 
-def render_frame(model, materials, dirIndex, shade_hook=None, frameSize=FRAME_SIZE):
+def render_frame(model, materials, dirIndex, shade_hook=None, frameSize=FRAME_SIZE, supersample=SUPERSAMPLE):
     """Renderuje jedną klatkę w kierunku 0..7 (DIRECTIONS) i zwraca tablicę RGBA uint8."""
     angle = -dirIndex * math.pi / 4
-    image = render(model, materials, angle, frameSize * SUPERSAMPLE, extent=EXTENT, centerZ=CENTER_Z, shade_hook=shade_hook)
-    frame = downsample(image, SUPERSAMPLE)
+    image = render(model, materials, angle, frameSize * supersample, extent=EXTENT, centerZ=CENTER_Z, shade_hook=shade_hook)
+    frame = downsample(image, supersample)
     return (frame * 255 + 0.5).astype(np.uint8)
+
+
+def _build(module, pose, flags):
+    """build(pose) albo build(pose, flags) — flagi wybierają np. wariant postaci."""
+    import inspect
+    if len(inspect.signature(module.build).parameters) > 1:
+        return module.build(pose, flags)
+    return module.build(pose)
 
 
 def _render_job(job):
@@ -360,7 +454,7 @@ def _render_job(job):
     from PIL import Image
     moduleName, poseName, dirIndex, flags, path = job
     module = importlib.import_module(moduleName)
-    model = module.build(module.POSES[poseName])
+    model = _build(module, module.POSES[poseName], flags)
     hook = module.make_hook(flags) if hasattr(module, "make_hook") else None
     Image.fromarray(render_frame(model, module.MATERIALS, dirIndex, hook), "RGBA").save(path)
     return path
@@ -406,3 +500,112 @@ def run_cli(charId, moduleFile):
             sheetPath = os.path.join(outDir, f"{charId}_{p}{suffix}_arkusz.png")
             sheet.save(sheetPath)
             print("ok", sheetPath)
+
+
+# ---------- animacje: atlas PNG + JSON + podgląd GIF ----------
+GROUND_RGB = (35, 41, 31)
+ANCHOR = (FRAME_SIZE / 2, FRAME_SIZE / 2 + CENTER_Z * math.cos(ELEVATION) * FRAME_SIZE / EXTENT)
+
+
+def _anim_job(job):
+    import importlib
+    from PIL import Image
+    moduleName, animName, frameIndex, dirIndex, flags, frameSize, supersample, path = job
+    module = importlib.import_module(moduleName)
+    model = _build(module, module.ANIMS[animName]["frames"][frameIndex], flags)
+    hook = module.make_hook(flags) if hasattr(module, "make_hook") else None
+    Image.fromarray(render_frame(model, module.MATERIALS, dirIndex, hook, frameSize, supersample), "RGBA").save(path)
+    return path
+
+
+def run_anim(charId, moduleFile, argv):
+    """python3 <postac>.py anim <nazwa|all> [--szkic]
+
+    Moduł postaci definiuje ANIMS = {nazwa: dict(frames=[poza, ...], durations=[ms, ...], loop=bool, events={...})}.
+    Wynik w output/<charId>/: <charId>_<nazwa>.png (wiersze = 8 kierunków, kolumny = klatki),
+    <charId>_<nazwa>.gif (podgląd 8 kierunków w ruchu) i wspólny <charId>.json.
+    --szkic: mała rozdzielczość i jeden kierunek (SE) do szybkiej oceny ruchu; nic nie nadpisuje.
+    """
+    import importlib
+    import json
+    import os
+    import sys
+    import tempfile
+    from multiprocessing import Pool
+    from PIL import Image
+
+    here = os.path.dirname(os.path.abspath(moduleFile))
+    sys.path.insert(0, here)
+    moduleName = os.path.splitext(os.path.basename(moduleFile))[0]
+    module = importlib.import_module(moduleName)
+    names = [a for a in argv if not a.startswith("--")]
+    flags = tuple(sorted(a[2:] for a in argv if a.startswith("--") and a != "--szkic"))
+    sketch = "--szkic" in argv
+    anims = list(module.ANIMS) if not names or names[0] == "all" else names
+    frameSize, supersample = (96, 1) if sketch else (FRAME_SIZE, SUPERSAMPLE)
+    dirs = [7] if sketch else list(range(8))
+    outDir = os.path.join(here, "output", charId)
+    os.makedirs(outDir, exist_ok=True)
+    tmp = tempfile.mkdtemp(prefix=f"{charId}-")
+    jobs = []
+    for name in anims:
+        for f in range(len(module.ANIMS[name]["frames"])):
+            for d in dirs:
+                jobs.append((moduleName, name, f, d, flags, frameSize, supersample, os.path.join(tmp, f"{name}_{f}_{d}.png")))
+    with Pool(os.cpu_count() or 1) as pool:
+        for done, _ in enumerate(pool.imap_unordered(_anim_job, jobs), 1):
+            if done % 8 == 0 or done == len(jobs):
+                print(f"{done}/{len(jobs)}", flush=True)
+
+    jsonPath = os.path.join(outDir, f"{charId}.json")
+    meta = {}
+    if not sketch and os.path.exists(jsonPath):
+        with open(jsonPath) as fh:
+            meta = json.load(fh)
+    meta.update({
+        "character": charId,
+        "frame_size": [FRAME_SIZE, FRAME_SIZE],
+        "anchor_px": [round(ANCHOR[0], 1), round(ANCHOR[1], 1)],
+        "pixels_per_meter": FRAME_SIZE / EXTENT,
+        "directions": DIRECTIONS,
+        "direction_note": "wiersz atlasu = indeks kierunku; S = przodem do kamery, kolejne co 45° zgodnie z ruchem wskazówek zegara na ekranie",
+        "layout": "kolumny = klatki animacji, wiersze = kierunki",
+    })
+    meta.setdefault("animations", {})
+    for name in anims:
+        anim = module.ANIMS[name]
+        count = len(anim["frames"])
+        frames = [[Image.open(os.path.join(tmp, f"{name}_{f}_{d}.png")) for f in range(count)] for d in dirs]
+        suffix = "_szkic" if sketch else ""
+        if not sketch:
+            atlas = Image.new("RGBA", (FRAME_SIZE * count, FRAME_SIZE * 8), (0, 0, 0, 0))
+            for d in range(8):
+                for f in range(count):
+                    atlas.paste(frames[d][f], (f * FRAME_SIZE, d * FRAME_SIZE))
+            atlas.save(os.path.join(outDir, f"{charId}_{name}.png"))
+            meta["animations"][name] = {
+                "file": f"{charId}_{name}.png",
+                "frames": count,
+                "durations_ms": anim["durations"],
+                "loop": anim.get("loop", False),
+                **({"root_speed_mps": anim["root_speed_mps"]} if "root_speed_mps" in anim else {}),
+                "events": anim.get("events", {}),
+            }
+        # podgląd: wszystkie kierunki obok siebie, na tle lasu
+        gifFrames = []
+        for f in range(count):
+            strip = Image.new("RGBA", (frameSize * len(dirs), frameSize), GROUND_RGB + (255,))
+            for i in range(len(dirs)):
+                strip.alpha_composite(frames[i][f], (i * frameSize, 0))
+            if sketch:
+                strip = strip.resize((strip.width * 2, strip.height * 2), Image.NEAREST)
+            gifFrames.append(strip.convert("RGB").quantize(colors=255, method=Image.Quantize.MEDIANCUT))
+        gifPath = os.path.join(outDir if not sketch else tmp, f"{charId}_{name}{suffix}.gif")
+        gifFrames[0].save(gifPath, save_all=True, append_images=gifFrames[1:], duration=anim["durations"], loop=0, disposal=1)
+        print("ok", gifPath)
+    if not sketch:
+        with open(jsonPath, "w") as fh:
+            json.dump(meta, fh, ensure_ascii=False, indent=2)
+        print("ok", jsonPath)
+    else:
+        print("szkic w", tmp)
