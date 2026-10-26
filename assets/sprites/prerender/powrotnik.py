@@ -44,7 +44,7 @@ MATERIALS = {
     SOCKET: dict(alb=(0.008, 0.008, 0.008), spec=0.0, pw=1, grit=0.0),
     TEETH: dict(alb=(0.2, 0.17, 0.12), spec=0.2, pw=12, grit=0.6),
     HOOD: dict(alb=(0.075, 0.072, 0.064), spec=0.04, pw=4, grit=1.0),         # welniany kaptur
-    FELT: dict(alb=(0.1, 0.08, 0.058), spec=0.04, pw=4, grit=0.9),          # filcowy kapelusz
+    FELT: dict(alb=(0.1, 0.08, 0.058), spec=0.04, pw=4, grit=0.9),          # filcowa czapka ludowa
     ITEM: dict(alb=(0.1, 0.09, 0.08), spec=0.5, pw=20, grit=0.5),             # przedmiot wystajacy z worka (rondel)
 }
 
@@ -54,7 +54,7 @@ MOSS = np.array([0.034, 0.05, 0.022])
 # Sylwetka z karty zostaje w kazdym: pochylony, worek na prawym ramieniu, reka na wezle, wyblakly pas na nadgarstku.
 # sack: wielkosc worka; head: nakrycie glowy; coat: dlugosc kaftana; tint: mnoznik albedo materialu.
 VARIANTS = {
-    "a": dict(scale=1.0, girth=1.0, hunch=0.0, sack=1.0, head="kapelusz", coat=1.0, item=False, tint={}, moss=0.55),
+    "a": dict(scale=1.0, girth=1.0, hunch=0.0, sack=1.0, head="czapka", coat=1.0, item=False, tint={}, moss=0.55),
     "b": dict(scale=0.95, girth=1.12, hunch=5.0, sack=1.2, head="kaptur", coat=0.85, item=False,
               tint={COAT: (1.15, 1.0, 0.8), SKIN: (0.95, 1.05, 0.9)}, moss=0.5),
     "c": dict(scale=1.05, girth=0.9, hunch=3.0, sack=0.85, head="goly", coat=1.1, item=True,
@@ -306,10 +306,13 @@ def build(p, flags=()):
     model.group(0.0, [Prim("sphere", EYES, c=hc + [0.094, s * 0.036, -0.002], r=0.0075) for s in (1, -1)], xf=headXf)
     model.group(0.0, [Prim("box", TEETH, c=hc + [0.098, 0, -0.092], R=np.eye(3), half=[0.008, 0.026, 0.008], round=0.003)], xf=headXf)
     faceCut = Prim("ellipsoid", HAIR, c=hc + [0.1, 0, -0.03], radii=[0.08, 0.075, 0.11])
-    if v["head"] == "kapelusz":
-        hat = [Prim("cylinder", FELT, c=hc + [0.01, 0, 0.075], R=np.eye(3), r=0.19, h=0.012, round=0.006),
-               Prim("cylinder", FELT, c=hc + [-0.01, 0, 0.12], R=np.eye(3), r=0.098, h=0.05, round=0.02)]
-        model.group(0.02, hat, disp=(0.006, 28), xf=headXf)
+    if v["head"] == "czapka":
+        # ludowa filcowa czapka: sciety stozek z miekkim czubkiem lekko do tylu, podwiniety rulon u nasady (bez ronda), jak sredniowieczna czapka chlopska
+        cap = [Prim("cone", FELT, a=hc + [-0.01, 0, 0.05], b=hc + [-0.06, 0, 0.17], r1=0.105, r2=0.06),
+               Prim("ellipsoid", FELT, c=hc + [-0.01, 0, 0.06], radii=[0.108, 0.104, 0.08]),
+               Prim("sphere", FELT, c=hc + [-0.065, 0, 0.175], r=0.062)]
+        model.group(0.04, cap, disp=(0.006, 26), xf=headXf)
+        model.group(0.0, [Prim("torus", FELT, c=hc + [0.0, 0, 0.03], R=np.eye(3), major=0.105, minor=0.024)], disp=(0.006, 34), xf=headXf)
         model.group(0.02, [Sub(Prim("ellipsoid", HAIR, c=hc + [-0.06, 0, -0.06], radii=[0.07, 0.1, 0.11]), [faceCut])], disp=(0.012, 38), xf=headXf)
     elif v["head"] == "kaptur":
         hoodC = hc + [-0.01, 0, 0.0]
