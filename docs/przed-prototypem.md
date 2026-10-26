@@ -22,7 +22,7 @@ Pozostają konkretne reguły systemów, źródła doświadczenia i kolejność p
 
 Opisać czynności i ich powody w skali pojedynczego starcia, krótkiej wyprawy i całej sesji. Dla każdego kroku wskazać cel, przeszkodę, informację zwrotną i nagrodę.
 
-Dopracować ruch, atak, wiązanki, umiejętności, interakcję i zbieranie łupów. Unik w kierunku kursora i parada są zatwierdzone jako osobne akcje obronne pod klawiszami. Koszty, działanie parady i zasady przerywania ataków pozostają otwarte. Wytrzymałość, głód i crafting nie są jeszcze zatwierdzone. Propozycje trafień: [Walka i trafienia](walka-i-trafienia.md).
+Dopracować ruch, atak, wiązanki, umiejętności, interakcję i zbieranie łupów. Unik w kierunku kursora i parada są zatwierdzone jako osobne akcje obronne pod klawiszami. Unik i parada przerywają rozpoczęty atak. Koszty i szczegółowe skutki wymagają walidacji całego [pakietu walki 01](propozycja-walki-01.md). Wytrzymałość, głód i crafting nie są jeszcze zatwierdzone. Propozycje trafień: [Walka i trafienia](walka-i-trafienia.md).
 
 ## 3. Minimalny model walki i rozwoju
 

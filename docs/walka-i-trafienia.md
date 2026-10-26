@@ -2,17 +2,20 @@
 
 Status: decyzje autora oraz wyraźnie oznaczone propozycje. Wartości liczbowe podane przez autora są robocze; nie przeprowadzono testów gry ani balansu.
 Podstawa: [mechaniki](mechaniki-podstawy.md).
+Aktualny pakiet do wspólnej walidacji: [Walka — propozycja 01](propozycja-walki-01.md). Nowe propozycje z tego pakietu nie są jeszcze zatwierdzone.
 
 ## Ustalenia autora
 
 - LPM odpowiada za chodzenie i atak. PPM uruchamia umiejętność.
 - Atak wymaga kliknięcia; przytrzymanie nie uruchamia ciągłego atakowania.
+- Unik i parada mogą przerwać rozpoczęty atak. Autor chce świadomej decyzji między kontynuacją wiązanki a obroną; nie blokujemy przerwania po rozpoczęciu zamachu.
+- Dalsze propozycje przedstawiamy większymi pakietami do walidacji, zamiast pytać osobno o każdą regułę.
 - Unik: osobny klawisz, odskok w kierunku kursora, zgodnie z zaakceptowaną rekomendacją.
 - Parada: osobny klawisz; przytrzymanie utrzymuje gardę, a dobre wyczucie momentu daje dodatkowy efekt. Rodzaj efektu, okno czasowe i koszt gardy pozostają otwarte.
 - Przeciw potworom i zwierzętom używamy uniku; przeciw ludziom walczącym bronią i podobnym uzbrojonym wrogom, np. szkieletom lub zombie, dostępne są unik i parada.
 - Bezładne klikanie daje podstawowy atak. Kliknięcia w rytm uruchamiają wiązankę ciosów, z większymi obrażeniami kolejnych uderzeń.
 - Rozwój umiejętności zwiększa maksymalną długość łańcucha i jego premie. Inspiracją są Gothic oraz Wiedźmin 1. Nie ustalono osobnego katalogu wielu rodzajów kombinacji.
-- Autor rozważa kalkulację ataków łukiem i kuszą zależną od umiejętności, dystansu i pancerza; reguły pudłowania pozostają otwarte.
+- Trafienia dystansowe wynikają z lotu pocisku i sytuacji w świecie, bez losowego testu pudła. Umiejętności wpływają na możliwości bohatera, pancerz na skutek trafienia; szczegóły przedstawiono w pakiecie do walidacji.
 
 ## Rozwój wiązanki — robocze wartości autora
 
@@ -59,16 +62,18 @@ Pancerz uwzględniamy na etapie skutku trafienia: redukcji obrażeń lub przebic
 - Moment na następny cios powinien wynikać z animacji i mieć czytelny sygnał; opcjonalne wsparcie wizualne wymaga omówienia.
 - Cios ma własny czas wykonania. Kolejne kliknięcia nie przyspieszają go i nie tworzą nieograniczonej kolejki ataków.
 - Samo znalezienie pojedynczego kliknięcia w oknie rytmu jest niewystarczające: spam zawsze mógłby przypadkiem w nie trafić. Proponuję, aby przedwczesne kliknięcie zużywało próbę przejścia do następnego ogniwa, pozostawiając możliwość zwykłego ataku po zakończeniu bieżącego. Ta reguła wymaga testu wygody i akceptacji autora.
-- Dokończenie wiązanki powinno konkurować z koniecznością obrony; należy ustalić, które fazy ataku można przerwać.
+- Dokończenie wiązanki konkuruje z obroną. Unik i parada przerywają rozpoczęty atak; sposób rozliczania kosztu i resetu łańcucha jest proponowany w pakiecie 01.
 - Trzeba rozstrzygnąć, czy pudło, parada przeciwnika, unik gracza lub zmiana celu resetują wiązankę. Nie przyjmujemy domyślnej reguły.
 
-## Niejasności do rozstrzygnięcia
+## Szczegóły objęte pakietem do walidacji
+
+Poniższe kwestie rozstrzygamy łącznie na podstawie propozycji 01, nie jako serię pojedynczych pytań.
 
 1. Do czego odnosi się „+5% obrażeń na poziom” na stopniu II: poziomu bohatera, stopnia umiejętności czy kolejnych zakupów szkolenia? Czy obejmuje każdy cios?
 2. Jaki dodatkowy efekt daje dobrze wyczuta parada? Jakie ataki zatrzymuje zwykła garda i jaki ma koszt?
 3. Czy rytmiczne wiązanki dotyczą wyłącznie broni wręcz? Zachowanie łuku i kuszy nie zostało doprecyzowane.
 4. Czym wykonujemy paradę: dowolną bronią, wybranymi rodzajami broni, tarczą? Jak oznaczamy ataki niemożliwe do sparowania?
-5. Jakie są ograniczenia uniku i parady, czy mogą przerwać atak i jak wpływają na wiązankę?
+5. Jakie są ograniczenia uniku i parady oraz wpływ na wiązankę? Sama możliwość przerwania ataku jest zatwierdzona.
 6. Jak realizujemy celowanie łukiem i kuszą przy sterowaniu myszą, zgodnie z odrzuceniem losowych testów trafienia? Jaka jest bazowa szansa krytyka i sposób zwiększania jej przy czwartym ciosie?
 
 ## Scenariusze przyszłych testów

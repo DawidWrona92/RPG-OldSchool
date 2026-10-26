@@ -36,7 +36,7 @@ Podstawą starcia może być odczytanie zamiaru przeciwnika, ustawienie się poz
 
 Proponuję, żeby przewaga liczebna była groźna przez oskrzydlanie i nakładanie się zagrożeń. Rozdzielenie grupy, wykorzystanie przejścia i rezygnacja ze starcia powinny być sposobami na poprawę sytuacji. Sama liczba przeciwników nie powinna uruchamiać sztucznego mnożnika obrażeń.
 
-Osobny unik w kierunku kursora jest zatwierdzony. Ograniczenia użycia, możliwość przerwania ataku oraz ewentualna nietykalność pozostają otwarte. Parada pod osobnym klawiszem jest zatwierdzona przeciw uzbrojonym przeciwnikom: przytrzymanie utrzymuje gardę, a dobre wyczucie momentu daje dodatkowy efekt. Rodzaj efektu pozostaje otwarty. Szczegóły i propozycje trafień: [Walka i trafienia](walka-i-trafienia.md).
+Osobny unik w kierunku kursora jest zatwierdzony. Unik i parada mogą przerwać rozpoczęty atak — to zatwierdzona decyzja autora. Ograniczenia użycia i ewentualna nietykalność pozostają do walidacji w pakiecie. Parada pod osobnym klawiszem jest zatwierdzona przeciw uzbrojonym przeciwnikom: przytrzymanie utrzymuje gardę, a dobre wyczucie momentu daje dodatkowy efekt. Rodzaj efektu pozostaje otwarty. Szczegóły i propozycje trafień: [Walka i trafienia](walka-i-trafienia.md).
 
 ### Zasoby i końcówka wyprawy
 
@@ -88,7 +88,7 @@ To analiza projektu, nie wyniki testów gry. Nie uruchomiono prototypu ani symul
 
 Źródło PN zostało doprecyzowane przez autora. Następnie omówić wspólnie:
 
-1. Wykonanie parady, zakres wiązanek, reguły trafiania oraz możliwość przerwania ataku unikiem lub paradą.
+1. Walidacja [pakietu walki 01](propozycja-walki-01.md): koszty przerwania ataku, reguły wiązanek, gardy i strzelania. Możliwość przerwania ataku unikiem lub paradą jest zatwierdzona.
 2. Dostępne zasoby, leczenie oraz konsekwencje śmierci i odwrotu.
 3. Pierwszy styl walki, zakres umiejętności i funkcję wyposażenia w demie.
 4. Minimalny zestaw sytuacji bojowych do sprawdzenia sterowania i zagrożenia liczebnego.
