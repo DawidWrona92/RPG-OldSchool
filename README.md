@@ -20,6 +20,7 @@ Repozytorium jest obecnie w fazie projektowej. Nie wybrano silnika i nie ma jesz
 | [Pakiet 04: początek](docs/pakiet-04-poczatek.md) | Prolog, nauka mechanik i pierwsza wyprawa | Do walidacji |
 | [Pakiet 04: obrazy](docs/pakiet-04-obrazy.md) | Brief siedmiu kadrów do następnego etapu | Propozycja; ilustracji jeszcze nie wykonano |
 | [Przegląd 04](docs/pakiet-04-przeglad.md) | Spójność, scenariusze graczy i walidacja połączeń mapy | Analiza projektu, nie testy gry |
+| [Szkice koncepcyjne](docs/koncepty/README.md) | Obowiązujący wzorzec wyglądu potworów, cywilów i osady; ustalenia naczelnego | Wzorzec dla grafiki |
 | [Przed prototypem](docs/przed-prototypem.md) | Dalsza kolejność pracy i decyzje techniczne | Plan roboczy |
 
 Autor przegląda większe pakiety i wskazuje poprawki; nowe propozycje nie stają się automatycznie zatwierdzonym projektem. Wartości liczbowe podane wcześniej są robocze. Nie ustalamy procentowego celu zużycia zapasów.

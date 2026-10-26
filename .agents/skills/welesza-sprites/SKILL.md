@@ -7,7 +7,9 @@ description: Jedyna obowiązująca metoda tworzenia sprite'ów postaci i potwor�
 
 Ten skill zastępuje usunięte skille graficzne (`rts-sprite-router`, `retro-rts-sprites`, `painted-rts-sprites`, `rts-prerender-3d`, `rpg-godot-pipeline`, `pixel-art`). **Nie przywracaj ich i nie rób pixel-artu składanego z figur** — dawał sześciokątne tułowia, patykowate nogi i twarze jak emotki, a żadne poprawki tego nie ratowały. Przełom dała zmiana techniki, nie dopieszczanie starej.
 
-Wzorzec do naśladowania: `assets/sprites/prerender/drwal.py` — ENM-drwal jako ożywieniec, kompletny do gry: szkielet z IK, 6 animacji w 8 kierunkach, 4 warianty wyglądu, atlas PNG + JSON. Format eksportu: `assets/sprites/prerender/README.md`.
+**Wzorzec wyglądu: szkice naczelnego w [`docs/koncepty/`](../../../docs/koncepty/README.md)** — sprite ma się do nich zbliżać (sylwetka, ubiór, rekwizyty, kolory). Karta w bestiariuszu opisuje zachowanie i ataki, szkic — wygląd; przy sprzeczności pytaj autora.
+
+Wzorzec techniczny: `assets/sprites/prerender/drwal.py` — ENM-drwal jako ożywieniec, kompletny do gry: szkielet z IK, 6 animacji w 8 kierunkach, 4 warianty wyglądu, atlas PNG + JSON. Format eksportu: `assets/sprites/prerender/README.md`.
 
 ## Jak to działa
 
