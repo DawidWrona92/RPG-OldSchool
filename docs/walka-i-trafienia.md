@@ -24,6 +24,12 @@ Podstawa: [mechaniki](mechaniki-podstawy.md).
 
 Osobną zatwierdzoną zasadą jest wzrost obrażeń kolejnych ciosów wykonanych w rytm. Nie należy utożsamiać go automatycznie z premią stopnia II. Nie określono mnożnika obrażeń krytycznych, bazowej szansy na krytyk, kumulowania premii między stopniami ani interakcji z wyposażeniem. Trzeba potwierdzić, czy podane 20% oznacza całkowitą szansę finiszu, czy premię do szansy bazowej. Na tym etapie nie obliczamy oczekiwanych obrażeń ani kosztów szkolenia.
 
+## Zasada sprawczości gracza — aktualizacja autora
+
+Autor odrzuca sytuację, w której kostka decyduje za gracza. Trafienia nie powinny być rozstrzygane dodatkowym losowym testem niezależnym od wykonanego działania. Poniższa wcześniejsza propozycja losowego rozrzutu również wymaga zastąpienia modelem respektującym tę zasadę.
+
+Wcześniej podana szansa krytyka finiszu pozostaje nierozstrzygniętą sprzecznością z nową zasadą; nie implementować jej bez doprecyzowania. Proponowane zastępstwo do decyzji autora: mocny finisz gwarantowany po poprawnym wykonaniu pełnego łańcucha. Nie zatwierdzono jeszcze rodzaju ani siły premii.
+
 ## Propozycja: rozdzielić kontakt, obronę i obrażenia
 
 Rekomendowany przebieg rozstrzygnięcia:
@@ -42,9 +48,9 @@ Takie podejście pozwala uczyć się rytmu i pozycji. Widoczny kontakt broni z n
 
 ### Łuk i kusza — propozycja
 
-Rekomenduję widoczny rozrzut kierunku strzału zamiast osobnego rzutu na pudło po kontakcie pocisku z celem. Umiejętność obsługi danej broni wpływa na rozrzut, a dystans zwiększa odchylenie w miejscu celu. Rozmiar celu, jego ruch i przeszkody wpływają na to, czy pocisk rzeczywiście trafi.
+Wcześniejszą propozycję losowego rozrzutu wycofujemy w świetle zasady sprawczości gracza. Rekomenduję deterministyczny lot pocisku: kierunek celowania, dystans, ruch celu i przeszkody rozstrzygają kontakt. Sposób wskazania punktu celowania, ewentualne wspomaganie oraz rola umiejętności łuczniczych wymagają ustalenia.
 
-Alternatywą do wyboru autora jest abstrakcyjny test trafienia z uwzględnieniem tych samych czynników; wówczas animacja musi pokazać wynik jako rzeczywiste chybienie. Nie należy nakładać ukrytego testu pudła na już rozstrzygniętą kolizję.
+Umiejętność bohatera może wpływać na czas przygotowania strzału, przeładowanie albo dostępne techniki zamiast na losową szansę chybienia. To propozycje, nie zatwierdzone parametry. Nie przyjmujemy automatycznie pocisków naprowadzanych ani trafienia gwarantowanego kliknięciem przeciwnika.
 
 Pancerz rekomenduję uwzględnić na etapie skutku trafienia: redukcji obrażeń lub przebicia, a nie celności. Konkretnego modelu przebicia nie zatwierdzono. Nie ustalono również celowania w części ciała ani osobnego trybu przytrzymania do celowania.
 
@@ -63,7 +69,7 @@ Pancerz rekomenduję uwzględnić na etapie skutku trafienia: redukcji obrażeń
 3. Czy rytmiczne wiązanki dotyczą wyłącznie broni wręcz? Zachowanie łuku i kuszy nie zostało doprecyzowane.
 4. Czym wykonujemy paradę: dowolną bronią, wybranymi rodzajami broni, tarczą? Jak oznaczamy ataki niemożliwe do sparowania?
 5. Jakie są ograniczenia uniku i parady, czy mogą przerwać atak i jak wpływają na wiązankę?
-6. Czy przyjmujemy zaproponowane rozstrzygnięcie trafienia wręcz i rozrzut strzałów, czy autor chce losowego testu celności?
+6. Jak realizujemy celowanie łukiem i kuszą przy sterowaniu myszą, zgodnie z odrzuceniem losowych testów trafienia? Czy szansę krytyka finiszu zastępujemy gwarantowaną nagrodą za wykonanie łańcucha?
 
 ## Scenariusze przyszłych testów
 

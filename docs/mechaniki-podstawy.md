@@ -15,7 +15,8 @@ Powiązania: [fabuła demo](demo-fabula.md), [kolejność prac](przed-prototypem
 | Walka | Mniejsza liczba groźnych przeciwników, precyzyjne wyczucie momentu ataku. Przeciw potworom i zwierzętom: unik. Przeciw ludziom walczącym bronią i podobnym uzbrojonym przeciwnikom, np. szkieletom lub zombie: unik oraz parada. |
 | Unik | Osobny klawisz, krótki odskok w kierunku kursora zgodnie z zaakceptowaną rekomendacją. Koszt i ograniczenia pozostają otwarte. |
 | Atak i wiązanki | Atak na kliknięcie, bez ciągłego atakowania po przytrzymaniu. Bezładne klikanie daje podstawowy atak; trafianie kliknięciami w rytm uruchamia wiązankę, w której kolejne ciosy zadają większe obrażenia. Umiejętność określa długość łańcucha i jego premie: podstawowy stopień daje do trzech ciosów, III daje cztery i szansę krytycznego finiszu. Liczby i otwarte szczegóły opisano w dokumencie walki. |
-| Broń dystansowa | Autor proponuje kalkulację z uwzględnieniem umiejętności, dystansu i pancerza. Rozdzielenie celności oraz działania pancerza pozostaje propozycją; reguły pudłowania nie są zatwierdzone. |
+| Sprawczość gracza | Autor odrzuca rozstrzyganie trafień kostką. Model bez dodatkowych losowych testów; wcześniejszy krytyk procentowy wymaga ponownego rozstrzygnięcia. |
+| Broń dystansowa | Autor proponuje kalkulację z uwzględnieniem umiejętności, dystansu i pancerza. Rozdzielenie celności oraz działania pancerza pozostaje propozycją; szczegóły celowania pozostają otwarte, a losowe testy trafienia są odrzucone. |
 | Zagrożenie | Inspiracja WFRP: walka przeciw trzem przeciwnikom naraz ma być bardzo niebezpieczna. Nie ustalono automatycznej porażki ani konkretnej szansy przeżycia. |
 | Rozwój | Inspiracja WFRP; doświadczenie prowadzi do awansów, awanse dają Punkty Nauki (PN), a PN wydajemy u nauczycieli, na wzór Gothic. |
 | Łupy | Rzadkie, bardzo cenne, dające wyraźne poczucie zwycięstwa i postępu. |
