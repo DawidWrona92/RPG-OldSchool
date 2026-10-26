@@ -6,7 +6,7 @@ Uzycie:
 Format wyniku i kontrakt kadru: README.md oraz .agents/skills/welesza-sprites/SKILL.md.
 
 Wybor wykonawczy do potwierdzenia przez autora: to zwierze (nie ozywieniec, nie "magiczny wilk"). Demoniczny odczyt daje
-sylwetka, ciemne futro i bursztynowe oczy; sila blasku oczu to jedna stala (EYE_GLOW). Zaschnieta krew tylko na pysku i
+sylwetka i ciemne futro; oczy maja tylko slaby odblask (EYE_GLOW = 0.3, decyzja autora). Zaschnieta krew tylko na pysku i
 piersi, bez ran. Karta: docs/bestiariusz-demo.md (ENM-zdziczaly-pies): niski wychudzony korpus, zerwany rzemien obrozy,
 jasna latka widoczna w ciemnym futrze; zapowiedzi: przysiad, uszy do tylu, warkot (skok), odsuniecie lba i kly (kapniecie).
 Ataki zwierzecia sa nieparowalne (parowalny: False) i nie maja sygnalu czerwieni — zapowiedz czyta sie z ruchu.
@@ -26,7 +26,7 @@ from sdfkit import Model, Prim, frame_from_axes, normalize, run_anim, run_cli, v
 
 FUR, FUR_DARK, SKIN, MOUTH, TEETH, CLAW, LEATHER, EYES, PATCH = range(9)
 
-EYE_GLOW = 1.0   # mnoznik blasku oczu (1.0 = bursztynowe jak w zaakceptowanym renderze; 0.3 = slaby odblask zwierzecia)
+EYE_GLOW = 0.3   # mnoznik blasku oczu: slaby odblask zwierzecia (decyzja autora; 1.0 = mocne bursztynowe oczy z pierwszego renderu)
 
 # ---------- warianty: zeby w grze nie bylo klonow ----------
 # scale: wzrost (+-5%); fur: mnoznik albedo futra; lean: grubosc korpusu i konczyn; head: skala glowy; ear_l/ear_r: dlugosc
