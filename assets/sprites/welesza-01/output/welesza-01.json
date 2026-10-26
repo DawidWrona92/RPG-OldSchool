@@ -1,0 +1,40 @@
+{
+  "style_card": "style-card.md",
+  "canvas": [
+    96,
+    116
+  ],
+  "anchor": [
+    48,
+    104
+  ],
+  "directions": 8,
+  "frames_per_direction": 2,
+  "light": "upper-left",
+  "units": {
+    "enm-zdziczaly-pies": {
+      "colors": 10,
+      "alpha_values": null,
+      "size": [
+        96,
+        116
+      ]
+    },
+    "enm-powrotnik": {
+      "colors": 9,
+      "alpha_values": null,
+      "size": [
+        96,
+        116
+      ]
+    },
+    "enm-drwal": {
+      "colors": 11,
+      "alpha_values": null,
+      "size": [
+        96,
+        116
+      ]
+    }
+  }
+}

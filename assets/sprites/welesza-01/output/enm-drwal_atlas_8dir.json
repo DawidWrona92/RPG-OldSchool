@@ -1,0 +1,165 @@
+{
+  "schema": "rpg-sprite-v4",
+  "frame_size": [
+    96,
+    116
+  ],
+  "columns": 2,
+  "rows": 8,
+  "padding": 2,
+  "anchor": [
+    48,
+    104
+  ],
+  "directions": 8,
+  "frames_per_direction": 2,
+  "direction_order": "yaw_0_then_45_counterclockwise_world_xy",
+  "frames": [
+    {
+      "index": 0,
+      "x": 2,
+      "y": 2,
+      "direction": 0,
+      "phase": 0,
+      "view_angle_deg": 0,
+      "duration_ms": 100
+    },
+    {
+      "index": 1,
+      "x": 100,
+      "y": 2,
+      "direction": 0,
+      "phase": 1,
+      "view_angle_deg": 0,
+      "duration_ms": 100
+    },
+    {
+      "index": 2,
+      "x": 2,
+      "y": 120,
+      "direction": 1,
+      "phase": 0,
+      "view_angle_deg": 45,
+      "duration_ms": 100
+    },
+    {
+      "index": 3,
+      "x": 100,
+      "y": 120,
+      "direction": 1,
+      "phase": 1,
+      "view_angle_deg": 45,
+      "duration_ms": 100
+    },
+    {
+      "index": 4,
+      "x": 2,
+      "y": 238,
+      "direction": 2,
+      "phase": 0,
+      "view_angle_deg": 90,
+      "duration_ms": 100
+    },
+    {
+      "index": 5,
+      "x": 100,
+      "y": 238,
+      "direction": 2,
+      "phase": 1,
+      "view_angle_deg": 90,
+      "duration_ms": 100
+    },
+    {
+      "index": 6,
+      "x": 2,
+      "y": 356,
+      "direction": 3,
+      "phase": 0,
+      "view_angle_deg": 135,
+      "duration_ms": 100
+    },
+    {
+      "index": 7,
+      "x": 100,
+      "y": 356,
+      "direction": 3,
+      "phase": 1,
+      "view_angle_deg": 135,
+      "duration_ms": 100
+    },
+    {
+      "index": 8,
+      "x": 2,
+      "y": 474,
+      "direction": 4,
+      "phase": 0,
+      "view_angle_deg": 180,
+      "duration_ms": 100
+    },
+    {
+      "index": 9,
+      "x": 100,
+      "y": 474,
+      "direction": 4,
+      "phase": 1,
+      "view_angle_deg": 180,
+      "duration_ms": 100
+    },
+    {
+      "index": 10,
+      "x": 2,
+      "y": 592,
+      "direction": 5,
+      "phase": 0,
+      "view_angle_deg": 225,
+      "duration_ms": 100
+    },
+    {
+      "index": 11,
+      "x": 100,
+      "y": 592,
+      "direction": 5,
+      "phase": 1,
+      "view_angle_deg": 225,
+      "duration_ms": 100
+    },
+    {
+      "index": 12,
+      "x": 2,
+      "y": 710,
+      "direction": 6,
+      "phase": 0,
+      "view_angle_deg": 270,
+      "duration_ms": 100
+    },
+    {
+      "index": 13,
+      "x": 100,
+      "y": 710,
+      "direction": 6,
+      "phase": 1,
+      "view_angle_deg": 270,
+      "duration_ms": 100
+    },
+    {
+      "index": 14,
+      "x": 2,
+      "y": 828,
+      "direction": 7,
+      "phase": 0,
+      "view_angle_deg": 315,
+      "duration_ms": 100
+    },
+    {
+      "index": 15,
+      "x": 100,
+      "y": 828,
+      "direction": 7,
+      "phase": 1,
+      "view_angle_deg": 315,
+      "duration_ms": 100
+    }
+  ],
+  "texture_filter": "nearest",
+  "loop": true
+}
