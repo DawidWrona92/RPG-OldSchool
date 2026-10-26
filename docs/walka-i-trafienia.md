@@ -20,17 +20,17 @@ Podstawa: [mechaniki](mechaniki-podstawy.md).
 |---|---|
 | Podstawowy / I | Maksymalnie trzy elementy łańcucha. |
 | II | „+5% obrażeń na poziom” — robocza wartość; wymaga ustalenia, do jakiego poziomu odnosi się mnożnik. |
-| III | Cztery elementy łańcucha; ostatni cios ma 20% szansy na trafienie krytyczne. |
+| III | Cztery elementy łańcucha; poprawne wykonanie pełnego łańcucha gwarantuje mocny finisz. Bez losowego testu krytyka. Wartość premii pozostaje otwarta. |
 
-Osobną zatwierdzoną zasadą jest wzrost obrażeń kolejnych ciosów wykonanych w rytm. Nie należy utożsamiać go automatycznie z premią stopnia II. Nie określono mnożnika obrażeń krytycznych, bazowej szansy na krytyk, kumulowania premii między stopniami ani interakcji z wyposażeniem. Trzeba potwierdzić, czy podane 20% oznacza całkowitą szansę finiszu, czy premię do szansy bazowej. Na tym etapie nie obliczamy oczekiwanych obrażeń ani kosztów szkolenia.
+Osobną zatwierdzoną zasadą jest wzrost obrażeń kolejnych ciosów wykonanych w rytm. Nie należy utożsamiać go automatycznie z premią stopnia II. Nie określono wartości premii finiszu, kumulowania premii między stopniami ani interakcji z wyposażeniem. Na tym etapie nie obliczamy oczekiwanych obrażeń ani kosztów szkolenia.
 
 ## Zasada sprawczości gracza — aktualizacja autora
 
-Autor odrzuca sytuację, w której kostka decyduje za gracza. Trafienia nie powinny być rozstrzygane dodatkowym losowym testem niezależnym od wykonanego działania. Poniższa wcześniejsza propozycja losowego rozrzutu również wymaga zastąpienia modelem respektującym tę zasadę.
+Autor odrzuca sytuację, w której kostka decyduje za gracza. Trafienia są rozstrzygane przez wykonane działanie, kontakt i obronę, bez dodatkowego losowego testu. Dla pocisków obowiązuje tor lotu uwzględniający celowanie, ruch celu i przeszkody; bez losowego rozrzutu.
 
-Wcześniej podana szansa krytyka finiszu pozostaje nierozstrzygniętą sprzecznością z nową zasadą; nie implementować jej bez doprecyzowania. Proponowane zastępstwo do decyzji autora: mocny finisz gwarantowany po poprawnym wykonaniu pełnego łańcucha. Nie zatwierdzono jeszcze rodzaju ani siły premii.
+Autor zatwierdził mocny finisz jako gwarantowaną nagrodę za poprawne wykonanie całego czterociosowego łańcucha. Zastępuje on wcześniejszą propozycję losowego krytyka. Gwarantowana jest premia wykonanego finiszu, nie automatyczne trafienie: ostatni cios nadal podlega zasadom kontaktu i obrony. Wartość premii pozostaje do ustalenia.
 
-## Propozycja: rozdzielić kontakt, obronę i obrażenia
+## Zatwierdzony kierunek: kontakt, obrona i obrażenia
 
 Rekomendowany przebieg rozstrzygnięcia:
 
@@ -40,19 +40,19 @@ Rekomendowany przebieg rozstrzygnięcia:
 
 Komunikat i animacja powinny odróżniać chybienie, paradę oraz trafienie zatrzymane lub osłabione przez pancerz.
 
-### Walka wręcz — propozycja
+### Walka wręcz — zatwierdzony kierunek
 
 Nie dodawać losowego testu pudła do poprawnie wymierzonego, nieobronionego ciosu, który faktycznie dosięgnął celu. O wyniku decydują zasięg, kierunek, ruch celu, moment wykonania i obrona. Umiejętności bohatera mogą odblokowywać techniki i wiązanki; ich pozostały wpływ wymaga ustalenia.
 
 Takie podejście pozwala uczyć się rytmu i pozycji. Widoczny kontakt broni z niebroniącym się wrogiem nie kończy się niewytłumaczalnym pudłem.
 
-### Łuk i kusza — propozycja
+### Łuk i kusza — zatwierdzony kierunek
 
-Wcześniejszą propozycję losowego rozrzutu wycofujemy w świetle zasady sprawczości gracza. Rekomenduję deterministyczny lot pocisku: kierunek celowania, dystans, ruch celu i przeszkody rozstrzygają kontakt. Sposób wskazania punktu celowania, ewentualne wspomaganie oraz rola umiejętności łuczniczych wymagają ustalenia.
+Autor zaakceptował deterministyczny lot pocisku: kierunek celowania, dystans, ruch celu i przeszkody rozstrzygają kontakt. Sposób wskazania punktu celowania, ewentualne wspomaganie oraz rola umiejętności łuczniczych wymagają ustalenia.
 
 Umiejętność bohatera może wpływać na czas przygotowania strzału, przeładowanie albo dostępne techniki zamiast na losową szansę chybienia. To propozycje, nie zatwierdzone parametry. Nie przyjmujemy automatycznie pocisków naprowadzanych ani trafienia gwarantowanego kliknięciem przeciwnika.
 
-Pancerz rekomenduję uwzględnić na etapie skutku trafienia: redukcji obrażeń lub przebicia, a nie celności. Konkretnego modelu przebicia nie zatwierdzono. Nie ustalono również celowania w części ciała ani osobnego trybu przytrzymania do celowania.
+Pancerz uwzględniamy na etapie skutku trafienia: redukcji obrażeń lub przebicia, a nie celności. Konkretnego modelu przebicia nie zatwierdzono. Nie ustalono również celowania w części ciała ani osobnego trybu przytrzymania do celowania.
 
 ## Propozycja: rytm bez premiowania bezładnego klikania
 
@@ -69,7 +69,7 @@ Pancerz rekomenduję uwzględnić na etapie skutku trafienia: redukcji obrażeń
 3. Czy rytmiczne wiązanki dotyczą wyłącznie broni wręcz? Zachowanie łuku i kuszy nie zostało doprecyzowane.
 4. Czym wykonujemy paradę: dowolną bronią, wybranymi rodzajami broni, tarczą? Jak oznaczamy ataki niemożliwe do sparowania?
 5. Jakie są ograniczenia uniku i parady, czy mogą przerwać atak i jak wpływają na wiązankę?
-6. Jak realizujemy celowanie łukiem i kuszą przy sterowaniu myszą, zgodnie z odrzuceniem losowych testów trafienia? Czy szansę krytyka finiszu zastępujemy gwarantowaną nagrodą za wykonanie łańcucha?
+6. Jak realizujemy celowanie łukiem i kuszą przy sterowaniu myszą, zgodnie z odrzuceniem losowych testów trafienia? Jaka jest wartość premii gwarantowanego finiszu?
 
 ## Scenariusze przyszłych testów
 
