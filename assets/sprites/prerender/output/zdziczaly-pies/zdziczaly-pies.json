@@ -1,0 +1,153 @@
+{
+  "character": "zdziczaly-pies",
+  "frame_size": [
+    192,
+    192
+  ],
+  "anchor_px": [
+    96.0,
+    158.4
+  ],
+  "pixels_per_meter": 60.0,
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "direction_note": "wiersz atlasu = indeks kierunku; S = przodem do kamery, kolejne co 45° zgodnie z ruchem wskazówek zegara na ekranie",
+  "layout": "kolumny = klatki animacji, wiersze = kierunki",
+  "animations": {
+    "czuwanie": {
+      "file": "zdziczaly-pies_czuwanie.png",
+      "frames": 4,
+      "durations_ms": [
+        300,
+        300,
+        300,
+        300
+      ],
+      "loop": true,
+      "events": {}
+    },
+    "bieg": {
+      "file": "zdziczaly-pies_bieg.png",
+      "frames": 8,
+      "durations_ms": [
+        70,
+        70,
+        70,
+        70,
+        70,
+        70,
+        70,
+        70
+      ],
+      "loop": true,
+      "root_speed_mps": 1.43,
+      "events": {}
+    },
+    "skok_do_gardla": {
+      "file": "zdziczaly-pies_skok_do_gardla.png",
+      "frames": 8,
+      "durations_ms": [
+        180,
+        180,
+        200,
+        80,
+        110,
+        180,
+        140,
+        220
+      ],
+      "loop": false,
+      "events": {
+        "parowalny": false,
+        "zapowiedz": [
+          0,
+          1,
+          2
+        ],
+        "aktywne": [
+          4,
+          5
+        ],
+        "trafienie": 5,
+        "okazja": [
+          6,
+          7
+        ]
+      }
+    },
+    "klapniecie": {
+      "file": "zdziczaly-pies_klapniecie.png",
+      "frames": 5,
+      "durations_ms": [
+        140,
+        260,
+        60,
+        90,
+        200
+      ],
+      "loop": false,
+      "events": {
+        "parowalny": false,
+        "zapowiedz": [
+          0,
+          1
+        ],
+        "aktywne": [
+          3
+        ],
+        "trafienie": 3,
+        "okazja": [
+          4
+        ]
+      }
+    },
+    "odzyskanie": {
+      "file": "zdziczaly-pies_odzyskanie.png",
+      "frames": 4,
+      "durations_ms": [
+        300,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "events": {}
+    },
+    "trafienie": {
+      "file": "zdziczaly-pies_trafienie.png",
+      "frames": 3,
+      "durations_ms": [
+        60,
+        140,
+        160
+      ],
+      "loop": false,
+      "events": {}
+    },
+    "smierc": {
+      "file": "zdziczaly-pies_smierc.png",
+      "frames": 7,
+      "durations_ms": [
+        100,
+        120,
+        150,
+        150,
+        160,
+        200,
+        700
+      ],
+      "loop": false,
+      "events": {
+        "ostatnia_klatka": "zostaje jako zwłoki"
+      }
+    }
+  }
+}
