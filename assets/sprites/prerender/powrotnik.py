@@ -113,8 +113,15 @@ def _vec(spec, upper, point):
     return None if spec is None else np.array(spec, float)
 
 
+def _torso_local(spec):
+    return isinstance(spec, tuple) and len(spec) == 2 and spec[0] == "t"
+
+
 def mix(a, b, t):
-    """Interpolacja dwoch poz; cele we wspolrzednych tulowia i swiata mozna mieszac, gdy maja ten sam uklad."""
+    """Interpolacja dwoch poz.
+
+    Liczby i krotki mieszamy liniowo. Cele we wspolrzednych tulowia ("t", ...) mieszamy tylko z takimi samymi; cele w roznych
+    ukladach (tulow i swiat) albo flagi przeskakuja w polowie, wiec miedzy takimi pozami warto wstawic poze posrednia."""
     result = {}
     for key in a:
         va, vb = a[key], b[key]
@@ -122,11 +129,10 @@ def mix(a, b, t):
             result[key] = va if t < 0.5 else vb
         elif isinstance(va, (int, float)):
             result[key] = va + (vb - va) * t
-        elif isinstance(va, tuple) and len(va) == 2 and va[0] == "t" or isinstance(vb, tuple) and len(vb) == 2 and vb[0] == "t":
-            if isinstance(va, tuple) and va[0] == "t" and isinstance(vb, tuple) and vb[0] == "t":
-                result[key] = ("t", tuple(x + (y - x) * t for x, y in zip(va[1], vb[1])))
-            else:
-                result[key] = va if t < 0.5 else vb
+        elif _torso_local(va) and _torso_local(vb):
+            result[key] = ("t", tuple(x + (y - x) * t for x, y in zip(va[1], vb[1])))
+        elif _torso_local(va) or _torso_local(vb):
+            result[key] = va if t < 0.5 else vb
         else:
             result[key] = tuple(x + (y - x) * t for x, y in zip(va, vb))
     return result
@@ -194,7 +200,6 @@ def build(p, flags=()):
     model.group(0.03, [Prim("cone", SKIN, a=[0.02, 0, 1.47], b=[0.11, 0, 1.6], r1=0.055, r2=0.042)], disp=(0.003, 40), xf=upper)
 
     # kaftan: powloka wokol tulowia i bioder, rozciety z przodu, postrzepiony dol
-    hemTop = 1.5
     coatLen = v["coat"]
     hem = 1.0 - 0.52 * coatLen
     coatUp = Sub(Isect([Prim("ellipsoid", COAT, c=[0.0, 0, 1.12], radii=[0.19 * g, 0.25 * g, 0.42]),
@@ -384,8 +389,6 @@ KEYS["chwyt_pusty"] = pose(hold=False, pelvis=(0.2, 0.0, 0.8), spine=(0.0, 42.0,
                            fingersR=(0.3, 0.7), fingersL=(0.3, 0.7), **_SACK_GROUND)
 
 # --- Uderzenie tobolem (nieparowalne): worek znad barku, szeroki bliski zamach ---
-_ROPE_HANDS = lambda n, d, up=0.0: dict(handR=tuple(np.array(n) + np.array([0.02, -0.03, up])),
-                                       handL=tuple(np.array(n) + np.array(d) * 0.16 + np.array([0.02, 0.05, 0.0])))
 KEYS["tobol_unosi"] = pose(pelvis=(0.0, 0.0, 0.9), spine=(-20.0, 14.0, 0.0), head=(15.0, 4.0), footL=(0.12, 0.2, 0.1), footR=(-0.14, -0.2, 0.1),
                            neck=(-0.06, -0.34, 1.7), dir=(-0.8, -0.25, -0.55), via=None,
                            handR=(-0.02, -0.34, 1.62), handL=(-0.12, -0.18, 1.5), poleR=(-0.4, -1.0, 0.2), poleL=(-0.5, 0.2, -1.0),
@@ -446,11 +449,6 @@ def walking(i, count):
     return pose(pelvis=(0.0, 0.0, 0.9 - 0.012 * math.cos(2 * theta)), spine=(4.0 * math.cos(theta), 24.0, 3.0 * math.sin(theta)),
                 head=(-3.0 * math.cos(theta), 8.0), footL=foot(0.0, 1), footR=foot(math.pi, -1), footRotL=(6.0, 0.0), footRotR=(-6.0, 0.0),
                 handL=("t", (0.1 - 0.07 * math.cos(theta), 0.34, 0.8)))
-
-
-def _sack_lerp(a, b, t):
-    """Pozy, w ktorych worek jest we wspolrzednych tulowia i swiata, interpolowane przez posredni krok."""
-    return mix(a, b, t)
 
 
 ANIMS = {
