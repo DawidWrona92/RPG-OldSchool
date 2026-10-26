@@ -11,10 +11,10 @@ Uzgodniono z autorem:
 - PC, mysz i klawiatura; możliwość późniejszego rozszerzenia o pada.
 - Kamerę i sterowanie w stylu Diablo 2.
 - Wyłącznie single player.
-- Niewielu groźnych przeciwników, uniki i wyczucie momentu ataku.
+- Niewielu groźnych przeciwników, unik pod klawiszem oraz paradę przeciw uzbrojonym wrogom. LPM: ruch i atak na kliknięcie; PPM: umiejętność. Klikanie w rytm pozwala wykonywać wiązanki ciosów.
 - Rozwój inspirowany WFRP: doświadczenie prowadzi do awansów, awanse dają PN wydawane u nauczycieli w stylu Gothic; rzadkie, bardzo wartościowe łupy.
-- Wymagającą pętlę wyprawy, z zasobami na wyczerpaniu w jej końcowej części.
-- Inspirację Darkest Dungeon w gospodarowaniu zapasami; cel zużycia weryfikowany w testach, przy zachowaniu korzyści z dobrego przygotowania.
+- Wymagającą pętlę wyprawy; presję zasobów dopracujemy w testach, bez procentowego celu ich wyczerpania.
+- Inspirację Darkest Dungeon w gospodarowaniu zapasami; zużycie dopracowywane w testach, przy zachowaniu korzyści z dobrego przygotowania.
 
 Pozostają konkretne reguły systemów, źródła doświadczenia i kolejność priorytetów w razie konfliktu między wymaganiami.
 
@@ -22,7 +22,7 @@ Pozostają konkretne reguły systemów, źródła doświadczenia i kolejność p
 
 Opisać czynności i ich powody w skali pojedynczego starcia, krótkiej wyprawy i całej sesji. Dla każdego kroku wskazać cel, przeszkodę, informację zwrotną i nagrodę.
 
-Zaprojektować ruch, atak, umiejętności, interakcję, zbieranie łupów i unik. Kierunek oparty na unikach jest zatwierdzony; sposób ich wykonania pozostaje otwarty. Parowanie, wytrzymałość, głód i crafting nie są jeszcze zatwierdzone.
+Dopracować ruch, atak, wiązanki, umiejętności, interakcję i zbieranie łupów. Unik w kierunku kursora i parada są zatwierdzone jako osobne akcje obronne pod klawiszami. Koszty, działanie parady i zasady przerywania ataków pozostają otwarte. Wytrzymałość, głód i crafting nie są jeszcze zatwierdzone. Propozycje trafień: [Walka i trafienia](walka-i-trafienia.md).
 
 ## 3. Minimalny model walki i rozwoju
 

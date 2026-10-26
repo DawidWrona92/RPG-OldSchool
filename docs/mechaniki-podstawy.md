@@ -10,15 +10,18 @@ Powiązania: [fabuła demo](demo-fabula.md), [kolejność prac](przed-prototypem
 | Obszar | Ustalenie |
 |---|---|
 | Platforma | PC, mysz i klawiatura; możliwość późniejszego dodania obsługi pada. |
-| Kamera i sterowanie | Jak w Diablo 2: perspektywa izometryczna i sterowanie myszą. Szczegółowe przypisanie nowych akcji wymaga ustalenia. |
+| Kamera i sterowanie | Jak w Diablo 2: perspektywa izometryczna i sterowanie myszą. LPM: ruch i atak; PPM: umiejętność; unik i parada pod osobnymi klawiszami. Konkretne klawisze obrony pozostają do wyboru. |
 | Tryb | Wyłącznie single player. |
-| Walka | Mniejsza liczba groźnych przeciwników, uniki, precyzyjne wyczucie momentu ataku. |
+| Walka | Mniejsza liczba groźnych przeciwników, precyzyjne wyczucie momentu ataku. Przeciw potworom i zwierzętom: unik. Przeciw ludziom walczącym bronią i podobnym uzbrojonym przeciwnikom, np. szkieletom lub zombie: unik oraz parada. |
+| Unik | Osobny klawisz, krótki odskok w kierunku kursora zgodnie z zaakceptowaną rekomendacją. Koszt i ograniczenia pozostają otwarte. |
+| Atak i wiązanki | Atak na kliknięcie, bez ciągłego atakowania po przytrzymaniu. Bezładne klikanie daje podstawowy atak; trafianie kliknięciami w rytm uruchamia wiązankę, w której kolejne ciosy zadają większe obrażenia. Umiejętność określa długość łańcucha i jego premie: podstawowy stopień daje do trzech ciosów, III daje cztery i szansę krytycznego finiszu. Liczby i otwarte szczegóły opisano w dokumencie walki. |
+| Broń dystansowa | Autor proponuje kalkulację z uwzględnieniem umiejętności, dystansu i pancerza. Rozdzielenie celności oraz działania pancerza pozostaje propozycją; reguły pudłowania nie są zatwierdzone. |
 | Zagrożenie | Inspiracja WFRP: walka przeciw trzem przeciwnikom naraz ma być bardzo niebezpieczna. Nie ustalono automatycznej porażki ani konkretnej szansy przeżycia. |
 | Rozwój | Inspiracja WFRP; doświadczenie prowadzi do awansów, awanse dają Punkty Nauki (PN), a PN wydajemy u nauczycieli, na wzór Gothic. |
 | Łupy | Rzadkie, bardzo cenne, dające wyraźne poczucie zwycięstwa i postępu. |
 | Wyprawa | Przygotowanie w osadzie → eksploracja → starcie → nagroda → powrót po nagrodę lub naganę. |
-| Zasoby | Wyprawa wymagająca; zasoby na wyczerpaniu około 90–95% jej przebiegu, aby skłaniać do kreatywności. Rodzaje zasobów i metoda oceny przebiegu wyprawy nie są jeszcze określone. |
-| Inspiracja wypraw | Darkest Dungeon w aspekcie gospodarowania zapasami. Autor potwierdził, że cel zużycia zasobów należy sprawdzać w testach, a dobre przygotowanie ma dawać rzeczywistą przewagę, bez automatycznego zwiększania trudności niwelującego tę przewagę. |
+| Zasoby | Wymagające gospodarowanie zapasami. Autor wycofał procentowy cel ich wyczerpania; tempo zużycia i presję należy dopracować na podstawie testów gry. Rodzaje zasobów pozostają otwarte. |
+| Inspiracja wypraw | Darkest Dungeon w aspekcie gospodarowania zapasami. Zużycie zasobów będzie dopracowane w testach, a dobre przygotowanie ma dawać rzeczywistą przewagę, bez automatycznego zwiększania trudności niwelującego tę przewagę. |
 
 WFRP stanowi inspirację dla zagrożenia i rozwoju. Nie zatwierdzono przeniesienia rzutów kośćmi, losowego pudłowania, profesji, trwałych ran ani śmierci permanentnej. Gothic stanowi inspirację dla roli nauczycieli, nie automatyczne przyjęcie wszystkich jego zasad.
 
@@ -32,13 +35,13 @@ Podstawą starcia może być odczytanie zamiaru przeciwnika, ustawienie się poz
 
 Proponuję, żeby przewaga liczebna była groźna przez oskrzydlanie i nakładanie się zagrożeń. Rozdzielenie grupy, wykorzystanie przejścia i rezygnacja ze starcia powinny być sposobami na poprawę sytuacji. Sama liczba przeciwników nie powinna uruchamiać sztucznego mnożnika obrażeń.
 
-Do wyboru pozostaje, czy unik oznacza osobną akcję, czy przede wszystkim zejście z linii ataku ruchem postaci. Osobny unik wymaga ustalenia kierunku, ograniczenia użycia, możliwości przerwania ataku oraz ewentualnej nietykalności. Żadna z tych reguł nie jest obecnie przyjęta.
+Osobny unik w kierunku kursora jest zatwierdzony. Ograniczenia użycia, możliwość przerwania ataku oraz ewentualna nietykalność pozostają otwarte. Parada pod osobnym klawiszem jest zatwierdzona przeciw uzbrojonym przeciwnikom: przytrzymanie utrzymuje gardę, a dobre wyczucie momentu daje dodatkowy efekt. Rodzaj efektu pozostaje otwarty. Szczegóły i propozycje trafień: [Walka i trafienia](walka-i-trafienia.md).
 
 ### Zasoby i końcówka wyprawy
 
-Autor zaakceptował traktowanie 90–95% jako celu do weryfikacji w testach, z zachowaniem przewagi wynikającej z dobrego przygotowania. Proponowana metoda: mierzyć zużycie na typowej trasie przy określonym wyposażeniu i różnych poziomach wprawy. Świat nie powinien potajemnie odbierać zapasów ani dokładać przeciwników tylko dlatego, że gracz radzi sobie lepiej niż oczekiwano.
+Nie ustalamy z góry momentu wyczerpania zasobów ani docelowego procentu ich zużycia. Tempo i presję dopracujemy w testach działającej gry, z zachowaniem przewagi wynikającej z dobrego przygotowania. Świat nie powinien potajemnie odbierać zapasów ani dokładać przeciwników tylko dlatego, że gracz radzi sobie lepiej niż oczekiwano.
 
-W duchu Darkest Dungeon proponuję budować napięcie wokół oceny: „czy wystarczy mi zapasów na dalszy cel i powrót?”. Dodatkowa odnoga może oferować korzyść kosztem zapasów, a odwrót zachowywać część osiągnięć. Zakres zachowywanych nagród, możliwość uzupełniania zapasów i konsekwencje przerwania zadania wymagają decyzji autora. Procent odnosi się do przebiegu wyprawy, nie do nakazu zużycia identycznej części każdego zasobu.
+W duchu Darkest Dungeon proponuję budować napięcie wokół oceny: „czy wystarczy mi zapasów na dalszy cel i powrót?”. Dodatkowa odnoga może oferować korzyść kosztem zapasów, a odwrót zachowywać część osiągnięć. Zakres zachowywanych nagród, możliwość uzupełniania zapasów i konsekwencje przerwania zadania wymagają decyzji autora.
 
 Przed balansowaniem należy określić, co się kończy: leczenie, amunicja, przedmioty pomocnicze czy inny zasób. Chwilowa zdolność do wykonania ataku lub uniku to inny problem niż zapasy na całą wyprawę.
 
@@ -84,7 +87,7 @@ To analiza projektu, nie wyniki testów gry. Nie uruchomiono prototypu ani symul
 
 Źródło PN zostało doprecyzowane przez autora. Następnie omówić wspólnie:
 
-1. Wykonanie uniku i to, czy atak można przerwać.
+1. Wykonanie parady, zakres wiązanek, reguły trafiania oraz możliwość przerwania ataku unikiem lub paradą.
 2. Dostępne zasoby, leczenie oraz konsekwencje śmierci i odwrotu.
 3. Pierwszy styl walki, zakres umiejętności i funkcję wyposażenia w demie.
 4. Minimalny zestaw sytuacji bojowych do sprawdzenia sterowania i zagrożenia liczebnego.
