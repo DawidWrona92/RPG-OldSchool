@@ -45,3 +45,7 @@ python3 .agents/skills/level-designer/scripts/validate_graph.py docs/graphs/boss
 ```
 
 Nie zastępuje to testu walki, balansu, animacji ani zapisu w docelowym silniku.
+
+## Art direction: osada Niemir
+
+Uzgodniony kierunek wizualny, status decyzji i plan produkcji środowiska opisuje [przewodnik artystyczny Niemiru](docs/art/niemir/NIEMIR_ART_DIRECTION.md) ([PDF](docs/art/niemir/NIEMIR_ART_DIRECTION.pdf)). To dokument referencyjny dla grafików, projektantów poziomów i agentów LLM. Szczegóły topografii i integracji pozostają do walidacji; przed produkcją assetów należy przeczytać część o statusie ustaleń.
