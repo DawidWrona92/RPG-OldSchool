@@ -1,0 +1,128 @@
+{
+  "size": [
+    96,
+    116
+  ],
+  "colors": 15,
+  "opaque": 4765,
+  "semi_alpha": 0,
+  "isolated": 0,
+  "edge_touch": 0,
+  "top_colors": [
+    {
+      "rgb": [
+        23,
+        23,
+        35
+      ],
+      "count": 2018
+    },
+    {
+      "rgb": [
+        97,
+        113,
+        123
+      ],
+      "count": 709
+    },
+    {
+      "rgb": [
+        92,
+        38,
+        57
+      ],
+      "count": 489
+    },
+    {
+      "rgb": [
+        52,
+        63,
+        72
+      ],
+      "count": 384
+    },
+    {
+      "rgb": [
+        139,
+        154,
+        165
+      ],
+      "count": 273
+    },
+    {
+      "rgb": [
+        28,
+        36,
+        43
+      ],
+      "count": 200
+    },
+    {
+      "rgb": [
+        182,
+        192,
+        198
+      ],
+      "count": 181
+    },
+    {
+      "rgb": [
+        228,
+        190,
+        121
+      ],
+      "count": 118
+    },
+    {
+      "rgb": [
+        165,
+        124,
+        68
+      ],
+      "count": 114
+    },
+    {
+      "rgb": [
+        112,
+        66,
+        57
+      ],
+      "count": 111
+    },
+    {
+      "rgb": [
+        235,
+        223,
+        197
+      ],
+      "count": 62
+    },
+    {
+      "rgb": [
+        48,
+        29,
+        45
+      ],
+      "count": 48
+    }
+  ],
+  "luminance_range": [
+    23.87,
+    238.35
+  ],
+  "hue_groups": {
+    "240": 2018,
+    "210": 1566,
+    "330": 489,
+    "30": 341,
+    "0": 121,
+    "300": 48,
+    "60": 1
+  },
+  "style_card_template": [
+    "Estimate actual visible sprite size and silhouette before drawing",
+    "Choose ONE palette across characters of the same faction",
+    "Judge clusters and occlusion with the reference side by side",
+    "Do not pretend color/hue statistics capture composition or quality"
+  ]
+}

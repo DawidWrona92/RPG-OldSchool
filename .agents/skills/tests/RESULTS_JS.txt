@@ -1,0 +1,10 @@
+PASS square prism caps outward, sides nonzero
+PASS concave polygon triangulated outward
+PASS taper prism correct caps
+PASS reject invalid outlines
+PASS direction checker catches duplicates beyond direction 0
+PASS direction checker rejects invalid RGBA
+PASS direction checker allows distinct orientations
+PASS silhouette metrics: solid and hollow
+PASS silhouette metrics reject invalid
+OK 9 tests passed

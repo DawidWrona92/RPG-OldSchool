@@ -1,0 +1,1 @@
+W tym folderze zapisuj zaakceptowane karty stylu pod nazwami `diablo-like-forest.md`, `dungeon-stone.md`, `units-armor.md`. Żadna karta nie jest dodawana automatycznie do trwałej pamięci ChatGPT: to pliki pakietu, wymagające instalacji lub udostępnienia na przyszłość.

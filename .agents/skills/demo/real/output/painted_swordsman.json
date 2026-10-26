@@ -1,0 +1,16 @@
+{
+  "name": "painted_swordsman",
+  "size": [
+    86,
+    94
+  ],
+  "anchor": [
+    72,
+    72
+  ],
+  "tile_px": 96,
+  "frame_clipped": false,
+  "light": "shadow falls to the lower-left of the screen",
+  "style": "painted-2d",
+  "team_color": "see *_team.png mask"
+}

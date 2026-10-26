@@ -1,0 +1,70 @@
+{
+  "frame_size": [
+    72,
+    75
+  ],
+  "columns": 8,
+  "rows": 1,
+  "padding": 6,
+  "anchor": [
+    59,
+    57
+  ],
+  "tile_px": 96,
+  "key_color": [
+    255,
+    0,
+    255
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "x": 0,
+      "y": 0,
+      "view_angle_deg": 0
+    },
+    {
+      "index": 1,
+      "x": 78,
+      "y": 0,
+      "view_angle_deg": 45
+    },
+    {
+      "index": 2,
+      "x": 156,
+      "y": 0,
+      "view_angle_deg": 90
+    },
+    {
+      "index": 3,
+      "x": 234,
+      "y": 0,
+      "view_angle_deg": 135
+    },
+    {
+      "index": 4,
+      "x": 312,
+      "y": 0,
+      "view_angle_deg": 180
+    },
+    {
+      "index": 5,
+      "x": 390,
+      "y": 0,
+      "view_angle_deg": 225
+    },
+    {
+      "index": 6,
+      "x": 468,
+      "y": 0,
+      "view_angle_deg": 270
+    },
+    {
+      "index": 7,
+      "x": 546,
+      "y": 0,
+      "view_angle_deg": 315
+    }
+  ],
+  "name": "painted_eight_directions"
+}

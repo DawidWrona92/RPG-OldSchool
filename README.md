@@ -26,7 +26,7 @@ Autor przegląda większe pakiety i wskazuje poprawki; nowe propozycje nie staj�
 
 ## Narzędzia projektowe
 
-Skille z `gamesdesigners-source/agent-game-design-skills` znajdują się w [.agents/skills](.agents/skills). Pochodzenie i licencja: [.agents/SKILLS-SOURCE.md](.agents/SKILLS-SOURCE.md). Zawarte skrypty używają standardowej biblioteki Python 3.
+W [.agents/skills](.agents/skills) znajdują się 24 skille: 19 projektowych z `gamesdesigners-source/agent-game-design-skills` oraz 5 graficznych z `DawidWrona92/skills`. Opis instalacji narzędzi graficznych: [skille graficzne](docs/skills-graficzne.md). Pochodzenie i licencja: [.agents/SKILLS-SOURCE.md](.agents/SKILLS-SOURCE.md). Zawarte skrypty używają standardowej biblioteki Python 3.
 
 Przykładowa weryfikacja grafu projektu:
 

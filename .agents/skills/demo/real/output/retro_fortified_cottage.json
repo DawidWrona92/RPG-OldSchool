@@ -1,0 +1,22 @@
+{
+  "name": "retro_fortified_cottage",
+  "engine": "spritekit.js",
+  "width": 160,
+  "height": 132,
+  "scale": 4,
+  "checks": {
+    "ok": true,
+    "errors": [],
+    "warnings": [
+      "Kontur na 78% pikseli brzegowych, oczekiwano co najmniej 90%"
+    ],
+    "stats": {
+      "width": 160,
+      "height": 132,
+      "colors": 11,
+      "maxColors": 24,
+      "opaquePixels": 2979,
+      "contourShare": 0.78
+    }
+  }
+}
