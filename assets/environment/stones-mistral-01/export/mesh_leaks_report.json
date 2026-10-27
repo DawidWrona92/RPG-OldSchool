@@ -1,0 +1,82 @@
+{
+ "chrust_a": {
+  "boundary_above_z0": 30,
+  "status": "FOLIAGE (karty, dozwolone)"
+ },
+ "chrust_b": {
+  "boundary_above_z0": 30,
+  "status": "FOLIAGE (karty, dozwolone)"
+ },
+ "glaz": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ },
+ "glaz_duzy": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ },
+ "kamien_a": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ },
+ "kamien_b": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ },
+ "kamien_c": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ },
+ "kamien_mokry": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ },
+ "kamien_z_mchem": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ },
+ "kamien_z_porostami": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ },
+ "kepka_trawy_a": {
+  "boundary_above_z0": 528,
+  "status": "FOLIAGE (karty, dozwolone)"
+ },
+ "kepka_trawy_b": {
+  "boundary_above_z0": 528,
+  "status": "FOLIAGE (karty, dozwolone)"
+ },
+ "kepka_trawy_c": {
+  "boundary_above_z0": 528,
+  "status": "FOLIAGE (karty, dozwolone)"
+ },
+ "paproc_a": {
+  "boundary_above_z0": 584,
+  "status": "FOLIAGE (karty, dozwolone)"
+ },
+ "paproc_b": {
+  "boundary_above_z0": 584,
+  "status": "FOLIAGE (karty, dozwolone)"
+ },
+ "plyta_kamienna": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ },
+ "plyta_kamienna_b": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ },
+ "zwir": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ },
+ "zwir_b": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ },
+ "zwir_c": {
+  "boundary_above_z0": 0,
+  "status": "OK"
+ }
+}

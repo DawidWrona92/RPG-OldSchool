@@ -1,8 +1,8 @@
 {
  "settings": {
   "blender_version": "4.3.0",
-  "blend_sha256": "3c5304ca48260e2a857e107c8081cc95753da9038dfd4347801ea249c2f64ded",
-  "render_script_sha256": "a4d8b2b375be9391d13959641ef61aba67ffb82619302bad90b026d55ed2fae7",
+  "blend_sha256": "7e646c7eedb0a803241ff659f5b24fc895d07b3e93c63df8fc63d8b896f5e55c",
+  "render_script_sha256": "fda42a36aa30752fde0d7d6a299b2f8e7419f9d17f2f62d8b93218c9570152fa",
   "camera": {
    "type": "ORTHO",
    "ortho_scale": 3.2,
@@ -174,6 +174,20 @@
     158.35
    ]
   },
+  "zwir_b": {
+   "frame": 192,
+   "anchor_px": [
+    96.0,
+    158.35
+   ]
+  },
+  "zwir_c": {
+   "frame": 192,
+   "anchor_px": [
+    96.0,
+    158.35
+   ]
+  },
   "plyta_kamienna": {
    "frame": 192,
    "anchor_px": [
@@ -239,46 +253,50 @@
   }
  },
  "rendered": {
-  "kamien_a.png": "a0790dc3769477a8ac7fb8770ec41bd92ed47ac4a156fa5302b894a144c67659",
-  "kamien_a_shadow.png": "ad90d0678c8fe798a60c5dba40dfdbe587efeacc0141e01fd206788e5ea6fcbd",
-  "kamien_a_rot47.png": "9ef5682bf90b682b583d70426c0411d6c205475d5faaf8a3d0d9b91c9990d39f",
-  "kamien_a_rot47_shadow.png": "2cbe858bfdcf39505fef410b630b52f09e44c4e7e6842a7c52a8d8a74df41fcd",
-  "kamien_a_rot113.png": "1fad02f3fb31f69cb1165ccca1c101be2f09fd9e18071f66f510f10e23e44baa",
-  "kamien_a_rot113_shadow.png": "a37a21fdd38eda971314841082e74ed16f358c7e20682a4867049f1c623825df",
-  "kamien_b.png": "648259c07b35cae71241dc68efe07362a9f881b2c7af25ab5c27be2c6e7bae28",
-  "kamien_b_shadow.png": "8ed99ac4d9fa86ec3245d4d95ad66c736a345be5b15357c287764af2ba502f28",
-  "kamien_c.png": "b0f3cd239afcaaa010a6f335624f6fa36b55289a55f01b3a0d9b3f2f277f03a5",
-  "kamien_c_shadow.png": "8c068372aa14e012fc19388c2b0943201f189637244e44f537166a60984d649e",
-  "glaz.png": "0a39003087409b356b40ecad06aa517d890134404a2ea738ed51c86de11b2a2e",
-  "glaz_shadow.png": "f0e5dff10206812a4cff86f4ae3dbd03ee0a2e740623090460d2d8f0c1cf02cc",
-  "glaz_duzy.png": "0c0bc31abf788e563a294f09103debb88dc824f41dfd66d25a618343c1a792d1",
-  "glaz_duzy_shadow.png": "6c1778fef2e5c664f00caeec63df5d0628325c2e2b36bad96f26c07ea19d8cf9",
-  "kamien_mokry.png": "14cfd7dc08ea9389b12f88260be39c5fcd00b693918f523f56f414236a4f3c30",
-  "kamien_mokry_shadow.png": "bb0075ab44870064fad00c76e5291489a3744b5dcaf83da36b28ee010254b95d",
-  "kamien_z_mchem.png": "3956203b0efcdc81d08227dba301a0ab1fcf49a9b2510f3731529baf72cc062a",
-  "kamien_z_mchem_shadow.png": "eff6c02d828a697852ab8367becb2a7ff27245c08ac2c711483b78627477d6d2",
-  "kamien_z_porostami.png": "026f069353f81742ab58e5dd1e1118fad988ee3b8557589b66503e7b635e114d",
-  "kamien_z_porostami_shadow.png": "25f64a5650c40de60f0d04e7e61b0e9da46baff3a1b292169548c71836b38833",
-  "zwir.png": "ac3a21caa706db2627abf5fcdc8582c19941e9fa78fd2cf9c1b48957c9f25282",
-  "zwir_shadow.png": "6e21ac505502894042161a18268e1625a0534f360ec708a3548ff2e450a417cc",
-  "plyta_kamienna.png": "46959319e44ab036c66ad6d36aa94387552620276c250281be4c48085cabf968",
+  "kamien_a.png": "5b99a35a357f86d6048675bc742cff14f1191c121c1d59ccc8e1bb39fc6306b7",
+  "kamien_a_shadow.png": "2b7fa4c0412d924100b701daf5ff298497bb3256fcfd140cdd2c4211c3c4cf49",
+  "kamien_a_rot47.png": "552db58b6a0971c32e5ba327c1ddf8b2cc7e6c4476f9b87bc102ff549fe9b4c9",
+  "kamien_a_rot47_shadow.png": "d24065a30f816d55b89f95176f458389a72b864d0c08a00146e7efe83aa301af",
+  "kamien_a_rot113.png": "6fb242bff5db1cc1b1ac337e9c04c7dd501f06cca5ed5f2806160e9c7fe0e738",
+  "kamien_a_rot113_shadow.png": "e4961ec724c1c307071643701af29937269c47d04d9e88eb2e3998dd81658932",
+  "kamien_b.png": "de4acf162db306c0733e7d2520129a6c5bd3ee69dd2a84e26f8cbc127ee7d32e",
+  "kamien_b_shadow.png": "99f98b6ba656b7c23261d565e626af2be6a5fff5328514145ef3b6896b309c91",
+  "kamien_c.png": "a6781d88d871b7115484eb976876ca174f7c1f0ac3c928ed418e65b03936812e",
+  "kamien_c_shadow.png": "6fc8982359d1cc9c427df5955aef601f4159903fa3abfeaaa23ac67b6c8c05a7",
+  "glaz.png": "a1f2dc3b376ef6228d3cd8f10400798497e9b4f21579fad02309abefd47a2dfb",
+  "glaz_shadow.png": "3cee27f13f7b5d74099caefc1f36ffade04041148ac4df5093ab9c920f8cbd34",
+  "glaz_duzy.png": "986a253d31fdc07c34a658bc90c60522f18986e9e8715a05343639beee09fc4f",
+  "glaz_duzy_shadow.png": "45550119f077764d1368cc539af3aa519d98c9e241ce715de2904ccbd8b7a616",
+  "kamien_mokry.png": "50339f51acd130c8831428cda8cb5d663a9721c112a04880fc8c521e52588f10",
+  "kamien_mokry_shadow.png": "6fffc686649336dd867d4ee11a678f5c1257707bdab5aa618242a4cb4de82355",
+  "kamien_z_mchem.png": "23a1a5ca74f4aa17a9347de39698632772e0f21559ed921f685969d7e52c42f5",
+  "kamien_z_mchem_shadow.png": "567eaaafef9ab6b5a07b08afb967c4936cc046505c31e5509f50a0bf78883605",
+  "kamien_z_porostami.png": "dd2eee6910d1ff7fbd4e779ae0311764a448a51064bcf492fd6b7295eddeff46",
+  "kamien_z_porostami_shadow.png": "1f426fffbd97294cd3e45562b89f016612aab21d82f58e1dbf9e04e6428eb8ce",
+  "zwir.png": "c26cbf2d8217089bd6f2f3fe1880d574f9a6654980df7b3f4c02791e5a001ea4",
+  "zwir_shadow.png": "c2c6c95d72d9401814cff3ddea04b6af9ba1595e5a4272d360fd113f8f161588",
+  "zwir_b.png": "5e0b73c525e13f0c2e625d280fe5e2bf31a63d5f16afb1f877940c7ffe239155",
+  "zwir_b_shadow.png": "a3296ec450fa2c688ab36b032b3c6871e3a9133e534717dc6d66000f8a67c467",
+  "zwir_c.png": "2205ac4b8b17185a2efe2bba2e0ab97cc41a35752d16322e0bb222684e9d86e8",
+  "zwir_c_shadow.png": "e5af2b953ad8744bc2bb3bc023a63cebcbd97184bcad098ca6a2cc4495d14cea",
+  "plyta_kamienna.png": "6831a3b0b7b78b1e67c5f85622a2bc5590f0c8afbad74aa439083a2571534471",
   "plyta_kamienna_shadow.png": "a033f233b1a9b51bb2eb944ce84f29871474522e60d2cf051ef2e3614fd0e42f",
-  "plyta_kamienna_b.png": "ccb843727dc8f838a8c97edecf1faed135da4a1e90d0c6b0b2f35eb9576d2bca",
+  "plyta_kamienna_b.png": "a86397441ccaa3b88be1b7f059a25546e6afd0cea03635be4e35ee36627678d4",
   "plyta_kamienna_b_shadow.png": "c8a97648301239dfb5319a375ed0903e40ddc9a0d102eb7176499b89c8cef85c",
-  "kepka_trawy_a.png": "35bd84242dfdc92368d4f36f99a17827cd79bf1bb2490634b7a006a813e83dd1",
-  "kepka_trawy_a_shadow.png": "7d2580b349a755433e74b8692d6cb81a6646a2fb51951f2d85e2cbe32ccc2219",
-  "kepka_trawy_b.png": "9472e9812736ab3b5b0602d9ebd80e3e6d8fe2052aa2727286beb686b3baf5cd",
-  "kepka_trawy_b_shadow.png": "8548bf8f5ddd76f5ad6f36de852ee0a651bc73f021fb5a3f1759c02b51dc978c",
-  "kepka_trawy_c.png": "f5c53fa2035601bf14a52ee5bc55f28b785d25e71ad3b02c0c584002486bd8b3",
-  "kepka_trawy_c_shadow.png": "0bbf0fe05e1ef6a61cbad239a05b608c554eba6677418444c614a50335339d60",
-  "paproc_a.png": "f876c20fe9f24d9b12a0929c13f61f1ebb65c0d8e5da4b719703eaf5d7a176aa",
-  "paproc_a_shadow.png": "79b0c974bd5c0829dc5877d41a9352eef4e6c65b3cc3b8aec2c84d795b943535",
-  "paproc_b.png": "50e82dcd525ed19104d918e9136f8edef290ee30220a13e0356f9caa2a516b90",
-  "paproc_b_shadow.png": "9fba3765157ded8866c471a3caf753f859eee27c00de4e6d3323e17c63d1240e",
-  "chrust_a.png": "167c76ed83123b1d4c7d90aa258fb64ee4bd32f0137f627be4dc68f23fe7beb2",
-  "chrust_a_shadow.png": "674a72e5161c119470f13891cd97b0eb4686073197cbbca46d7bcd48782d531b",
-  "chrust_b.png": "f10d6c34db72acbd986027f797cadf0fa069791ff58a6b9b4e76678348daab54",
-  "chrust_b_shadow.png": "379c3c867dda4375269b2c9e526f194619ddd1ba3a47761811b48bb515c4e651"
+  "kepka_trawy_a.png": "dfd0b54fec5992e4f15be8577f44a342366b3f5fd0e836f69389b7905c33b4ed",
+  "kepka_trawy_a_shadow.png": "6f3b1538ac67e13233cc731b29095c68979f8a319ec8e69873b70e6409755bcb",
+  "kepka_trawy_b.png": "915572c4b70cb09eafe54b9b0b625446492a9e5ce5ce3b5369d0b3104d19283d",
+  "kepka_trawy_b_shadow.png": "8ef25e7e2ed924f325104f6f3e3b2d96a58cb044f31fafd0c07d4c63eb2a1ea8",
+  "kepka_trawy_c.png": "7993ad9a10cf45724d42e3cf1b8f58865dfa839e8208fae2a272eb5e62d72384",
+  "kepka_trawy_c_shadow.png": "e6693fe059875a03c1f54645171fab05ca1b2b327e6ca4bc94d95f42fe36c519",
+  "paproc_a.png": "0ce6e38ea1e68d95a4730f7e64b1172a9306641a87df5e40dc9a6e2bb043fef0",
+  "paproc_a_shadow.png": "0e241d0a3b740632b99fb794c8bcb7e98b86e4435b9ac51580af57f2eaf57fc6",
+  "paproc_b.png": "df182c6bd27d55baa3e16eb6e78dcc7c3a32ddb6531c279079d66138f8020ff5",
+  "paproc_b_shadow.png": "4e69472c3bab0382f9b33347897e75e87c0f63a6c62f80347c2f9a328819230e",
+  "chrust_a.png": "113b2747fbbab8785ac1a0ef5b1d753b5d5e4ed0d50a5fac7c984e7e6fd83317",
+  "chrust_a_shadow.png": "822a1f77545a91238f65207f15658e8021c3772957ac7258f13f11f4a2d5a478",
+  "chrust_b.png": "396d4119483bbd87b872a907c9e2ff7c8e0df579e37150a18ee4c4865a506e0f",
+  "chrust_b_shadow.png": "f022e05a10dbf9d2b489f622cb370f81d77b07050fa908ee5fa0ea65f974fe9e"
  },
  "contract": {
   "frame": [

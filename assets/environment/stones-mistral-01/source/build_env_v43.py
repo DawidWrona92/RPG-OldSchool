@@ -146,7 +146,7 @@ def make_rock_material(name, seed, texbase, mapping_scale, moss_strength=1.0):
     mmr.inputs["To Min"].default_value = 0.35; mmr.inputs["To Max"].default_value = 1.1
     nt.links.new(mlum.outputs["Val"], mmr.inputs["Value"])
     mgreen = nt.nodes.new("ShaderNodeRGB")
-    mgreen.outputs[0].default_value = (0.085, 0.13, 0.045, 1.0)
+    mgreen.outputs[0].default_value = (0.13, 0.19, 0.08, 1.0)
     mmulv = nt.nodes.new("ShaderNodeVectorMath"); mmulv.operation = "MULTIPLY"
     nt.links.new(mgreen.outputs[0], mmulv.inputs[0])
     mvec = nt.nodes.new("ShaderNodeCombineXYZ")
@@ -154,10 +154,28 @@ def make_rock_material(name, seed, texbase, mapping_scale, moss_strength=1.0):
     nt.links.new(mmr.outputs["Result"], mvec.inputs["Y"])
     nt.links.new(mmr.outputs["Result"], mvec.inputs["Z"])
     nt.links.new(mvec.outputs["Vector"], mmulv.inputs[1])
+    # jasny rim kupek mchu od strony klucza (+X -Y): dot(world_normal, klucz_dir)
+    kdir = nt.nodes.new("ShaderNodeVectorMath"); kdir.operation = "DOT_PRODUCT"
+    klucz_n = nt.nodes.new("ShaderNodeCombineXYZ")
+    klucz_n.inputs["X"].default_value = 0.55; klucz_n.inputs["Y"].default_value = -0.55; klucz_n.inputs["Z"].default_value = 0.63
+    nt.links.new(klucz_n.outputs["Vector"], kdir.inputs[0])
+    nt.links.new(geo.outputs["Normal"], kdir.inputs[1])
+    krange = nt.nodes.new("ShaderNodeMapRange")
+    krange.inputs["From Min"].default_value = 0.0; krange.inputs["From Max"].default_value = 1.0
+    krange.inputs["To Min"].default_value = 1.0; krange.inputs["To Max"].default_value = 1.8
+    nt.links.new(kdir.outputs["Value"], krange.inputs["Value"])
+    # zielec bazowa * jasny rim -> wektor
+    mmulv2 = nt.nodes.new("ShaderNodeVectorMath"); mmulv2.operation = "MULTIPLY"
+    nt.links.new(mmulv.outputs["Vector"], mmulv2.inputs[0])
+    kvec = nt.nodes.new("ShaderNodeCombineXYZ")
+    nt.links.new(krange.outputs["Result"], kvec.inputs["X"])
+    nt.links.new(krange.outputs["Result"], kvec.inputs["Y"])
+    nt.links.new(krange.outputs["Result"], kvec.inputs["Z"])
+    nt.links.new(kvec.outputs["Vector"], mmulv2.inputs[1])
     mixmoss = nt.nodes.new("ShaderNodeMix"); mixmoss.data_type = "RGBA"
     nt.links.new(mfin.outputs["Value"], mixmoss.inputs["Factor"])
     nt.links.new(mixc.outputs[2], mixmoss.inputs[6])
-    nt.links.new(mmulv.outputs["Vector"], mixmoss.inputs[7])
+    nt.links.new(mmulv2.outputs["Vector"], mixmoss.inputs[7])
     nt.links.new(mixmoss.outputs[2], bsdf.inputs["Base Color"])
     nt.links.new(texn.outputs["Color"], nm.inputs["Color"])
     nt.links.new(nm.outputs["Normal"], bsdf.inputs["Normal"])
@@ -207,9 +225,9 @@ lit_mat = make_ground_mat("WELESZA_litter", "ground/forest_litter_mixed")
 
 # ============================== GEOMETRIA SKAŁ ==============================
 def make_rock(name, seed, base_r, squash, scale_xyz, spikes=0.35, subsurf=3):
-    """Kamien wg wytycznych review: amputujace ciecia plaszczyznami (widoczne
-    w sylwetce), 1-2 duze plaskie sciany zwrcone do swiatla kluczowego,
-    wysokosc 0.4-0.6 szerokosci, podstawa wkopana w ziemie, szum powloki."""
+    """Kamien: amputujace ciecia zawszedomknieciem (fill), wiecej mniejszych
+    nieregularnych plaszczyzn, szum bez rozwierania scian ciecia.
+    Kryterium: 0 krawedzi brzegowych nad z=0 (weryfikowane po buildzie)."""
     import mathutils
     from mathutils import noise as bnoise
     import bmesh
@@ -220,66 +238,86 @@ def make_rock(name, seed, base_r, squash, scale_xyz, spikes=0.35, subsurf=3):
     ob.scale = scale_xyz
     bpy.ops.object.transform_apply(scale=True)
     mesh = ob.data
-    # 1) amputacje: plaszczyzny ODCINAJA materiał (clear_outer wg strony normalnej)
     bm = bmesh.new()
     bm.from_mesh(mesh)
-    n_cuts = r.randint(3, 5)
-    key_faces = []
+    bm.faces.ensure_lookup_table()
+    # ciecia: 5-7, wiekszosc plytkich (0.72-0.95), 2 gluche kluczowe ku swiatlu
+    n_cuts = r.randint(5, 7)
     for ci in range(n_cuts):
         d = r.uniform(0.72, 0.95) * base_r
         ang = r.uniform(0, 2*math.pi)
-        tilt = r.uniform(0.3, 1.35)
+        tilt = r.uniform(0.25, 1.3)
         nrm = mathutils.Vector((math.cos(ang)*math.sin(tilt), math.sin(ang)*math.sin(tilt), math.cos(tilt)))
         nrm.normalize()
-        # pierwsze 1-2 cięcia: duze sciany zwrcone w strone klucza (lewo-gora ekranu -> +X -Y w swiecie)
         if ci < 2:
             nrm = mathutils.Vector((0.55, -0.55, 0.63)).normalized()
             nrm.rotate(mathutils.Quaternion(mathutils.Vector((0,0,1)), r.uniform(-0.6, 0.6)))
-            d = r.uniform(0.35, 0.55) * base_r
+            d = r.uniform(0.38, 0.55) * base_r
         res = bmesh.ops.bisect_plane(
             bm, geom=bm.verts[:] + bm.edges[:] + bm.faces[:],
             plane_co=nrm*d, plane_no=nrm,
-            clear_outer=True, clear_inner=False)  # odcina czapę na zewnatrz plaszczyzny
+            clear_outer=True, clear_inner=False)
+        # ZAWSZE domknij przekroj
         ce = [g for g in res.get("geom_cut", []) if isinstance(g, bmesh.types.BMEdge)]
-        if ci < 2 and ce:
+        if ce:
             bmesh.ops.edgeloop_fill(bm, edges=ce)
-            key_faces.append(ce)
     bm.to_mesh(mesh)
     bm.free()
-    # 2) szum powloki (po amputacjach — lekki, nie zniweczy plaskich scian)
+    # szum tylko na wewnetrznych wierzcholkach (odleglosc od kazdej plaszczyzny ciecia > 18% R)
+    cut_planes = []
+    r2 = random.Random(seed)
+    n2 = r2.randint(5, 7)
+    for ci in range(n2):
+        d2 = r2.uniform(0.72, 0.95) * base_r
+        ang2 = r2.uniform(0, 2*math.pi)
+        tilt2 = r2.uniform(0.25, 1.3)
+        nrm2 = mathutils.Vector((math.cos(ang2)*math.sin(tilt2), math.sin(ang2)*math.sin(tilt2), math.cos(tilt2))).normalized()
+        if ci < 2:
+            nrm2 = mathutils.Vector((0.55, -0.55, 0.63)).normalized()
+            nrm2.rotate(mathutils.Quaternion(mathutils.Vector((0,0,1)), r2.uniform(-0.6, 0.6)))
+            d2 = r2.uniform(0.38, 0.55) * base_r
+        cut_planes.append((nrm2, d2))
     for v in mesh.vertices:
-        n = bnoise.noise(mathutils.Vector(v.co) * 2.4 + mathutils.Vector((seed*3.7, seed*1.3, seed*2.9)))
-        v.co += v.normal * (n * spikes * base_r * 0.35)
-    # 3) podstawa wkopana w ziemie: spaszcz dol (10-20% pod ziemi)
+        p = mathutils.Vector(v.co)
+        on_cut = any(abs(p.dot(nrm) - d) < base_r * 0.18 for nrm, d in cut_planes)
+        if not on_cut:
+            n = bnoise.noise(p * 2.4 + mathutils.Vector((seed*3.7, seed*1.3, seed*2.9)))
+            v.co += v.normal * (n * spikes * base_r * 0.30)
+    # podstawa: splaszczona, wkopana ~15%
     zmin = min(v.co.z for v in mesh.vertices)
-    bury = base_r * 0.15
     for v in mesh.vertices:
         if v.co.z < zmin + 0.25*abs(zmin):
-            v.co.z = zmin - (zmin - v.co.z) * 0.3  # splaszcz i opusc
-    # 4) cieniowanie: gladkie z ostrymi krawedziami > 35 stopni
-    import math as _m
+            v.co.z = zmin - (zmin - v.co.z) * 0.3
+    # cieniowanie gladkie z ostrymi krawedziami >35°
     bpy.ops.object.shade_smooth()
     try:
+        import math as _m
         bpy.ops.object.shade_smooth_by_angle(angle=_m.radians(35))
     except Exception:
         pass
+    # KRYTERIUM: 0 krawedzi brzegowych nad z=0
+    bmv = bmesh.new()
+    bmv.from_mesh(mesh)
+    leaks = sum(1 for e in bmv.edges if e.is_boundary and max(vv.co.z for vv in e.verts) > 0.001)
+    bmv.free()
+    if leaks:
+        raise SystemExit(f"BLOKER: {name} ma {leaks} krawedzi brzegowych nad z=0")
     return ob
 
-# assety: (nazwa, seed, promień, squash, skala_xyz, spikes)
+# assety bazowe: kamien a/b/c + glaz (1.0-1.4 m nad ziemia) + glaz_duzy (1.8-2.0 m)
 rock_specs = [
     ("kamien_a", 11, 0.22, 0.62, (1.25, 0.95, 1.0), 0.35),
     ("kamien_b", 22, 0.30, 0.80, (0.85, 1.30, 1.0), 0.45),
     ("kamien_c", 33, 0.16, 0.50, (1.10, 0.80, 1.0), 0.30),
 ]
-mats = {"kamien_a": rock_mat_a, "kamien_b": rock_mat_b, "kamien_c": rock_mat_c}
-for name, seed, rad, sq, s, sp in rock_specs:
-    ob = make_rock(name, seed, rad, sq, s, sp)
-    ob.data.materials.append(mats[name])
+mat_by_name = {"kamien_a": rock_mat_a, "kamien_b": rock_mat_b, "kamien_c": rock_mat_c}
+for name, seed, rad, sq, scl, sp in rock_specs:
+    ob = make_rock(name, seed, rad, sq, scl, sp)
+    ob.data.materials.append(mat_by_name[name])
 
-# glaz defaultowy: ~1.1 m wysokosci; glaz_duzy: 1.9 m (wariant "przy drodze")
-boulder = make_rock("glaz", 44, 0.62, 0.55, (1.25, 0.95, 1.0), 0.28, subsurf=3)
+boulder = make_rock("glaz", 44, 1.30, 0.55, (1.35, 1.0, 1.0), 0.28, subsurf=4)
 boulder.data.materials.append(rock_mat_boulder)
-boulder_big = make_rock("glaz_duzy", 45, 0.95, 0.62, (1.45, 1.15, 1.0), 0.32, subsurf=3)
+boulder_big = make_rock("glaz_duzy", 45, 1.95, 0.52, (1.4, 1.1, 1.0), 0.30, subsurf=4)
 boulder_big.data.materials.append(rock_mat_boulder)
 
 # ============================== GRUPA A: warianty kamieni ==============================
@@ -300,6 +338,7 @@ for nm, sd, rad, sq, scl in [
     ob.data.materials.append(_mats_a[nm])
 
 def make_gravel(name, seed, n=(5, 9), rad=(0.03, 0.08)):
+    """Zwir: domkniete brylki (kula z odcietym spodem), w rozsypie."""
     import mathutils
     r = random.Random(seed)
     mesh = bpy.data.meshes.new(name)
@@ -312,21 +351,39 @@ def make_gravel(name, seed, n=(5, 9), rad=(0.03, 0.08)):
         cx, cy = math.cos(ang)*dist, math.sin(ang)*dist
         rr = r.uniform(*rad)
         base = len(verts)
+        # polkula domknieta: 2 pierscienie + top + spodni wierzcholek
+        for ring, z, rf in ((0, 0.0, 1.0), (1, rr*0.55, 1.0)):
+            for k in range(8):
+                a = k*2*math.pi/8
+                verts.append(mathutils.Vector((cx + math.cos(a)*rr*rf, cy + math.sin(a)*rr*rf, z + (rr*0.9 if ring else 0))))
+        # gorny pierscien wyzej (polkula)
         for k in range(8):
             a = k*2*math.pi/8
-            verts.append(mathutils.Vector((cx + math.cos(a)*rr, cy + math.sin(a)*rr, r.uniform(0.3, 0.9)*rr)))
-        c = len(verts); verts.append(mathutils.Vector((cx, cy, 0)))
-        ctop = len(verts); verts.append(mathutils.Vector((cx, cy, rr*1.05)))
+            verts.append(mathutils.Vector((cx + math.cos(a)*rr*0.45, cy + math.sin(a)*rr*0.45, rr*1.25)))
+        ctop = len(verts); verts.append(mathutils.Vector((cx, cy, rr*1.45)))
+        cbot = len(verts); verts.append(mathutils.Vector((cx, cy, -rr*0.25)))
         for k in range(8):
             k2 = (k+1)%8
-            faces.append((c, base+k, base+k2, ctop))
-            faces.append((c, ctop, base+k2, base+k))
+            # bok dolny
+            faces.append((cbot, base+k, base+k2))
+            # bok srodkowy
+            faces.append((base+k, base+8+k, base+8+k2, base+k2))
+            # bok gorny
+            faces.append((base+8+k, base+16+k, base+16+k2, base+8+k2))
+            # top
+            faces.append((ctop, base+16+k2, base+16+k))
     mesh.from_pydata(verts, [], faces)
     mesh.validate()
     return ob
 
+gravel_mat = make_rock_material("WELESZA_gravel", 8, "rock/rock_stones_mossy", 4.0, moss_strength=0.0)
+gravel_mat.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = 0.85
 gravel = make_gravel("zwir", 61)
-gravel.data.materials.append(rock_mat_a)
+gravel.data.materials.append(gravel_mat)
+gravel2 = make_gravel("zwir_b", 62, n=(6, 11))
+gravel2.data.materials.append(gravel_mat)
+gravel3 = make_gravel("zwir_c", 63, n=(7, 12))
+gravel3.data.materials.append(gravel_mat)
 
 def make_slab(name, seed, w=(0.5, 0.9), d=(0.4, 0.7), th=(0.08, 0.16)):
     import mathutils
@@ -421,7 +478,7 @@ def make_grass_material(name, seed):
     mixc = nt.nodes.new("ShaderNodeMix"); mixc.data_type = "RGBA"
     mixc.inputs["Factor"].default_value = 0.55
     dark = nt.nodes.new("ShaderNodeRGB")
-    dark.outputs[0].default_value = (0.05, 0.06, 0.035, 1.0)
+    dark.outputs[0].default_value = (0.07, 0.095, 0.05, 1.0)
     nt.links.new(dark.outputs[0], mixc.inputs[6])
     nt.links.new(texc.outputs["Color"], mixc.inputs[7])
     nt.links.new(g.outputs["Result"], mixc.inputs["Factor"])
@@ -498,9 +555,9 @@ def make_fern_material(name, seed):
     nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
     nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
     hsv = nt.nodes.new("ShaderNodeHueSaturation")
-    hsv.inputs["Saturation"].default_value = 0.75
-    hsv.inputs["Value"].default_value = 0.6
-    hsv.inputs["Hue"].default_value = 0.45
+    hsv.inputs["Saturation"].default_value = 0.85
+    hsv.inputs["Value"].default_value = 0.95
+    hsv.inputs["Hue"].default_value = 0.42
     nt.links.new(texc.outputs["Color"], hsv.inputs["Color"])
     nt.links.new(hsv.outputs["Color"], bsdf.inputs["Base Color"])
     bsdf.inputs["Roughness"].default_value = 0.85
@@ -562,8 +619,8 @@ def make_wood_material(name, seed):
     nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
     nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
     hsv = nt.nodes.new("ShaderNodeHueSaturation")
-    hsv.inputs["Saturation"].default_value = 0.25
-    hsv.inputs["Value"].default_value = 0.62
+    hsv.inputs["Saturation"].default_value = 0.22
+    hsv.inputs["Value"].default_value = 0.85
     nt.links.new(texc.outputs["Color"], hsv.inputs["Color"])
     nt.links.new(hsv.outputs["Color"], bsdf.inputs["Base Color"])
     bsdf.inputs["Roughness"].default_value = 0.95

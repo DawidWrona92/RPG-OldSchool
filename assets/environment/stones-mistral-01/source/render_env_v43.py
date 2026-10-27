@@ -166,6 +166,8 @@ assets = {
     "kamien_z_mchem": {"obj": "kamien_z_mchem", "variants": ((0.0, ""),)},
     "kamien_z_porostami": {"obj": "kamien_z_porostami", "variants": ((0.0, ""),)},
     "zwir": {"obj": "zwir", "variants": ((0.0, ""),)},
+    "zwir_b": {"obj": "zwir_b", "variants": ((0.0, ""),)},
+    "zwir_c": {"obj": "zwir_c", "variants": ((0.0, ""),)},
     "plyta_kamienna": {"obj": "plyta_kamienna", "variants": ((0.0, ""),)},
     "plyta_kamienna_b": {"obj": "plyta_kamienna_b", "variants": ((0.0, ""),)},
     "kepka_trawy_a": {"obj": "kepka_trawy_a", "variants": ((0.0, ""),)},
@@ -185,7 +187,8 @@ final_files = []
 for f in rendered:
     src = os.path.join(OUTDIR, f)
     if os.path.exists(src):
-        size = 320 if f.startswith("glaz") else 192
+        aid = f.split("_rot")[0].replace(".png", "")
+        size = ANCHORS.get(aid, {}).get("frame", 192)
         resize_premultiplied(src, src, size)
         final_files.append(f)
 

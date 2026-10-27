@@ -32,7 +32,8 @@ def mesh_dims_3d(obj_name, blend="/workspace/envwork/welesza_env_01.blend"):
     return {
         "width_m": round(max(xs)-min(xs), 3),   # X
         "depth_m": round(max(ys)-min(ys), 3),    # Y
-        "height_m": round(max(zs)-min(zs), 3),  # Z
+        "height_m": round(max(zs)-min(zs), 3),  # Z (z czescia zakopana)
+        "visible_height_m": round(max(zs), 3),  # nad z=0 (osadzenie)
     }
 
 def collision_estimate_3d(obj_name):
@@ -49,7 +50,7 @@ def build():
         ("kamien_b", [""]), ("kamien_c", [""]),
         ("glaz", [""]), ("glaz_duzy", [""]),
         ("kamien_mokry", [""]), ("kamien_z_mchem", [""]), ("kamien_z_porostami", [""]),
-        ("zwir", [""]), ("plyta_kamienna", [""]), ("plyta_kamienna_b", [""]),
+        ("zwir", [""]), ("zwir_b", [""]), ("zwir_c", [""]), ("plyta_kamienna", [""]), ("plyta_kamienna_b", [""]),
         ("kepka_trawy_a", [""]), ("kepka_trawy_b", [""]), ("kepka_trawy_c", [""]),
         ("paproc_a", [""]), ("paproc_b", [""]),
         ("chrust_a", [""]), ("chrust_b", [""]),
@@ -57,7 +58,7 @@ def build():
     objs = {"kamien_a": "kamien_a", "kamien_b": "kamien_b", "kamien_c": "kamien_c",
             "glaz": "glaz", "glaz_duzy": "glaz_duzy",
             "kamien_mokry": "kamien_mokry", "kamien_z_mchem": "kamien_z_mchem",
-            "kamien_z_porostami": "kamien_z_porostami", "zwir": "zwir",
+            "kamien_z_porostami": "kamien_z_porostami", "zwir": "zwir", "zwir_b": "zwir_b", "zwir_c": "zwir_c",
             "plyta_kamienna": "plyta_kamienna", "plyta_kamienna_b": "plyta_kamienna_b",
             "kepka_trawy_a": "kepka_trawy_a", "kepka_trawy_b": "kepka_trawy_b",
             "kepka_trawy_c": "kepka_trawy_c", "paproc_a": "paproc_a", "paproc_b": "paproc_b",
