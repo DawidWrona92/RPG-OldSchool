@@ -246,7 +246,8 @@
       "design_note": "two separate buildings Radost and Dobrawa",
       "owner_sector": "S01"
     },
-    {      "id": "training",
+    {
+      "id": "training",
       "name": "Dziedziniec ćwiczeń",
       "grid": [
         9.8,
@@ -1245,7 +1246,8 @@
       ],
       "bidirectional": true,
       "owner_sector": "S12",
-      "sectors_crossed": [        "S12",
+      "sectors_crossed": [
+        "S12",
         "S13"
       ]
     },
