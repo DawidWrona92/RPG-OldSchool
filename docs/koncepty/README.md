@@ -58,6 +58,7 @@ Makiety pokazują docelowy nastrój: ciemna, mokra ziemia, ciepłe punktowe świ
 
 
 - [18 — wóz i trakt na skraju lasu](18-woz-i-trakt.jpg) — koncepcyjne widoki wozu oraz scena w lesie; [plan i opis](18-woz-i-trakt.md).
+- [19 — twarz bohatera](19-bohater-twarz.jpg) — koncept twarzy od grafika: wiek, skóra, blizny, zarost i włosy; [opis](19-bohater-twarz.md).
 
 ## Przyroda boru
 
