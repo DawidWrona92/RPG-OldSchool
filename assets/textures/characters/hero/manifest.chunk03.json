@@ -180,24 +180,24 @@
     },
     {
       "name": "mud_spatter_decal_rgba.png",
-      "sha": "f72d227b08414a50647a962f8fe332829d8dbfa2",
+      "sha": "93ceabc95648acfd96ad5b1a3b5ef39fd8113b1e",
       "resolution": [
         512,
         512
       ],
-      "format": "RGBA",
+      "format": "PNG indexed with alpha, decoded RGBA",
       "purpose": "Lokalne plamy błota (kolor oraz maska kanału alpha), na buty i dół płaszcza; rozmieścić lokalnie na UV",
       "tiling": "non-tileable decal",
       "path": "assets/textures/characters/hero/overlays/mud_spatter_decal_rgba.png"
     },
     {
       "name": "stitching_trim_strip_rgba.png",
-      "sha": "a6d833fe1b999dcfa6d32e2a7cb88b0949b7d5c9",
+      "sha": "b6397a9d75cfb98a62a910bfded735b0cc462327",
       "resolution": [
         1024,
         256
       ],
-      "format": "RGBA",
+      "format": "PNG indexed with alpha, decoded RGBA",
       "purpose": "Pas ze szwami w nieregularnym płótnie, jako trim po UV lub nakładka; bez geometrii nie tworzy krawędzi szwu",
       "tiling": "horizontal strip",
       "path": "assets/textures/characters/hero/overlays/stitching_trim_strip_rgba.png"
@@ -208,6 +208,7 @@
     "192 px downsample and aliasing in 8 directions",
     "material comparison under cool forest vs warm torch light",
     "local mask placement on clothes and accessories",
-    "physical material response: metallic, roughness and skin shader"
+    "physical material response: metallic, roughness and skin shader",
+    "overlay sprites have indexed-alpha PNG to keep GitHub Contents API fetch under 1MiB"
   ]
 }
