@@ -24,6 +24,7 @@ Dokumenty wyraźnie odróżniają **decyzje autora**, **uzgodniony kierunek arty
 
 - [Mapa Niemiru i lasu](pakiet-04-mapa.md).
 - [Początek gry i pierwsza wyprawa](pakiet-04-poczatek.md).
+- [Plac przy wozie — plan i pakiet dla prototypu](plac-przy-wozie.md) — propozycja do oceny i testów.
 - [Brief ilustracji ART-01–ART-07](pakiet-04-obrazy.md).
 - [Przegląd pakietu 04](pakiet-04-przeglad.md).
 - [Grafy poziomów, bossów i pierwszej wyprawy](graphs/) — dane projektowe, nie implementacja.
@@ -32,7 +33,7 @@ Dokumenty wyraźnie odróżniają **decyzje autora**, **uzgodniony kierunek arty
 
 - **[Przewodnik artystyczny Niemiru v1.1](art/niemir/NIEMIR_ART_DIRECTION.md)** — zaakceptowany klimat osady, paleta, kompozycja i standard oceny.
 - [PDF przewodnika](art/niemir/NIEMIR_ART_DIRECTION.pdf) — wersja do czytania.
-- **[17 ilustracji koncepcyjnych](koncepty/README.md)** — potwory, cywile, architektura i kadry z perspektywy gry.
+- **[18 ilustracji koncepcyjnych](koncepty/README.md)** — potwory, cywile, architektura i kadry z perspektywy gry.
 
 ## Granice między dokumentacją a produkcją
 
