@@ -112,7 +112,7 @@ def make_previews(frames,shadows):
     for f in range(12):
         im=Image.new('RGBA',(384,220),BACKGROUND);draw=ImageDraw.Draw(im)
         shift=SPEED*.08*f*60  # W faces left; the ground moves right.
-        for x in np.arange(-300,700,30):
+        for x in np.arange(-300,700,SPEED*.96*60/2):
             draw.line((x+shift,174,x+shift+100,124),fill=(71,75,58),width=1)
         body=frames['chod'][2][f];cast=shadows['chod'][2][f]
         im.alpha_composite(cast,(96,10));im.alpha_composite(body,(96,10))

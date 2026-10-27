@@ -1,0 +1,375 @@
+{
+  "source_blend_sha256": "e55d5faa044b6e5a36a73f8e0cd6e3f2ee455459698b5256f27b22cd2991d661",
+  "sampled_poses": 20,
+  "rotation_note": "Przecięcia nie zmieniają się po wspólnym obrocie do 8 kierunków.",
+  "method": "evaluated modifier meshes / triangle surface BVH overlap, epsilon=0",
+  "records": [
+    {
+      "sole_surface_min_z_m": {
+        "L": 2.1706476616145665e-08,
+        "R": 1.5180027901351423e-08
+      },
+      "animation": "spoczynek",
+      "frame": 0,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": -1.6101952837743738e-07,
+        "R": -9.657869526336071e-08
+      },
+      "animation": "spoczynek",
+      "frame": 1,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": -1.3289309208630584e-07,
+        "R": 2.6783762763216146e-08
+      },
+      "animation": "spoczynek",
+      "frame": 2,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": -1.6101952837743738e-07,
+        "R": -9.657869526336071e-08
+      },
+      "animation": "spoczynek",
+      "frame": 3,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 2.1706476616145665e-08,
+        "R": 1.5180027901351423e-08
+      },
+      "animation": "spoczynek",
+      "frame": 4,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 1.519685888240474e-08,
+        "R": 4.9451667649691444e-08
+      },
+      "animation": "spoczynek",
+      "frame": 5,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 1.872530646096493e-07,
+        "R": 1.1453781922909911e-08
+      },
+      "animation": "spoczynek",
+      "frame": 6,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 1.519685888240474e-08,
+        "R": 4.9451667649691444e-08
+      },
+      "animation": "spoczynek",
+      "frame": 7,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 6.447858322644606e-05,
+        "R": -0.0006602974026463926
+      },
+      "animation": "chod",
+      "frame": 0,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 6.788915925426409e-06,
+        "R": -0.0037334479857236147
+      },
+      "animation": "chod",
+      "frame": 1,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 8.218524527592308e-08,
+        "R": 0.04259858652949333
+      },
+      "animation": "chod",
+      "frame": 2,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 6.982359934681881e-08,
+        "R": 0.08312556147575378
+      },
+      "animation": "chod",
+      "frame": 3,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 1.006134695558103e-07,
+        "R": 0.0885395035147667
+      },
+      "animation": "chod",
+      "frame": 4,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 3.1967837799129484e-07,
+        "R": 0.05730333551764488
+      },
+      "animation": "chod",
+      "frame": 5,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": -0.0006605050293728709,
+        "R": 6.450046930694953e-05
+      },
+      "animation": "chod",
+      "frame": 6,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": -0.0037334703374654055,
+        "R": 6.635479621763807e-06
+      },
+      "animation": "chod",
+      "frame": 7,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 0.04259872063994408,
+        "R": 3.2987733789013873e-07
+      },
+      "animation": "chod",
+      "frame": 8,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 0.08312565833330154,
+        "R": 1.6659176083066995e-07
+      },
+      "animation": "chod",
+      "frame": 9,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 0.08853933215141296,
+        "R": 1.2108587554848782e-07
+      },
+      "animation": "chod",
+      "frame": 10,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    },
+    {
+      "sole_surface_min_z_m": {
+        "L": 0.05730360746383667,
+        "R": 4.874133310295292e-07
+      },
+      "animation": "chod",
+      "frame": 11,
+      "sword_surface_intersections": {
+        "Anatomiczna głowa, szyja i odkryte przedramiona": 0,
+        "Spodnie / marszczenia kolan": 0,
+        "Lniana tunika / krój i pionowe fałdy": 0,
+        "Kaftan / zszywane otwarte połacie": 0,
+        "Krótki płaszcz / miękkie fałdy": 0,
+        "Plecak podróżny": 0,
+        "Zrolowane posłanie": 0
+      },
+      "lower_cape_pants_intersections": 0
+    }
+  ],
+  "scope_limits": [
+    "not continuous collision detection",
+    "no containment / solid volume proof",
+    "guard, grip and glove contacts excluded",
+    "layered upper torso intentional intersections excluded",
+    "pack straps, hair, fingers and self-collisions not exhaustively tested"
+  ]
+}

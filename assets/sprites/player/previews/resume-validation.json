@@ -1,10 +1,11 @@
 {
-  "reused_full_run_frames": 160,
-  "rendered_full_resume_frames": 0,
-  "recovered_corrupted_frames": 1,
-  "reused_healthy_same_direction_frames": 7,
-  "body_and_shadow_recovered_pixel_identically": true,
-  "png_metadata_is_time_dependent": true,
-  "original_fixture_restored_after_test": true,
-  "generator_sha256": "8958b36429532c4267229efd49efd3a7e7124053f68e1b0bfe37fd8376af12e7"
+  "source_blend_sha256": "e55d5faa044b6e5a36a73f8e0cd6e3f2ee455459698b5256f27b22cd2991d661",
+  "cache_reused_frames": 1,
+  "cache_rendered_frames": 0,
+  "isolated_corrupt_frame_repaired": 1,
+  "identical_decoded_body_pixels": true,
+  "identical_decoded_shadow_pixels": true,
+  "changed_source_cache_rejected": true,
+  "canonical_blend_unchanged": true,
+  "scope": "one body/shadow pair and source-mismatch rejection in isolated temporary directory; full 160-frame resume separately logged"
 }
