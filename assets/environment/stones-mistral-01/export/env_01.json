@@ -148,12 +148,12 @@
   },
   "glaz": {
    "frame_size": [
-    192,
-    192
+    256,
+    256
    ],
    "anchor_px": [
-    96.0,
-    158.35
+    128.0,
+    190.35
    ],
    "pixels_per_meter": 60.0,
    "files": {
@@ -161,37 +161,37 @@
      "shadow_file": "glaz_shadow.png",
      "variants_rotation_deg": 0,
      "screen_bbox_px": [
-      19,
-      80,
-      176,
-      191
+      84,
+      144,
+      173,
+      245
      ]
     }
    },
    "dimensions_3d": {
-    "width_m": 3.325,
-    "depth_m": 2.607,
-    "height_m": 2.406,
-    "visible_height_m": 1.109
+    "width_m": 1.859,
+    "depth_m": 1.487,
+    "height_m": 1.465,
+    "visible_height_m": 0.665
    },
    "collision_estimate": {
     "type": "circle",
-    "radius_m": 1.663,
+    "radius_m": 0.929,
     "footprint_m": [
-     3.325,
-     2.607
+     1.859,
+     1.487
     ],
     "note": "obrys w plaszczyznie X/Y swiata; orientacyjne, do weryfikacji w grze"
    }
   },
   "glaz_duzy": {
    "frame_size": [
-    320,
-    320
+    512,
+    512
    ],
    "anchor_px": [
-    160.0,
-    222.35
+    256.0,
+    318.35
    ],
    "pixels_per_meter": 60.0,
    "files": {
@@ -199,25 +199,25 @@
      "shadow_file": "glaz_duzy_shadow.png",
      "variants_rotation_deg": 0,
      "screen_bbox_px": [
-      44,
-      104,
-      291,
-      319
+      143,
+      200,
+      380,
+      463
      ]
     }
    },
    "dimensions_3d": {
-    "width_m": 5.011,
-    "depth_m": 4.128,
-    "height_m": 3.773,
+    "width_m": 4.876,
+    "depth_m": 3.94,
+    "height_m": 3.767,
     "visible_height_m": 1.76
    },
    "collision_estimate": {
     "type": "circle",
-    "radius_m": 2.506,
+    "radius_m": 2.438,
     "footprint_m": [
-     5.011,
-     4.128
+     4.876,
+     3.94
     ],
     "note": "obrys w plaszczyznie X/Y swiata; orientacyjne, do weryfikacji w grze"
    }
@@ -731,25 +731,25 @@
      "shadow_file": "chrust_a_shadow.png",
      "variants_rotation_deg": 0,
      "screen_bbox_px": [
-      78,
-      149,
-      119,
-      172
+      75,
+      148,
+      127,
+      170
      ]
     }
    },
    "dimensions_3d": {
-    "width_m": 0.732,
-    "depth_m": 0.698,
-    "height_m": 0.01,
-    "visible_height_m": 0.014
+    "width_m": 0.699,
+    "depth_m": 0.866,
+    "height_m": 0.063,
+    "visible_height_m": 0.074
    },
    "collision_estimate": {
     "type": "circle",
-    "radius_m": 0.366,
+    "radius_m": 0.433,
     "footprint_m": [
-     0.732,
-     0.698
+     0.699,
+     0.866
     ],
     "note": "obrys w plaszczyznie X/Y swiata; orientacyjne, do weryfikacji w grze"
    }
@@ -769,25 +769,101 @@
      "shadow_file": "chrust_b_shadow.png",
      "variants_rotation_deg": 0,
      "screen_bbox_px": [
-      73,
-      146,
-      120,
-      167
+      78,
+      149,
+      116,
+      172
      ]
     }
    },
    "dimensions_3d": {
-    "width_m": 0.724,
-    "depth_m": 0.785,
-    "height_m": 0.004,
-    "visible_height_m": 0.013
+    "width_m": 0.72,
+    "depth_m": 0.647,
+    "height_m": 0.049,
+    "visible_height_m": 0.06
    },
    "collision_estimate": {
     "type": "circle",
-    "radius_m": 0.393,
+    "radius_m": 0.36,
     "footprint_m": [
-     0.724,
-     0.785
+     0.72,
+     0.647
+    ],
+    "note": "obrys w plaszczyznie X/Y swiata; orientacyjne, do weryfikacji w grze"
+   }
+  },
+  "krzew_a": {
+   "frame_size": [
+    192,
+    192
+   ],
+   "anchor_px": [
+    96.0,
+    158.35
+   ],
+   "pixels_per_meter": 60.0,
+   "files": {
+    "krzew_a.png": {
+     "shadow_file": "krzew_a_shadow.png",
+     "variants_rotation_deg": 0,
+     "screen_bbox_px": [
+      76,
+      126,
+      106,
+      160
+     ]
+    }
+   },
+   "dimensions_3d": {
+    "width_m": 0.423,
+    "depth_m": 0.229,
+    "height_m": 0.31,
+    "visible_height_m": 0.31
+   },
+   "collision_estimate": {
+    "type": "circle",
+    "radius_m": 0.211,
+    "footprint_m": [
+     0.423,
+     0.229
+    ],
+    "note": "obrys w plaszczyznie X/Y swiata; orientacyjne, do weryfikacji w grze"
+   }
+  },
+  "krzew_b": {
+   "frame_size": [
+    192,
+    192
+   ],
+   "anchor_px": [
+    96.0,
+    158.35
+   ],
+   "pixels_per_meter": 60.0,
+   "files": {
+    "krzew_b.png": {
+     "shadow_file": "krzew_b_shadow.png",
+     "variants_rotation_deg": 0,
+     "screen_bbox_px": [
+      75,
+      128,
+      116,
+      161
+     ]
+    }
+   },
+   "dimensions_3d": {
+    "width_m": 0.613,
+    "depth_m": 0.516,
+    "height_m": 0.372,
+    "visible_height_m": 0.372
+   },
+   "collision_estimate": {
+    "type": "circle",
+    "radius_m": 0.306,
+    "footprint_m": [
+     0.613,
+     0.516
     ],
     "note": "obrys w plaszczyznie X/Y swiata; orientacyjne, do weryfikacji w grze"
    }

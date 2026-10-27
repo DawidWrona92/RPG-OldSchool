@@ -1,82 +1,35 @@
 {
- "chrust_a": {
-  "boundary_above_z0": 30,
-  "status": "FOLIAGE (karty, dozwolone)"
- },
- "chrust_b": {
-  "boundary_above_z0": 30,
-  "status": "FOLIAGE (karty, dozwolone)"
- },
- "glaz": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- },
- "glaz_duzy": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- },
- "kamien_a": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- },
- "kamien_b": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- },
- "kamien_c": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- },
- "kamien_mokry": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- },
- "kamien_z_mchem": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- },
- "kamien_z_porostami": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- },
- "kepka_trawy_a": {
-  "boundary_above_z0": 528,
-  "status": "FOLIAGE (karty, dozwolone)"
- },
- "kepka_trawy_b": {
-  "boundary_above_z0": 528,
-  "status": "FOLIAGE (karty, dozwolone)"
- },
- "kepka_trawy_c": {
-  "boundary_above_z0": 528,
-  "status": "FOLIAGE (karty, dozwolone)"
- },
- "paproc_a": {
-  "boundary_above_z0": 584,
-  "status": "FOLIAGE (karty, dozwolone)"
- },
- "paproc_b": {
-  "boundary_above_z0": 584,
-  "status": "FOLIAGE (karty, dozwolone)"
- },
- "plyta_kamienna": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- },
- "plyta_kamienna_b": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- },
- "zwir": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- },
- "zwir_b": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- },
- "zwir_c": {
-  "boundary_above_z0": 0,
-  "status": "OK"
- }
+ "chrust_a": 72,
+ "chrust_b": 72,
+ "glaz": 0,
+ "glaz_duzy": 0,
+ "kamien_a": 0,
+ "kamien_b": 0,
+ "kamien_c": 0,
+ "kamien_mokry": 0,
+ "kamien_z_mchem": 0,
+ "kamien_z_porostami": 0,
+ "kepka_trawy_a": 528,
+ "kepka_trawy_a.001": 528,
+ "kepka_trawy_b": 528,
+ "kepka_trawy_b.001": 528,
+ "kepka_trawy_c": 528,
+ "kepka_trawy_c.001": 528,
+ "krzew_a": 90,
+ "krzew_a.001": 90,
+ "krzew_a_liscie": 36,
+ "krzew_a_liscie.001": 36,
+ "krzew_b": 75,
+ "krzew_b.001": 75,
+ "krzew_b_liscie": 32,
+ "krzew_b_liscie.001": 32,
+ "paproc_a": 584,
+ "paproc_a.001": 584,
+ "paproc_b": 584,
+ "paproc_b.001": 584,
+ "plyta_kamienna": 0,
+ "plyta_kamienna_b": 0,
+ "zwir": 0,
+ "zwir_b": 0,
+ "zwir_c": 0
 }

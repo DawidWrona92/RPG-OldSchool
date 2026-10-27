@@ -54,6 +54,7 @@ def build():
         ("kepka_trawy_a", [""]), ("kepka_trawy_b", [""]), ("kepka_trawy_c", [""]),
         ("paproc_a", [""]), ("paproc_b", [""]),
         ("chrust_a", [""]), ("chrust_b", [""]),
+        ("krzew_a", [""]), ("krzew_b", [""]),
     ]
     objs = {"kamien_a": "kamien_a", "kamien_b": "kamien_b", "kamien_c": "kamien_c",
             "glaz": "glaz", "glaz_duzy": "glaz_duzy",
@@ -62,7 +63,8 @@ def build():
             "plyta_kamienna": "plyta_kamienna", "plyta_kamienna_b": "plyta_kamienna_b",
             "kepka_trawy_a": "kepka_trawy_a", "kepka_trawy_b": "kepka_trawy_b",
             "kepka_trawy_c": "kepka_trawy_c", "paproc_a": "paproc_a", "paproc_b": "paproc_b",
-            "chrust_a": "chrust_a", "chrust_b": "chrust_b"}
+            "chrust_a": "chrust_a", "chrust_b": "chrust_b",
+            "krzew_a": "krzew_a", "krzew_b": "krzew_b"}
     audit = json.load(open(os.path.join(OUT, "audit.json")))
     for aid, variants in specs:
         obj_name = objs[aid]

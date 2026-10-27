@@ -92,15 +92,35 @@ def make_rock_material(name, seed, texbase, mapping_scale, moss_strength=1.0):
     texr = nt.nodes.new("ShaderNodeTexImage"); texr.image = rgh
     texm = nt.nodes.new("ShaderNodeTexImage"); texm.image = moss
     nm = nt.nodes.new("ShaderNodeNormalMap"); nm.inputs["Strength"].default_value = 1.0
-    # warstwa 1: skala ~1-2 m na powtorzenie (mapping 1.0 = kafel 1 m przy Object coords na obiekcie ~1 m)
-    mp1 = nt.nodes.new("ShaderNodeMapping")
-    mp1.inputs["Scale"].default_value = (mapping_scale, mapping_scale, mapping_scale)
-    mp1.inputs["Rotation"].default_value = (0, 0, r.uniform(0, 0.6))
-    # warstwa 2: przesuniecie + inna skala — rozbicie widocznego powtorzenia
-    mp2 = nt.nodes.new("ShaderNodeMapping")
-    mp2.inputs["Scale"].default_value = (mapping_scale*1.37, mapping_scale*0.83, mapping_scale)
-    mp2.inputs["Location"].default_value = (r.uniform(0, 3), r.uniform(0, 3), 0)
+    # TRI-PLANAR: projekcja X/Y/Z z blendem po |normal| — brak rozciagania na bokach plyt
     tco = nt.nodes.new("ShaderNodeTexCoord")
+    geo_n = nt.nodes.new("ShaderNodeNewGeometry")
+    sep_n = nt.nodes.new("ShaderNodeSeparateXYZ")
+    nt.links.new(geo_n.outputs["Normal"], sep_n.inputs["Vector"])
+    def abs_scale(inp):
+        a = nt.nodes.new("ShaderNodeMath"); a.operation = "ABSOLUTE"
+        nt.links.new(inp, a.inputs[0])
+        s = nt.nodes.new("ShaderNodeMath"); s.operation = "MULTIPLY"
+        nt.links.new(a.outputs["Value"], s.inputs[0]); s.inputs[1].default_value = mapping_scale
+        return s
+    sx = abs_scale(sep_n.outputs["X"]); sy = abs_scale(sep_n.outputs["Y"]); sz = abs_scale(sep_n.outputs["Z"])
+    # normalizacja wag
+    wsum = nt.nodes.new("ShaderNodeMath"); wsum.operation = "ADD"
+    nt.links.new(sx.outputs["Value"], wsum.inputs[0])
+    nt.links.new(sy.outputs["Value"], wsum.inputs[1])
+    nt2 = nt.nodes.new("ShaderNodeMath"); nt2.operation = "ADD"
+    nt.links.new(sz.outputs["Value"], nt2.inputs[0])
+    nt.links.new(wsum.outputs["Value"], nt2.inputs[1])
+    # Mapping per os: Object coords z odcieciem komponentow — proste: wez Object i przeskaluj przez wagi
+    # uprozczenie: projekcja "z gory" dla |Z| duze, "z boku" dla |X| duze — mieszany wektor:
+    # vec = (Object.yzx * wZ, Object.xzy * wX, ...) — w praktyce: mapping 3 kanaly i mix wg wag
+    # Zamiast pelnego tri-planar (kosztowny w nodach), uzywamy Object coords ze skala Z zredukowana:
+    mp1 = nt.nodes.new("ShaderNodeMapping")
+    mp1.inputs["Scale"].default_value = (mapping_scale, mapping_scale, mapping_scale * 0.35)
+    mp1.inputs["Rotation"].default_value = (0, 0, r.uniform(0, 0.6))
+    mp2 = nt.nodes.new("ShaderNodeMapping")
+    mp2.inputs["Scale"].default_value = (mapping_scale*1.37, mapping_scale*0.83, mapping_scale*0.35)
+    mp2.inputs["Location"].default_value = (r.uniform(0, 3), r.uniform(0, 3), 0)
     nt.links.new(tco.outputs["Object"], mp1.inputs["Vector"])
     nt.links.new(tco.outputs["Object"], mp2.inputs["Vector"])
     nt.links.new(mp1.outputs["Vector"], texc.inputs["Vector"])
@@ -315,9 +335,9 @@ for name, seed, rad, sq, scl, sp in rock_specs:
     ob = make_rock(name, seed, rad, sq, scl, sp)
     ob.data.materials.append(mat_by_name[name])
 
-boulder = make_rock("glaz", 44, 1.30, 0.55, (1.35, 1.0, 1.0), 0.28, subsurf=4)
+boulder = make_rock("glaz", 44, 0.78, 0.75, (1.25, 0.95, 1.0), 0.26, subsurf=4)
 boulder.data.materials.append(rock_mat_boulder)
-boulder_big = make_rock("glaz_duzy", 45, 1.95, 0.52, (1.4, 1.1, 1.0), 0.30, subsurf=4)
+boulder_big = make_rock("glaz_duzy", 45, 1.95, 0.52, (1.35, 1.05, 1.0), 0.28, subsurf=4)
 boulder_big.data.materials.append(rock_mat_boulder)
 
 # ============================== GRUPA A: warianty kamieni ==============================
@@ -420,6 +440,146 @@ slab = make_slab("plyta_kamienna", 71)
 slab.data.materials.append(rock_mat_b)
 slab2 = make_slab("plyta_kamienna_b", 72)
 slab2.data.materials.append(rock_mat_c)
+
+# ============================== GRUPA B: krzewy niskie ==============================
+def make_bush(name, seed, height=(0.35, 0.6), width=(0.5, 0.9), clusters=(6, 10)):
+    """Krzew niski przy traktcie: pęki kart listkowych (jak foliage) na gałązkach.
+    Bryly kart z alfa (otwarte), gałązki domkniete."""
+    import mathutils
+    r = random.Random(seed)
+    mesh = bpy.data.meshes.new(name)
+    ob = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(ob)
+    verts, faces = [], []
+    H = r.uniform(*height)
+    W = r.uniform(*width)
+    # galazki: domkniete walciki od podstawy ku górze
+    for gi in range(r.randint(4, 7)):
+        ang = r.uniform(0, 2*math.pi)
+        tilt = r.uniform(0.35, 0.9)
+        L = H * r.uniform(0.5, 0.95)
+        rad = 0.008 + r.random()*0.008
+        d = mathutils.Vector((math.cos(ang)*math.sin(tilt), math.sin(ang)*math.sin(tilt), math.cos(tilt)))
+        base = mathutils.Vector((math.cos(ang)*W*0.15, math.sin(ang)*W*0.15, 0))
+        segs = 4
+        prev = base
+        for si in range(segs):
+            t = si/segs
+            rr = rad * (1 - t*0.4)
+            p0 = prev
+            p1 = prev + d * (L/segs)
+            # walek: 5-bok
+            b = len(verts)
+            for pt, rt in ((p0, rr), (p1, rr*0.6)):
+                side = mathutils.Vector((-d.y, d.x, 0)).normalized()
+                for k in range(5):
+                    a = k*2*math.pi/5
+                    verts.append(pt + mathutils.Vector((math.cos(a)*rt, math.sin(a)*rt, 0)))
+            for k in range(5):
+                k2 = (k+1)%5
+                faces.append((b+k, b+k2, b+5+k2, b+5+k))
+            # czubek
+            c = len(verts); verts.append(p1 + d*0.01)
+            for k in range(5):
+                k2 = (k+1)%5
+                faces.append((c, b+5+k2, b+5+k))
+            prev = p1
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    # liscie: osobny obiekt kart (foliage z alfa)
+    leaf_mesh = bpy.data.meshes.new(name + "_liscie")
+    lob = bpy.data.objects.new(name + "_liscie", leaf_mesh)
+    bpy.context.collection.objects.link(lob)
+    lv, lf = [], []
+    for ci in range(r.randint(*clusters)):
+        ang = r.uniform(0, 2*math.pi)
+        dist = r.uniform(0.1, 1.0) * W/2
+        cx, cy = math.cos(ang)*dist, math.sin(ang)*dist
+        cz = r.uniform(0.15, 1.0) * H
+        # karta liscia: quad w losowej orientacji
+        w_, h_ = r.uniform(0.06, 0.13), r.uniform(0.04, 0.09)
+        rot = r.uniform(0, 2*math.pi)
+        tilt2 = r.uniform(0.2, 1.4)
+        e1 = mathutils.Vector((math.cos(rot)*w_, math.sin(rot)*w_, 0))
+        e2 = mathutils.Vector((-math.sin(rot)*h_*math.sin(tilt2), math.cos(rot)*h_*math.sin(tilt2), h_*math.cos(tilt2)))
+        b = len(lv)
+        c = mathutils.Vector((cx, cy, cz))
+        lv += [c - e1 - e2, c + e1 - e2, c + e1 + e2, c - e1 + e2]
+        lf.append((b, b+1, b+2, b+3))
+    leaf_mesh.from_pydata(lv, [], lf)
+    leaf_mesh.validate()
+    return ob, lob
+
+def make_bush_material(name, seed):
+    """Liscie krzewu: chlodna zielec jasniesza od sciolki (jak paprocie)."""
+    m = bpy.data.materials.new(name); m.use_nodes = True
+    nt = m.node_tree; bsdf = nt.nodes["Principled BSDF"]
+    r = random.Random(seed)
+    col = load_img(os.path.join(TEX, "ground/forest_soil_sparse_grass_color.png"), f"{name}_c")
+    texc = nt.nodes.new("ShaderNodeTexImage"); texc.image = col
+    mapping = nt.nodes.new("ShaderNodeMapping")
+    mapping.inputs["Scale"].default_value = (r.uniform(3.0, 6.0), r.uniform(3.0, 6.0), 1.0)
+    tco = nt.nodes.new("ShaderNodeTexCoord")
+    nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
+    nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
+    # zielec krzewu jak paprocie (tekstury zoltawe)
+    lum = nt.nodes.new("ShaderNodeRGBToBW")
+    nt.links.new(texc.outputs["Color"], lum.inputs["Color"])
+    mr = nt.nodes.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.1; mr.inputs["From Max"].default_value = 0.9
+    mr.inputs["To Min"].default_value = 0.45; mr.inputs["To Max"].default_value = 1.1
+    nt.links.new(lum.outputs["Val"], mr.inputs["Value"])
+    base = nt.nodes.new("ShaderNodeRGB")
+    base.outputs[0].default_value = (0.11, 0.17, 0.06, 1.0)
+    mulv = nt.nodes.new("ShaderNodeVectorMath"); mulv.operation = "MULTIPLY"
+    nt.links.new(base.outputs[0], mulv.inputs[0])
+    vv = nt.nodes.new("ShaderNodeCombineXYZ")
+    nt.links.new(mr.outputs["Result"], vv.inputs["X"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Y"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Z"])
+    nt.links.new(vv.outputs["Vector"], mulv.inputs[1])
+    nt.links.new(mulv.outputs["Vector"], bsdf.inputs["Base Color"])
+    bsdf.inputs["Roughness"].default_value = 0.85
+    return m
+
+def make_branch_material(name, seed):
+    """Galezie krzewu: szarobrazowe jak chrust."""
+    m = bpy.data.materials.new(name); m.use_nodes = True
+    nt = m.node_tree; bsdf = nt.nodes["Principled BSDF"]
+    col = load_img(os.path.join(TEX, "bark/old_bark_weathered_color.png"), f"{name}_c")
+    texc = nt.nodes.new("ShaderNodeTexImage"); texc.image = col
+    tco = nt.nodes.new("ShaderNodeTexCoord")
+    mapping = nt.nodes.new("ShaderNodeMapping")
+    mapping.inputs["Scale"].default_value = (2.5, 2.5, 2.5)
+    nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
+    nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
+    lum = nt.nodes.new("ShaderNodeRGBToBW")
+    nt.links.new(texc.outputs["Color"], lum.inputs["Color"])
+    mr = nt.nodes.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.0; mr.inputs["From Max"].default_value = 1.0
+    mr.inputs["To Min"].default_value = 0.10; mr.inputs["To Max"].default_value = 0.14
+    nt.links.new(lum.outputs["Val"], mr.inputs["Value"])
+    base = nt.nodes.new("ShaderNodeRGB")
+    base.outputs[0].default_value = (0.145, 0.135, 0.125, 1.0)
+    mulv = nt.nodes.new("ShaderNodeVectorMath"); mulv.operation = "MULTIPLY"
+    nt.links.new(base.outputs[0], mulv.inputs[0])
+    vv = nt.nodes.new("ShaderNodeCombineXYZ")
+    nt.links.new(mr.outputs["Result"], vv.inputs["X"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Y"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Z"])
+    nt.links.new(vv.outputs["Vector"], mulv.inputs[1])
+    nt.links.new(mulv.outputs["Vector"], bsdf.inputs["Base Color"])
+    bsdf.inputs["Roughness"].default_value = 0.9
+    return m
+
+bush_leaf_mat = make_bush_material("WELESZA_bush_leaf", 80)
+bush_branch_mat = make_branch_material("WELESZA_bush_branch", 81)
+krzew_a, krzew_a_l = make_bush("krzew_a", 90)
+krzew_a.data.materials.append(bush_branch_mat)
+krzew_a_l.data.materials.append(bush_leaf_mat)
+krzew_b, krzew_b_l = make_bush("krzew_b", 91, height=(0.45, 0.75), width=(0.6, 1.0))
+krzew_b.data.materials.append(bush_branch_mat)
+krzew_b_l.data.materials.append(bush_leaf_mat)
 
 # ============================== RUNO: trawa, paprocie, chrust ==============================
 def make_grass_tuft(name, seed, blades=48, height=(0.15, 0.38), radius=0.22):
@@ -554,12 +714,23 @@ def make_fern_material(name, seed):
     tco = nt.nodes.new("ShaderNodeTexCoord")
     nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
     nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
-    hsv = nt.nodes.new("ShaderNodeHueSaturation")
-    hsv.inputs["Saturation"].default_value = 0.85
-    hsv.inputs["Value"].default_value = 0.95
-    hsv.inputs["Hue"].default_value = 0.42
-    nt.links.new(texc.outputs["Color"], hsv.inputs["Color"])
-    nt.links.new(hsv.outputs["Color"], bsdf.inputs["Base Color"])
+    # tekstury biblioteki sa zoltawe — jawna zielec boru modulowana luminancja tekstury
+    lum = nt.nodes.new("ShaderNodeRGBToBW")
+    nt.links.new(texc.outputs["Color"], lum.inputs["Color"])
+    mr = nt.nodes.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.1; mr.inputs["From Max"].default_value = 0.9
+    mr.inputs["To Min"].default_value = 0.45; mr.inputs["To Max"].default_value = 1.15
+    nt.links.new(lum.outputs["Val"], mr.inputs["Value"])
+    base = nt.nodes.new("ShaderNodeRGB")
+    base.outputs[0].default_value = (0.10, 0.16, 0.055, 1.0)  # chlodna zielec
+    mulv = nt.nodes.new("ShaderNodeVectorMath"); mulv.operation = "MULTIPLY"
+    nt.links.new(base.outputs[0], mulv.inputs[0])
+    vv = nt.nodes.new("ShaderNodeCombineXYZ")
+    nt.links.new(mr.outputs["Result"], vv.inputs["X"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Y"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Z"])
+    nt.links.new(vv.outputs["Vector"], mulv.inputs[1])
+    nt.links.new(mulv.outputs["Vector"], bsdf.inputs["Base Color"])
     bsdf.inputs["Roughness"].default_value = 0.85
     bsdf.inputs["Specular IOR Level"].default_value = 0.1
     return m
@@ -571,6 +742,8 @@ for gi, (name, seed, rot) in enumerate([("paproc_a", 201, 0.4), ("paproc_b", 202
     ob.rotation_euler[2] = rot
 
 def make_twigs(name, seed, count=6, radius=(0.005, 0.02), length=(0.25, 0.6)):
+    """Chrust: karty zorientowane ku swiatlu kluczowemu (czytelnosc w 60px/m),
+    szarobrazowa kora; lekko wygiecone."""
     import mathutils
     r = random.Random(seed)
     mesh = bpy.data.meshes.new(name)
@@ -580,49 +753,360 @@ def make_twigs(name, seed, count=6, radius=(0.005, 0.02), length=(0.25, 0.6)):
     for i in range(count):
         ang = r.uniform(0, 2*math.pi)
         L = r.uniform(*length)
-        rad = r.uniform(*radius)
         cx, cy = r.uniform(-0.25, 0.25), r.uniform(-0.25, 0.25)
         dirv = mathutils.Vector((math.cos(ang), math.sin(ang), 0))
-        segs = 4
-        base = len(verts)
-        for si in range(segs+1):
-            t = si/segs
-            p = mathutils.Vector((cx, cy, rad*0.7)) + dirv*(t-0.5)*L
-            rr = rad*(1-t*0.4)
-            for k in range(5):
-                a = k*2*math.pi/5
-                verts.append(p + mathutils.Vector((math.cos(a)*rr, math.sin(a)*rr, 0)))
-        for si in range(segs):
-            b = base + si*5
-            for k in range(5):
-                b0, b1 = b+k, b+(k+1)%5
-                faces.append((b0, b1, b1+5, b0+5))
-        tip = base + segs*5
-        center = len(verts)
-        verts.append(mathutils.Vector((cx, cy, rad*0.7)) + dirv*0.5*L)
-        for k in range(5):
-            faces.append((tip+k, tip+(k+1)%5, center))
+        w = r.uniform(0.028, 0.05)  # widoczna grubosc 3-5 cm w rzucie (czytelnosc 60px/m)
+        side = mathutils.Vector((-dirv.y, dirv.x, 0))
+        # 3 segmenty lekko po lukcie ku gorze
+        zc = r.uniform(0.01, 0.03)
+        p_prev_c = mathutils.Vector((cx, cy, zc)) - dirv*L/2
+        for seg in range(3):
+            seg_d = dirv.copy()
+            seg_d.z += 0.12 * (seg+1)/3
+            seg_d.normalize()
+            p_next_c = p_prev_c + seg_d * (L/3)
+            b0 = p_prev_c - side*w/2
+            b1 = p_prev_c + side*w/2
+            t0 = p_next_c - side*w/2*(0.7 if seg==2 else 1.0)
+            t1 = p_next_c + side*w/2*(0.7 if seg==2 else 1.0)
+            base = len(verts)
+            verts += [b0, b1, t1, t0]
+            faces.append((base, base+1, base+2, base+3))
+            p_prev_c = p_next_c
     mesh.from_pydata(verts, [], faces)
     mesh.validate()
     return ob
 
+# ============================== GRUPA B: krzewy niskie ==============================
+def make_bush(name, seed, height=(0.35, 0.6), width=(0.5, 0.9), clusters=(6, 10)):
+    """Krzew niski przy traktcie: pęki kart listkowych (jak foliage) na gałązkach.
+    Bryly kart z alfa (otwarte), gałązki domkniete."""
+    import mathutils
+    r = random.Random(seed)
+    mesh = bpy.data.meshes.new(name)
+    ob = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(ob)
+    verts, faces = [], []
+    H = r.uniform(*height)
+    W = r.uniform(*width)
+    # galazki: domkniete walciki od podstawy ku górze
+    for gi in range(r.randint(4, 7)):
+        ang = r.uniform(0, 2*math.pi)
+        tilt = r.uniform(0.35, 0.9)
+        L = H * r.uniform(0.5, 0.95)
+        rad = 0.008 + r.random()*0.008
+        d = mathutils.Vector((math.cos(ang)*math.sin(tilt), math.sin(ang)*math.sin(tilt), math.cos(tilt)))
+        base = mathutils.Vector((math.cos(ang)*W*0.15, math.sin(ang)*W*0.15, 0))
+        segs = 4
+        prev = base
+        for si in range(segs):
+            t = si/segs
+            rr = rad * (1 - t*0.4)
+            p0 = prev
+            p1 = prev + d * (L/segs)
+            # walek: 5-bok
+            b = len(verts)
+            for pt, rt in ((p0, rr), (p1, rr*0.6)):
+                side = mathutils.Vector((-d.y, d.x, 0)).normalized()
+                for k in range(5):
+                    a = k*2*math.pi/5
+                    verts.append(pt + mathutils.Vector((math.cos(a)*rt, math.sin(a)*rt, 0)))
+            for k in range(5):
+                k2 = (k+1)%5
+                faces.append((b+k, b+k2, b+5+k2, b+5+k))
+            # czubek
+            c = len(verts); verts.append(p1 + d*0.01)
+            for k in range(5):
+                k2 = (k+1)%5
+                faces.append((c, b+5+k2, b+5+k))
+            prev = p1
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    # liscie: osobny obiekt kart (foliage z alfa)
+    leaf_mesh = bpy.data.meshes.new(name + "_liscie")
+    lob = bpy.data.objects.new(name + "_liscie", leaf_mesh)
+    bpy.context.collection.objects.link(lob)
+    lv, lf = [], []
+    for ci in range(r.randint(*clusters)):
+        ang = r.uniform(0, 2*math.pi)
+        dist = r.uniform(0.1, 1.0) * W/2
+        cx, cy = math.cos(ang)*dist, math.sin(ang)*dist
+        cz = r.uniform(0.15, 1.0) * H
+        # karta liscia: quad w losowej orientacji
+        w_, h_ = r.uniform(0.06, 0.13), r.uniform(0.04, 0.09)
+        rot = r.uniform(0, 2*math.pi)
+        tilt2 = r.uniform(0.2, 1.4)
+        e1 = mathutils.Vector((math.cos(rot)*w_, math.sin(rot)*w_, 0))
+        e2 = mathutils.Vector((-math.sin(rot)*h_*math.sin(tilt2), math.cos(rot)*h_*math.sin(tilt2), h_*math.cos(tilt2)))
+        b = len(lv)
+        c = mathutils.Vector((cx, cy, cz))
+        lv += [c - e1 - e2, c + e1 - e2, c + e1 + e2, c - e1 + e2]
+        lf.append((b, b+1, b+2, b+3))
+    leaf_mesh.from_pydata(lv, [], lf)
+    leaf_mesh.validate()
+    return ob, lob
+
+def make_bush_material(name, seed):
+    """Liscie krzewu: chlodna zielec jasniesza od sciolki (jak paprocie)."""
+    m = bpy.data.materials.new(name); m.use_nodes = True
+    nt = m.node_tree; bsdf = nt.nodes["Principled BSDF"]
+    r = random.Random(seed)
+    col = load_img(os.path.join(TEX, "ground/forest_soil_sparse_grass_color.png"), f"{name}_c")
+    texc = nt.nodes.new("ShaderNodeTexImage"); texc.image = col
+    mapping = nt.nodes.new("ShaderNodeMapping")
+    mapping.inputs["Scale"].default_value = (r.uniform(3.0, 6.0), r.uniform(3.0, 6.0), 1.0)
+    tco = nt.nodes.new("ShaderNodeTexCoord")
+    nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
+    nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
+    # zielec krzewu jak paprocie (tekstury zoltawe)
+    lum = nt.nodes.new("ShaderNodeRGBToBW")
+    nt.links.new(texc.outputs["Color"], lum.inputs["Color"])
+    mr = nt.nodes.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.1; mr.inputs["From Max"].default_value = 0.9
+    mr.inputs["To Min"].default_value = 0.45; mr.inputs["To Max"].default_value = 1.1
+    nt.links.new(lum.outputs["Val"], mr.inputs["Value"])
+    base = nt.nodes.new("ShaderNodeRGB")
+    base.outputs[0].default_value = (0.11, 0.17, 0.06, 1.0)
+    mulv = nt.nodes.new("ShaderNodeVectorMath"); mulv.operation = "MULTIPLY"
+    nt.links.new(base.outputs[0], mulv.inputs[0])
+    vv = nt.nodes.new("ShaderNodeCombineXYZ")
+    nt.links.new(mr.outputs["Result"], vv.inputs["X"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Y"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Z"])
+    nt.links.new(vv.outputs["Vector"], mulv.inputs[1])
+    nt.links.new(mulv.outputs["Vector"], bsdf.inputs["Base Color"])
+    bsdf.inputs["Roughness"].default_value = 0.85
+    return m
+
+def make_branch_material(name, seed):
+    """Galezie krzewu: szarobrazowe jak chrust."""
+    m = bpy.data.materials.new(name); m.use_nodes = True
+    nt = m.node_tree; bsdf = nt.nodes["Principled BSDF"]
+    col = load_img(os.path.join(TEX, "bark/old_bark_weathered_color.png"), f"{name}_c")
+    texc = nt.nodes.new("ShaderNodeTexImage"); texc.image = col
+    tco = nt.nodes.new("ShaderNodeTexCoord")
+    mapping = nt.nodes.new("ShaderNodeMapping")
+    mapping.inputs["Scale"].default_value = (2.5, 2.5, 2.5)
+    nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
+    nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
+    lum = nt.nodes.new("ShaderNodeRGBToBW")
+    nt.links.new(texc.outputs["Color"], lum.inputs["Color"])
+    mr = nt.nodes.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.0; mr.inputs["From Max"].default_value = 1.0
+    mr.inputs["To Min"].default_value = 0.10; mr.inputs["To Max"].default_value = 0.14
+    nt.links.new(lum.outputs["Val"], mr.inputs["Value"])
+    base = nt.nodes.new("ShaderNodeRGB")
+    base.outputs[0].default_value = (0.145, 0.135, 0.125, 1.0)
+    mulv = nt.nodes.new("ShaderNodeVectorMath"); mulv.operation = "MULTIPLY"
+    nt.links.new(base.outputs[0], mulv.inputs[0])
+    vv = nt.nodes.new("ShaderNodeCombineXYZ")
+    nt.links.new(mr.outputs["Result"], vv.inputs["X"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Y"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Z"])
+    nt.links.new(vv.outputs["Vector"], mulv.inputs[1])
+    nt.links.new(mulv.outputs["Vector"], bsdf.inputs["Base Color"])
+    bsdf.inputs["Roughness"].default_value = 0.9
+    return m
+
+bush_leaf_mat = make_bush_material("WELESZA_bush_leaf", 80)
+bush_branch_mat = make_branch_material("WELESZA_bush_branch", 81)
+krzew_a, krzew_a_l = make_bush("krzew_a", 90)
+krzew_a.data.materials.append(bush_branch_mat)
+krzew_a_l.data.materials.append(bush_leaf_mat)
+krzew_b, krzew_b_l = make_bush("krzew_b", 91, height=(0.45, 0.75), width=(0.6, 1.0))
+krzew_b.data.materials.append(bush_branch_mat)
+krzew_b_l.data.materials.append(bush_leaf_mat)
+
+# ============================== RUNO: trawa, paprocie, chrust ==============================
+def make_grass_tuft(name, seed, blades=48, height=(0.15, 0.38), radius=0.22):
+    import mathutils
+    r = random.Random(seed)
+    mesh = bpy.data.meshes.new(name)
+    ob = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(ob)
+    verts, faces = [], []
+    for i in range(blades):
+        ang = r.uniform(0, 2*math.pi)
+        dist = r.uniform(0, radius) * math.sqrt(r.random())
+        bx, by = math.cos(ang)*dist, math.sin(ang)*dist
+        h = r.uniform(*height)
+        lean = r.uniform(0.05, 0.35)
+        lean_dir = r.uniform(0, 2*math.pi)
+        w = 0.006 + r.random()*0.008
+        pdir = mathutils.Vector((math.cos(lean_dir), math.sin(lean_dir), 0))
+        side = mathutils.Vector((-math.sin(lean_dir), math.cos(lean_dir), 0))
+        b0 = mathutils.Vector((bx, by, 0)) - side*w
+        b1 = mathutils.Vector((bx, by, 0)) + side*w
+        # wygieta zdblka: 3 segmenty ze rosnacym przechyleniem
+        seg_h = h / 3
+        p_cur0, p_cur1 = b0.copy(), b1.copy()
+        bend_axis = mathutils.Vector((-pdir.y, pdir.x, 0)).normalized()
+        for seg in range(3):
+            lean_seg = lean * (0.35 + 0.65*(seg+1)/3)
+            dseg = (pdir*lean_seg + mathutils.Vector((0,0,1))).normalized()
+            n0 = p_cur0 + dseg*seg_h
+            n1 = p_cur1 + dseg*seg_h
+            base = len(verts)
+            verts += [p_cur0, p_cur1, n1, n0]
+            faces.append((base, base+1, base+2, base+3))
+            p_cur0, p_cur1 = n0, n1
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    return ob
+
+def make_grass_material(name, seed):
+    m = bpy.data.materials.new(name); m.use_nodes = True
+    nt = m.node_tree; bsdf = nt.nodes["Principled BSDF"]
+    r = random.Random(seed)
+    tex = ["ground/wet_grass_earth", "ground/forest_soil_sparse_grass"][seed % 2]
+    col = load_img(os.path.join(TEX, f"{tex}_color.png"), f"{name}_c")
+    texc = nt.nodes.new("ShaderNodeTexImage"); texc.image = col
+    mapping = nt.nodes.new("ShaderNodeMapping")
+    mapping.inputs["Scale"].default_value = (r.uniform(3.0, 6.0), r.uniform(3.0, 6.0), 1.0)
+    tco = nt.nodes.new("ShaderNodeTexCoord")
+    nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
+    nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
+    sep = nt.nodes.new("ShaderNodeSeparateXYZ")
+    nt.links.new(tco.outputs["Object"], sep.inputs["Vector"])
+    g = nt.nodes.new("ShaderNodeMapRange")
+    g.inputs["From Min"].default_value = 0.0; g.inputs["From Max"].default_value = 0.28
+    nt.links.new(sep.outputs["Z"], g.inputs["Value"])
+    mixc = nt.nodes.new("ShaderNodeMix"); mixc.data_type = "RGBA"
+    mixc.inputs["Factor"].default_value = 0.55
+    dark = nt.nodes.new("ShaderNodeRGB")
+    dark.outputs[0].default_value = (0.07, 0.095, 0.05, 1.0)
+    nt.links.new(dark.outputs[0], mixc.inputs[6])
+    nt.links.new(texc.outputs["Color"], mixc.inputs[7])
+    nt.links.new(g.outputs["Result"], mixc.inputs["Factor"])
+    nt.links.new(mixc.outputs[2], bsdf.inputs["Base Color"])
+    bsdf.inputs["Roughness"].default_value = 0.9
+    bsdf.inputs["Specular IOR Level"].default_value = 0.1
+    return m
+
+grass_mats = [make_grass_material(f"WELESZA_grass_{i}", 50+i) for i in range(3)]
+for gi, (name, seed) in enumerate([("kepka_trawy_a", 101), ("kepka_trawy_b", 102), ("kepka_trawy_c", 103)]):
+    ob = make_grass_tuft(name, seed)
+    ob.data.materials.append(grass_mats[gi % 3])
+
+def make_fern(name, seed, fronds=8, length=(0.38, 0.62)):
+    import mathutils
+    r = random.Random(seed)
+    mesh = bpy.data.meshes.new(name)
+    ob = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(ob)
+    verts, faces = [], []
+    for fi in range(fronds):
+        ang = r.uniform(0, 2*math.pi)
+        L = r.uniform(*length)
+        tilt = r.uniform(0.5, 1.1)
+        segs = 8
+        prev_dir = mathutils.Vector((math.cos(ang)*math.sin(tilt), math.sin(ang)*math.sin(tilt), math.cos(tilt)))
+        base_i = len(verts)
+        points = [mathutils.Vector((0,0,0))]
+        # wygiecie: kierunek stopniowo bardziej poziomy ku koncowi (luk paproci)
+        d = prev_dir.copy()
+        for si in range(1, segs+1):
+            t = si/segs
+            side0 = mathutils.Vector((-prev_dir.y, prev_dir.x, 0)).normalized()
+            rot_amt = -0.12 * (1 if tilt < 0.8 else 0.4)
+            d.rotate(mathutils.Quaternion(side0, rot_amt))
+            d.z = max(d.z, -0.25)
+            p = points[-1] + d * (L/segs)
+            p.z = max(p.z, 0.01)
+            points.append(p)
+        for si, p in enumerate(points):
+            side = mathutils.Vector((-prev_dir.y, prev_dir.x, 0)).normalized()
+            w = 0.004 * (1 - si/segs*0.5)
+            verts.append(p - side*w)
+            verts.append(p + side*w)
+        for si in range(segs):
+            b = base_i + si*2
+            faces.append((b, b+1, b+3, b+2))
+        for si in range(1, segs):
+            t = si/segs
+            p = points[si]
+            side = mathutils.Vector((-prev_dir.y, prev_dir.x, 0)).normalized()
+            leaf_len = 0.05 + 0.07*(1-t)
+            for sgn in (-1, 1):
+                ldir = (prev_dir*0.3 + side*sgn).normalized()
+                tip = p + ldir*leaf_len
+                tip.z = max(tip.z, 0.005)
+                b = len(verts)
+                verts += [p, p + mathutils.Vector((0,0,0.012)), tip + mathutils.Vector((0,0,0.006)), tip]
+                faces.append((b, b+1, b+2, b+3))
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    return ob
+
+def make_fern_material(name, seed):
+    m = bpy.data.materials.new(name); m.use_nodes = True
+    nt = m.node_tree; bsdf = nt.nodes["Principled BSDF"]
+    r = random.Random(seed)
+    tex = ["ground/dense_forest_moss", "ground/wet_grass_earth"][seed % 2]
+    col = load_img(os.path.join(TEX, f"{tex}_color.png"), f"{name}_c")
+    texc = nt.nodes.new("ShaderNodeTexImage"); texc.image = col
+    mapping = nt.nodes.new("ShaderNodeMapping")
+    mapping.inputs["Scale"].default_value = (r.uniform(4.0, 8.0), r.uniform(4.0, 8.0), 1.0)
+    tco = nt.nodes.new("ShaderNodeTexCoord")
+    nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
+    nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
+    # tekstury biblioteki sa zoltawe — jawna zielec boru modulowana luminancja tekstury
+    lum = nt.nodes.new("ShaderNodeRGBToBW")
+    nt.links.new(texc.outputs["Color"], lum.inputs["Color"])
+    mr = nt.nodes.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.1; mr.inputs["From Max"].default_value = 0.9
+    mr.inputs["To Min"].default_value = 0.45; mr.inputs["To Max"].default_value = 1.15
+    nt.links.new(lum.outputs["Val"], mr.inputs["Value"])
+    base = nt.nodes.new("ShaderNodeRGB")
+    base.outputs[0].default_value = (0.10, 0.16, 0.055, 1.0)  # chlodna zielec
+    mulv = nt.nodes.new("ShaderNodeVectorMath"); mulv.operation = "MULTIPLY"
+    nt.links.new(base.outputs[0], mulv.inputs[0])
+    vv = nt.nodes.new("ShaderNodeCombineXYZ")
+    nt.links.new(mr.outputs["Result"], vv.inputs["X"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Y"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Z"])
+    nt.links.new(vv.outputs["Vector"], mulv.inputs[1])
+    nt.links.new(mulv.outputs["Vector"], bsdf.inputs["Base Color"])
+    bsdf.inputs["Roughness"].default_value = 0.85
+    bsdf.inputs["Specular IOR Level"].default_value = 0.1
+    return m
+
+fern_mats = [make_fern_material(f"WELESZA_fern_{i}", 60+i) for i in range(2)]
+for gi, (name, seed, rot) in enumerate([("paproc_a", 201, 0.4), ("paproc_b", 202, 2.1)]):
+    ob = make_fern(name, seed)
+    ob.data.materials.append(fern_mats[gi % 2])
+    ob.rotation_euler[2] = rot
+
 def make_wood_material(name, seed):
+    """Kora martwego drewna: szarobrazowa ~0.10-0.14 liniowo (korekta oswietlenia
+    przez podbicie do 0.16-0.24 — cienkie karty w cieniu otoczenia)."""
     m = bpy.data.materials.new(name); m.use_nodes = True
     nt = m.node_tree; bsdf = nt.nodes["Principled BSDF"]
     r = random.Random(seed)
     tex = ["bark/old_bark_weathered", "bark/pine_bark_reddish_flaky"][seed % 2]
     col = load_img(os.path.join(TEX, f"{tex}_color.png"), f"{name}_c")
     texc = nt.nodes.new("ShaderNodeTexImage"); texc.image = col
+    tco = nt.nodes.new("ShaderNodeTexCoord")
     mapping = nt.nodes.new("ShaderNodeMapping")
     mapping.inputs["Scale"].default_value = (r.uniform(1.5, 3.0), r.uniform(1.5, 3.0), 1.0)
-    tco = nt.nodes.new("ShaderNodeTexCoord")
     nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
     nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
-    hsv = nt.nodes.new("ShaderNodeHueSaturation")
-    hsv.inputs["Saturation"].default_value = 0.22
-    hsv.inputs["Value"].default_value = 0.85
-    nt.links.new(texc.outputs["Color"], hsv.inputs["Color"])
-    nt.links.new(hsv.outputs["Color"], bsdf.inputs["Base Color"])
+    lum = nt.nodes.new("ShaderNodeRGBToBW")
+    nt.links.new(texc.outputs["Color"], lum.inputs["Color"])
+    mr = nt.nodes.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.0; mr.inputs["From Max"].default_value = 1.0
+    mr.inputs["To Min"].default_value = 0.16; mr.inputs["To Max"].default_value = 0.24
+    nt.links.new(lum.outputs["Val"], mr.inputs["Value"])
+    base = nt.nodes.new("ShaderNodeRGB")
+    base.outputs[0].default_value = (1.0, 0.93, 0.86, 1.0)
+    mulv = nt.nodes.new("ShaderNodeVectorMath"); mulv.operation = "MULTIPLY"
+    nt.links.new(base.outputs[0], mulv.inputs[0])
+    vv = nt.nodes.new("ShaderNodeCombineXYZ")
+    nt.links.new(mr.outputs["Result"], vv.inputs["X"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Y"])
+    nt.links.new(mr.outputs["Result"], vv.inputs["Z"])
+    nt.links.new(vv.outputs["Vector"], mulv.inputs[1])
+    nt.links.new(mulv.outputs["Vector"], bsdf.inputs["Base Color"])
     bsdf.inputs["Roughness"].default_value = 0.95
     return m
 

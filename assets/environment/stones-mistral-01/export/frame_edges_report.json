@@ -1,0 +1,162 @@
+{
+ "kamien_a": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "kamien_b": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "kamien_c": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "glaz": {
+  "frame": [
+   256,
+   256
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "glaz_duzy": {
+  "frame": [
+   512,
+   512
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "kamien_mokry": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "kamien_z_mchem": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "kamien_z_porostami": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "zwir": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "zwir_b": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "zwir_c": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "plyta_kamienna": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "plyta_kamienna_b": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "kepka_trawy_a": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "kepka_trawy_b": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "kepka_trawy_c": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "paproc_a": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "paproc_b": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "chrust_a": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ },
+ "chrust_b": {
+  "frame": [
+   192,
+   192
+  ],
+  "touches_edge": false,
+  "shadow_touches_edge": false
+ }
+}

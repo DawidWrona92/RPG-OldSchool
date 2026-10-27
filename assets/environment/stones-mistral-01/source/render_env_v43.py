@@ -104,6 +104,7 @@ def render_object(obj_name, out_prefix, variants=((0.0, ""), ), spec=None):
     if spec is None: spec = {}
     """Render assetu: warianty rotacji Z; RGBA (sam asset) + osobny cień."""
     ob = bpy.data.objects[obj_name]
+    extras = [bpy.data.objects[e] for e in spec.get("extra", [])] if spec else []
     catcher = bpy.data.objects.get("OdbiornikCienia")
     preview = bpy.data.objects.get("PodgladPodloze")
     meshes = [o for o in bpy.data.objects if o.type == "MESH"]
@@ -117,20 +118,22 @@ def render_object(obj_name, out_prefix, variants=((0.0, ""), ), spec=None):
     ANCHORS[out_prefix] = {"frame": frame, "anchor_px": compute_anchor_px(frame)}
     for rot, suffix in variants:
         ob.rotation_euler[2] = rot
-        # --- RGBA pass: TYLKO asset ---
+        # --- RGBA pass: TYLKO asset (+extra) ---
         for o in meshes:
-            o.hide_render = (o is not ob)
+            o.hide_render = not (o is ob or o in extras)
         sc.render.filepath = os.path.join(OUTDIR, f"{out_prefix}{suffix}.png")
         bpy.ops.render.render(write_still=True)
         # --- shadow pass: obiekt niewidoczny dla kamery, rzuca cień na catcher ---
         for o in meshes:
-            o.hide_render = not (o is ob or o is catcher)
+            o.hide_render = not (o is ob or o is catcher or o in extras)
         if preview is not None:
             preview.hide_render = True
         ob.visible_camera = False
+        for e in extras: e.visible_camera = False
         sc.render.filepath = os.path.join(OUTDIR, f"{out_prefix}{suffix}_shadow_raw.png")
         bpy.ops.render.render(write_still=True)
         ob.visible_camera = True
+        for e in extras: e.visible_camera = True
         # normalizacja cienia: RGB=0, alpha=nasilenie (jak bohater_*_shadow.png)
         import numpy as _np
         from PIL import Image as _Img
@@ -160,8 +163,8 @@ assets = {
     "kamien_a": {"obj": "kamien_a", "variants": ((0.0, ""), (math.radians(47), "_rot47"), (math.radians(113), "_rot113"))},
     "kamien_b": {"obj": "kamien_b", "variants": ((0.0, ""),)},
     "kamien_c": {"obj": "kamien_c", "variants": ((0.0, ""),)},
-    "glaz": {"obj": "glaz", "variants": ((0.0, ""),)},
-    "glaz_duzy": {"obj": "glaz_duzy", "variants": ((0.0, ""),), "frame": 320},
+    "glaz": {"obj": "glaz", "variants": ((0.0, ""),), "frame": 256},
+    "glaz_duzy": {"obj": "glaz_duzy", "variants": ((0.0, ""),), "frame": 512},
     "kamien_mokry": {"obj": "kamien_mokry", "variants": ((0.0, ""),)},
     "kamien_z_mchem": {"obj": "kamien_z_mchem", "variants": ((0.0, ""),)},
     "kamien_z_porostami": {"obj": "kamien_z_porostami", "variants": ((0.0, ""),)},
@@ -177,6 +180,8 @@ assets = {
     "paproc_b": {"obj": "paproc_b", "variants": ((0.0, ""),)},
     "chrust_a": {"obj": "chrust_a", "variants": ((0.0, ""),)},
     "chrust_b": {"obj": "chrust_b", "variants": ((0.0, ""),)},
+    "krzew_a": {"obj": "krzew_a", "extra": ["krzew_a_liscie"], "variants": ((0.0, ""),)},
+    "krzew_b": {"obj": "krzew_b", "extra": ["krzew_b_liscie"], "variants": ((0.0, ""),)},
 }
 rendered = []
 for aid, spec in assets.items():
@@ -188,6 +193,8 @@ for f in rendered:
     src = os.path.join(OUTDIR, f)
     if os.path.exists(src):
         aid = f.split("_rot")[0].replace(".png", "")
+        if aid.endswith("_shadow"):
+            aid = aid[:-7]
         size = ANCHORS.get(aid, {}).get("frame", 192)
         resize_premultiplied(src, src, size)
         final_files.append(f)
