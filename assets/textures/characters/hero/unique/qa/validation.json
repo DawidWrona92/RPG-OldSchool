@@ -1,0 +1,154 @@
+{
+  "status": "PROTOTYPE_NOT_APPROVED",
+  "png": [
+    {
+      "file": "hero_skin_body_basecolor.png",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "mode": "RGB",
+      "bits": 8,
+      "min": 30,
+      "max": 186
+    },
+    {
+      "file": "hero_skin_body_basecolor_2048.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "bits": 8,
+      "min": 23,
+      "max": 195
+    },
+    {
+      "file": "hero_skin_body_roughness.png",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "mode": "L",
+      "bits": 8,
+      "min": 115,
+      "max": 179
+    },
+    {
+      "file": "hero_skin_body_roughness_2048.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "mode": "L",
+      "bits": 8,
+      "min": 115,
+      "max": 181
+    },
+    {
+      "file": "hero_skin_body_normal_opengl.png",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "mode": "RGB",
+      "bits": 8,
+      "min": 24,
+      "max": 255
+    },
+    {
+      "file": "hero_skin_body_normal_opengl_2048.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "bits": 8,
+      "min": 39,
+      "max": 255
+    },
+    {
+      "file": "hero_skin_body_height.png",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "mode": "I;16",
+      "bits": 16,
+      "min": 31807,
+      "max": 33382
+    },
+    {
+      "file": "hero_skin_body_height_2048.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "mode": "I;16",
+      "bits": 16,
+      "min": 32052,
+      "max": 33198
+    },
+    {
+      "file": "hero_skin_body_sss_mask.png",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "mode": "L",
+      "bits": 8,
+      "min": 51,
+      "max": 194
+    },
+    {
+      "file": "hero_skin_body_sss_mask_2048.png",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "mode": "L",
+      "bits": 8,
+      "min": 49,
+      "max": 194
+    },
+    {
+      "file": "hero_eye_iris_basecolor.png",
+      "resolution": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "bits": 8,
+      "min": 0,
+      "max": 255
+    },
+    {
+      "file": "hero_eye_sclera_basecolor.png",
+      "resolution": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bits": 8,
+      "min": 103,
+      "max": 225
+    }
+  ],
+  "opengl_green_height_correlation": 0.9981571643882727,
+  "seam_vertex_samples": {
+    "count": 1137,
+    "median_rgb_8bit": 0.0,
+    "p95_rgb_8bit": 1.0,
+    "max_rgb_8bit": 4.9942779541015625
+  },
+  "seam_vertex_thresholds_rgb_8bit": {
+    "p95_max": 2,
+    "absolute_max": 8
+  },
+  "iris_alpha_bbox": [
+    51,
+    51,
+    461,
+    461
+  ]
+}
