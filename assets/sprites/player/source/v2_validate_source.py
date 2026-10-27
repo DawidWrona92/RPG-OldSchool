@@ -23,6 +23,9 @@ for name,(power,size,color,pos) in expected.items():
     lights[name]={'watts':d.energy,'size_m':d.size,'color':list(d.color),'location_m':list(lamp.location),'rotation_radians':list(lamp.rotation_euler)}
 bg=sc.world.node_tree.nodes.get('Background');assert abs(bg.inputs['Strength'].default_value-.2)<1e-6;assert sc.view_settings.view_transform=='AgX' and sc.view_settings.look=='AgX - Medium High Contrast' and abs(sc.view_settings.exposure+.2)<1e-6
 images=[{'name':i.name,'file':i.filepath,'packed':bool(i.packed_file),'size':list(i.size),'colorspace':i.colorspace_settings.name} for i in bpy.data.images if i.source=='FILE'];assert all(i['packed'] for i in images)
+for entry in images:
+    i=bpy.data.images[entry['name']];entry['packed_sha256']=__import__('hashlib').sha256(i.packed_file.data).hexdigest();external=TEX/Path(i.filepath).name
+    assert external.exists() and entry['packed_sha256']==sha(external),'Spakowany obraz różni się od aktualnego dostarczonego pliku'
 parts=[{'name':o.name,'vertices':len(o.data.vertices),'faces':len(o.data.polygons),'uv_layers':len(o.data.uv_layers),'texture_resolution':o.get('texture_resolution'),'texel_density_px_m':o.get('texel_density_px_m'),'cloth':json.loads(o['cloth_simulation']) if o.get('cloth_simulation') else None,'modifiers':[m.type for m in o.modifiers]} for o in sc.objects if o.get('p2_part')]
 assert all(p['uv_layers']==1 for p in parts);assert not rig.animation_data or not rig.animation_data.action
 hair=[]
