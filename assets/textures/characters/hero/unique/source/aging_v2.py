@@ -105,9 +105,7 @@ def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_p
     crease=np.exp(-((ax-(.19+.51*(6.98-y)+.014*np.sin(y*13)))/.022)**2)*g(.3,6.79,1.4,.26,.34,.45)
     wrinkles+=crease*1.1
     wrinkles+=g(.34,7.04,1.32,.24,.016,.32)*.7
-    for j,cy in enumerate([5.63,5.83,6.02]):
-        curve=cy+.07*x*x+.016*np.sin(x*13+j)
-        wrinkles+=np.exp(-((y-curve)/.018)**2)*neck*.60
+    # No drawn neck creases: remove the horizontal seam-like relief strokes.
     lipcracks=lips*(.5+.5*np.sin(x*175+y*13))**16
     height=.5+detail*(pores*.0017+micro*.0007-wrinkles*.018-lipcracks*.003+bags*.006)
     rough=.61+.018*macro+.014*micro
@@ -191,7 +189,7 @@ def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_p
     color+=detail[...,None]*(pores[...,None]*.60+micro[...,None]*.9)
     sss=np.clip(.25+.48*ears+.33*nose+.27*hands*smooth(4.15,4.55,ax)-.06*scalp,0,1)
     report={'version':3,'status':'PROTOTYPE_NOT_APPROVED','scars':scar_checks,'moles':mole_checks,
-            'jaw_neck_blend_mm':.46*(1800/16.6589),'forehead_creases':3,'crowfeet_per_side':2,'hand_lines':False,'veins':False,'tendons':False,'beard_lower_edge':'asymmetric curved field; 0.41 native units soft fade','recommended_normal_strength':.45,
+            'jaw_neck_blend_mm':.46*(1800/16.6589),'forehead_creases':3,'crowfeet_per_side':2,'neck_crease_strokes':False,'hand_lines':False,'veins':False,'tendons':False,'beard_lower_edge':'asymmetric curved field; 0.41 native units soft fade','recommended_normal_strength':.45,
             'scar_roughness':.43,'scar_height':.4965,'scar_tissue_rgb':[188,158,135],
             'tattoos':False,'fresh_wounds':False,'lighting_baked':False,
             'note':'Masks use native 3D coordinates. Counts confirm marks intersect the UV interior; artistic acceptance requires render review.'}

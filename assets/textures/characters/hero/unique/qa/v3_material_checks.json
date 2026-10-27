@@ -56,6 +56,7 @@
   "jaw_neck_blend_mm": 49.70316167333978,
   "forehead_creases": 3,
   "crowfeet_per_side": 2,
+  "neck_crease_strokes": false,
   "hand_lines": false,
   "veins": false,
   "tendons": false,

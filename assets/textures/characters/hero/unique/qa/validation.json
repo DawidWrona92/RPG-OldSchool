@@ -134,7 +134,7 @@
       "max": 225
     }
   ],
-  "opengl_green_height_correlation": 0.9984547353230235,
+  "opengl_green_height_correlation": 0.9984604117538326,
   "seam_vertex_samples": {
     "count": 1137,
     "median_rgb_8bit": 0.0,

@@ -4,6 +4,8 @@
 
 ## Zmiany po review v2
 
+**Drobna korekta po review v3:** usunięto wszystkie rysowane poziome bruzdy szyi z height, pochodnej normalnej i modulacji szorstkości. Opalenizna i rozmyta granica zarostu pozostają bez zmian. Podglądy v3 i manifest odświeżono przy normal 0,45.
+
 - **Czoło:** trzy poziome bruzdy wyłącznie nad brwiami w środkowej części. Mają różne długości, przesunięcia, krzywizny, szerokości i głębokości oraz łagodne, nierówne zakończenia. Brak sinusoidalnego rytmu i bruzd biegnących przez skronie; maska tych bruzd jest na skroniach zerowa.
 - **Kurze łapki:** po dwie krótkie, płytkie linie przy zewnętrznym kąciku oka, z lekką asymetrią. Bruzdy nosowo-wargowe pozostają bez zmian.
 - **Dłonie i przedramiona:** całkowicie usunięto sinusoidalne kreski z pigmentu i height, więc także z pochodnej normalnej; usunięto pola żył i ścięgien oraz ich kolor. Zostały delikatnie ciemniejsze, zaokrąglone knykcie, miękkie zgrubienia i subtelny, rozproszony brud w zagłębieniach oraz przy paznokciach. Nie rysujemy linii zagłębień. Usunięto też cienką bliznę dłoni wraz z pozostałymi kreskami; pozostają **dwie wygojone blizny twarzy i dwa pieprzyki**.

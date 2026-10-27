@@ -7,6 +7,7 @@
   "main_base_commit": "9bf3ff94dfa62aad057594425f4f4bf2b0a44208",
   "previous_work_commit": "27017148d13eb9c422ff54da760775f7eb16a331",
   "material_version": 3,
+  "revision": "neck crease removal after bc1da51",
   "author_direction_main_commit": "0d52d9efc9986db123affdc132290efcf05483e1",
   "mesh": {
     "repository": "DawidWrona92/RPG-OldSchool",
@@ -27,7 +28,7 @@
   "files": [
     {
       "file": "README.md",
-      "sha256": "be820050e2489b5478574b1e326763349842c4b8f702b691d9ca39d2909d4fad",
+      "sha256": "387332c7d62aad67735d9b4ab2200b53428aff8f4b777c6eee8a63d6c3c50f79",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
@@ -153,7 +154,7 @@
     },
     {
       "file": "hero_skin_body_height.png",
-      "sha256": "e399b1327efc81e43c401d7d6d16174bd170b74b550201b75a8c653c5a6a44e7",
+      "sha256": "9e455425c93b1a99ed2b57c1356501083a649d8aad3e2ab42ebdab507790218e",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         4096,
@@ -163,7 +164,7 @@
       "bit_depth": 16,
       "map": "height",
       "color_space": "linear / Non-Color",
-      "method": "16-bit linear scalar microrelief: pores, forehead/crowfeet/nasolabial creases, neck folds, eye bags, subtle rounded knuckle calluses, shallow healed facial scars and lip cracks; no hand lines, veins or tendons. Neutral 0.5; proposed full range 0.002 m; no high-poly sculpt.",
+      "method": "16-bit linear scalar microrelief: pores, forehead/crowfeet/nasolabial creases, eye bags, subtle rounded knuckle calluses, shallow healed facial scars and lip cracks; no hand lines, veins or tendons. Neutral 0.5; proposed full range 0.002 m; no high-poly sculpt.",
       "tools": [
         "CPython 3.12.14",
         "NumPy 2.3.5",
@@ -182,7 +183,7 @@
     },
     {
       "file": "hero_skin_body_height_2048.png",
-      "sha256": "293fe1a3ca7591ccb1f0127b43d534a08cc7ed7cf9a9fc3f7b5c01ae126fed5b",
+      "sha256": "47fc6313d577ca21640c80f80339e952fc3020641874efe1fda375d81c18ee16",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         2048,
@@ -192,7 +193,7 @@
       "bit_depth": 16,
       "map": "height",
       "color_space": "linear / Non-Color",
-      "method": "16-bit linear scalar microrelief: pores, forehead/crowfeet/nasolabial creases, neck folds, eye bags, subtle rounded knuckle calluses, shallow healed facial scars and lip cracks; no hand lines, veins or tendons. Neutral 0.5; proposed full range 0.002 m; no high-poly sculpt. 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.",
+      "method": "16-bit linear scalar microrelief: pores, forehead/crowfeet/nasolabial creases, eye bags, subtle rounded knuckle calluses, shallow healed facial scars and lip cracks; no hand lines, veins or tendons. Neutral 0.5; proposed full range 0.002 m; no high-poly sculpt. 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.",
       "tools": [
         "CPython 3.12.14",
         "NumPy 2.3.5",
@@ -211,7 +212,7 @@
     },
     {
       "file": "hero_skin_body_normal_opengl.png",
-      "sha256": "6235fd8bfafd3887f2f9fa9e544030371fe4fb5d636b2cb04a9adbb5df538446",
+      "sha256": "8a95d43a6a98c442e8dcfc5b2bcc233e76e0c1dbfd462ea9c02c35f09396851d",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         4096,
@@ -240,7 +241,7 @@
     },
     {
       "file": "hero_skin_body_normal_opengl_2048.png",
-      "sha256": "cc6996a83621336e3a948076c0afedfd0fbe05b7e85c118a30b2fbaa849a9b96",
+      "sha256": "1da0114952efd6510c81f712649faa8db3a0fb73c831a7535ba6a381637abe05",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         2048,
@@ -269,7 +270,7 @@
     },
     {
       "file": "hero_skin_body_roughness.png",
-      "sha256": "3c402960d4f28a7f2e4f7b40dc64bcc2a644f9045ee4b54004a52ebe70bff0a5",
+      "sha256": "ccfbfa2f648facd4f132741ded60621bfa668c71e7fa4036d2c06440a44a4c7f",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         4096,
@@ -298,7 +299,7 @@
     },
     {
       "file": "hero_skin_body_roughness_2048.png",
-      "sha256": "6d77c5c19117d0cf9199166e1f77d0947c3d31b6ed0ef64ddeb79ff739e64a7b",
+      "sha256": "828e0b7b1228011e7c9c48f9269ab77921326c52837cc658cb5e334ea67087d4",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         2048,
@@ -385,7 +386,7 @@
     },
     {
       "file": "podglad/skin_back.png",
-      "sha256": "fbd296edb5f2d4c42c57d039c8fb685ab570d9a9f68937d0058bc227965d2b64",
+      "sha256": "f711cc6410c9f1ac15706cc1d815a3796acfdd938003298cd25d29aabf6ff5a1",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -412,7 +413,7 @@
     },
     {
       "file": "podglad/skin_body_back.png",
-      "sha256": "21c208eb60a20915bd6350dcb3cd39279fe6c6ba2f32a31156c6ec1d186b73b7",
+      "sha256": "79c63727647b3e8b90494b04d190033b6c76b0032f45b1f441612afab6654e43",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -439,7 +440,7 @@
     },
     {
       "file": "podglad/skin_body_front.png",
-      "sha256": "d039047c2eea4aae409d897d52b787293b38a1f367b195f6800862d8bbb9dada",
+      "sha256": "3c099be775ff969cfa9e4159abda7511d5fe22aef4accc8cbac17bca80946e08",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -466,7 +467,7 @@
     },
     {
       "file": "podglad/skin_body_profile.png",
-      "sha256": "45c114516f18944f552c33a4a947e8b883f39f01612774d7e5d8461fc42593ad",
+      "sha256": "69d63ed9abd358cb61f81d9051ae5b42c8c06296e7ea87165527ec800f5c9458",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -493,7 +494,7 @@
     },
     {
       "file": "podglad/skin_front.png",
-      "sha256": "8b322f53e3184b48320becaddd858709b5e75f4e6db35b3e80128067d5bcb10a",
+      "sha256": "9b99c5f864cf8211ebaa2107e2823192e51fe06ecb0a0f553568e288c8ee37d5",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -520,7 +521,7 @@
     },
     {
       "file": "podglad/skin_hands_back.png",
-      "sha256": "3d8d57119c6d108356af7f1484d00c66889dd1ee0fc15936f028438150aea77e",
+      "sha256": "f3639291099b235ed8ba03c771d47ba0a2228d19d27193e9f79394db0216aedd",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -547,7 +548,7 @@
     },
     {
       "file": "podglad/skin_hands_dorsal.png",
-      "sha256": "0da6f50b115a3e1c296075f70ed546a599419cdda7a15ed806630de234e5911f",
+      "sha256": "da3fb88a69e6f337c267f6878af6c431b92e32b660ee44aedaeb2f31c613299b",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -574,7 +575,7 @@
     },
     {
       "file": "podglad/skin_hands_front.png",
-      "sha256": "8a13016be73928e9e0671e5bf26d09b3a030ec05222389196e2913c330faa083",
+      "sha256": "5cb0761b6b18b200839cd8f306e775ded6e41094e09afc03d5e7efceafd32d0a",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -601,7 +602,7 @@
     },
     {
       "file": "podglad/skin_profile.png",
-      "sha256": "9e2dcea0fa6481c8602018a872260ffc828e3cbb6aad54a2d5db12fb407c8c1e",
+      "sha256": "c5fc6682fe2e28a2ef2b994e388b8ed3eb15cf115d7120e09d0ed709c0656b17",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -928,7 +929,7 @@
     },
     {
       "file": "podglad/v3/after/skin_front.png",
-      "sha256": "8b322f53e3184b48320becaddd858709b5e75f4e6db35b3e80128067d5bcb10a",
+      "sha256": "9b99c5f864cf8211ebaa2107e2823192e51fe06ecb0a0f553568e288c8ee37d5",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -955,7 +956,7 @@
     },
     {
       "file": "podglad/v3/after/skin_hands_dorsal.png",
-      "sha256": "0da6f50b115a3e1c296075f70ed546a599419cdda7a15ed806630de234e5911f",
+      "sha256": "da3fb88a69e6f337c267f6878af6c431b92e32b660ee44aedaeb2f31c613299b",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -982,7 +983,7 @@
     },
     {
       "file": "podglad/v3/after/skin_profile.png",
-      "sha256": "9e2dcea0fa6481c8602018a872260ffc828e3cbb6aad54a2d5db12fb407c8c1e",
+      "sha256": "c5fc6682fe2e28a2ef2b994e388b8ed3eb15cf115d7120e09d0ed709c0656b17",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -1090,7 +1091,7 @@
     },
     {
       "file": "podglad/v3/porownanie.png",
-      "sha256": "754adb0aadddc76c54ff9e1033ef49de2d91458f2caceebb7aff2ae2023828ad",
+      "sha256": "f91f3ff4ab2dbc8a5933dc8bbbc08e8144d7b36c99246abcb50354179b0e6cd9",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         1536,
@@ -1138,7 +1139,7 @@
     },
     {
       "file": "qa/v3_material_checks.json",
-      "sha256": "2b2092a53357ee4dabcbea19f67c4c4d2db1ed6de5988992603757f1a0781971",
+      "sha256": "136aae0fef84847f2293e0f903d39525423dba21ea57595e70748b22caf12e86",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
@@ -1156,7 +1157,7 @@
     },
     {
       "file": "qa/validation.json",
-      "sha256": "a7db6ca182674ff92f0e712528a417165e9ea0acfe93a9641a7e7e01face945a",
+      "sha256": "99e1e8269ced6df1172a18cdf28224ce1b167809c012163053dddfa96181408f",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
@@ -1210,7 +1211,7 @@
     },
     {
       "file": "source/aging_v2.py",
-      "sha256": "127a40ea246a1997aca15b4803f7c316bd1da68229a9ae57d912bd88a2384d26",
+      "sha256": "dab6b12646ac3492dd84a46a8973b9dfc81d54c6d6ca5d86438fe5f73a2be21a",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
@@ -1300,7 +1301,7 @@
     },
     {
       "file": "source/write_manifest.py",
-      "sha256": "b6879e7f1f160b15bb2140cd6978d2a8c763ba18be22086289745b023f77c097",
+      "sha256": "7688c309be3de8870af63468543fdff3c3e03151de95f7291b40f96043bf0ced",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
