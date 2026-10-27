@@ -27,14 +27,14 @@
       "file": "bohater_spoczynek.png",
       "frames": 8,
       "durations_ms": [
-        180,
-        180,
-        180,
-        180,
-        180,
-        180,
-        180,
-        180
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
       ],
       "loop": true,
       "events": {}

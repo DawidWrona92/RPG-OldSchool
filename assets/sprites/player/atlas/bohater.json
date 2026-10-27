@@ -28,14 +28,14 @@
       "shadow_file": "bohater_spoczynek_shadow.png",
       "frames": 8,
       "durations_ms": [
-        180,
-        180,
-        180,
-        180,
-        180,
-        180,
-        180,
-        180
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
       ],
       "loop": true,
       "events": {}

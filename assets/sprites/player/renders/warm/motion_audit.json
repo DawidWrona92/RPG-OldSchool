@@ -1,0 +1,57 @@
+{
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "anchor_px": [
+    96,
+    158.35382907247958
+  ],
+  "generator_sha256": "8958b36429532c4267229efd49efd3a7e7124053f68e1b0bfe37fd8376af12e7",
+  "render": {
+    "blender": "4.3.2",
+    "engine": "CYCLES",
+    "samples": 64,
+    "shadow_samples": 16,
+    "size_px": 384,
+    "seed": 1703,
+    "denoising": false,
+    "threads": 4,
+    "lighting": "warm"
+  },
+  "frames": {
+    "spoczynek_1_00.png": {
+      "feet": {
+        "L": {
+          "ankle_m": [
+            0.04500000178813934,
+            0.12600000202655792,
+            0.07779999822378159
+          ],
+          "stance": false,
+          "pitch_rad": 0
+        },
+        "R": {
+          "ankle_m": [
+            -0.04500000178813934,
+            -0.12600000202655792,
+            0.07779999822378159
+          ],
+          "stance": false,
+          "pitch_rad": 0
+        }
+      },
+      "max_joint_gap_m": 1.519626234052415e-07,
+      "max_bone_length_error_m": 1.0377583375964505e-07,
+      "phase": 0.0,
+      "image_sha256": "e54ed240109a4bab0ae480184bc92d550e6e76f008d7dc484eb02fd188c52a9f",
+      "shadow_sha256": "8b9ff52221436f183745b8f220794c580f65605d24022b91ca7196ced5000aa1"
+    }
+  }
+}

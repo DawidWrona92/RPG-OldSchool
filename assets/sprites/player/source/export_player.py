@@ -91,6 +91,12 @@ def make_previews(frames,shadows):
                          duration=[DURATIONS[anim]]*count,loop=0,disposal=2)
         sequence[0].save(previews/f'bohater_{anim}.webp',save_all=True,append_images=sequence[1:],
                          duration=DURATIONS[anim],loop=0,lossless=True)
+    for d,label in enumerate(DIRECTIONS):
+        contact=Image.new('RGB',(768,576),BACKGROUND[:3])
+        for f in range(12):
+            contact.paste(on_background(frames['chod'][d][f],shadows['chod'][d][f]),(f%4*192,f//4*192))
+            ImageDraw.Draw(contact).text((f%4*192+8,f//4*192+8),f'{label} / {f:02} / 1:1',fill=(215,210,190))
+        contact.save(previews/f'chod-klatki-{label}-1x.png')
     # A moving ground grid makes incorrect root speed / planted-foot drift
     # visible; the character remains at the same export anchor.
     sequence=[]
@@ -109,7 +115,7 @@ def make_previews(frames,shadows):
     reference=REPO/'docs/koncepty/12-scena-postac-z-porozem-i-toporem.jpg'
     world=Image.open(reference).convert('RGBA')
     draw=ImageDraw.Draw(world)
-    positions=[((650,655),'base','ziemia / światło bazowe'),
+    positions=[((810,735),'base','ziemia / światło bazowe'),
                ((925,640),'cool','chłodny wariant'),((1210,760),'warm','lokalna pochodnia')]
     variants=[]
     for (x,y),variant,label in positions:

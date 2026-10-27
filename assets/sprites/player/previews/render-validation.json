@@ -1,6 +1,10 @@
 {
   "reproduction": {
-    "status": "not_run / weapon-only diagnostic"
+    "source": "source/bohater.blend",
+    "frame": "spoczynek_0_00.png",
+    "identical_decoded_pixels": true,
+    "mean_decoded_rgba_error": 0.0,
+    "max_decoded_rgba_error": 0.0
   },
   "anchor_projection_px": [
     95.99995994567871,
