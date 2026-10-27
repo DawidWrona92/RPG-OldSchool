@@ -7,7 +7,7 @@ TAU=math.tau
 RIG=None
 CAPE=None
 REST={}
-RIGHT_HAND_CARRY=(.19,-.335,1.025)
+RIGHT_HAND_CARRY=(.01,-.40,1.07)
 
 def bind():
     global RIG,CAPE,REST
