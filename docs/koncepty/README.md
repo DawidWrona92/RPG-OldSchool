@@ -47,6 +47,7 @@ Makiety pokazują docelowy nastrój: ciemna, mokra ziemia, ciepłe punktowe świ
 ## Jak korzystać z referencji
 
 - Zachowuj czytelne sylwetki i rekwizyty zgodne z zatwierdzonymi kartami bestiariusza.
+- **[DECYZJA AUTORA, 27.10.2026] Zapisane wymagania są nadrzędne wobec konceptów:** plan, brief, kontrakt renderu i zapisane decyzje autora mają pierwszeństwo przed ilustracją. Koncept służy do wyglądu i nastroju tam, gdzie wymagania milczą.
 - Przy sprzeczności między ilustracją a fabułą lub opisem postaci zgłoś ją autorowi; nie ustanawiaj samodzielnie kanonu.
 - Obrazy 12–16 pokazują klimat, perspektywę i gęstość świata; nie są potwierdzonym rozmieszczeniem przeszkód ani zdefiniowaną geometrią.
 - Nie kopiuj całego tła ze szkicu jako części sprite'a pojedynczej postaci.
