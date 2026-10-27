@@ -37,3 +37,5 @@ Każda baza: `*_basecolor.png` (sRGB), `*_roughness.png`, `*_height.png`, `*_nor
 ## Granice paczki
 
 To zestaw niezależnych materiałów i nakładek, **nie kompletna mapa UV specyficzna dla modelu**. Nie naprawi sylwetki, riggu, ruchu miecza, deformacji płaszcza ani wyglądu twarzy. Nie umieszczać na `main` jako artystycznie zatwierdzonych przed renderem testowym. Zobacz `manifest.chunk03.json` oraz `CODEX_HANDOFF.chunk03.md`.
+
+**Uwaga o plikach przezroczystych:** decale błota i szwy zostały zapisane jako paletowane PNG (color type 3 z tRNS), które po wczytaniu zachowują alfę/RGBA. Dzięki temu mieszczą się w limicie odczytu GitHub Contents API. Maska alpha nadal wymaga odpowiedniego podłączenia w shaderze.
