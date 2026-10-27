@@ -1,5 +1,11 @@
 # Bohater Weleszy — dopracowanie prototypu Blender → prerender
 
+**Aktualna praca: statyczny pass detali po nowych artach autora.**
+[Przegląd](reviews/detale-01/index.html) · [opis zmian](DETAIL_REVIEW.md) ·
+[model roboczy](source/bohater_detale.blend).
+Model `source/bohater.blend` i komplet atlasów poniżej zachowują poprzednią
+rewizję 08; nowych detali nie włączono jeszcze do pełnego eksportu animacji.
+
 Kierunek sylwetki i pipeline zatwierdzony przez autora; **bieżące dopracowanie
 czeka na ponowną ocenę**. Nie jest zatwierdzonym assetem produkcyjnym.
 Gałąź `vibe/sprite-bohater-codex`; punkt porównawczy `a0a6c27` zachowany w Git
@@ -35,7 +41,7 @@ blender -b assets/sprites/player/source/bohater.blend -t 4 --python-exit-code 1 
   --python assets/sprites/player/source/render_player.py -- --pilot --sheathed
 ```
 
-Przy zmianie `.blend` renderuj bez `--resume`; poprzedni cache jest odrzucany.
+Przy zmianie `.blend` można renderować bez `--resume`. Skrypt pipeline z `--resume` ponawia tylko niezgodne składniki, zachowując zgodne; bezpośredni renderer nadal odrzuca cache innego źródła.
 Audyt zawiera SHA-256 faktycznego `.blend`, renderera i obu plików każdej klatki.
 Zapisuje się atomowo po klatce. Parametry i komplet audytu sprawdza eksporter.
 Przed ręczną edycją zapisuj commit, a po niej aktualizuj opis źródła w
