@@ -45,9 +45,9 @@ D2 jest warunkiem równoległej pracy: tekstura skóry GPT 6 powstaje na natywny
 - **Wydanie dla GPT 6 (przekazanie P1):** render siatki ciała w pozie spoczynkowej (przód, profil, ¾) z nałożonym szablonem UV, aby potwierdzić, że UV jest natywne.
 
 ### F2 — Głowa (Sol, równolegle z F3; tekstury GPT 6 równolegle)
-- Rzeźba twarzy według [konceptu twarzy 19](../../koncepty/19-bohater-twarz.md) (strój nadal według 17), postarzona zgodnie z decyzją autora (głębsze bruzdy i zmarszczki, zapadnięte policzki, wyraźne łuki brwiowe i żuchwa; blizny i pieprzyki z tekstury GPT 6) — jako kształt na tej samej topologii.
-- Oczy: kula oka z rogówką i osobną teksturą tęczówki od GPT 6; powieki nachodzą na oko bez przenikania na zewnątrz.
-- Włosy krótkie, ciemne i **przyprószone siwizną** (decyzja autora 27.10.2026), potargane, zaczesane do tyłu i na bok (krzywe); brwi i zarost z krótkich włókien z domieszką siwych **oraz** w teksturze skóry (cień zarostu).
+- Rzeźba twarzy według [konceptu twarzy 19](../../koncepty/19-bohater-twarz.md) (strój nadal według 17), postarzona zgodnie z decyzją autora: ciężkie łuki brwiowe, pionowa zmarszczka gniewna, głębokie bruzdy czoła i nosowo-wargowe, worki pod oczami, mocna, pełna żuchwa i prosty nos (policzki **nie** zapadnięte); wyraz zmęczony i surowy. Blizny i pieprzyki są w teksturze — nie modeluj ich osobno.
+- Oczy: **szarozielone** jak w koncepcie 19; kula oka z rogówką i osobną teksturą tęczówki od GPT 6; powieki nachodzą na oko bez przenikania na zewnątrz.
+- Włosy **średniej długości, do linii żuchwy**, potargane, pasma opadają na czoło i uszy (długość według konceptu 19, decyzja autora 27.10.2026); ciemnobrązowe i **przyprószone siwizną** (decyzja autora); krzywe. Zarost gęsty, kilkudniowy do krótkiej brody, z wąsem; brwi gęste. Brwi i zarost z krótkich włókien z domieszką siwych **oraz** w teksturze skóry (cień zarostu).
 - Skóra: Principled BSDF z teksturami GPT 6, SSS 0,2–0,3, promienie czerwień > zieleń > niebieski.
 
 ### F3 — Strój od nowa, warstwami (Sol)

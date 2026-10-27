@@ -10,10 +10,11 @@
 - **Skóra** ogorzała, ciepła, czerwonawa na nosie i policzkach; liczne piegi i plamki słoneczne na czole, policzkach i szyi; widoczne pory.
 - **Blizny:** świeżo zagojone, **różowoczerwone, nierówne, lekko wypukłe** — skośna blizna przez czoło nad lewą brwią postaci (z krzyżującym się krótszym cięciem) i skośna blizna na lewym policzku pod okiem; drobniejsze zadrapania na prawym policzku. Nie są wgłębieniami w skórze.
 - **Zarost:** gęsty, kilkudniowy do krótkiej brody, ciemnobrązowy, z wąsem; linia na policzkach nieregularna, schodzi na szyję stopniowo.
+- **Oczy:** szarozielone (szaroorzechowe), głęboko osadzone pod ciężkimi brwiami.
 - **Włosy:** ciemnobrązowe, **średniej długości** (do linii żuchwy), potargane, pasma opadają na czoło i uszy.
 
 ## Uwagi dla wykonawców
 
 - Twarz z tego konceptu ma pierwszeństwo przed twarzą z planszy [17](17-bohater-i-woz.md) przy rzeźbie głowy i teksturze skóry; strój nadal według planszy 17.
-- **Do decyzji autora:** koncept pokazuje włosy średniej długości bez siwizny, a [plan naprawy](../art/characters/PLAN-NAPRAWY-BOHATERA.md) mówi o krótkich włosach przyprószonych siwizną.
+- **Decyzja autora (27.10.2026):** z konceptu bierzemy **długość włosów** (średnia, do linii żuchwy); włosy i zarost zostają **przyprószone siwizną**, choć koncept jej nie pokazuje. Szczegóły w [planie naprawy](../art/characters/PLAN-NAPRAWY-BOHATERA.md).
 - Koncept wygenerowano jako obraz; nie zawiera warstw, modelu ani źródeł renderu. Sprite'y produkujemy zgodnie z [kontraktem renderu](../art/KONTRAKT-RENDERU.md).
