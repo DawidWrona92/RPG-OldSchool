@@ -1,0 +1,169 @@
+{
+  "source_blend_sha256": "0411628ef7760a9c4c57b6cf0e5dca444f9f8cb3378a4d804bd8729048360f6e",
+  "native_uv_max_float_error": 2.9796600298226394e-08,
+  "vertices": 19158,
+  "body_faces": 13378,
+  "native_loop_count": 53512,
+  "bone_count": 163,
+  "body_weight_sum_range": [
+    0.9999999552965164,
+    1.0000000447034836
+  ],
+  "poses": [
+    {
+      "pose": "barki",
+      "rotations_deg": {
+        "upperarm01.L": [
+          0,
+          0,
+          45
+        ],
+        "upperarm01.R": [
+          0,
+          0,
+          -45
+        ]
+      },
+      "moved_vertices_over_1mm": 5982,
+      "max_displacement_m": 0.4733323525341867,
+      "max_bone_length_error_m": 1.1920928955078125e-07,
+      "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
+    },
+    {
+      "pose": "lokcie",
+      "rotations_deg": {
+        "lowerarm01.L": [
+          65,
+          0,
+          0
+        ],
+        "lowerarm01.R": [
+          65,
+          0,
+          0
+        ]
+      },
+      "moved_vertices_over_1mm": 4542,
+      "max_displacement_m": 0.4533520040353875,
+      "max_bone_length_error_m": 1.1920928955078125e-07,
+      "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
+    },
+    {
+      "pose": "nadgarstki",
+      "rotations_deg": {
+        "wrist.L": [
+          25,
+          0,
+          15
+        ],
+        "wrist.R": [
+          -25,
+          0,
+          -15
+        ]
+      },
+      "moved_vertices_over_1mm": 3710,
+      "max_displacement_m": 0.0949091559117401,
+      "max_bone_length_error_m": 1.1920928955078125e-07,
+      "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
+    },
+    {
+      "pose": "palce",
+      "rotations_deg": {
+        "finger1-1.L": [
+          35,
+          0,
+          0
+        ],
+        "finger1-1.R": [
+          35,
+          0,
+          0
+        ],
+        "finger2-1.L": [
+          35,
+          0,
+          0
+        ],
+        "finger2-1.R": [
+          35,
+          0,
+          0
+        ],
+        "finger3-1.L": [
+          35,
+          0,
+          0
+        ],
+        "finger3-1.R": [
+          35,
+          0,
+          0
+        ],
+        "finger4-1.L": [
+          35,
+          0,
+          0
+        ],
+        "finger4-1.R": [
+          35,
+          0,
+          0
+        ],
+        "finger5-1.L": [
+          35,
+          0,
+          0
+        ],
+        "finger5-1.R": [
+          35,
+          0,
+          0
+        ]
+      },
+      "moved_vertices_over_1mm": 3100,
+      "max_displacement_m": 0.057199789912113407,
+      "max_bone_length_error_m": 1.1920928955078125e-07,
+      "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
+    },
+    {
+      "pose": "kolana",
+      "rotations_deg": {
+        "lowerleg01.L": [
+          55,
+          0,
+          0
+        ],
+        "lowerleg01.R": [
+          55,
+          0,
+          0
+        ]
+      },
+      "moved_vertices_over_1mm": 4360,
+      "max_displacement_m": 0.5122004458949377,
+      "max_bone_length_error_m": 1.1920928955078125e-07,
+      "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
+    },
+    {
+      "pose": "skret_przedramion",
+      "rotations_deg": {
+        "lowerarm02.L": [
+          0,
+          45,
+          0
+        ],
+        "lowerarm02.R": [
+          0,
+          -45,
+          0
+        ]
+      },
+      "moved_vertices_over_1mm": 4050,
+      "max_displacement_m": 0.08118289527625704,
+      "max_bone_length_error_m": 1.1920928955078125e-07,
+      "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
+    }
+  ],
+  "B1": "DO_OCENY_AUTORA; liczby nie dowodz\u0105 braku zapadni\u0119\u0107"
+}

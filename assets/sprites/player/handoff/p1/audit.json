@@ -1,0 +1,74 @@
+{
+  "source_blend_sha256": "0411628ef7760a9c4c57b6cf0e5dca444f9f8cb3378a4d804bd8729048360f6e",
+  "renderer_sha256": "e5a24314f691bec881e45afad27eadd47d0479c701168034b4dea5e9d1324341",
+  "mode": "p1",
+  "blender": "4.3.2",
+  "samples": 64,
+  "shadow_samples": 16,
+  "frames": {
+    "p1_0.png": {
+      "image_sha256": "433b7f7c9b606dbe83cab374083f618a04210bd441eb0dd2a38c24fa6910fa42",
+      "shadow_sha256": "cae85cf80dff6191f06065f022d23ebe2c529fcd21ea13eee677f67514a6b4dc",
+      "direction_index": 0,
+      "anchor_px": [
+        384.0000915527344,
+        723.3489017486572
+      ],
+      "size": 768,
+      "ortho_scale": 2.1500000953674316,
+      "camera_location": [
+        6.0,
+        0.0,
+        0.949999988079071
+      ],
+      "camera_rotation": [
+        1.5707963705062866,
+        -0.0,
+        1.5707963705062866
+      ]
+    },
+    "p1_2.png": {
+      "image_sha256": "bc16e1c09c3550cd9b316fdcbfbcc972998ffafcd1c5e836b69ab19ce7f85831",
+      "shadow_sha256": "34acc08e4b263704a711743551078986ce67a875c8583f0839777b5a8d1d0648",
+      "direction_index": 2,
+      "anchor_px": [
+        384.0000915527344,
+        723.3489017486572
+      ],
+      "size": 768,
+      "ortho_scale": 2.1500000953674316,
+      "camera_location": [
+        6.0,
+        0.0,
+        0.949999988079071
+      ],
+      "camera_rotation": [
+        1.5707963705062866,
+        -0.0,
+        1.5707963705062866
+      ]
+    },
+    "p1_1.png": {
+      "image_sha256": "fd4f27187a905cd38506dcbd5e45f5a2e336adb6ac68595a29fcd9bf1ec193bb",
+      "shadow_sha256": "b8b880d30243a6ed938bbad797f45684a00abe95492e0997f52f6237bbb98850",
+      "direction_index": 1,
+      "anchor_px": [
+        384.0000915527344,
+        723.3489017486572
+      ],
+      "size": 768,
+      "ortho_scale": 2.1500000953674316,
+      "camera_location": [
+        6.0,
+        0.0,
+        0.949999988079071
+      ],
+      "camera_rotation": [
+        1.5707963705062866,
+        -0.0,
+        1.5707963705062866
+      ]
+    }
+  },
+  "note": "Statyczna bramka przed B2; bez animacji i bez atlasu."
+}
