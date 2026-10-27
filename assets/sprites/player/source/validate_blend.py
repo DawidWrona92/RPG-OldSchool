@@ -11,11 +11,10 @@ from pathlib import Path
 import bpy
 
 HERE=Path(__file__).resolve().parent
-spec=importlib.util.spec_from_file_location('welesza_player',HERE/'build_player.py')
-module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
-module.load_anatomy()
-module.RIG=bpy.data.objects['Bohater_RIG']
-module.CAPE=bpy.data.objects['Krótki płaszcz / miękkie fałdy']
+import sys
+sys.path.insert(0,str(HERE))
+import motion_player as module
+module.bind()
 rig=module.RIG;cape=module.CAPE.data.shape_keys;scene=bpy.context.scene
 rig.animation_data.action=None;cape.animation_data_clear()
 max_gap=0;max_length=0;max_target=0;poses=0
@@ -43,7 +42,7 @@ action_error=0;keys_checked=0
 for anim,count,step in [('spoczynek',8,10),('chod',12,2)]:
     for i in range(count+1):
         rig.animation_data.action=bpy.data.actions[anim]
-        cape.animation_data_create();cape.animation_data.action=bpy.data.actions[anim+' / płaszcz']
+        cape.animation_data_create();cape.animation_data.action=bpy.data.actions[anim+' / Krótki płaszcz / miękkie fałdy']
         frame=1+i*step;scene.frame_set(math.floor(frame),subframe=frame%1)
         actual={b.name:b.matrix.copy() for b in rig.pose.bones}
         rig.animation_data.action=None;cape.animation_data.action=None

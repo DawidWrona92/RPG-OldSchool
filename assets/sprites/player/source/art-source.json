@@ -1,0 +1,94 @@
+{
+  "baseline_commit": "a0a6c27e33b5d634e1ccad59e7634e4ab4d7ccde",
+  "art_revision": "refinement-01",
+  "authoritative_source": "source/bohater.blend",
+  "source_sha256": "0f21b8c791b0d181cef4a9109d4f38381c8dd0b13d697261bf818178eb26ae84",
+  "textures_packed": true,
+  "materials": {
+    "Znoszony len": [
+      "linen_shirt_worn",
+      1.0,
+      0.88,
+      0.00032
+    ],
+    "Mokry płaszcz / ciemnobrązowa wełna": [
+      "wool_cloak_dark_brown",
+      0.85,
+      0.91,
+      0.0005
+    ],
+    "Przetarta warstwa naramienna": [
+      "wool_cloak_dark_brown",
+      0.96,
+      0.89,
+      0.0005
+    ],
+    "Skóra / kaftan i sakwa": [
+      "leather_vest_weathered_brown",
+      0.85,
+      0.54,
+      0.00028
+    ],
+    "Przetarte brzegi skóry": [
+      "leather_vest_weathered_brown",
+      1.1,
+      0.67,
+      0.00028
+    ],
+    "Skóra butów / wilgoć": [
+      "leather_boots_dark_mud",
+      0.9,
+      0.48,
+      0.0003
+    ],
+    "Spodnie / brunatna wełna": [
+      "wool_trousers_charcoal",
+      0.87,
+      0.9,
+      0.00035
+    ],
+    "Plecak / postarzana skóra": [
+      "leather_backpack_aged",
+      0.82,
+      0.62,
+      0.0003
+    ],
+    "Posłanie / zszarzałe płótno": [
+      "canvas_bedroll_ashen",
+      0.91,
+      0.91,
+      0.00045
+    ]
+  },
+  "texture_files_sha256": {
+    "canvas_bedroll_ashen_roughness.png": "c8e004701f07e2f58d9cb5bd7d7de8120339655e4ec44c644beb251e4333eda8",
+    "leather_boots_dark_mud_height.png": "acdbee22d02039eea7c2ac8c6edc33a9d54440abd0c4a70ca1a074143a389650",
+    "leather_backpack_aged_normal_opengl.png": "140800b3d1f9b92e7df668ad98fc79207f7b235308dae970b6829a181d53a26b",
+    "leather_backpack_aged_basecolor.png": "977dcba13dfc75e436aa530f75e3e121f8a3b587536321b26df0de4002db0b53",
+    "wool_trousers_charcoal_roughness.png": "cc41961cc584cde1d23beac1e273fdb079f59efd3f0bfeb76346a83b6250b3ad",
+    "leather_vest_weathered_brown_height.png": "a53739fe6cc8c7fa669a7fa3d524f2f8f3d7921c818b306a19aebce8a5daa21e",
+    "wool_trousers_charcoal_basecolor.png": "aa2ecd145d6a40a9c4dabd062477b65fa67e67cddb2656d8b7c4d8014c975acb",
+    "wool_cloak_dark_brown_basecolor.png": "f7226c70f6393be1971dadd929f71b90a2f94e32c632ad7db19c9cdb2d4d919f",
+    "wool_trousers_charcoal_height.png": "cc1a3b5e29a4b269e3b8d73d4b325e37662d66cd0b6b9273c25fd80f76216a0b",
+    "leather_backpack_aged_roughness.png": "12c50f8de401bae0b7ac455801dfd64e49e9a3852d799a7247b7b1e8d23d2a44",
+    "wool_cloak_dark_brown_roughness.png": "cd2eb8e86fedb99dfa94bd9c7a91df4f7e5d8813439e66ee4dfdba34127c0cf5",
+    "canvas_bedroll_ashen_normal_opengl.png": "4cca07d11b7f95538349003ffdc0f8d8923a26bb938353b6bb5d2cff4ef8165b",
+    "wool_cloak_dark_brown_height.png": "b51cd1b35cfdab5a977dd52b8ec0fdca60c2de4d35dfa0dc1da7ee511095a724",
+    "linen_shirt_worn_height.png": "bd5fd65b2bc653a990d27e8a8b294ee25042f0003fe3fcd036b993a358d8d69a",
+    "leather_vest_weathered_brown_roughness.png": "1746c4cbbc8d5531588371a6b3261910e6f2b95ced0de5feb25a40d9e245444b",
+    "leather_vest_weathered_brown_basecolor.png": "63527316176f461b845b7abca9808b1f7508b355eab1bd887493b9f18838f310",
+    "linen_shirt_worn_normal_opengl.png": "f0e688a646a7c8b1c7d3034f8d152e1ef29592e12ce87145eaf411b26677fa9b",
+    "canvas_bedroll_ashen_basecolor.png": "fc0c8492bdc59fed848404511eaeed8fe7caba6b336acd7804f70483fb81d24f",
+    "canvas_bedroll_ashen_height.png": "19e282cc1d6f71ce118427a37cd56835253520f58f92f88dd9db4eaecab75415",
+    "linen_shirt_worn_basecolor.png": "4939a66e5c018c13de86d3dc9c88386cb19e72ffa86a6cba52db8749dce8d51e",
+    "wool_trousers_charcoal_normal_opengl.png": "cc0cbcbce6da9b6516838da3136611fe7a6fbd3bc3d2860260323ef28c82cb79",
+    "linen_shirt_worn_roughness.png": "2bf76a5e5d0e19b52107eb171949c2a8a578b2d9c3cb86b528adce1d31d97bd8",
+    "leather_boots_dark_mud_roughness.png": "e5507b2680c6f710124d9fd32585764bdbe42132110ccaa9bcce4a1ff7eedc01",
+    "leather_boots_dark_mud_basecolor.png": "a365629cc74191f87c0f9eabf131b15bb08d9e99c042de97764f016004cd0b22",
+    "leather_vest_weathered_brown_normal_opengl.png": "123658a51cc3b8541356599218f5258226f180f9a43086f87feb56d53a6bd4a7",
+    "wool_cloak_dark_brown_normal_opengl.png": "646ef5f098b32018875097bb224cdbe466c5f90a29ced7c300b9354c1b1ab061",
+    "leather_boots_dark_mud_normal_opengl.png": "de2d8838f08cc1bd588506ad085a68935f18074ff8b424cb23d6f0b6d3645aa8",
+    "leather_backpack_aged_height.png": "822bae03020fbddd642bbe645fde6f63359ba5984624050172c49dc7a2da4afd"
+  },
+  "source_rule": "Do not run bootstrap over artistic source. Render reads saved actions only; edits to .blend are authoritative."
+}

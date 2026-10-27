@@ -1,0 +1,109 @@
+{
+  "schema": "welesza.hero-materials.chunk02.v1",
+  "status": "PROTOTYPE_NOT_APPROVED",
+  "version": "0.2.0",
+  "branch": "vibe/hero-materials-chunk02-gpt6",
+  "resolution_px": [
+    512,
+    512
+  ],
+  "source": "author-created procedural images; no external stock",
+  "normal_map": "OpenGL tangent +Y derived from height",
+  "tiling": "periodic source, Blender UV/sampler seam needs validation",
+  "channels": {
+    "basecolor": "sRGB",
+    "roughness": "Non-Color",
+    "height": "Non-Color",
+    "normal_opengl": "Non-Color"
+  },
+  "materials": [
+    {
+      "id": "wool_trousers_charcoal",
+      "usage": "spodnie",
+      "maps": {
+        "basecolor": {
+          "path": "assets/textures/characters/hero/wool_trousers_charcoal_basecolor.png",
+          "git_blob_sha": "97ed369e18b6f0ca8ffc016c13682ab9e53fcf51"
+        },
+        "roughness": {
+          "path": "assets/textures/characters/hero/wool_trousers_charcoal_roughness.png",
+          "git_blob_sha": "3854893f51693ee362c45d07ff4f7099975facfd"
+        },
+        "height": {
+          "path": "assets/textures/characters/hero/wool_trousers_charcoal_height.png",
+          "git_blob_sha": "421d437d9c239d56005e5c594660264d6a7ac4d4"
+        },
+        "normal_opengl": {
+          "path": "assets/textures/characters/hero/wool_trousers_charcoal_normal_opengl.png",
+          "git_blob_sha": "efca331258a0c9420d704c21f8dcb274e1b7c604"
+        }
+      }
+    },
+    {
+      "id": "leather_boots_dark_mud",
+      "usage": "buty",
+      "maps": {
+        "basecolor": {
+          "path": "assets/textures/characters/hero/leather_boots_dark_mud_basecolor.png",
+          "git_blob_sha": "c135213e04557c71a5189c0c8221fd158567c5b2"
+        },
+        "roughness": {
+          "path": "assets/textures/characters/hero/leather_boots_dark_mud_roughness.png",
+          "git_blob_sha": "42dd9a49e4827a6f3ac2ea5a307fdea7fbe90cd6"
+        },
+        "height": {
+          "path": "assets/textures/characters/hero/leather_boots_dark_mud_height.png",
+          "git_blob_sha": "b4d59e7984a32b073a4809b71881228ea4af3675"
+        },
+        "normal_opengl": {
+          "path": "assets/textures/characters/hero/leather_boots_dark_mud_normal_opengl.png",
+          "git_blob_sha": "9a2092b019f4ae0f6018c5f8579a028c8f033f5c"
+        }
+      }
+    },
+    {
+      "id": "leather_backpack_aged",
+      "usage": "plecak",
+      "maps": {
+        "basecolor": {
+          "path": "assets/textures/characters/hero/leather_backpack_aged_basecolor.png",
+          "git_blob_sha": "7f650b4382063c2d9891132bf0d169797eee3a76"
+        },
+        "roughness": {
+          "path": "assets/textures/characters/hero/leather_backpack_aged_roughness.png",
+          "git_blob_sha": "eedb1e18143772417f9640e9cd504b7ce341f9f9"
+        },
+        "height": {
+          "path": "assets/textures/characters/hero/leather_backpack_aged_height.png",
+          "git_blob_sha": "8bbaa75e4af1e643d52b8dcf0632de1b6465cf74"
+        },
+        "normal_opengl": {
+          "path": "assets/textures/characters/hero/leather_backpack_aged_normal_opengl.png",
+          "git_blob_sha": "04b508d15f516d6ecc06016c507df802d3892842"
+        }
+      }
+    },
+    {
+      "id": "canvas_bedroll_ashen",
+      "usage": "posłanie",
+      "maps": {
+        "basecolor": {
+          "path": "assets/textures/characters/hero/canvas_bedroll_ashen_basecolor.png",
+          "git_blob_sha": "0f32fc7b4006e83a4c36453ce78974f052d5533c"
+        },
+        "roughness": {
+          "path": "assets/textures/characters/hero/canvas_bedroll_ashen_roughness.png",
+          "git_blob_sha": "4373e3f703899a0b97d5e264971d5ecb01a9a2b7"
+        },
+        "height": {
+          "path": "assets/textures/characters/hero/canvas_bedroll_ashen_height.png",
+          "git_blob_sha": "ad12f49f72d3dc18de4e1503b039433120f70721"
+        },
+        "normal_opengl": {
+          "path": "assets/textures/characters/hero/canvas_bedroll_ashen_normal_opengl.png",
+          "git_blob_sha": "78e61d043400c5621eabb75f06ebb79844c9845b"
+        }
+      }
+    }
+  ]
+}

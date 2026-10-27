@@ -706,6 +706,7 @@ def setup_scene(samples=64, size=384, lighting='base'):
 
 def main():
     parser=argparse.ArgumentParser()
+    parser.add_argument('--bootstrap-output',type=Path,required=True,help='Nowy plik roboczy; nigdy model artystyczny bohater.blend')
     parser.add_argument('--pilot',action='store_true')
     parser.add_argument('--all',action='store_true')
     parser.add_argument('--samples',type=int,default=64)
@@ -716,6 +717,10 @@ def main():
     parser.add_argument('--lighting',choices=['base','warm','cool'],default='base')
     parser.add_argument('--resume',action='store_true',help='Reuse only frames with matching source, settings and image hashes')
     args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
+    if args.bootstrap_output.resolve()==(HERE/'bohater.blend').resolve() or args.bootstrap_output.exists():
+        raise ValueError('Generator nie nadpisuje istniejących źródeł. Wskaż nowy plik --bootstrap-output.')
+    if not args.save_only:
+        raise ValueError('Archiwalny bootstrap służy tylko do --save-only. Eksportuj zapisany model przez render_player.py.')
     bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
     for file,meta in json.loads((THIRD/'manifest.json').read_text()).items():
         if hashlib.sha256((THIRD/file).read_bytes()).hexdigest()!=meta['sha256']:
@@ -737,7 +742,7 @@ def main():
     CAPE.data.shape_keys.animation_data_clear()
     set_pose(0,False)
     scene.frame_start=1;scene.frame_end=25
-    if args.lighting=='base':bpy.ops.wm.save_as_mainfile(filepath=str(HERE/'bohater.blend'),check_existing=False)
+    if args.lighting=='base':bpy.ops.wm.save_as_mainfile(filepath=str(args.bootstrap_output),check_existing=False)
     out=ROOT/'renders'
     if args.lighting!='base':out=out/args.lighting
     out.mkdir(exist_ok=True,parents=True)
@@ -790,7 +795,7 @@ def main():
     scene.frame_set(1)
     scene.render.filepath=str(ROOT/'previews'/'manual_render.png')
     shadow_output.file_slots[0].path='manual_shadow_'
-    if args.lighting=='base':bpy.ops.wm.save_as_mainfile(filepath=str(HERE/'bohater.blend'),check_existing=False)
+    if args.lighting=='base':bpy.ops.wm.save_as_mainfile(filepath=str(args.bootstrap_output),check_existing=False)
     print('WELESZA_DONE',flush=True)
 
 
