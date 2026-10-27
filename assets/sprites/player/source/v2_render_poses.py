@@ -15,11 +15,13 @@ def reset():
 def world_rotate(name,axis,angle):
     p=rig.pose.bones[name];matrix=p.matrix.copy();p.matrix=Matrix.Translation(matrix.translation)@Matrix.Rotation(math.radians(angle),4,axis)@Matrix.Translation(-matrix.translation)@matrix;bpy.context.view_layer.update()
 reset();base=np.array([v.co[:] for v in body.data.vertices]);reports=[]
-poses=[('01_barki',[('upperarm01.L','X',45),('upperarm01.R','X',-45)],'spine01',1.5),('02_lokcie',[('lowerarm01.L','Y',-75),('lowerarm01.R','Y',-75)],'lowerarm01.L',.8),('03_nadgarstki',[('wrist.L','Y',-35)],'wrist.L',.30),('04_palce',[(f'finger{i}-{j}.L','LOCAL_X',35 if j==1 else 20) for i in range(1,6) for j in range(1,4)],'wrist.L',.30),('05_kolana',[('lowerleg01.L','Y',65),('lowerleg01.R','Y',35)],'lowerleg01.L',1.2),('06_skret_przedramienia',[('lowerarm02.L','LOCAL_Y',60)],'lowerarm01.L',.7)]
+poses=[('01_barki',[('upperarm01.L','X',45),('upperarm01.R','X',-45)],'spine01',1.5),('02_lokcie',[('lowerarm01.L','Y',-75),('lowerarm01.R','Y',-75)],'lowerarm01.L',.8),('03_nadgarstki',[('wrist.L','Y',-35)],'wrist.L',.30),('04_palce',[(f'finger{i}-{j}.L','PALM_CURL',30 if j==1 else 20) for i in range(1,6) for j in range(1,4)],'wrist.L',.30),('05_kolana',[('lowerleg01.L','Y',65),('lowerleg01.R','Y',35)],'lowerleg01.L',1.2),('06_skret_przedramienia',[('lowerarm02.L','LOCAL_Y',60)],'lowerarm01.L',.7)]
 for label,rotations,focus,scale in poses:
     reset()
     for name,axis,angle in rotations:
-        if axis.startswith('LOCAL_'):
+        if axis=='PALM_CURL':
+            p=rig.pose.bones[name];direction=(p.tail-p.head).normalized();toward_body=Vector((0,-1,0));curl_axis=direction.cross(toward_body).normalized();matrix=p.matrix.copy();p.matrix=Matrix.Translation(matrix.translation)@Matrix.Rotation(math.radians(angle),4,curl_axis)@Matrix.Translation(-matrix.translation)@matrix;bpy.context.view_layer.update()
+        elif axis.startswith('LOCAL_'):
             p=rig.pose.bones[name];p.rotation_mode='XYZ';p.rotation_euler['XYZ'.index(axis[-1])]=math.radians(angle);bpy.context.view_layer.update()
         else:world_rotate(name,axis,angle)
     pb=rig.pose.bones[focus];target=(pb.head+pb.tail)*.5

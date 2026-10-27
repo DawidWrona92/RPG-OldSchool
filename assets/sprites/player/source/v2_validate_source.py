@@ -27,9 +27,12 @@ for entry in images:
     i=bpy.data.images[entry['name']];entry['packed_sha256']=__import__('hashlib').sha256(i.packed_file.data).hexdigest();external=TEX/Path(i.filepath).name
     assert external.exists() and entry['packed_sha256']==sha(external),'Spakowany obraz różni się od aktualnego dostarczonego pliku'
 parts=[{'name':o.name,'vertices':len(o.data.vertices),'faces':len(o.data.polygons),'uv_layers':len(o.data.uv_layers),'texture_resolution':o.get('texture_resolution'),'texel_density_px_m':o.get('texel_density_px_m'),'cloth':json.loads(o['cloth_simulation']) if o.get('cloth_simulation') else None,'modifiers':[m.type for m in o.modifiers]} for o in sc.objects if o.get('p2_part')]
+assert not body.hide_render and all(not o.hide_render for o in sc.objects if o.get('p2_part')),'Nie ukrywaj części przed audytem'
 assert all(p['uv_layers']==1 for p in parts);assert not rig.animation_data or not rig.animation_data.action
 hair=[]
 for o in sc.objects:
     if o.type=='CURVES':hair.append({'name':o.name,'strands':o.get('strand_count'),'parent_bone':o.parent_bone})
 report={'source_blend_sha256':source_sha,'revision':sc['art_revision'],'blender':bpy.app.version_string,'body':{'vertices':len(raw),'faces':len(faces),'uv_loop_count':len(errors),'native_uv_max_float_error':max(errors)},'bone_count':len(rig.data.bones),'active_animation':None,'frame':sc.frame_current,'camera':{'ortho_m':cam.data.ortho_scale,'location':list(cam.location),'rotation':list(cam.rotation_euler),'anchor_192_px':anchor192},'lights':lights,'color':{'view':sc.view_settings.view_transform,'look':sc.view_settings.look,'exposure':sc.view_settings.exposure},'images':images,'parts':parts,'hair_curves':hair,'archive_hashes_unchanged':True,'note':'Test źródła nie zastępuje B1/B2 ani pełnego testu deformacji/kolizji. Curves nie są siatkami w narzędziu PM.'}
+report['actor_meshes']=[o.name for o in sc.objects if o.type=='MESH' and not o.is_shadow_catcher and not o.hide_render]
+report['part_visibility_verified']=True
 out=ROOT/'reviews/v2-f0-f3';out.mkdir(parents=True,exist_ok=True);(out/'source-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert sha(source)==source_sha;print('V2_SOURCE_OK',source_sha,'parts',len(parts))

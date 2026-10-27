@@ -11,7 +11,7 @@ from v2_common import *
 import numpy as np
 ap=argparse.ArgumentParser();ap.add_argument('--parts',nargs='+');ap.add_argument('--resume',action='store_true');args=ap.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
 source=Path(bpy.data.filepath);source_sha=sha(source);sc=bpy.context.scene;out=ROOT/'handoff/p2';out.mkdir(parents=True,exist_ok=True)
-manifest_path=out/'manifest.json';manifest={'source_blend_sha256':source_sha,'baker_sha256':sha(__file__),'source':'../../source/bohater_v2.blend','status':'P2_TEMPORARY_CLOTHING_BEFORE_B2','parts':{},'maps':{'uv':'Unikatowe wyspy, szablon krawędzi bazowej siatki.','ao':'Cycles Ambient Occlusion, odległość 0.15 m; realna geometria całego stroju/ciała; nie do mnożenia przez skórę.','curvature':'Lokalny podpisany Laplacian geometrii, 0 wklęsłe / .5 płaskie / 1 wypukłe; brak high-poly ręcznej rzeźby.','normal_sculpt':'Cycles selected-to-active, ewaluowana geometria z fałdami/Subsurf/Solidify na bazową siatkę UV, tangent OpenGL; nie skan i nie ręczny high-poly.','height_ground':'Z w metrach / 1.8; 16-bit grayscale, 0 ziemia / 1 wysokość 1.8 m.','id':'Płaskie kolory regionów opisane przy części, nie końcowy kolor.','preview':'768 px, szary materiał, izolowany element; kamera diagnostyczna, nie skala gry.'}}
+manifest_path=out/'manifest.json';manifest={'source_blend_sha256':source_sha,'art_revision':sc.get('art_revision'),'baker_sha256':sha(__file__),'source':'../../source/bohater_v2.blend','status':'P2_TEMPORARY_CLOTHING_BEFORE_B2','parts':{},'maps':{'uv':'Unikatowe wyspy, szablon krawędzi bazowej siatki.','ao':'Cycles Ambient Occlusion, odległość 0.15 m; realna geometria całego stroju/ciała; nie do mnożenia przez skórę.','curvature':'Lokalny podpisany Laplacian geometrii, 0 wklęsłe / .5 płaskie / 1 wypukłe; brak high-poly ręcznej rzeźby.','normal_sculpt':'Cycles selected-to-active, ewaluowana geometria z fałdami/Subsurf/Solidify na bazową siatkę UV, tangent OpenGL; nie skan i nie ręczny high-poly.','height_ground':'Z w metrach / 1.8; 16-bit grayscale, 0 ziemia / 1 wysokość 1.8 m.','id':'Płaskie kolory regionów opisane przy części, nie końcowy kolor.','preview':'768 px, szary materiał, izolowany element; kamera diagnostyczna, nie skala gry.'}}
 if args.resume and manifest_path.exists():
     old=json.loads(manifest_path.read_text());assert old['source_blend_sha256']==source_sha and old['baker_sha256']==sha(__file__),'Nie mieszaj rewizji P2';manifest=old
 def png(path,array):
@@ -24,16 +24,17 @@ def write_image(img,path,scalar=False):
     size=img.size[0];a=np.empty(size*size*4,dtype=np.float32);img.pixels.foreach_get(a);a=a.reshape(size,size,4)[::-1]
     if scalar:png(path,np.round(np.clip(a[:,:,0],0,1)*65535).astype(np.uint16))
     else:png(path,np.round(np.clip(a[:,:,:3],0,1)*255).astype(np.uint8))
-def assign_id(name,p):
+def assign_id(name,p,material_index=0):
     z=p.z
     if name=='koszula':return 2 if z<1.065 else 3 if z>1.42 else 4 if abs(p.y)>.21 and z<1.25 else 1
     if name=='kaftan':return 2 if z<1.12 else 3 if abs(p.y)<.025 else 1
-    if name.startswith('but_'):return 2 if z<.04 else 3 if z>.49 else 1
+    if name.startswith('but_'):return 5 if material_index==2 else 4 if material_index==1 else 2 if z<.04 else 3 if z>.49 else 1
+    if name=='poslanie':return 2 if material_index==1 else 1
     if name=='plecak':return 2 if z>1.32 else 3 if z<1.19 else 1
     if name in ['plaszcz','peleryna','kaptur']:return 2 if z<(.37 if name=='plaszcz' else 1.36 if name=='peleryna' else 1.56) else 1
     if name=='spodnie':return 2 if z<.65 else 3 if .7<z<.8 and p.y>.1 else 1
     return 1
-palette=[(0,0,0),(1,0,0),(0,1,0),(0,0,1),(1,1,0)]
+palette=[(0,0,0),(1,0,0),(0,1,0),(0,0,1),(1,1,0),(0,1,1)]
 parts=[o for o in sc.objects if o.type=='MESH' and o.get('p2_part')]
 sc.cycles.samples=32;sc.render.threads_mode='FIXED';sc.render.threads=4;sc.render.bake.margin=16;sc.render.bake.use_clear=True
 for part in parts:
@@ -43,6 +44,7 @@ for part in parts:
     print('P2_START',part.name,flush=True)
     size=int(part.get('texture_resolution',2048));files={}
     # P2 low ma dokładnie bazowe UV części; siatki źródłowej nie zmieniamy.
+    source_material_indices=[p.material_index for p in part.data.polygons]
     low=part.copy();low.data=part.data.copy();sc.collection.objects.link(low);low.name='P2_LOW_TEMP';low.parent=None;low.matrix_world=part.matrix_world.copy()
     for m in list(low.modifiers):low.modifiers.remove(m)
     low.data.materials.clear();mat=plain('P2_BAKE_TEMP',(.4,.4,.4));low.data.materials.append(mat);nodes=mat.node_tree.nodes;links=mat.node_tree.links;nodes.clear();output=nodes.new('ShaderNodeOutputMaterial');emit=nodes.new('ShaderNodeEmission');links.new(emit.outputs[0],output.inputs[0]);target=nodes.new('ShaderNodeTexImage');nodes.active=target
@@ -55,7 +57,7 @@ for part in parts:
     attr=low.data.color_attributes.new(name='p2_id',type='FLOAT_COLOR',domain='CORNER')
     regions=set()
     for p in low.data.polygons:
-        k=assign_id(part.name,p.center);regions.add(k)
+        k=assign_id(part.name,p.center,source_material_indices[p.index]);regions.add(k)
         for li in p.loop_indices:attr.data[li].color=(*palette[k],1)
     hidden=part.hide_render;part.hide_render=True
     for kind in ['ao','curvature','height_ground','id','normal_sculpt']:
@@ -88,6 +90,6 @@ for part in parts:
     part.data.materials.clear()
     for m in mats:part.data.materials.append(m)
     camera.matrix_world=oldcam[0];camera.data.ortho_scale=oldcam[1];sc.view_layers['Cień'].use=True;sc.node_tree.nodes['Oddzielny cień'].mute=False;sc.cycles.samples=32
-    manifest['parts'][part.name]={'resolution':[size,size],'texel_density_px_m':part['texel_density_px_m'],'construction':part.get('construction','Osobna edytowalna część stroju.'),'id_regions':{str(k):{'rgb':palette[k],'meaning':{1:'główna powierzchnia',2:'dolny brzeg / podeszwa / panel dolny',3:'górny panel / zapięcie / łata',4:'podwinięcie rękawa'}[k]} for k in regions},'files':files,'uv_layout_pending':layoutfile.name}
+    manifest['parts'][part.name]={'resolution':[size,size],'texel_density_px_m':part['texel_density_px_m'],'construction':part.get('construction','Osobna edytowalna część stroju.'),'id_regions':{str(k):{'rgb':palette[k],'meaning':{1:'główna powierzchnia',2:'dolny brzeg / podeszwa / panel dolny / pas posłania',3:'górny panel / zapięcie / łata',4:'podwinięcie rękawa / skórzane paski buta',5:'metal sprzączki'}[k]} for k in regions},'files':files,'uv_layout_pending':layoutfile.name}
     manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n');print('P2_PART_DONE',part.name,flush=True)
 assert sha(source)==source_sha,'Źródło zmieniło się podczas bake'
