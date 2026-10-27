@@ -58,3 +58,7 @@ Makiety pokazują docelowy nastrój: ciemna, mokra ziemia, ciepłe punktowe świ
 
 
 - [18 — wóz i trakt na skraju lasu](18-woz-i-trakt.jpg) — koncepcyjne widoki wozu oraz scena w lesie; [plan i opis](18-woz-i-trakt.md).
+
+## Przyroda boru
+
+- [Arkusze przyrody i plansze materiałów](przyroda/README.md) — kamienie, skały, krzewy, drzewa boru i podłoże; [plan assetów przyrody](przyroda/PLAN-ASSETOW.md).

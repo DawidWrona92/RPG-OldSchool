@@ -14,7 +14,7 @@
 - [Dane geograficzne świata, 28 punktów i 30 tras](world-layout.v0.2.json) (kotwice i sektory przecięte).
 - [Karty 12 sektorów produkcyjnych](SECTORS.md).
 - [Kontrakt techniczny bezszwowego świata i savegame](STREAMING.md).
-- [Automatyczna kontrola spójności](WORLD_QA.md) i [odtwarzalny walidator na gałęzi technicznej](https://github.com/DawidWrona92/RPG-OldSchool/tree/vibe/world-map-validator-gpt6/tools/world).
+- [Automatyczna kontrola spójności](WORLD_QA.md) i [odtwarzalny walidator](../../tools/world/README.md) (na `main`).
 - [Porównanie pętli A/B i odsłonięcia traktu](VARIANTS.md).
 - [Plan pierwszego greyboxu](GREYBOX.md).
 

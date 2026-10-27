@@ -37,6 +37,7 @@ Dokumenty wyraźnie odróżniają **decyzje autora**, **uzgodniony kierunek arty
 - [PDF przewodnika](art/niemir/NIEMIR_ART_DIRECTION.pdf) — wersja do czytania.
 - **[Kontrakt renderu sprite'ów](art/KONTRAKT-RENDERU.md)** — decyzja autora: prerender w Blenderze; kamera, skala, kierunki, kotwica, światło, eksport i kontrola jakości.
 - **[18 ilustracji koncepcyjnych](koncepty/README.md)** — potwory, cywile, architektura i kadry z perspektywy gry.
+- [Przyroda boru](koncepty/przyroda/README.md) — arkusze roślinności, skał i drzew, plansze materiałów i [plan assetów](koncepty/przyroda/PLAN-ASSETOW.md).
 
 ## Granice między dokumentacją a produkcją
 
