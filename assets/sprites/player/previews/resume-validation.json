@@ -1,0 +1,10 @@
+{
+  "reused_full_run_frames": 160,
+  "rendered_full_resume_frames": 0,
+  "recovered_corrupted_frames": 1,
+  "reused_healthy_same_direction_frames": 7,
+  "body_and_shadow_recovered_pixel_identically": true,
+  "png_metadata_is_time_dependent": true,
+  "original_fixture_restored_after_test": true,
+  "generator_sha256": "8958b36429532c4267229efd49efd3a7e7124053f68e1b0bfe37fd8376af12e7"
+}

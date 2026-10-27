@@ -32,6 +32,84 @@
     "cool",
     "warm"
   ],
+  "decoded_animation_previews": {
+    "spoczynek.gif": {
+      "frames": 8,
+      "durations_ms": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "size_px": [
+        1536,
+        192
+      ]
+    },
+    "spoczynek.webp": {
+      "frames": 8,
+      "durations_ms": [
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "size_px": [
+        1536,
+        192
+      ]
+    },
+    "chod.gif": {
+      "frames": 12,
+      "durations_ms": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "size_px": [
+        1536,
+        192
+      ]
+    },
+    "chod.webp": {
+      "frames": 12,
+      "durations_ms": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "size_px": [
+        1536,
+        192
+      ]
+    }
+  },
   "shadow_processing": "Cycles shadow catcher, 16 samples, 0.8 px blur, 12/255 noise floor removal, smooth contact-patch fade from 0.75 to 1.05 m",
   "unverified": [
     "artistic acceptance",

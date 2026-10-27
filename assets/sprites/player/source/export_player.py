@@ -65,6 +65,7 @@ def on_background(body,cast_shadow=None):
 
 def make_previews(frames,shadows):
     previews=ROOT/'previews';previews.mkdir(exist_ok=True)
+    preview_checks={}
     directions=Image.new('RGB',(768,384),BACKGROUND[:3])
     for d,label in enumerate(DIRECTIONS):
         im=on_background(frames['spoczynek'][d][0],shadows['spoczynek'][d][0])
@@ -91,6 +92,14 @@ def make_previews(frames,shadows):
                          duration=[DURATIONS[anim]]*count,loop=0,disposal=2)
         sequence[0].save(previews/f'bohater_{anim}.webp',save_all=True,append_images=sequence[1:],
                          duration=DURATIONS[anim],loop=0,lossless=True)
+        for ext in ['gif','webp']:
+            with Image.open(previews/f'bohater_{anim}.{ext}') as decoded:
+                assert decoded.n_frames==count,('Liczba klatek podglądu',anim,ext,decoded.n_frames)
+                durations=[]
+                for index in range(decoded.n_frames):
+                    decoded.seek(index);decoded.load();durations.append(decoded.info.get('duration',0))
+                assert durations==[DURATIONS[anim]]*count,('Czasy podglądu',anim,ext,durations)
+                preview_checks[anim+'.'+ext]={'frames':count,'durations_ms':durations,'size_px':list(decoded.size)}
     for d,label in enumerate(DIRECTIONS):
         contact=Image.new('RGB',(768,576),BACKGROUND[:3])
         for f in range(12):
@@ -102,7 +111,7 @@ def make_previews(frames,shadows):
     sequence=[]
     for f in range(12):
         im=Image.new('RGBA',(384,220),BACKGROUND);draw=ImageDraw.Draw(im)
-        shift=-SPEED*.08*f*60
+        shift=SPEED*.08*f*60  # W faces left; the ground moves right.
         for x in np.arange(-300,700,30):
             draw.line((x+shift,174,x+shift+100,124),fill=(71,75,58),width=1)
         body=frames['chod'][2][f];cast=shadows['chod'][2][f]
@@ -133,7 +142,7 @@ def make_previews(frames,shadows):
         crop.save(previews/f'swiat-{variant}-1x.png')
         variants.append(variant)
     world.convert('RGB').save(previews/'bohater-w-swiecie-1x.png')
-    return variants
+    return variants,preview_checks
 
 
 def main():
@@ -199,13 +208,14 @@ def main():
     legacy=json.loads(json.dumps(meta))
     for anim in legacy['animations'].values():anim.pop('shadow_file',None)
     save_json(compat/'bohater.json',legacy)
-    variants=make_previews(frames,shadows)
+    variants,preview_checks=make_previews(frames,shadows)
     report={'checked_frames':checks,'animations':COUNTS,'source_generator_sha256':sha(generator),
             'render':audit['render'],'max_joint_gap_m':max(v['max_joint_gap_m'] for v in audit['frames'].values()),
             'max_bone_length_error_m':max(v['max_bone_length_error_m'] for v in audit['frames'].values()),
             'max_stance_root_compensation_error_m':max(drift),'stance_samples_checked':len(drift),
             'frame_bounds':'passed / 160 body frames','body_alpha':'RGBA / transparent edges / premultiplied downsampling',
             'distinct_direction_images':len(set(fingerprints)),'anchor_px':ANCHOR,'world_lighting_variants':variants,
+            'decoded_animation_previews':preview_checks,
             'shadow_processing':'Cycles shadow catcher, 16 samples, 0.8 px blur, 12/255 noise floor removal, smooth contact-patch fade from 0.75 to 1.05 m',
             'unverified':['artistic acceptance','full garment/body/sword collision detection',
                           'target engine import (engine undecided)','all combat animations','fresh cloud task restoration'],
