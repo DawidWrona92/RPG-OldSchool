@@ -262,6 +262,11 @@ def build_scene():
     # znacznik skali — człowiek 1,8 m przy głazie
     E.make_scale_marker(col, height=1.8, location=(-0.9, -1.9, 0.0))
 
+    # zapis .blend do dalszej edycji (kamera jak w pierwszej klatce)
+    blend_path = os.path.join(HERE, "scena_testowa.blend")
+    bpy.ops.wm.save_as_mainfile(filepath=blend_path)
+    print("ok", blend_path, flush=True)
+
     path = os.path.join(RENDERS, "scena_testowa_trakt.png")
     E.render(scene, path, size=768)
     print("ok", path, flush=True)
