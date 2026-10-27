@@ -1,0 +1,77 @@
+[
+ {
+  "name": "dense_forest_moss",
+  "seam_ratio": 0.698,
+  "category": "ground"
+ },
+ {
+  "name": "exposed_roots_wet_soil",
+  "seam_ratio": 0.722,
+  "category": "ground"
+ },
+ {
+  "name": "forest_litter_mixed",
+  "seam_ratio": 0.697,
+  "category": "ground"
+ },
+ {
+  "name": "forest_path_compacted_earth",
+  "seam_ratio": 0.693,
+  "category": "ground"
+ },
+ {
+  "name": "forest_soil_sparse_grass",
+  "seam_ratio": 0.724,
+  "category": "ground"
+ },
+ {
+  "name": "pine_needles_and_twigs",
+  "seam_ratio": 0.683,
+  "category": "ground"
+ },
+ {
+  "name": "wet_fallen_leaves",
+  "seam_ratio": 0.686,
+  "category": "ground"
+ },
+ {
+  "name": "wet_grass_earth",
+  "seam_ratio": 0.707,
+  "category": "ground"
+ },
+ {
+  "name": "wet_mud_with_puddles",
+  "seam_ratio": 0.725,
+  "category": "ground"
+ },
+ {
+  "name": "rock_cracked_with_moss",
+  "seam_ratio": 0.775,
+  "category": "rock"
+ },
+ {
+  "name": "rock_lichen_moss_ground",
+  "seam_ratio": 0.74,
+  "category": "rock"
+ },
+ {
+  "name": "rock_stones_mossy",
+  "seam_ratio": 0.744,
+  "category": "rock"
+ },
+ {
+  "name": "birch_bark_white",
+  "seam_ratio": 0.7,
+  "category": "bark"
+ },
+ {
+  "name": "old_bark_weathered",
+  "seam_ratio": 0.756,
+  "category": "bark"
+ },
+ {
+  "name": "pine_bark_reddish_flaky",
+  "seam_ratio": 0.753,
+  "category": "bark"
+ }
+]
