@@ -207,9 +207,9 @@ lit_mat = make_ground_mat("WELESZA_litter", "ground/forest_litter_mixed")
 
 # ============================== GEOMETRIA SKAŁ ==============================
 def make_rock(name, seed, base_r, squash, scale_xyz, spikes=0.35, subsurf=3):
-    """Kanciasty kamien: gesta ico-sfera scinana plaszczyznami (plaskie sciany
-    z fill), szum TYLKO na wierzcholkach nalezacych do oryginalnej powlokii
-    (nie na scianach ciecia) — sciany zostaja idealnie plaskie."""
+    """Kamien wg wytycznych review: amputujace ciecia plaszczyznami (widoczne
+    w sylwetce), 1-2 duze plaskie sciany zwrcone do swiatla kluczowego,
+    wysokosc 0.4-0.6 szerokosci, podstawa wkopana w ziemie, szum powloki."""
     import mathutils
     from mathutils import noise as bnoise
     import bmesh
@@ -219,47 +219,50 @@ def make_rock(name, seed, base_r, squash, scale_xyz, spikes=0.35, subsurf=3):
     ob.name = name
     ob.scale = scale_xyz
     bpy.ops.object.transform_apply(scale=True)
+    mesh = ob.data
+    # 1) amputacje: plaszczyzny ODCINAJA materiał (clear_outer wg strony normalnej)
     bm = bmesh.new()
-    bm.from_mesh(ob.data)
-    bm.faces.ensure_lookup_table()
-    # 1) parametry płaszczyzn cięcia — będą też maską szumu
-    cut_planes = []
-    # 2) cięcia — zawsze fill (plaska sciana), nic nie usuwamy
-    cut_params = []
-    for _ in range(r.randint(5, 8)):
-        d = r.uniform(0.35, 0.65) * base_r
+    bm.from_mesh(mesh)
+    n_cuts = r.randint(3, 5)
+    key_faces = []
+    for ci in range(n_cuts):
+        d = r.uniform(0.72, 0.95) * base_r
         ang = r.uniform(0, 2*math.pi)
-        tilt = r.uniform(0.15, 1.25)
+        tilt = r.uniform(0.3, 1.35)
         nrm = mathutils.Vector((math.cos(ang)*math.sin(tilt), math.sin(ang)*math.sin(tilt), math.cos(tilt)))
         nrm.normalize()
-        cut_planes.append((nrm.copy(), d))
+        # pierwsze 1-2 cięcia: duze sciany zwrcone w strone klucza (lewo-gora ekranu -> +X -Y w swiecie)
+        if ci < 2:
+            nrm = mathutils.Vector((0.55, -0.55, 0.63)).normalized()
+            nrm.rotate(mathutils.Quaternion(mathutils.Vector((0,0,1)), r.uniform(-0.6, 0.6)))
+            d = r.uniform(0.35, 0.55) * base_r
         res = bmesh.ops.bisect_plane(
             bm, geom=bm.verts[:] + bm.edges[:] + bm.faces[:],
             plane_co=nrm*d, plane_no=nrm,
-            clear_outer=False, clear_inner=False)
-        cut_edges = [g for g in res.get("geom_cut", []) if isinstance(g, bmesh.types.BMEdge)]
-        if cut_edges:
-            bmesh.ops.edgeloop_fill(bm, edges=cut_edges)
-    bm.to_mesh(ob.data)
+            clear_outer=True, clear_inner=False)  # odcina czapę na zewnatrz plaszczyzny
+        ce = [g for g in res.get("geom_cut", []) if isinstance(g, bmesh.types.BMEdge)]
+        if ci < 2 and ce:
+            bmesh.ops.edgeloop_fill(bm, edges=ce)
+            key_faces.append(ce)
+    bm.to_mesh(mesh)
     bm.free()
-    # 3) szum tylko na wierzcholkach oryginalnej powloki (sciany ciecia nietkniete)
-    mesh = ob.data
-    import mathutils as mu
+    # 2) szum powloki (po amputacjach — lekki, nie zniweczy plaskich scian)
     for v in mesh.vertices:
-        p = mu.Vector(v.co)
-        # pomiń wierzchołki na ścianach cięcia (odległość od płaszczyzny < 15% promienia)
-        on_cut = any(abs(p.dot(nrm) - d) < base_r * 0.15 for nrm, d in cut_planes)
-        if not on_cut:
-            n = bnoise.noise(p * 2.0 + mu.Vector((seed*3.7, seed*1.3, seed*2.9)))
-            v.co += v.normal * (n * spikes * base_r * 0.30)
-    # 4) wyparcze dolne krawedzie
+        n = bnoise.noise(mathutils.Vector(v.co) * 2.4 + mathutils.Vector((seed*3.7, seed*1.3, seed*2.9)))
+        v.co += v.normal * (n * spikes * base_r * 0.35)
+    # 3) podstawa wkopana w ziemie: spaszcz dol (10-20% pod ziemi)
     zmin = min(v.co.z for v in mesh.vertices)
+    bury = base_r * 0.15
     for v in mesh.vertices:
-        if v.co.z < zmin + 0.12 * abs(zmin):
-            v.co.z = zmin + (v.co.z - zmin) * 0.15
-    # 5) plaskie cieniowanie (czytelnosc kanci)
-    for p in mesh.polygons:
-        p.use_smooth = False
+        if v.co.z < zmin + 0.25*abs(zmin):
+            v.co.z = zmin - (zmin - v.co.z) * 0.3  # splaszcz i opusc
+    # 4) cieniowanie: gladkie z ostrymi krawedziami > 35 stopni
+    import math as _m
+    bpy.ops.object.shade_smooth()
+    try:
+        bpy.ops.object.shade_smooth_by_angle(angle=_m.radians(35))
+    except Exception:
+        pass
     return ob
 
 # assety: (nazwa, seed, promień, squash, skala_xyz, spikes)
@@ -273,8 +276,93 @@ for name, seed, rad, sq, s, sp in rock_specs:
     ob = make_rock(name, seed, rad, sq, s, sp)
     ob.data.materials.append(mats[name])
 
-boulder = make_rock("glaz", 44, 0.95, 0.62, (1.45, 1.1, 1.0), 0.35, subsurf=3)
+# glaz defaultowy: ~1.1 m wysokosci; glaz_duzy: 1.9 m (wariant "przy drodze")
+boulder = make_rock("glaz", 44, 0.62, 0.55, (1.25, 0.95, 1.0), 0.28, subsurf=3)
 boulder.data.materials.append(rock_mat_boulder)
+boulder_big = make_rock("glaz_duzy", 45, 0.95, 0.62, (1.45, 1.15, 1.0), 0.32, subsurf=3)
+boulder_big.data.materials.append(rock_mat_boulder)
+
+# ============================== GRUPA A: warianty kamieni ==============================
+wet_rock_mat = make_rock_material("WELESZA_rock_wet", 5, "rock/rock_stones_mossy", 2.6, moss_strength=0.35)
+wet_rock_mat.node_tree.nodes["Principled BSDF"].inputs["Specular IOR Level"].default_value = 0.8
+wet_rock_mat.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = 0.35
+
+mossy_rock_mat = make_rock_material("WELESZA_rock_mossy", 6, "rock/rock_stones_mossy", 2.8, moss_strength=1.0)
+lichen_rock_mat = make_rock_material("WELESZA_rock_lichen", 7, "rock/rock_lichen_moss_ground", 2.4, moss_strength=0.5)
+
+_mats_a = {"kamien_mokry": wet_rock_mat, "kamien_z_mchem": mossy_rock_mat, "kamien_z_porostami": lichen_rock_mat}
+for nm, sd, rad, sq, scl in [
+    ("kamien_mokry", 51, 0.30, 0.52, (1.2, 0.9, 1.0)),
+    ("kamien_z_mchem", 52, 0.34, 0.55, (1.05, 1.1, 1.0)),
+    ("kamien_z_porostami", 53, 0.28, 0.48, (1.0, 0.85, 1.0)),
+]:
+    ob = make_rock(nm, sd, rad, sq, scl, spikes=0.30)
+    ob.data.materials.append(_mats_a[nm])
+
+def make_gravel(name, seed, n=(5, 9), rad=(0.03, 0.08)):
+    import mathutils
+    r = random.Random(seed)
+    mesh = bpy.data.meshes.new(name)
+    ob = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(ob)
+    verts, faces = [], []
+    for i in range(r.randint(*n)):
+        ang = r.uniform(0, 2*math.pi)
+        dist = r.uniform(0, 0.35)
+        cx, cy = math.cos(ang)*dist, math.sin(ang)*dist
+        rr = r.uniform(*rad)
+        base = len(verts)
+        for k in range(8):
+            a = k*2*math.pi/8
+            verts.append(mathutils.Vector((cx + math.cos(a)*rr, cy + math.sin(a)*rr, r.uniform(0.3, 0.9)*rr)))
+        c = len(verts); verts.append(mathutils.Vector((cx, cy, 0)))
+        ctop = len(verts); verts.append(mathutils.Vector((cx, cy, rr*1.05)))
+        for k in range(8):
+            k2 = (k+1)%8
+            faces.append((c, base+k, base+k2, ctop))
+            faces.append((c, ctop, base+k2, base+k))
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    return ob
+
+gravel = make_gravel("zwir", 61)
+gravel.data.materials.append(rock_mat_a)
+
+def make_slab(name, seed, w=(0.5, 0.9), d=(0.4, 0.7), th=(0.08, 0.16)):
+    import mathutils
+    r = random.Random(seed)
+    mesh = bpy.data.meshes.new(name)
+    ob = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(ob)
+    W, D, T = r.uniform(*w), r.uniform(*d), r.uniform(*th)
+    verts, faces = [], []
+    nsides = r.randint(6, 8)
+    for k in range(nsides):
+        a = k*2*math.pi/nsides + r.uniform(-0.2, 0.2)
+        rr = r.uniform(0.8, 1.2)
+        x, y = math.cos(a)*W/2*rr, math.sin(a)*D/2*rr
+        verts.append(mathutils.Vector((x, y, 0)))
+        verts.append(mathutils.Vector((x, y, T)))
+    for k in range(nsides):
+        k2 = (k+1)%nsides
+        b0, b1 = 2*k, 2*k2
+        faces.append((b0, b0+1, b1+1, b1))
+    c = len(verts); verts.append(mathutils.Vector((0, 0, T)))
+    for k in range(nsides):
+        k2 = (k+1)%nsides
+        faces.append((2*k+1, 2*k2+1, c))
+    c2 = len(verts); verts.append(mathutils.Vector((0, 0, 0)))
+    for k in range(nsides):
+        k2 = (k+1)%nsides
+        faces.append((c2, 2*k2, 2*k))
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    return ob
+
+slab = make_slab("plyta_kamienna", 71)
+slab.data.materials.append(rock_mat_b)
+slab2 = make_slab("plyta_kamienna_b", 72)
+slab2.data.materials.append(rock_mat_c)
 
 # ============================== RUNO: trawa, paprocie, chrust ==============================
 def make_grass_tuft(name, seed, blades=48, height=(0.15, 0.38), radius=0.22):
@@ -296,11 +384,19 @@ def make_grass_tuft(name, seed, blades=48, height=(0.15, 0.38), radius=0.22):
         side = mathutils.Vector((-math.sin(lean_dir), math.cos(lean_dir), 0))
         b0 = mathutils.Vector((bx, by, 0)) - side*w
         b1 = mathutils.Vector((bx, by, 0)) + side*w
-        t0 = b0 + pdir*lean + mathutils.Vector((0,0,h))
-        t1 = b1 + pdir*lean + mathutils.Vector((0,0,h))
-        base = len(verts)
-        verts += [b0, b1, t1, t0]
-        faces.append((base, base+1, base+2, base+3))
+        # wygieta zdblka: 3 segmenty ze rosnacym przechyleniem
+        seg_h = h / 3
+        p_cur0, p_cur1 = b0.copy(), b1.copy()
+        bend_axis = mathutils.Vector((-pdir.y, pdir.x, 0)).normalized()
+        for seg in range(3):
+            lean_seg = lean * (0.35 + 0.65*(seg+1)/3)
+            dseg = (pdir*lean_seg + mathutils.Vector((0,0,1))).normalized()
+            n0 = p_cur0 + dseg*seg_h
+            n1 = p_cur1 + dseg*seg_h
+            base = len(verts)
+            verts += [p_cur0, p_cur1, n1, n0]
+            faces.append((base, base+1, base+2, base+3))
+            p_cur0, p_cur1 = n0, n1
     mesh.from_pydata(verts, [], faces)
     mesh.validate()
     return ob
@@ -339,7 +435,7 @@ for gi, (name, seed) in enumerate([("kepka_trawy_a", 101), ("kepka_trawy_b", 102
     ob = make_grass_tuft(name, seed)
     ob.data.materials.append(grass_mats[gi % 3])
 
-def make_fern(name, seed, fronds=7, length=(0.18, 0.34)):
+def make_fern(name, seed, fronds=8, length=(0.38, 0.62)):
     import mathutils
     r = random.Random(seed)
     mesh = bpy.data.meshes.new(name)
@@ -350,14 +446,20 @@ def make_fern(name, seed, fronds=7, length=(0.18, 0.34)):
         ang = r.uniform(0, 2*math.pi)
         L = r.uniform(*length)
         tilt = r.uniform(0.5, 1.1)
-        segs = 6
+        segs = 8
         prev_dir = mathutils.Vector((math.cos(ang)*math.sin(tilt), math.sin(ang)*math.sin(tilt), math.cos(tilt)))
         base_i = len(verts)
         points = [mathutils.Vector((0,0,0))]
+        # wygiecie: kierunek stopniowo bardziej poziomy ku koncowi (luk paproci)
+        d = prev_dir.copy()
         for si in range(1, segs+1):
             t = si/segs
-            p = points[-1] + prev_dir * (L/segs) * (1 - 0.15*t)
-            p.z = max(p.z, 0)
+            side0 = mathutils.Vector((-prev_dir.y, prev_dir.x, 0)).normalized()
+            rot_amt = -0.12 * (1 if tilt < 0.8 else 0.4)
+            d.rotate(mathutils.Quaternion(side0, rot_amt))
+            d.z = max(d.z, -0.25)
+            p = points[-1] + d * (L/segs)
+            p.z = max(p.z, 0.01)
             points.append(p)
         for si, p in enumerate(points):
             side = mathutils.Vector((-prev_dir.y, prev_dir.x, 0)).normalized()
@@ -411,7 +513,7 @@ for gi, (name, seed, rot) in enumerate([("paproc_a", 201, 0.4), ("paproc_b", 202
     ob.data.materials.append(fern_mats[gi % 2])
     ob.rotation_euler[2] = rot
 
-def make_twigs(name, seed, count=5, radius=(0.008, 0.02), length=(0.25, 0.6)):
+def make_twigs(name, seed, count=6, radius=(0.005, 0.02), length=(0.25, 0.6)):
     import mathutils
     r = random.Random(seed)
     mesh = bpy.data.meshes.new(name)
@@ -460,8 +562,8 @@ def make_wood_material(name, seed):
     nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
     nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
     hsv = nt.nodes.new("ShaderNodeHueSaturation")
-    hsv.inputs["Saturation"].default_value = 0.35
-    hsv.inputs["Value"].default_value = 0.75
+    hsv.inputs["Saturation"].default_value = 0.25
+    hsv.inputs["Value"].default_value = 0.62
     nt.links.new(texc.outputs["Color"], hsv.inputs["Color"])
     nt.links.new(hsv.outputs["Color"], bsdf.inputs["Base Color"])
     bsdf.inputs["Roughness"].default_value = 0.95

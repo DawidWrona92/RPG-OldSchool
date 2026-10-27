@@ -46,21 +46,28 @@ def build():
     assets = {}
     specs = [
         ("kamien_a", ["", "_rot47", "_rot113"]),
-        ("kamien_b", [""]),
-        ("kamien_c", [""]),
-        ("glaz", [""]),
+        ("kamien_b", [""]), ("kamien_c", [""]),
+        ("glaz", [""]), ("glaz_duzy", [""]),
+        ("kamien_mokry", [""]), ("kamien_z_mchem", [""]), ("kamien_z_porostami", [""]),
+        ("zwir", [""]), ("plyta_kamienna", [""]), ("plyta_kamienna_b", [""]),
         ("kepka_trawy_a", [""]), ("kepka_trawy_b", [""]), ("kepka_trawy_c", [""]),
         ("paproc_a", [""]), ("paproc_b", [""]),
         ("chrust_a", [""]), ("chrust_b", [""]),
     ]
     objs = {"kamien_a": "kamien_a", "kamien_b": "kamien_b", "kamien_c": "kamien_c",
-            "glaz": "glaz", "kepka_trawy_a": "kepka_trawy_a", "kepka_trawy_b": "kepka_trawy_b",
+            "glaz": "glaz", "glaz_duzy": "glaz_duzy",
+            "kamien_mokry": "kamien_mokry", "kamien_z_mchem": "kamien_z_mchem",
+            "kamien_z_porostami": "kamien_z_porostami", "zwir": "zwir",
+            "plyta_kamienna": "plyta_kamienna", "plyta_kamienna_b": "plyta_kamienna_b",
+            "kepka_trawy_a": "kepka_trawy_a", "kepka_trawy_b": "kepka_trawy_b",
             "kepka_trawy_c": "kepka_trawy_c", "paproc_a": "paproc_a", "paproc_b": "paproc_b",
             "chrust_a": "chrust_a", "chrust_b": "chrust_b"}
+    audit = json.load(open(os.path.join(OUT, "audit.json")))
     for aid, variants in specs:
         obj_name = objs[aid]
-        frame = 320 if aid == "glaz" else 192
-        anchor = [160.0, 263.92304845413263] if aid == "glaz" else list(ANCHOR)  # 96;158.35 * 320/192
+        anc = audit["anchors_px"].get(aid) or audit["anchors_px"].get(aid)
+        frame = anc["frame"] if anc else (320 if aid.startswith("glaz_duzy") else 192)
+        anchor = anc["anchor_px"] if anc else list(ANCHOR)
         entry = {
             "frame_size": [frame, frame],
             "anchor_px": anchor,

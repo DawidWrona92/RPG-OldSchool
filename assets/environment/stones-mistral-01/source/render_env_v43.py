@@ -2,6 +2,7 @@
 # Czyta .blend (źródło), renderuje assety wg kontraktu i zapisuje audyt SHA-256.
 # NIE modyfikuje .blend.
 import bpy, os, sys, json, hashlib, math
+import mathutils
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 BLEND = os.environ.get("WELESZA_BLEND", os.path.join(os.path.dirname(BASE), "welesza_env_01.blend"))
@@ -87,6 +88,18 @@ def resize_premultiplied(src, dst, size):
     out[..., :3] = np.where(nz, sa[..., :3] / np.maximum(salpha, 1e-6), 0)
     Image.fromarray(np.clip(out, 0, 255).astype("uint8"), "RGBA").save(dst)
 
+from bpy_extras.object_utils import world_to_camera_view
+
+ANCHORS = {}
+
+def compute_anchor_px(frame=192):
+    """Kotwica (0,0,0) w pikselach klatki N — liczona RZUTEM, nie recznie."""
+    res_x = sc.render.resolution_x
+    p = world_to_camera_view(sc, cam, mathutils.Vector((0, 0, 0)))
+    ax = p.x * frame
+    ay = (1.0 - p.y) * frame
+    return round(ax, 2), round(ay, 2)
+
 def render_object(obj_name, out_prefix, variants=((0.0, ""), ), spec=None):
     if spec is None: spec = {}
     """Render assetu: warianty rotacji Z; RGBA (sam asset) + osobny cień."""
@@ -100,6 +113,8 @@ def render_object(obj_name, out_prefix, variants=((0.0, ""), ), spec=None):
         cam.data.ortho_scale = 3.2 * frame / 192
         sc.render.resolution_x = frame * 2  # 2x supersampling jak 384->192
         sc.render.resolution_y = frame * 2
+    # kotwica liczona RZUTEM przy wlasciwym ortho_scale (regula kontraktu: N/2; N/2+62.354)
+    ANCHORS[out_prefix] = {"frame": frame, "anchor_px": compute_anchor_px(frame)}
     for rot, suffix in variants:
         ob.rotation_euler[2] = rot
         # --- RGBA pass: TYLKO asset ---
@@ -145,7 +160,14 @@ assets = {
     "kamien_a": {"obj": "kamien_a", "variants": ((0.0, ""), (math.radians(47), "_rot47"), (math.radians(113), "_rot113"))},
     "kamien_b": {"obj": "kamien_b", "variants": ((0.0, ""),)},
     "kamien_c": {"obj": "kamien_c", "variants": ((0.0, ""),)},
-    "glaz": {"obj": "glaz", "variants": ((0.0, ""),), "frame": 320},
+    "glaz": {"obj": "glaz", "variants": ((0.0, ""),)},
+    "glaz_duzy": {"obj": "glaz_duzy", "variants": ((0.0, ""),), "frame": 320},
+    "kamien_mokry": {"obj": "kamien_mokry", "variants": ((0.0, ""),)},
+    "kamien_z_mchem": {"obj": "kamien_z_mchem", "variants": ((0.0, ""),)},
+    "kamien_z_porostami": {"obj": "kamien_z_porostami", "variants": ((0.0, ""),)},
+    "zwir": {"obj": "zwir", "variants": ((0.0, ""),)},
+    "plyta_kamienna": {"obj": "plyta_kamienna", "variants": ((0.0, ""),)},
+    "plyta_kamienna_b": {"obj": "plyta_kamienna_b", "variants": ((0.0, ""),)},
     "kepka_trawy_a": {"obj": "kepka_trawy_a", "variants": ((0.0, ""),)},
     "kepka_trawy_b": {"obj": "kepka_trawy_b", "variants": ((0.0, ""),)},
     "kepka_trawy_c": {"obj": "kepka_trawy_c", "variants": ((0.0, ""),)},
@@ -168,7 +190,7 @@ for f in rendered:
         final_files.append(f)
 
 # ---------- AUDYT ----------
-audit = {"settings": settings, "rendered": {f: sha256(os.path.join(OUTDIR, f)) for f in final_files},
+audit = {"settings": settings, "anchors_px": ANCHORS, "rendered": {f: sha256(os.path.join(OUTDIR, f)) for f in final_files},
          "contract": {"frame": [FINAL, FINAL], "render_frame": [FRAME, FRAME],
                       "pixels_per_meter": PPM, "anchor_px": ANCHOR_PX}}
 with open(AUDIT, "w") as fh:
