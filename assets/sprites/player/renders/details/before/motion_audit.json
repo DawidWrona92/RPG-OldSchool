@@ -1,0 +1,135 @@
+{
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "anchor_px": [
+    96,
+    158.35382907247958
+  ],
+  "source_blend_sha256": "f1077d05f4f44ce69c6ce9fdd6cf865eea2fdabf3aa1ffb0fec5ab8a23825ffc",
+  "renderer_sha256": "ed6aa69e4095aaf3541686af0ab21fddd6644b867fb6288bacf6e8145ec819a1",
+  "art_revision": "baseline",
+  "render": {
+    "blender": "4.3.2",
+    "engine": "CYCLES",
+    "samples": 64,
+    "shadow_samples": 16,
+    "size_px": 1152,
+    "seed": 1703,
+    "denoising": false,
+    "threads": 4,
+    "lighting": "base",
+    "sheathed": false
+  },
+  "frames": {
+    "spoczynek_1_00.png": {
+      "max_joint_gap_m": 1.519626234052415e-07,
+      "max_bone_length_error_m": 1.0377583375964505e-07,
+      "feet": {
+        "L": {
+          "ankle_m": [
+            0.04500003904104233,
+            0.12600001692771912,
+            0.07779990136623383
+          ],
+          "stance": false,
+          "plant_reference_m": null,
+          "sole_heel_toe_m": [
+            [
+              -0.00799996592104435,
+              0.12599998712539673,
+              3.739353360288078e-08
+            ],
+            [
+              0.21400003135204315,
+              0.12600000202655792,
+              1.5891156834868525e-08
+            ]
+          ]
+        },
+        "R": {
+          "ankle_m": [
+            -0.04500005394220352,
+            -0.12600009143352509,
+            0.07779978215694427
+          ],
+          "stance": false,
+          "plant_reference_m": null,
+          "sole_heel_toe_m": [
+            [
+              -0.09800004959106445,
+              -0.12600009143352509,
+              8.239293691758576e-09
+            ],
+            [
+              0.12399989366531372,
+              -0.12600009143352509,
+              2.974167045977083e-08
+            ]
+          ]
+        }
+      },
+      "phase": 0.0,
+      "image_sha256": "59e2ecace67465cbae8d259db9257757b838c77695b6b1b3cbbf138da0d78294",
+      "shadow_sha256": "b139e6f964ab1f566f05da2ec247453a94ef0aef21c1ea1aa3bea60a17eb1578"
+    },
+    "spoczynek_3_00.png": {
+      "max_joint_gap_m": 1.519626234052415e-07,
+      "max_bone_length_error_m": 1.0377583375964505e-07,
+      "feet": {
+        "L": {
+          "ankle_m": [
+            0.04500003904104233,
+            0.12600001692771912,
+            0.07779990136623383
+          ],
+          "stance": false,
+          "plant_reference_m": null,
+          "sole_heel_toe_m": [
+            [
+              -0.00799996592104435,
+              0.12599998712539673,
+              3.739353360288078e-08
+            ],
+            [
+              0.21400003135204315,
+              0.12600000202655792,
+              1.5891156834868525e-08
+            ]
+          ]
+        },
+        "R": {
+          "ankle_m": [
+            -0.04500005394220352,
+            -0.12600009143352509,
+            0.07779978215694427
+          ],
+          "stance": false,
+          "plant_reference_m": null,
+          "sole_heel_toe_m": [
+            [
+              -0.09800004959106445,
+              -0.12600009143352509,
+              8.239293691758576e-09
+            ],
+            [
+              0.12399989366531372,
+              -0.12600009143352509,
+              2.974167045977083e-08
+            ]
+          ]
+        }
+      },
+      "phase": 0.0,
+      "image_sha256": "54245b20d8178375b4a2635a9e4befd28ef1fc81ebb1cef60725dbcca67c7378",
+      "shadow_sha256": "41a8a69d001dad35a7719e640f78f292e84c1fb11d756c84484a2fddb187c24b"
+    }
+  }
+}

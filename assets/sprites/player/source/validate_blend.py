@@ -8,6 +8,8 @@ scene=bpy.context.scene;rig=bpy.data.objects['Bohater_RIG']
 # Bone checks do not need mesh deformation; collision validator checks meshes separately.
 for obj in bpy.data.objects:
  if obj.type=='MESH':obj.hide_viewport=True
+assert abs(scene.render.fps/scene.render.fps_base-25)<1e-6
+assert abs(scene.get('walk_speed_mps',0)-.52/(.6*.96))<1e-8
 maxgap=0;maxlength=0;loopmax=0;poses=0;keys=0;actions={}
 for anim,count,step,end in [('spoczynek',8,10,81),('chod',12,2,25)]:
  activate(anim);action=rig.animation_data.action
