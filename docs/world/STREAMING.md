@@ -1,83 +1,71 @@
-# Welesza — bezszwowy świat: kontrakt techniczny v0.1
+# Welesza — płynne przechodzenie przez świat (v0.2)
 
-> **PROPOZYCJA, nie implementacja.** Działa niezależnie od wyboru silnika 2D/3D. Nie wybiera SDF, Blendera, atlasów ani pipeline'u grafiki.
+**Status:** wymóg gracza zatwierdzony; architektura i limity wydajności są **hipotezami technicznymi**. Nie wybrano silnika ani reprezentacji scen. Dokument nie narzuca SDF, Blendera ani innego renderera.
 
-## 1. Co znaczy „bez ekranów ładowania”
+## A. Twardy kontrakt doświadczenia gracza
 
-- Bohater nie przechodzi do innej sceny przy bramie, na trakcie, w obozie, w ruinach ani schodząc do komory.
-- Silnik może wczytywać i usuwać zasoby **asynchronicznie**, zanim znajdą się w kadrze; gracz nie widzi paska ładowania ani czarnego ekranu maskującego zmianę mapy.
-- Stany zadań, bossów i przedmiotów trwają niezależnie od tego, czy sektor jest w pamięci.
-- Możliwe krótkie fabularne przejścia czasu (nocleg) nie mogą zastępować ładowania przy zwykłym chodzeniu.
-- Zewnętrzna dolina ma jeden globalny układ współrzędnych; wysokość (`z`) jest częścią tego samego świata.
+> Podczas normalnego przemieszczania się po świecie gracz **nie widzi ekranu ładowania ani przejścia przerywającego podróż**.
 
-## 2. Dwie skale chunków — nie mylić pojęć
+1. Wyjście przez bramę Niemiru, marsz do rozstaju, wozu, obozu i ruin, wejście na schody oraz powrót przebiegają bez czarnego ekranu, paska ładowania i odebrania sterowania **z powodu zmiany fragmentu mapy**.
+2. Zmiana obszaru nie powoduje teleportu widocznego jako skok pozycji, zniknięcia przeciwnika w pościgu, powielenia lootów ani zaniku pocisku/kolizji.
+3. Ruch kamery, widoczność terenu, dźwięku i świateł pozostają spójne także po zawróceniu.
+4. Zapis/odczyt, start gry i fabularny nocleg są odrębnymi operacjami; mogą mieć uzasadnione ekrany czy zmianę czasu, ale **nie wolno nimi maskować zwykłego przejścia między lokacjami**.
+5. **To nie jest wymaganie „jedna scena w edytorze”.** Możliwe są liczne sceny, zasoby, siatki lub procesy, jeśli wynik dla gracza spełnia powyższy kontrakt.
+6. Wyjątkowa anomalia fabularna może zmieniać geometrię odczuwanej przestrzeni. To odrębny wybór autora (VARIANTS.md), nie pretekst do ekranu ładowania.
 
-| Skala | Rozmiar | Zadanie | Status |
-|---|---|---|---|
-| Makrosektor S00–S23 | prostokąt 6×6 komórek planu, 12 sztuk | odpowiedzialność level designera, karta biomu, plan produkcji | propozycja |
-| Komórka streamingu | 1×1 kratka abstrakcyjnej siatki, 24×18 = 432 adresy | dane terenu, kolizji, AI i dekoracji | podział logiczny do prototypu |
+## B. Hipotezy implementacyjne do prototypu
 
-**Nie przyjmujemy jeszcze wymiarów w metrach.** Pomiary D (średnica postaci), B (obrys bossa), U (pełen unik), A (zasięg ataku), V (widok kamery) będą wykonane w grywalnym prototypie. Dopiero wtedy dobierzemy wymiar komórki i promień strumieniowania. Punkty JSON są pozycjami na planie, nie zatwierdzonymi współrzędnymi gameplayu.
+**Opcja T1 — jedna persistent root scena i dynamiczne podsceny.** Trwałe obiekty pozostają logicznie globalne; sąsiednie lokacje i LOD dodawane lub usuwane w tle. Prosta serializacja, ryzyko skoków instancjonowania i pamięci.
 
-## 3. Minimalny przepływ strumieniowania
+**Opcja T2 — odrębne sceny/obszary silnika, z wizualnie ciągłym przejściem.** Doczytywanie przed wejściem, jednoczesna obecność sąsiednich obszarów, przekazanie kolizji i AI. Większa złożoność szwów, bez widocznego przełączania sceny.
 
-1. **Always-on:** stan kampanii, postaci, rozliczenia jednorazowych zadań, zajętości drzwi, pokonanych bossów i zasobów; mała warstwa danych niezależna od sceny.
-2. **Active:** fizyka, nawigacja, animacje i pełne AI w komórkach przy bohaterze oraz w aktywnej walce.
-3. **Warm:** sąsiednie komórki przygotowane z wyprzedzeniem; niezależnie od kierunku i możliwego uniku.
-4. **Visible LOD:** dalsze drzewa, skały, palisada i światło jako tańsze reprezentacje, aby nie widać było wyskakiwania.
-5. **Dormant:** poza obszarem aktywnym zapisane są niezmienne identyfikatory, flagi, stany przeciwników, przedmiotów i obiektów; bez pełnej symulacji, jeśli nie jest potrzebna.
+**Opcja T3 — świat przestrzennie jednolity, paginowane zasoby/LOD i nawigacja.** Podobny efekt przy odmiennym modelu pamięci; technologia zależy od wybranego silnika i rozmiaru świata.
 
-Bieżący aktywny obszar powinien obejmować kamerę, dystans ruchu podczas wczytania i dodatkowy margines na pełen unik U. Ładowanie wzdłuż przewidywanego kierunku ruchu jest dodatkiem, a nie zamiennikiem pełnego pierścienia bezpieczeństwa.
+Rekomendowane, ale **nie nakazane** praktyki: spójny układ współrzędnych lub bezstratne transformacje sąsiednich scen, stabilne `world_id`, trwały stan fabuły, mechanizm obsługi aktywnych przeciwników przy granicy oraz przewidywanie kierunku ruchu. Jeśli różne sceny używają lokalnych współrzędnych, muszą być przeliczone bez dryfu i zmiany prędkości.
 
-## 4. Granice komórek i ciągłość systemów
+**Makrosektory `S00–S23`**: prostokąty planistyczne 6×6 na siatce 24×18; służą autorstwu i kontroli danych. **Nie są** obowiązkowymi scenami. Komórka 1×1 z wcześniejszego opracowania była przykładem, nie wybranym rozmiarem streamingu. Zawężenia architektury wymagają benchmarku i pomiaru `D/B/U/A/V`.
 
-- **Nawigacja:** wspólny graf portali sektorów; komórki mają zapisane połączenia przejść, nie domyślają się ich ze sprite'a. Szwów navmesha / siatki nawigacyjnej nie można wykorzystywać jako niewidzialnych ścian.
-- **Kolizje:** obiekty przecinające granicę komórki mają jednego właściciela logicznego i instancję kontaktową widoczną dla obu stron. Nie duplikujemy pickupów.
-- **AI:** podczas aktywnej walki gracz i przeciwnik przypinają (pin) komórki wymagane do wykonania akcji i wycofania. AI nie może zniknąć przy przekroczeniu linii sektora.
-- **Pociski i zasięgi:** obliczane w globalnym świecie; nie znikają w szwie. Osłony, np. wóz i stos drewna, blokują również linię strzału.
-- **Audio:** woda, las, pochodnie i głosy przechodzą przez płynny crossfade strefowy, bez nagłego restartu pętli na granicy.
-- **Oświetlenie:** subtelne przejście wolumetryczne, żar pochodni bez zmiany globalnego modelu światła w momencie zmiany sektora.
-- **Roślinność i dachy:** wysoka korona, dach albo ściana przed kamerą staje się przezroczysta bądź otwierana warstwowo, bez ujawniania podłoża przez błędną maskę.
+## C. Wariant cyklu życia zasobów — ilustracja, nie specyfikacja
 
-## 5. Wnętrza i komora pod ziemią
+Możliwy cykl: stan trwały → zasoby przygotowane w tle → aktywna logika i render → odległe LOD → serializowany stan. Nie trzeba stosować dokładnie pięciu warstw ani tej kolejności. W wybranym silniku należy zbadać koszty odczytu, dekompresji, shaderów, kolizji, renderowania, nawigacji i cache.
 
-- Gospoda, kuźnia i strażnica osady w pierwszej wersji mają zewnętrzne bryły i interakcje w progu; wnętrza dopiero jeśli służą zadaniom.
-- Jeśli wnętrze jest grywalne, leży fizycznie za drzwiami tej samej budowli. Dach przygasa / znika warstwowo, gdy kamera ma przecięcie z bohaterem.
-- Komora latarni leży na poziomie `z<0` w tym samym globalnym świecie. Dochodzi się schodami od ruin; geometria wierzchnia musi przysłonić otoczenie komory z zewnątrz, ale odsłonić ją podczas zejścia.
-- **Nie używamy teleportu dla ukrycia innego levelu.** Każdy podziemny zakręt ma geometrię, nie czarną planszę.
+| Problem do rozwiązania | Cel dla gracza | Kandydat na metodę, nie nakaz |
+|---|---|---|
+| Gwałtowny sprint/unik przez granicę | Bez pustej ziemi i stopklatki | Bufor prefetch obejmujący kamerę, zapas drogi podczas opóźnienia i `U` |
+| Pies przekracza granicę strefy | Nie znika, nie traci logiki ataku | Tymczasowe przypięcie sąsiednich obszarów lub ponadsektorowy właściciel AI |
+| Strzał przez granicę | Nie przepuszcza pocisku przez wóz | Ciągła fizyka lub spójne odwzorowanie colliderów między scenami |
+| Cofnięcie po podniesieniu pakunku | Nie odradza pakunku | Unikalny `world_id`, zapisane `collected` poza cyklem życia reprezentacji |
+| Korytarz do komory latarni | Brak czarnego przejścia | Fizyczne schody, otwierany dach, przygotowany podziemny obszar; może być osobna podscena |
+| Kamera i dźwięk w lesie | Brak wyskakujących drzew i urwanego deszczu | LOD, kompozycja dźwięku w obu obszarach, synchronizacja pogody |
 
-## 6. Fabularna anomalia i odsłonięty trakt
+## D. Stały stan świata
 
-- **Pętla przy wozie:** dwie różne, ciągłe ścieżki zataczają rzeczywisty łuk, a druga wraca na ten sam plac pod innym kątem. Z perspektywy gracza daje poczucie dezorientacji; znak na drzewie i wóz pozostają tymi samymi obiektami.
-- Ten kompromis **nie wyjaśnia** nadprzyrodzoności fabularnej. Jeśli autor zechce prawdziwej niemożliwej geometrii, opracować to jako osobny efekt z nieprzerwanym obrazem i bez utraty stanu, nie zakładać potajemnego teleportu.
-- **Latarnia:** fizyczny trakt jest w świecie od początku, lecz przed `village_lamp_lit` nie ma dostępnego przejścia (korzenie, skarpa, ciemna mgła). Gdy latarnia zostaje zapalona w osadzie, bramka udostępnia ścieżkę; bez podmieniania całej lokacji w kadrze gracza.
-- **Skrót obozu:** początkowo zamknięty od strony rozstaju; otwierany na miejscu, od obozu. Potem obie strony są fizycznie drożne.
+Persistencja przedmiotu (pakunki/księga), trzech słupów, bossa Dźwigacza, zimnej latarni, zapalenia latarni w Niemirze, skrótu obozowego, Stróża i znalezienia suchej drogi jest niezależna od tego, czy grafika danego miejsca jest aktywna.
 
-## 7. Savegame i spójność odległych sektorów
+- Rozliczenie bossa i przedmiotu powinno być transakcyjne; nie nadawaj nagrody wielokrotnie przy ponownym wczytaniu sektora.
+- Powtórne przejście obok wozu nie instancjonuje nowego konia, znaku, butów czy wrogów (poza świadomie zaprojektowaną inscenizacją), także w wariancie B anomalii.
+- Nie przestawiać AI/gracza w trakcie wyprowadzania ciosu w celu dopasowania do nowej sceny.
+- Ładowanie zapisu w stanie walki i zapis bezpieczny przed bossem to niezależne problemy projektowe (patrz `docs/propozycja-wyprawy-02.md`).
 
-Każdy trwały obiekt ma `world_id`, `owner_cell`, `state_version`. Odmienny wygląd tego samego obiektu po odwrocie wynika z flag, nie ze spawnów nowej kopii. Zachować:
+## E. Zjawiska fabularne (mechanizm OTWARTY)
 
-- Jednorazowe pakunki, księgę i rozliczenie zadania.
-- Stan trzech słupów niezależnie od kolejności oglądania.
-- Ukończenie walki z Dźwigaczem + lampę jako jeden spójny wynik zapisu.
-- Wspólną latarnię Niemiru i flagę nowego traktu.
-- Otwarcie skrótu obozowego.
-- Pokonanie Stróża i dostępność suchej drogi.
-- Wrogów pokonanych na stałe oraz wrogów żywych w stanie sprzed wyłączenia sektora (zgodnie z regułami zapisu).
+- **Droga, która wraca:** wariant A: zwykła zarośnięta pętla, B: zmieniona topologia przestrzeni bez widocznej przerwy. W grafie v0.2 przedstawiono A wyłącznie jako makietę; porównanie i ryzyko w [`VARIANTS.md`](VARIANTS.md). Nie wolno przedstawiać A jako zatwierdzonego wyjaśnienia nadprzyrodzonego zjawiska.
+- **Latarnia:** po `village_lamp_lit` droga staje się dostępna. L1: ujawniona, L2: znika realna przeszkoda, L3: czytelność orientacji. **Nie ustala się** korzeni, mgły ani skarpy jako obowiązkowej blokady.
+- **Skrót obozu:** odblokowanie od strony obozu jest propozycją dotychczasowej mapy; wymaganie płynnej podróży nadal obowiązuje przy nawrocie.
 
-## 8. Zakres testów wydajności i QA
+## F. Cele wydajnościowe (DO POMIARU)
 
-To **cele do pomiaru, nie uzyskane wyniki**:
+Zaproponowany cel użytkowy: płynność wystarczająca do wiarygodnego uniku i precyzyjnego ataku, brak zauważalnych pauz doczytu, poprawne zachowanie podczas szybkiego nawrotu. Ewentualne **60 FPS**, limit opóźnień i budżet pamięci pozostają aspiracjami do zatwierdzenia po wyborze docelowej maszyny i silnika — **brak benchmarku**.
 
-1. Przejście brama→rozstaj→wóz, bez wstrzymania sterowania.
-2. Bieg / seria uników przez granicę 4 komórek; brak pustej ziemi, zanikających kolizji i pojawiających się obiektów.
-3. Walka przeciwnika na szwie; pocisk trafia prawidłowo w osłonę po drugiej stronie granicy.
-4. Szybki nawrót przy skrócie; brak podwójnych przeciwników i powtórnie zebranych pakunków.
-5. Zejście do komory i powrót schodami; nie pojawia się „obca” scena.
-6. Zapis/odczyt tuż przed i po zgaszeniu/włączeniu flag; brak utraty widoczności traktu.
-7. Po pokonaniu bossa, oddaleniu się o wiele sektorów i powrocie: poprawna trwałość stanu.
-8. Zmiana kamery i widoczności dachów podczas płynnego przejścia przez bramę.
-9. Profilowanie czasu klatki i skoków alokacji w chwili doczytu. Wstępne aspiracje: 60 FPS na docelowym PC, bez zauważalnych pauz przy granicach — wartości do zatwierdzenia po pomiarach sprzętu.
-10. Test obciążeniowy niska pamięć i przerwanie pobierania danych; bez cichej utraty savegame.
+Pomiary: wykres czasów klatek (nie tylko średni FPS), CPU/GPU, zużycie i piki pamięci, czas decode/upload zasobów, koszt tworzenia colliderów, stan fizyki i AI przy przechodzeniu, opóźnienie inputu, ponowne wejście po natychmiastowym zawróceniu oraz niskopamięciowy scenariusz. Każdy pomiar zawiera build, sprzęt, obciążenie i zapis wideo.
 
-Żaden z tych testów nie został jeszcze wykonany w silniku gry.
+## G. Testy akceptacyjne do uruchomienia po wyborze silnika
+
+1. Marsz i sprint: brama → rozstaj → wóz → podejście do mostu → pełen nawrót, bez przerwy; szwy dowolnej organizacji silnika są niewidoczne.
+2. Walka i pociski na potencjalnym szwie, również podczas uniku i odwrotu.
+3. Powtórny przyjazd: pakunki nie wracają, martwy boss pozostaje martwy, skrót pamięta otwarcie.
+4. Gospoda/strażnica i komora: ciągłość ruchu i kamery bez „teleportu w czerni”.
+5. Anomalia A/B i ujawnienie latarni: osobne eksperymenty, nie testy zaliczające istniejący renderer.
+6. Profilowanie słabszego docelowego PC, długiej sesji i zmiany kierunku.
+
+**Żaden test silnikowy ani cel wydajnościowy nie jest dziś potwierdzony.** Raport statycznego walidatora nie może zmienić tego statusu.

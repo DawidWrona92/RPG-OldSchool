@@ -40,3 +40,7 @@ Grafy `docs/graphs/` są **dokumentacją planowanego układu i zdarzeń**, nie w
 ## Mapa ciągłego świata
 
 [**Projekt całej doliny Niemiru — mapa v0.1**](docs/world/README.md): 28 miejsc, 30 tras, 12 sektorów i kontrakt eksploracji bez ekranów ładowania. Układ przestrzenny jest **propozycją do greyboxu**, a nie zatwierdzonymi współrzędnymi świata. [Mapa SVG](docs/world/WORLD_MAP.svg) · [Karty sektorów](docs/world/SECTORS.md) · [Bezszwowy streaming](docs/world/STREAMING.md).
+
+## Projekt mapy v0.2 — bez widocznych przejść ładowania
+
+Wspólna wersja dokumentacji: [mapa doliny Niemiru](docs/world/README.md), [plansza SVG](docs/world/WORLD_MAP.svg), [warianty anomalii i latarni](docs/world/VARIANTS.md), [testy grafu](docs/world/WORLD_QA.md) oraz [pierwszy greybox](docs/world/GREYBOX.md). Warianty fabularne pozostają do decyzji autora. Kod walidacji statycznej na gałęzi `vibe/world-map-validator-gpt6`.

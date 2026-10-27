@@ -1,155 +1,213 @@
-# Welesza — karty 12 sektorów świata (v0.1)
+# Welesza — karty 12 sektorów / ownership v0.2
 
-> **Status: propozycja do greyboxu i testów.** Układ to 4 kolumny × 3 rzędy, sektor 6×6 komórek planu. Granice sektorów są techniczne, nigdy fabularne.
+> **Propozycja.** Siatka 24×18 jednostek projektu, sektory po 6×6. To nie metry i nie wymuszony podział silnika na sceny.
+
+## Konwencja i zasady odpowiedzialności
+
+- Punkt ma dokładnie jednego właściciela `owner_sector`, liczonego z jego `grid` w półotwartym prostokącie sektora (`x0 ≤ x < x0+w`, analogicznie `y`; tylko zewnętrzny maksimum wchodzi do skrajnego sektora).
+- Droga `sectors_crossed` może należeć przestrzennie do więcej niż jednego sektora. `owner_sector` drogi to sektor jej `from_node` — **koordynuje pracę**, a pozostałe sektory przygotowują swój odcinek/kolizję.
+- Droga nie tworzy nowego miejsca: właścicielowi słupa przypisujemy jego **kotwicę**, właściciel drogi nie zmienia tego przypisania.
+- S00, S03, S20 i S23 są sektorami tła/granic bez węzłów i bez polilinii w v0.2; S23 **nie** obejmuje `dry_road`.
+- Deklaracje sektorów są roboczą organizacją produkcji, a nie nakazem streamingu ani ekranów przejścia.
 
 ## Indeks sektorów
 
-| Sektor | Strefa | Najważniejszy obowiązek |
-|---|---|---|
-| **S00** | Zachodnia granica boru | Niegrywalne tło |
-| **S01** | Niemir i skalne źródło | Niemir |
-| **S02** | Północne ścieżki | Północne przedpole i korytarz zamkniętego skrótu |
-| **S03** | Wschodni las i podejście | Górny skalny grzbiet i zaplecze leśnej strażnicy |
-| **S10** | Zerwany most i wóz | Porzucony wóz, dwie drogi obejścia, urwany most i podmokły brzeg |
-| **S11** | Rozstaj oraz cmentarne miejsce | Rozstaj pod drzewem, pamiętna pętla, cmentarne miejsce |
-| **S12** | Kamienie i obóz | Kamienne drogi, pierwszy słup, obóz węglarzy i wejście do traktu |
-| **S13** | Ruiny oraz finał | Ruiny, piec Dźwigacza, komora poniżej gruntu, finałowa arena Stróża |
-| **S20** | Nieprzebyta skarpa i podmokłości | Południowo-zachodnie podmokłości — granica doliny |
-| **S21** | Polana z pieśnią | Polana z pieśnią i boczna droga od trzech kamieni |
-| **S22** | Sidła i jama Zbieracza | Ślady sideł, jama Zbieracza i drugi / trzeci słup |
-| **S23** | Suchy szlak i granica doliny | Południowy skraj kamiennego traktu i odległe tło |
+| Sektor | Główne miejsce / funkcja | Punkty z kotwicą | Liczba tras przechodzących |
+|---|---|---:|---:|
+| `S00` | Zachodnia granica boru | 0 | 0 |
+| `S01` | Niemir i skalne źródło | 8 | 10 |
+| `S02` | Północne ścieżki | 1 | 2 |
+| `S03` | Wschodni las i podejście | 0 | 0 |
+| `S10` | Zerwany most i wóz | 3 | 4 |
+| `S11` | Rozstaj oraz cmentarne miejsce | 3 | 8 |
+| `S12` | Kamienie i obóz | 6 | 13 |
+| `S13` | Ruiny oraz finał | 4 | 4 |
+| `S20` | Nieprzebyta skarpa i podmokłości | 0 | 0 |
+| `S21` | Polana z pieśnią | 1 | 1 |
+| `S22` | Sidła i jama Zbieracza | 2 | 2 |
+| `S23` | Południowo-wschodnia granica doliny (tło suchego szlaku) | 0 | 0 |
 
-## S00: Zachodnia granica boru
+## Karty robocze
 
-**Rola:** Niegrywalne tło: gęsty bór i skaliste ograniczenie doliny.
+### S00 — Zachodnia granica boru
 
-**Geometria i styl:** Nie budować pustych kilometrów. Pnie i skały stopniowo zamykają trasę; podłoże zgaszone, bez fałszywych przejść..
+**Funkcja:** Niegrywalne tło i ograniczenie zachodnie.
 
-**Walidacja:** Fizyczna granica zachodnia, bez drugiej bramy i skrótu do mostu..
+**Geometria/inscenizacja:** Gęsty bór, mokre skały; brak sugerowanych ścieżek wyjściowych.
 
-**Punkty projektowe:** brak — dekoracyjne zamknięcie świata.
+**Greybox/QA:** Nie tworzyć niewidzialnej bariery na czytelnej drodze.
 
+**Punkty kotwiczone:** brak.
 
-## S01: Niemir i skalne źródło
+**Odpowiedzialność za trasy od punktów początkowych:** brak.
 
-**Rola:** Niemir: źródło, palisada, domy, gospoda, strażnica, kuźnia i dziedziniec.
+**Trasy z innych sektorów przecinające ten sektor:** brak.
 
-**Geometria i styl:** Jedna nieregularna polana, kamienna skała na skraju, niewielki plac. Drzwi usług i jedyna brama czytelne z głównego traktu. Bez walki w osadzie..
+### S01 — Niemir i skalne źródło
 
-**Walidacja:** Test: od bramy do gospody i Wszebory bez zasłonięć; dachy reagują na kamerę; nie dodawać pól..
+**Funkcja:** Niemir: źródło, palisada, domy, gospoda, strażnica, kuźnia i dziedziniec.
 
-**Punkty projektowe:** `spring` (Źródło w skale), `watch_village` (Strażnica Niemiru), `houses` (Domy przy palisadzie), `inn` (Dom gościnny), `square` (Plac Niemiru), `services` (Kuźnia i zielarka), `training` (Dziedziniec ćwiczeń), `gate` (Brama Niemiru)
+**Geometria/inscenizacja:** Jedna nieregularna polana, kamienna skała na skraju, niewielki plac. Drzwi usług i jedyna brama czytelne z głównego traktu. Bez walki w osadzie.
 
+**Greybox/QA:** Test: od bramy do gospody i Wszebory bez zasłonięć; dachy reagują na kamerę; nie dodawać pól.
 
-## S02: Północne ścieżki
+**Punkty kotwiczone:** `spring`, `watch_village`, `houses`, `inn`, `square`, `services`, `training`, `gate`.
 
-**Rola:** Północne przedpole i korytarz zamkniętego skrótu.
+**Odpowiedzialność za trasy od punktów początkowych:** `square__spring`, `square__watch_village`, `square__houses`, `square__inn`, `square__services`, `services__training`, `square__gate`, `gate__training`, `gate__crossroads`.
 
-**Geometria i styl:** Wyłącznie logiczne dojście do skrótu obóz→rozstaj. Gęsty las i skarpa tłumaczą niedostępność przed otwarciem zasuwy..
+**Trasy z innych sektorów przecinające ten sektor:** `camp__crossroads`.
 
-**Walidacja:** Test: bariera skrótu istnieje fizycznie i jest otwierana od strony obozu; bez przenosin postaci..
+### S02 — Północne ścieżki
 
-**Punkty projektowe:** `shelter` (Leśne schronienie)
+**Funkcja:** Leśne schronienie Czcibora i fragment górnego dojścia obozowego.
 
+**Geometria/inscenizacja:** Odcinki dróg `camp__shelter` i `camp__crossroads` przecinają S02; nie utożsamiać z całym skrótem.
 
-## S03: Wschodni las i podejście
+**Greybox/QA:** Otwieranie skrótu od obozu i powrót do rozstaju przetestować bez przeskoku sceny.
 
-**Rola:** Górny skalny grzbiet i zaplecze leśnej strażnicy.
+**Punkty kotwiczone:** `shelter`.
 
-**Geometria i styl:** Ciężkie skały osłaniają tajemniczą bryłę ruin od północy, pozwalając zaplanować dyskretne zbliżenie od obozu..
+**Odpowiedzialność za trasy od punktów początkowych:** brak.
 
-**Walidacja:** Test: nic nie prowadzi z górnego skraju bezpośrednio do komory lub za Stróża..
+**Trasy z innych sektorów przecinające ten sektor:** `camp__shelter`, `camp__crossroads`.
 
-**Punkty projektowe:** brak — dekoracyjne zamknięcie świata.
+### S03 — Wschodni las i podejście
 
+**Funkcja:** Niegrywalny górny skraj wschodniego boru.
 
-## S10: Zerwany most i wóz
+**Geometria/inscenizacja:** Skały i gęstwina w tle ruin; żaden punkt ani trasa v0.2 nie ma kotwicy w tym sektorze.
 
-**Rola:** Porzucony wóz, dwie drogi obejścia, urwany most i podmokły brzeg.
+**Greybox/QA:** Brak sztucznego dodatkowego wejścia do komory i na finał.
 
-**Geometria i styl:** Prolog nocą bez obowiązkowej walki. Rankiem osobne telegraphy Psa i Powrotnika; koń, pakunki, księga. Szlak do mostu kończy się prawdziwą wyrwą..
+**Punkty kotwiczone:** brak.
 
-**Walidacja:** Test: obie strony wozu drożne także dla wroga; most widoczny lecz nieprzekraczalny; powrót do bramy..
+**Odpowiedzialność za trasy od punktów początkowych:** brak.
 
-**Punkty projektowe:** `wagon` (Porzucony wóz), `bridge` (Brzeg i zerwany most), `loop_mark` (Oznaczone drzewo)
+**Trasy z innych sektorów przecinające ten sektor:** brak.
 
+### S10 — Zerwany most i wóz
 
-## S11: Rozstaj oraz cmentarne miejsce
+**Funkcja:** Wóz, podejście do mostu, oznaczone drzewo.
 
-**Rola:** Rozstaj pod drzewem, pamiętna pętla, cmentarne miejsce.
+**Geometria/inscenizacja:** Pierwsza wizyta **przed zmierzchem** (chłodno, deszczowo), rano powrót; 2 drożne obejścia wozu, osobny koń, buty i pakunki. Trasa z rozstaju przekracza granicę S11→S10.
 
-**Geometria i styl:** Przede wszystkim nawigacja: rozpoznawalna sylwetka drzewa, podążanie za ciepłym punktem osady, rozbieżne ścieżki. Pętla zatacza łuk i wraca do wozu od przeciwnej strony..
+**Greybox/QA:** Dwa rzeczywiście przechodnie boki wozu oraz wyraźna wyrwa mostu; test „przed zmierzchem”, nie „nocą”.
 
-**Walidacja:** Test: anomalia bez wczytywania i teleportu; dojście do grobu nie blokuje głównego zadania..
+**Punkty kotwiczone:** `wagon`, `bridge`, `loop_mark`.
 
-**Punkty projektowe:** `crossroads` (Rozstaj pod pochylonym drzewem), `grave` (Cmentarne miejsce / buty), `pillar_whole` (Słup cały)
+**Odpowiedzialność za trasy od punktów początkowych:** `wagon__bridge`, `wagon__loop_mark`, `loop_mark__wagon`.
 
+**Trasy z innych sektorów przecinające ten sektor:** `crossroads__wagon`.
 
-## S12: Kamienie i obóz
+### S11 — Rozstaj oraz cmentarne miejsce
 
-**Rola:** Kamienne drogi, pierwszy słup, obóz węglarzy i wejście do traktu.
+**Funkcja:** Rozstaj, miejsce cmentarne i **cały pierwszy słup** na skraju tej strefy.
 
-**Geometria i styl:** Trzy odrębne kierunki badania kamieni, żadna kolejność obowiązkowa. W obozie stos drewna tworzy dwie flankujące trasy i osłonę przeciw Łucznikowi..
+**Geometria/inscenizacja:** Punkt `pillar_whole` = (11.4, 11.3) leży w S11; droga `stones__pillar_whole` zaczyna się w S12 i wchodzi do S11. Pętla A to wyłącznie wariant, nie zatwierdzony cud.
 
-**Walidacja:** Test: bezpieczny odwrót z kamieni, aktywna najwyżej jedna skoordynowana grupa spotkania..
+**Greybox/QA:** Sprawdzić orientację między bramą, rozstajem i wozem; anomalię A/B oddzielnie według VARIANTS.md.
 
-**Punkty projektowe:** `stones` (Węzeł kamiennych dróg), `pillar_fallen` (Słup powalony), `pillar_broken` (Słup rozbity), `camp` (Obóz węglarzy), `tools` (Narzędzia pod korą), `old_road` (Odsłonięty dawny trakt)
+**Punkty kotwiczone:** `crossroads`, `grave`, `pillar_whole`.
 
+**Odpowiedzialność za trasy od punktów początkowych:** `crossroads__wagon`, `crossroads__grave`, `crossroads__stones`.
 
-## S13: Ruiny oraz finał
+**Trasy z innych sektorów przecinające ten sektor:** `gate__crossroads`, `loop_mark__wagon`, `stones__pillar_whole`, `stones__song`, `camp__crossroads`.
 
-**Rola:** Ruiny, piec Dźwigacza, komora poniżej gruntu, finałowa arena Stróża.
+### S12 — Kamienie i obóz
 
-**Geometria i styl:** Fizyczny kompleks na jednym obszarze: dojście do Dźwigacza od obozu, zejście schodami do komory; oddzielona od niej droga do Stróża otwierana od kamieni po zapaleniu latarni..
+**Funkcja:** Węzeł trzech dróg, **słup powalony i rozbity**, obóz i początek traktu.
 
-**Walidacja:** Test: dwa boki pieca, brak nielegalnego obejścia finałowej bramki, zejście bez podmiany sceny..
+**Geometria/inscenizacja:** Punkty `pillar_fallen` (14.9, 11.5) i `pillar_broken` (15.1, 9.3) leżą w S12; pierwszy słup leży w S11, ale projekt jego dojścia startuje w S12.
 
-**Punkty projektowe:** `ruins` (Leśna strażnica / Dźwigacz), `chamber` (Komora korzeni i latarni), `guardian` (Arena Stróża), `dry_road` (Suchy szlak (granica demo))
+**Greybox/QA:** Trzy ślady w dowolnej kolejności; droga do kamieni nie blokuje odwrotu; wejście na trakt tylko z odpowiednią flagą.
 
+**Punkty kotwiczone:** `stones`, `pillar_fallen`, `pillar_broken`, `camp`, `tools`, `old_road`.
 
-## S20: Nieprzebyta skarpa i podmokłości
+**Odpowiedzialność za trasy od punktów początkowych:** `stones__pillar_whole`, `stones__pillar_fallen`, `stones__pillar_broken`, `stones__song`, `stones__snares`, `stones__camp`, `camp__tools`, `camp__shelter`, `camp__ruins`, `camp__crossroads`, `stones__old_road`, `old_road__guardian`.
 
-**Rola:** Południowo-zachodnie podmokłości — granica doliny.
+**Trasy z innych sektorów przecinające ten sektor:** `crossroads__stones`.
 
-**Geometria i styl:** Atmosferyczne tło, martwe pnie i grząski grunt. Nie tworzymy tu questów bez powodu ani ukrytej drugiej trasy przez potok..
+### S13 — Ruiny oraz finał
 
-**Walidacja:** Test: naturalna granica terenu nie udaje szerokiej dostępnej drogi..
+**Funkcja:** Ruiny, komora, Stróż i **kotwica suchego szlaku**.
 
-**Punkty projektowe:** brak — dekoracyjne zamknięcie świata.
+**Geometria/inscenizacja:** `dry_road` = (22.7, 10.4) leży w S13, nie w S23. Komora jest podziemnym poziomem w tej samej podróży, ale sposób organizacji scen silnika jest otwarty.
 
+**Greybox/QA:** Bez bezpośredniego skrótu z komory na Stróża; płynne zejście bez widocznego ekranu ładowania.
 
-## S21: Polana z pieśnią
+**Punkty kotwiczone:** `ruins`, `chamber`, `guardian`, `dry_road`.
 
-**Rola:** Polana z pieśnią i boczna droga od trzech kamieni.
+**Odpowiedzialność za trasy od punktów początkowych:** `ruins__chamber`, `guardian__dry_road`.
 
-**Geometria i styl:** Wyraźnie poboczne spotkanie: Żałobnica + Powrotnik. Co najmniej dwa sposoby przerwania osłony, nagroda nie służy do odblokowania finału..
+**Trasy z innych sektorów przecinające ten sektor:** `camp__ruins`, `old_road__guardian`.
 
-**Walidacja:** Test: czytelna zapowiedź i droga odwrotu, bez ostrzału poza widokiem..
+### S20 — Nieprzebyta skarpa i podmokłości
 
-**Punkty projektowe:** `song` (Polana z pieśnią)
+**Funkcja:** Tło: południowo-zachodnie podmokłości.
 
+**Geometria/inscenizacja:** Naturalna granica doliny bez grywalnych kotwic i ścieżek w v0.2.
 
-## S22: Sidła i jama Zbieracza
+**Greybox/QA:** Nie sugerować graczowi otwartej drogi w bagno.
 
-**Rola:** Ślady sideł, jama Zbieracza i drugi / trzeci słup.
+**Punkty kotwiczone:** brak.
 
-**Geometria i styl:** Znaki pułapek widoczne przed zejściem do jamy. Opcjonalny miniboss bez wpływu na uzyskanie lampy ani pokonanie Stróża..
+**Odpowiedzialność za trasy od punktów początkowych:** brak.
 
-**Walidacja:** Test: możliwość ominięcia bez walki i powrót na normalną trasę, żadnych ślepych zagłębień..
+**Trasy z innych sektorów przecinające ten sektor:** brak.
 
-**Punkty projektowe:** `snares` (Ślady sideł), `collector` (Jama Zbieracza)
+### S21 — Polana z pieśnią
 
+**Funkcja:** Polana z pieśnią i boczna droga od trzech kamieni.
 
-## S23: Suchy szlak i granica doliny
+**Geometria/inscenizacja:** Wyraźnie poboczne spotkanie: Żałobnica + Powrotnik. Co najmniej dwa sposoby przerwania osłony, nagroda nie służy do odblokowania finału.
 
-**Rola:** Południowy skraj kamiennego traktu i odległe tło.
+**Greybox/QA:** Test: czytelna zapowiedź i droga odwrotu, bez ostrzału poza widokiem.
 
-**Geometria i styl:** Finał kończy się krótkim fragmentem suchej drogi; dalsza Welesza pozostaje nieopracowana i nie jest obiecywana jako grywalna..
+**Punkty kotwiczone:** `song`.
 
-**Walidacja:** Test: teren nie sugeruje nieskończonego świata za granicą demo, bez sztucznego ekranu ładowania..
+**Odpowiedzialność za trasy od punktów początkowych:** brak.
 
-**Punkty projektowe:** brak — dekoracyjne zamknięcie świata.
+**Trasy z innych sektorów przecinające ten sektor:** `stones__song`.
 
-## Reguła granicy sektorów
+### S22 — Sidła i jama Zbieracza
 
-Przekroczenie linii sektorów nie wyzwala teleportu, ściemnienia ekranu, pauzy animacji ani zmiany mapy. Każdy widoczny element przeciwległej strony jest wczytany lub zastąpiony poprawnym LOD jeszcze przed wejściem postaci. Aktor w walce może chwilowo wymusić obecność kilku sąsiednich sektorów.
+**Funkcja:** Ślady sideł, jama Zbieracza i drugi / trzeci słup.
+
+**Geometria/inscenizacja:** Znaki pułapek widoczne przed zejściem do jamy. Opcjonalny miniboss bez wpływu na uzyskanie lampy ani pokonanie Stróża.
+
+**Greybox/QA:** Test: możliwość ominięcia bez walki i powrót na normalną trasę, żadnych ślepych zagłębień.
+
+**Punkty kotwiczone:** `snares`, `collector`.
+
+**Odpowiedzialność za trasy od punktów początkowych:** `snares__collector`.
+
+**Trasy z innych sektorów przecinające ten sektor:** `stones__snares`.
+
+### S23 — Południowo-wschodnia granica doliny (tło suchego szlaku)
+
+**Funkcja:** **Tło i dalszy skraj doliny**, nie właściciel suchej drogi.
+
+**Geometria/inscenizacja:** Brak punktów i polilinii w S23. Możliwa dalsza panorama świata, lecz koniec grywalnego demo jest przy `dry_road` w S13.
+
+**Greybox/QA:** Nie projektować fikcyjnej grywalnej drogi w S23; brak nowej krainy bez kanonu.
+
+**Punkty kotwiczone:** brak.
+
+**Odpowiedzialność za trasy od punktów początkowych:** brak.
+
+**Trasy z innych sektorów przecinające ten sektor:** brak.
+
+## Zgłoszone rozbieżności — zweryfikowane
+
+| Punkt | Współrzędne siatki | Sektor kotwicy | Gdzie przebiega droga | Korekta |
+|---|---|---|---|---|
+| `pillar_whole` | (11.4, 11.3) | **S11** | `stones__pillar_whole` S12→S11 | Usunięto błędne przypisanie słupa do S12; w S12 pozostaje odpowiedzialność za początek dojścia. |
+| `pillar_fallen` | (14.9, 11.5) | **S12** | `stones__pillar_fallen` w S12 | Usunięto błędny opis S22 jako właściciela. |
+| `pillar_broken` | (15.1, 9.3) | **S12** | `stones__pillar_broken` w S12 | Usunięto błędny opis S22. |
+| `dry_road` | (22.7, 10.4) | **S13** | `guardian__dry_road` w S13 | Przedefiniowano S23 jako tło, nie „miejsce suchego szlaku”. |
+
+Ponadto walidator znalazł **11 tras przecinających sektory**; np. skrót `camp__crossroads` przecina S12, S02, **S01** i S11. Dla tego fragmentu w S01 trzeba sprawdzić, czy nie widać przypadkowego dodatkowego wyjścia z Niemiru. To zadanie greyboxu, nie powód do samowolnego przesunięcia skrótu.
+
+## Kontrola przypisań
+
+Wyniki automatyczne oraz ograniczenia: [WORLD_QA.md](WORLD_QA.md). Skrypt: `tools/world/validate_world.py` na branchu `vibe/world-map-validator-gpt6`. Dane: [`world-layout.v0.2.json`](world-layout.v0.2.json).

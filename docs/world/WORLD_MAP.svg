@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1180" width="1600" height="1180">
 <rect width="1600" height="1180" fill="#111c18"/>
 <style>text{font-family:DejaVu Sans,Arial,sans-serif}.title{font-size:29px;font-weight:700;fill:#eae4cb}.meta{font-size:14px;fill:#9bb09f}.sector{font-size:16px;fill:#a7b8aa;opacity:.65}.legend{font-size:13px;fill:#dfebdb}.idx{font-size:14px;font-weight:700;fill:#c8ab79}.small{font-size:13px;fill:#c1d0bf}</style>
-<text x="48" y="50" class="title">WELESZA · MAPA CIĄGŁEJ DOLINY</text>
-<text x="49" y="82" class="meta">PROJEKT v0.1 · 12 SEKTORÓW · 28 MIEJSC · 30 TRAS · BEZ EKRANÓW ŁADOWANIA</text>
+<text x="48" y="50" class="title">WELESZA · MAPA DOLINY NIEMIRU / v0.2</text>
+<text x="49" y="82" class="meta">PROJEKT v0.2 · 12 SEKTORÓW · 28 MIEJSC · 30 TRAS · BEZ EKRANÓW ŁADOWANIA</text>
 <rect x="48" y="134" width="1056" height="792" fill="#26362c" stroke="#657e67" stroke-width="1"/>
 <ellipse cx="444" cy="270" rx="160" ry="125" fill="#89734d" opacity=".15"/>
 <ellipse cx="790" cy="570" rx="260" ry="235" fill="#607750" opacity=".12"/>
@@ -178,8 +178,14 @@
 <text x="1155" y="925" class="idx">27</text><text x="1186" y="925" class="legend">Arena Stróża</text>
 <text x="1155" y="954" class="idx">28</text><text x="1186" y="954" class="legend">Suchy szlak (granica demo)</text>
 <text x="1154" y="1043" class="small">Pełna lista połączeń:</text>
-<text x="1154" y="1066" class="small">world-layout.v0.1.json</text>
-<text x="46" y="984" class="meta">Granice S00–S23 służą do organizacji produkcji i streamingu; NIE są ścianami świata.</text>
+<text x="1154" y="1066" class="small">world-layout.v0.2.json</text>
+<text x="46" y="984" class="meta">Sektory S00–S23 są podziałem PROJEKTOWYM; nie wymuszają scen ani streamingu.</text>
 <text x="46" y="1012" class="meta">Współrzędne i skala są ROBOCZE. To mapa opisanego DEMO, nie nieznanych przyszłych krain.</text>
-<text x="46" y="1040" class="meta">Drogi kreskowane: przejścia odblokowywane fabułą. Pętla przy wozie to rzeczywista zamknięta ścieżka.</text>
+<text x="46" y="1040" class="meta">Drogi kreskowane: bramki fabularne (mechanizm otwarty). Pętla: wariant A na rysunku, B — do decyzji autora.</text>
+
+<!-- Kotwice do kontroli sektorów; nie przesuwają geometrii miejsc. -->
+<g aria-label="owner-sector S11" opacity=".96"><rect x="560.6" y="604.2" rx="4" width="42" height="17" fill="#0c241d" stroke="#f4d28e" stroke-width="1"/><text x="566.6" y="616.2" font-family="DejaVu Sans" font-weight="700" font-size="12" fill="#ffe0a0">S11</text></g>
+<g aria-label="owner-sector S12" opacity=".96"><rect x="714.6" y="613.0" rx="4" width="42" height="17" fill="#0c241d" stroke="#f4d28e" stroke-width="1"/><text x="720.6" y="625.0" font-family="DejaVu Sans" font-weight="700" font-size="12" fill="#ffe0a0">S12</text></g>
+<g aria-label="owner-sector S12" opacity=".96"><rect x="723.4" y="516.2" rx="4" width="42" height="17" fill="#0c241d" stroke="#f4d28e" stroke-width="1"/><text x="729.4" y="528.2" font-family="DejaVu Sans" font-weight="700" font-size="12" fill="#ffe0a0">S12</text></g>
+<g aria-label="owner-sector S13" opacity=".96"><rect x="1057.8" y="564.6" rx="4" width="42" height="17" fill="#0c241d" stroke="#f4d28e" stroke-width="1"/><text x="1063.8" y="576.6" font-family="DejaVu Sans" font-weight="700" font-size="12" fill="#ffe0a0">S13</text></g>
 </svg>

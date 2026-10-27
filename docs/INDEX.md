@@ -23,7 +23,8 @@ Dokumenty wyraźnie odróżniają **decyzje autora**, **uzgodniony kierunek arty
 ## Świat, mapa i pierwsza wyprawa
 
 - **[Mapa ciągłego świata doliny Niemiru (v0.1)](world/README.md)** — 12 sektorów, 28 miejsc, topologia i bezszwowy streaming; **propozycja do greyboxu**.
-- [Mapa Niemiru i lasu](pakiet-04-mapa.md).
+- [Mapa Niemiru i lasu](pakiet-04-mapa.md) — wcześniejszy plan topologiczny.
+- **[Cała dolina — mapa v0.2, sektory, warianty anomalii, QA i greybox](world/README.md)** — propozycja do zatwierdzenia; nie finalna geometria.
 - [Początek gry i pierwsza wyprawa](pakiet-04-poczatek.md).
 - [Plac przy wozie — plan i pakiet dla prototypu](plac-przy-wozie.md) — propozycja do oceny i testów.
 - [Brief ilustracji ART-01–ART-07](pakiet-04-obrazy.md).
