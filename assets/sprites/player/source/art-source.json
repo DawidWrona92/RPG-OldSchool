@@ -1,8 +1,8 @@
 {
   "baseline_commit": "a0a6c27e33b5d634e1ccad59e7634e4ab4d7ccde",
-  "art_revision": "refinement-01",
+  "art_revision": "refinement-03",
   "authoritative_source": "source/bohater.blend",
-  "source_sha256": "0f21b8c791b0d181cef4a9109d4f38381c8dd0b13d697261bf818178eb26ae84",
+  "source_sha256": "e55d5faa044b6e5a36a73f8e0cd6e3f2ee455459698b5256f27b22cd2991d661",
   "textures_packed": true,
   "materials": {
     "Znoszony len": [
@@ -90,5 +90,7 @@
     "leather_boots_dark_mud_normal_opengl.png": "de2d8838f08cc1bd588506ad085a68935f18074ff8b424cb23d6f0b6d3645aa8",
     "leather_backpack_aged_height.png": "822bae03020fbddd642bbe645fde6f63359ba5984624050172c49dc7a2da4afd"
   },
-  "source_rule": "Do not run bootstrap over artistic source. Render reads saved actions only; edits to .blend are authoritative."
+  "source_rule": "Do not run bootstrap over artistic source. Render reads saved actions only; edits to .blend are authoritative.",
+  "polish_recipe": "polish_player.py",
+  "carry_recipe": "adjust_carry.py"
 }

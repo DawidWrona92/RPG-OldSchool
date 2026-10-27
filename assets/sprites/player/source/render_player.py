@@ -52,7 +52,7 @@ def main():
   # Same sword geometry, rebind at the existing scabbard mouth; hide blade
   # inside the sheath and unfold the gloved fingers. This is a review option.
   wrist=rig.data.bones['hand.R'].head_local
-  axis=Vector((.35,-.52,-.78)).normalized();down=Vector((-.146,.048,-.705)).normalized();mouth=Vector((.026,.227,1.045));guard=wrist+axis*.079+axis*0 # grip offset handled by blade vertex origin below
+  axis=Vector((.08,-.62,-.78)).normalized();down=Vector((-.146,.048,-.705)).normalized();mouth=Vector((.026,.227,1.045));guard=wrist+axis*.079+axis*0 # grip offset handled by blade vertex origin below
   blade=bpy.data.objects['Miecz / głownia z grzbietem'];root=sum((v.co for v in list(blade.data.vertices)[:4]),Vector())/4
   rot=axis.rotation_difference(down).to_matrix()
   for obj in bpy.data.objects:

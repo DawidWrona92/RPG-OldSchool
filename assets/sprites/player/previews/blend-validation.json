@@ -2,9 +2,9 @@
   "sampled_poses": 242,
   "keyed_poses_checked": 22,
   "bones": 17,
-  "max_joint_gap_m": 5.340255053950786e-07,
-  "max_bone_length_error_m": 3.49667319099467e-07,
-  "max_actual_foot_target_error_m": 6.564972034666148e-07,
+  "max_joint_gap_m": 5.308244565295242e-07,
+  "max_bone_length_error_m": 4.3185976988935337e-07,
+  "max_actual_foot_target_error_m": 7.875090993478186e-07,
   "max_action_matrix_error": 0,
   "loop_seams": "passed / idle and walk",
   "action_timing": "25 fps / idle 400 ms / walk 80 ms"

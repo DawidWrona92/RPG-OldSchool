@@ -1,0 +1,261 @@
+{
+  "verified_png_files": 28,
+  "source_commits": [
+    "7ce5c4b",
+    "c6c1a67b11dfbb396920668ef7edc7ac3f1c95a3"
+  ],
+  "files": [
+    {
+      "path": "assets/textures/characters/hero/linen_shirt_worn_basecolor.png",
+      "git_blob_sha": "6840742771defeffed9f222c2cfd6026c2f5f97e",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "P"
+    },
+    {
+      "path": "assets/textures/characters/hero/linen_shirt_worn_roughness.png",
+      "git_blob_sha": "534fd04887d9e5322a65b52d9c3763726b4330d4",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/linen_shirt_worn_height.png",
+      "git_blob_sha": "f9a0df5290adae000c1ae6a4daa73469ec07a12c",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/linen_shirt_worn_normal_opengl.png",
+      "git_blob_sha": "8147b376b09699a31c81bcccd93d074dffcce0c7",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "P"
+    },
+    {
+      "path": "assets/textures/characters/hero/wool_cloak_dark_brown_basecolor.png",
+      "git_blob_sha": "90cfa00d6afacb3bd4ed86632bf5069e58cd1588",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "P"
+    },
+    {
+      "path": "assets/textures/characters/hero/wool_cloak_dark_brown_roughness.png",
+      "git_blob_sha": "2889e144972eb8787f12bb4ab4d395981f5a5d56",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/wool_cloak_dark_brown_height.png",
+      "git_blob_sha": "895dc0925664e6ba84169ee3d8db1154d37e916c",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/wool_cloak_dark_brown_normal_opengl.png",
+      "git_blob_sha": "e6da9c56a6a20a8ab31d426164a4feb5520c7927",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "P"
+    },
+    {
+      "path": "assets/textures/characters/hero/leather_vest_weathered_brown_basecolor.png",
+      "git_blob_sha": "975c1982236988bcae52fe4467a08ae5a8eae8ca",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "P"
+    },
+    {
+      "path": "assets/textures/characters/hero/leather_vest_weathered_brown_roughness.png",
+      "git_blob_sha": "d915a136e16eccc2c0ea501d1779e041505c174a",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/leather_vest_weathered_brown_height.png",
+      "git_blob_sha": "0d884bee857699c1e6cf826ee5d7a16096dde431",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/leather_vest_weathered_brown_normal_opengl.png",
+      "git_blob_sha": "522dc31ce68a118dbf872d3df54be58197fd9c5f",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "P"
+    },
+    {
+      "path": "assets/textures/characters/hero/wool_trousers_charcoal_basecolor.png",
+      "git_blob_sha": "97ed369e18b6f0ca8ffc016c13682ab9e53fcf51",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/textures/characters/hero/wool_trousers_charcoal_roughness.png",
+      "git_blob_sha": "3854893f51693ee362c45d07ff4f7099975facfd",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/wool_trousers_charcoal_height.png",
+      "git_blob_sha": "421d437d9c239d56005e5c594660264d6a7ac4d4",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/wool_trousers_charcoal_normal_opengl.png",
+      "git_blob_sha": "efca331258a0c9420d704c21f8dcb274e1b7c604",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/textures/characters/hero/leather_boots_dark_mud_basecolor.png",
+      "git_blob_sha": "c135213e04557c71a5189c0c8221fd158567c5b2",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/textures/characters/hero/leather_boots_dark_mud_roughness.png",
+      "git_blob_sha": "42dd9a49e4827a6f3ac2ea5a307fdea7fbe90cd6",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/leather_boots_dark_mud_height.png",
+      "git_blob_sha": "b4d59e7984a32b073a4809b71881228ea4af3675",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/leather_boots_dark_mud_normal_opengl.png",
+      "git_blob_sha": "9a2092b019f4ae0f6018c5f8579a028c8f033f5c",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/textures/characters/hero/leather_backpack_aged_basecolor.png",
+      "git_blob_sha": "7f650b4382063c2d9891132bf0d169797eee3a76",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/textures/characters/hero/leather_backpack_aged_roughness.png",
+      "git_blob_sha": "eedb1e18143772417f9640e9cd504b7ce341f9f9",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/leather_backpack_aged_height.png",
+      "git_blob_sha": "8bbaa75e4af1e643d52b8dcf0632de1b6465cf74",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/leather_backpack_aged_normal_opengl.png",
+      "git_blob_sha": "04b508d15f516d6ecc06016c507df802d3892842",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/textures/characters/hero/canvas_bedroll_ashen_basecolor.png",
+      "git_blob_sha": "0f32fc7b4006e83a4c36453ce78974f052d5533c",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/textures/characters/hero/canvas_bedroll_ashen_roughness.png",
+      "git_blob_sha": "4373e3f703899a0b97d5e264971d5ecb01a9a2b7",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/canvas_bedroll_ashen_height.png",
+      "git_blob_sha": "ad12f49f72d3dc18de4e1503b039433120f70721",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "assets/textures/characters/hero/canvas_bedroll_ashen_normal_opengl.png",
+      "git_blob_sha": "78e61d043400c5621eabb75f06ebb79844c9845b",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    }
+  ]
+}

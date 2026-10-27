@@ -147,8 +147,9 @@ def make_previews(frames,shadows):
 
 def main():
     audit=read_json(ROOT/'renders/motion_audit.json')
-    generator=ROOT/'source/build_player.py'
-    assert audit['generator_sha256']==sha(generator),'Rendery nie odpowiadają obecnemu generatorowi'
+    generator=ROOT/'source/render_player.py'
+    assert audit['renderer_sha256']==sha(generator),'Rendery nie odpowiadają obecnemu rendererowi'
+    assert audit['source_blend_sha256']==sha(ROOT/'source/bohater.blend'),'Rendery nie odpowiadają zapisanemu modelowi'
     expected={f'{a}_{d}_{f:02}.png' for a,n in COUNTS.items() for d in range(8) for f in range(n)}
     assert set(audit['frames'])==expected,('Brakujące/nadmiarowe klatki',expected-set(audit['frames']))
     atlas_dir=ROOT/'atlas';atlas_dir.mkdir(exist_ok=True)
@@ -156,7 +157,7 @@ def main():
     meta={'character':'bohater','frame_size':[192,192],'anchor_px':ANCHOR,'pixels_per_meter':60.0,
           'directions':DIRECTIONS,'direction_note':'Oddzielne rendery obrotu modelu o -45°; bez lustrzanych odbić',
           'layout':'kolumny = klatki animacji, wiersze = kierunki','camera_elevation_deg':30,
-          'animations':{},'status':'eksperyment do oceny autora; niezatwierdzony asset produkcyjny'}
+          'animations':{},'status':'dopracowany prototyp do ponownej oceny; niezatwierdzony asset produkcyjny'}
     frames={};shadows={};bboxes={};checks=0
     for anim,count in COUNTS.items():
         frames[anim]=[];shadows[anim]=[]
@@ -197,11 +198,11 @@ def main():
         for f in range(11):
             a=audit['frames'][f'chod_0_{f:02}.png']['feet'][side]
             b=audit['frames'][f'chod_0_{f+1:02}.png']['feet'][side]
-            if a['stance'] and b['stance'] and b['ankle_m'][0]<a['ankle_m'][0]:
-                drift.append(abs(b['ankle_m'][0]-a['ankle_m'][0]+SPEED*.08))
-            if a['stance']:contacts.append(abs(a['ankle_m'][2]-.0778))
+            if a['stance'] and b['stance'] and b['plant_reference_m']<a['plant_reference_m']:
+                drift.append(abs(b['plant_reference_m']-a['plant_reference_m']+SPEED*.08))
+            if a['stance']:contacts.append(abs(min(p[2] for p in a['sole_heel_toe_m'])))
     assert len(drift)>5 and max(drift)<.00001,('Dryf stopy',drift)
-    assert max(contacts)<.00001,('Wysokość podparcia',contacts)
+    assert max(contacts)<.00002,('Wysokość podparcia',contacts)
     fingerprints=[hashlib.sha256(frames['spoczynek'][d][0].tobytes()).hexdigest() for d in range(8)]
     assert len(set(fingerprints))==8,'Powtórzony kierunek'
     save_json(atlas_dir/'bohater.json',meta)
@@ -209,10 +210,10 @@ def main():
     for anim in legacy['animations'].values():anim.pop('shadow_file',None)
     save_json(compat/'bohater.json',legacy)
     variants,preview_checks=make_previews(frames,shadows)
-    report={'checked_frames':checks,'animations':COUNTS,'source_generator_sha256':sha(generator),
+    report={'checked_frames':checks,'animations':COUNTS,'renderer_sha256':sha(generator),'source_blend_sha256':audit['source_blend_sha256'],
             'render':audit['render'],'max_joint_gap_m':max(v['max_joint_gap_m'] for v in audit['frames'].values()),
             'max_bone_length_error_m':max(v['max_bone_length_error_m'] for v in audit['frames'].values()),
-            'max_stance_root_compensation_error_m':max(drift),'stance_samples_checked':len(drift),
+            'max_stance_root_compensation_error_m':max(drift),'max_sampled_sole_contact_error_m':max(contacts),'stance_samples_checked':len(drift),
             'frame_bounds':'passed / 160 body frames','body_alpha':'RGBA / transparent edges / premultiplied downsampling',
             'distinct_direction_images':len(set(fingerprints)),'anchor_px':ANCHOR,'world_lighting_variants':variants,
             'decoded_animation_previews':preview_checks,

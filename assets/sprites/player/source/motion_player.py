@@ -22,14 +22,14 @@ def foot_target(phase, side, walking=True):
         x=.26-.52*p/.6; lift=0
         pitch=-.19*(1-p/.12)**2 if p<.12 else (.30*((p-.44)/.16)**2 if p>.44 else 0)
         # Heel / toe pivot: keep the sole contact at ground height.
-        pivot=Vector((-.054 if pitch<0 else .168,0,-.0778))
+        pivot=Vector((-.053 if pitch<0 else .169,0,-.0778))
         offset=pivot-Matrix.Rotation(pitch,4,'Y')@pivot
         return Vector((x+offset.x,sign*.126,.0778+offset.z)),pitch
     else:
         s=(p-.6)/.4
         x=-.26+.52*(.5-.5*math.cos(math.pi*s)); lift=.095*math.sin(math.pi*s)
         pitch=.30*(1-s)-.19*s + .20*math.sin(math.pi*s)
-    pivot=Vector((-.054 if pitch<0 else .168,0,-.0778))
+    pivot=Vector((-.053 if pitch<0 else .169,0,-.0778))
     offset=pivot-Matrix.Rotation(pitch,4,'Y')@pivot
     return Vector((x+offset.x,sign*.126,.0778+offset.z+lift)),pitch
 
