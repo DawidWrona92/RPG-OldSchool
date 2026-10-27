@@ -9,8 +9,8 @@ Autorstwo commitów nie identyfikuje wykonawcy (część pracuje z konta autora)
 | Wykonawca | Rola | Gałąź | Zakres teraz | Wejście (czytać najpierw) | Zależy od / przekazuje |
 |---|---|---|---|---|---|
 | **Claude** (Anthropic) | PM: dokumentacja na `main`, review, decyzje do autora, narzędzia kontroli | `main` przez krótkie gałęzie `porzadki/*` | review i koordynacja; [test silnika](SILNIK.md) na `vibe/godot-test-silnika` | ten plik, [INDEX](INDEX.md), ostatnie review w `docs/art/` | akceptuje bramki razem z autorem |
-| **GPT Sol** (OpenAI) | bohater — wzór postaci ludzkiej: model, szkielet, strój, render, animacje | `vibe/sprite-bohater-codex` | fazy F0–F3 [planu naprawy](art/characters/PLAN-NAPRAWY-BOHATERA.md) | [plan naprawy](art/characters/PLAN-NAPRAWY-BOHATERA.md), [review](art/characters/REVIEW-BOHATER-01.md), [kontrakt](art/KONTRAKT-RENDERU.md) | bierze tekstury od GPT 6; oddaje P1/P2 dla GPT 6 |
-| **GPT 6** (OpenAI) | unikatowe tekstury bohatera | `vibe/hero-textures-gpt6` | skóra i oko — v3 (`bc1da51`); część B (strój) czeka na P2 od Sola | [brief tekstur](art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md) | oddaje tekstury Solowi (T1, T2) |
+| **Claude** (Anthropic) | bohater — wygląd: głowa, włosy, zarost, krój stroju; przejęcie od Sola 27.10.2026 | `vibe/bohater-claude` (od `c51bc52`) | etap G1 — głowa | [review v2](art/characters/REVIEW-BOHATER-02.md), [plan naprawy](art/characters/PLAN-NAPRAWY-BOHATERA.md), `HANDOFF.md` Sola, [kontrakt](art/KONTRAKT-RENDERU.md) | bramki G1–G3 akceptuje autor; oddaje nowe P2 dla GPT 6 |
+| **GPT 6** (OpenAI) | unikatowe tekstury bohatera | `vibe/hero-textures-gpt6` | skóra i oko — v4 (`ac9d104`) i poprawki; **część B (strój) wstrzymana** do bramki G2 | [brief tekstur](art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md) | oddaje tekstury (T1, T2); P2 stroju dostanie od Claude po G2 |
 | *wakat* | przyroda i teren: kamienie, runo, pniaki, drzewa | następca: nowa gałąź od `6882bad` | **do przejęcia** — [pakiet przejęcia](koncepty/przyroda/PRZEJECIE-PRZYRODY.md) | [pakiet przejęcia](koncepty/przyroda/PRZEJECIE-PRZYRODY.md), [plan przyrody](koncepty/przyroda/PLAN-ASSETOW.md) | niezależny; test skali z klatką bohatera |
 
 ## Zamknięte i archiwalne
@@ -22,6 +22,7 @@ Autorstwo commitów nie identyfikuje wykonawcy (część pracuje z konta autora)
 | Przewodnik artystyczny Niemiru | GPT 6, potem aktualizacje PM | na `main`, v1.2 |
 | Plan przyrody i arkusze konceptów | GLM 5.3 | scalone z `main` |
 | `vibe/environment-stones-mistral` — przyroda: kamienie, głazy, żwir, płyty, runo, krzewy | GLM 5.3 | **wstrzymany 27.10.2026** (decyzja autora); stan `6882bad`, przejęcie: [pakiet](koncepty/przyroda/PRZEJECIE-PRZYRODY.md) |
+| `vibe/sprite-bohater-codex` — bohater: ciało, szkielet, UV, strój v2, P1/P2 | GPT Sol | **wstrzymany 27.10.2026** po [review v2](art/characters/REVIEW-BOHATER-02.md): B1 przyjęte, B2 odrzucone; stan `c51bc52`, wygląd przejmuje Claude; dalszy zakres Sola do decyzji autora |
 | `obsolete-sprites` — sprite'y dawną metodą (pixel-art, SDF) | Claude i inni | archiwum, bez dalszej pracy |
 | `vibe/environment-forest-prototype-gpt6` — prototyp skraju lasu | GPT 6 | archiwum przed kontraktem renderu |
 | `vibe/environment-wagon-blockout` — bryła wozu | *do uzupełnienia przez autora* | prototyp; wóz wymaga nowej realizacji według kontraktu |
@@ -37,7 +38,7 @@ Autorstwo commitów nie identyfikuje wykonawcy (część pracuje z konta autora)
 
 | Zakres | Proponowany zastępca (decyduje autor) |
 |---|---|
-| Bohater i postacie ludzkie (Blender, rig, strój) | Claude Opus 5.5 na wysokim poziomie wysiłku albo Claude Fable 5.1 do najtrudniejszych etapów |
+| Bohater i postacie ludzkie (Blender, rig, strój) | Claude (od 27.10.2026); kolejne postacie ludzkie z tego samego rdzenia |
 | Tekstury postaci | GPT Sol (zna model i UV) albo inny wykonawca z briefem tekstur |
 | Przyroda i teren | GPT Sol lub Claude Sonnet 5.5 — pipeline GLM jest odtwarzalny skryptami |
 | PM | nowa sesja Claude: ten plik, INDEX i ostatnie review |

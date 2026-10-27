@@ -1,6 +1,8 @@
 # Plan naprawy bohatera — wzór postaci ludzkiej
 
-**Status: [PLAN PM] do zatwierdzenia przez autora**, 27 października 2026 r. Podstawa: [review detale-01](REVIEW-BOHATER-01.md), [koncept 17](../../koncepty/17-bohater-i-woz.md), [kontrakt renderu](../KONTRAKT-RENDERU.md).
+**Status: [PLAN PM] w realizacji**, 27 października 2026 r. Podstawa: [review detale-01](REVIEW-BOHATER-01.md), [koncept 17](../../koncepty/17-bohater-i-woz.md), [kontrakt renderu](../KONTRAKT-RENDERU.md).
+
+> **Stan po [review v2](REVIEW-BOHATER-02.md) (27.10.2026):** F0–F3 wykonane przez Sola (`c51bc52`). **B1 przyjęte** — ciało, szkielet 163 kości, natywne UV. **B2 odrzucone** — głowa, włosy i strój. Wygląd przejmuje **Claude** na `vibe/bohater-claude` w etapach G1–G3 (sekcja „Przejęcie wyglądu” na końcu). Tam, gdzie niżej występuje „Sol”, wykonawcą jest teraz Claude.
 
 Bohater ma być **wzorem dla wszystkich ludzkich postaci** (Drwal, Powrotnik, Stróż, cywile). Dlatego naprawiamy nie tylko wygląd, ale i fundament: ciało, szkielet, UV i sposób teksturowania, tak aby kolejne postacie powstawały z tego samego rdzenia.
 
@@ -8,7 +10,8 @@ Bohater ma być **wzorem dla wszystkich ludzkich postaci** (Drwal, Powrotnik, St
 
 | Kto | Zakres | Gałąź |
 |---|---|---|
-| **Sol** (model 3D) | ciało, szkielet, głowa, strój, UV, wypalone mapy, shading, render, animacje, eksport | `vibe/sprite-bohater-codex` |
+| **Claude** (model 3D, od 27.10.2026) | głowa, włosy, strój, UV stroju, wypalone mapy, shading, render, animacje, eksport | `vibe/bohater-claude` |
+| *Sol* (do 27.10.2026) | F0–F3: ciało, szkielet, UV, strój v2, P1/P2 | `vibe/sprite-bohater-codex` (`c51bc52`) |
 | **GPT 6** (tekstury) | malowane tekstury skóry, oka i — po przekazaniu UV — części stroju | `vibe/hero-textures-gpt6` |
 | **PM** | review każdej bramki, pomiary (`tools/art/check_intersections.py`), porównania z konceptem | `main` (dokumentacja) |
 | **Autor** | decyzje D1–D3, akceptacja bramek B1–B4 | — |
@@ -95,3 +98,15 @@ Każde przekazanie ma `manifest.json` z SHA-256 plików i rewizją źródła. Od
 
 ## Co zostaje bez zmian
 Kontrakt renderu (kamera, skala, światło, eksport), Blender 4.3, renderer tylko do odczytu, audyt SHA, zapakowane obrazy w `.blend`, uczciwe raporty ograniczeń.
+
+## Przejęcie wyglądu (od 27.10.2026)
+
+Bazą jest `bohater_v2.blend` z `c51bc52`: ciało, szkielet, natywne UV, skóra GPT 6 i narzędzia kontroli zostają. Metoda: po każdym etapie plansza obok konceptu i pomiar sylwetki (skill [`donth77/blender-game-skills`](https://github.com/donth77/blender-game-skills), MIT, zgoda autora).
+
+| Etap | Zakres | Dowód do akceptacji autora |
+|---|---|---|
+| **G1 — głowa** | wyraz surowy (brwi w dół, zmarszczka gniewna), szersza żuchwa, włosy w kosmykach do żuchwy z siwizną, gęsta krótka broda z siwym podbródkiem, kaptur bez grud przy żuchwie | portret 768 i zbliżenie 1× obok konceptu 19 |
+| **G2 — sylwetka stroju** | koszula, kaftan z panelami, pasy i sakwy, buty z kostką i wywinięciem, kaptur z peleryną, płaszcz, plecak — z wykrojów zszywanych symulacją tkaniny | przód, bok, tył obok konceptu 17; 8 kierunków 1× na tle lasu; 0 przenikań |
+| **G3 — przekazanie** | nowe P2 dla GPT 6 (część B briefu), potem F5 i bramka B2 | manifest P2 z SHA |
+
+Do czasu G2 GPT 6 nie maluje stroju — UV części się zmienią.
