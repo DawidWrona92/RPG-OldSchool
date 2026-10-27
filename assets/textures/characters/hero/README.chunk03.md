@@ -27,7 +27,7 @@ Każda baza: `*_basecolor.png` (sRGB), `*_roughness.png`, `*_height.png`, `*_nor
 
 ## Integracja w Blenderze / zadanie Codexa
 
-1. Przenieś potrzebne PNG z `vibe/hero-materials-chunk02-gpt6`, nie naruszając danych `vibe/sprite-bohater-codex`. Użyj stabilnego UV lub jawnie kontrolowanego mapowania; aktualny model Codexa korzysta z `rest_position`, `Noise/Wave`.
+1. Przenieś potrzebne PNG z `main` (dawniej gałąź `vibe/hero-materials-chunk02-gpt6`, scalona 27.10.2026), nie naruszając danych `vibe/sprite-bohater-codex`. Użyj stabilnego UV lub jawnie kontrolowanego mapowania; aktualny model Codexa korzysta z `rest_position`, `Noise/Wave`.
 2. Zachowaj dotychczasowe kontrasty: len koszuli, ciężka ciemnobrązowa wełna płaszcza, brunatna skóra kaftana, jasne płótno posłania i ciemne spodnie. W metalach podłącz `Metallic`, aby żelazo było bardziej matowe od stali miecza.
 3. Integruj maski na dedykowanych regionach UV/mesh. Mnożenie `edge_wear_breakup_mask` przez rzeczywistą maskę krawędzi jest obowiązkowe; brud to lokalne decal/alpha, nie losowa plama na każdym fragmencie ciała. Szwy wymagają prowadzenia wzdłuż odpowiednich krawędzi.
 4. Testuj `Base Color` w sRGB; wszystkie inne mapy w `Non-Color`. `Normal Map` w Tangent Space z małą mocą. `Height` służy ewentualnie do alternatywnego, delikatnego `Bump` i **nie może dublować** normal.

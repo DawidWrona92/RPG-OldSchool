@@ -1,6 +1,6 @@
 # Brief integracyjny dla Codexa — bohater, Chunk 02
 
-Przeanalizuj źródła z `main` i istniejące modele `vibe/sprite-bohater-codex`. Pobierz z `vibe/hero-materials-chunk02-gpt6` wyłącznie 16 tekstur PNG w `assets/textures/characters/hero/` i manifest `manifest.chunk02.json`. Nie zmieniaj zatwierdzonej koncepcji podróżnika ani fabuły.
+Przeanalizuj źródła z `main` i istniejące modele `vibe/sprite-bohater-codex`. Pobierz z `main` (dawniej gałąź `vibe/hero-materials-chunk02-gpt6`, scalona 27.10.2026) wyłącznie 16 tekstur PNG w `assets/textures/characters/hero/` i manifest `manifest.chunk02.json`. Nie zmieniaj zatwierdzonej koncepcji podróżnika ani fabuły.
 
 **Cel:** uporządkować UV i shadery spodni, butów, skórzanego plecaka i płóciennego posłania; zachować istniejące 3 prototypy tkanin i skóry na `main`. Model Codexa pozostaje źródłem animacji; nie nadpisuj poprawek z innych gałęzi.
 
