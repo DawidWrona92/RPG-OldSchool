@@ -1,115 +1,134 @@
-# Bohater Weleszy — Blender / Codex
+# Bohater Weleszy — dopracowanie prototypu Blender → prerender
 
-**Powtarzalny demonstrator do oceny autora. Materiały i detal nie osiągają
-jeszcze poziomu dostarczonego konceptu. To nie jest zatwierdzony asset produkcyjny.**
+Kierunek sylwetki i pipeline zatwierdzony przez autora; **bieżące dopracowanie
+czeka na ponowną ocenę**. Nie jest zatwierdzonym assetem produkcyjnym.
+Gałąź `vibe/sprite-bohater-codex`; punkt porównawczy `a0a6c27` zachowany w Git
+oraz w `baseline/`. Obecny model jest kontynuacją tej samej postaci i rigu.
 
-Baza: `vibe/welesza-sprites-03`, commit `fc8f657d393af195ddcd900602cc849dde1fffc0`.
-Własna gałąź: `vibe/sprite-bohater-codex`. Wspólny SDF i cudze generatory są
-niezmienione. Alternatywną metodę autoryzuje bezpośrednio zlecenie autora.
+[Przegląd animowany](previews/review.html) · [kierunki przed/po 1:1](previews/porownanie-kierunki-1x.png)
+· [chód przed/po](previews/porownanie-chod-1x.gif) · [model źródłowy przed/po](previews/model-zrodlowy-przed-po.png)
+· [raport](REPORT.md).
 
-## Odtworzenie
+## Źródła i bezpieczne ponawianie eksportu
 
-Z katalogu `/workspace/RPG-OldSchool`:
+**`source/bohater.blend` jest nadrzędnym, edytowalnym źródłem artystycznym.**
+Zawiera geometrię, UV, materiały z zapakowanymi obrazami, 17 kości i zapisane
+akcje szkieletu oraz elementów stroju. Można go dalej ręcznie edytować.
+`render_player.py` czyta ten plik i jego klucze; nie odtwarza geometrii,
+nie wywołuje recept modelowania i nigdy nie zapisuje `.blend`.
+
+Z katalogu repozytorium:
 
 ```bash
-# Model, 160 klatek, dwa warianty światła, kontrole i eksport:
+# Pełne 160 klatek, 8 prób chłodnych i 8 ciepłych, walidacja i porównania:
 bash assets/sprites/player/source/run_pipeline.sh
 
-# Po przerwaniu tej samej wersji generatora:
+# Wznowienie dokładnie tego samego źródła i renderera:
 bash assets/sprites/player/source/run_pipeline.sh --resume
 
-# Próba wybranego kierunku przed pełnym przeliczeniem:
-blender -b -t 4 --python-exit-code 1 \
-  --python assets/sprites/player/source/build_player.py -- --pilot --directions 1
+# Pilot nie narusza gotowych atlasów ani renderów:
+blender -b assets/sprites/player/source/bohater.blend -t 4 --python-exit-code 1 \
+  --python assets/sprites/player/source/render_player.py -- --pilot --output /tmp/hero-pilot
+
+# Opcjonalny wariant eksploracyjny do oceny; nie zmienia źródła:
+blender -b assets/sprites/player/source/bohater.blend -t 4 --python-exit-code 1 \
+  --python assets/sprites/player/source/render_player.py -- --pilot --sheathed
 ```
 
-`--resume` porównuje SHA-256 generatora, ustawienia i sumy każdej pary obrazu
-i cienia. Audyt jest zapisywany atomowo po klatce. Po zmianie modelu uruchom
-bez `--resume`. Próba nadpisuje wybrane rendery i audyt: przed nią zapisz
-gotowy zestaw w Git; pełny render odtworzy spójny komplet.
+Przy zmianie `.blend` renderuj bez `--resume`; poprzedni cache jest odrzucany.
+Audyt zawiera SHA-256 faktycznego `.blend`, renderera i obu plików każdej klatki.
+Zapisuje się atomowo po klatce. Parametry i komplet audytu sprawdza eksporter.
+Przed ręczną edycją zapisuj commit, a po niej aktualizuj opis źródła w
+`source/art-source.json`. Manifest nie przywraca starego modelu.
 
-Sprawdzone narzędzia: Blender 4.3.2 z własnym Pythonem, `python3` 3.12.14,
-NumPy 2.3.5 i Pillow 12.3.0. Są już w obrazie środowiska; nie instalowano
-pakietów globalnych. Nie potrzeba usług, portów, sekretów ani sieci do
-renderowania zapisanych źródeł. Build systemowy nie zawiera OpenImageDenoise:
-używamy rzeczywistych próbek Cycles i supersamplingu, cztery wątki CPU.
-
-## Model i ruch
-
-Organiczna siatka MakeHuman CC0, osobne wykroje tuniki, kaftana i płaszcza,
-odsłonięte przedramiona, podwinięte rękawy, plecak, posłanie, sakwy, buty,
-pochwa i miecz. Materiały rozróżniają skórę, len, wełnę, skórę wyprawioną,
-żelazo i włosy. Atrybut `rest_position` mocuje fakturę do deformowanej siatki.
-
-Szkielet ma 17 kości, stałe długości i dwusegmentowe IK nóg/rąk. Prawa ręka
-utrzymuje broń przed ciałem; lewa wykonuje większy wymach. Płaszcz ma
-kontrolowaną deformację wtórną. Nie deklarujemy symulacji tkaniny ani mocapu.
-
-`source/bohater.blend` zawiera geometrię, materiały, szkielet i prawdziwe akcje
-`spoczynek` / `chod` oraz odpowiadające im akcje płaszcza. Aktywny chód:
-klatki 1–25 przy 25 fps; spoczynek: 1–81.
-
-- Spoczynek: 8 klatek po 400 ms, cykl 3,2 s.
-- Chód: 12 klatek po 80 ms, cykl 0,96 s, `root_speed_mps=0.9027777778`.
-- To animacja w miejscu: ruch świata wykonuje silnik z podaną prędkością.
-
-Nowa referencja autora i decyzje: `source/REFERENCE.md`. Arkusz z rozmowy
-obejrzano wizualnie. Lokalne kompozyty wykorzystują scenę 12 z repozytorium,
-nie rzekomą kopię pikseli nowego obrazu z wozem.
-
-## Kontrakt eksportu
-
-| Parametr | Wartość |
+| Pliki | Rola |
 |---|---|
-| Klatka | 192×192 RGBA, filtrowanie z premultiplikowaną alfą |
-| Render źródłowy | 384×384; 64 próbki postaci / 16 cienia |
-| Kamera | ortograficzna, 30°, szerokość świata 3,2 m |
-| Skala | 60 px/m; człowiek źródłowy 1,8 m |
-| Kotwica | (96, 158.353829), stała we wszystkich klatkach |
+| `source/bohater.blend` | Nadrzędne źródło do dalszej pracy i renderowania; **nie wygenerowany cache** |
+| `source/art-source.json` | Pochodzenie, rewizja, SHA i przypisania materiałów |
+| `source/render_player.py` | Render zapisanych akcji, osobna postać i cień, opcjonalne światło/pochwa |
+| `source/export_player.py`, `compare_player.py` | Atlasy, kompatybilny eksport i podglądy z rzeczywistych klatek |
+| `source/build_player.py` | Archiwalny bootstrap prototypu; wymaga nowej ścieżki `--bootstrap-output` i `--save-only`; odmawia nadpisania istniejącego pliku lub `bohater.blend` |
+| `source/refine_player.py`, `polish_player.py`, `adjust_carry.py` | Jednorazowe, wersjonowane recepty kolejnych korekt istniejącego modelu; chronione rewizją, **nie wywoływane przez pipeline** |
+| `source/motion_player.py` | Recepta dopracowania kluczy; renderer korzysta z kluczy zapisanych w `.blend`, więc zachowuje późniejsze ręczne poprawki |
+| `source/third_party/` | Przypięte źródła MakeHuman CC0 i licencja |
+| `renders/`, `atlas/`, `previews/` | Wyniki generowane; można odtworzyć z zapisanego `.blend` i skryptów |
+| `baseline/` | Chroniony punkt porównawczy; pełny oryginał odzyskiwalny z commitu w `checkpoint.json` |
+
+Nie uruchamiaj bootstrapu jako sposobu eksportowania poprawek. Dostarczony
+`.blend` wystarcza do odtworzenia obrazu bez ponownego budowania postaci,
+pobierania anatomii czy dostępu do sieci. Zapakowane tekstury uniezależniają
+render od ścieżki roboczej; oryginalne PNG pozostają osobno w bibliotece.
+
+## Materiały
+
+Pobrano planszę 17 z aktualnego `main` (`7ce5c4b`) i wyłącznie zasoby materiałowe
+z `vibe/hero-materials-chunk02-gpt6` (`c6c1a67`). Nie zmieniono tych gałęzi.
+28 PNG zweryfikowano względem SHA Git blob z dwóch dostarczonych manifestów.
+Ich opis: autorskie obrazy proceduralne, bez zewnętrznych fotografii; materiały
+robocze, nie pomiarowe PBR. Nie przypisujemy im nowej licencji CC0.
+
+| Zestaw | Obiekty |
+|---|---|
+| `linen_shirt_worn` | koszula, tunika, podwinięte rękawy i owijki |
+| `wool_cloak_dark_brown` | płaszcz, kaptur, warstwa naramienna |
+| `leather_vest_weathered_brown` | kaftan, pasy, sakwy, przetarte brzegi |
+| `wool_trousers_charcoal` | spodnie i podeszwy |
+| `leather_boots_dark_mud` | noski, cholewki, pochwa i ciemne rzemienie |
+| `leather_backpack_aged` | główna bryła plecaka, klapa, kieszenie |
+| `canvas_bedroll_ashen` | zrolowane posłanie |
+
+UV w przestrzeni spoczynkowej: powtarzanie metryczne 0,32 m, cylindry ze szwem
+z tyłu dla tkanin/butów, projekcja YZ plecaka, cylinder wzdłuż Y posłania.
+Basecolor sRGB; roughness i height Non-Color. Użyto **height → subtelny Bump**;
+normal OpenGL zachowano w dostarczonej paczce, ale nie podłączono, aby nie
+zdublować reliefu i nie zakładać poprawnych tangentów każdego małego wykroju.
+
+Bazowy wzór wełny tworzył na pilocie efekt plam kamuflażu: udział w kolorze
+ograniczono do 22%, skóry do 48%. Len zachowuje większy udział mapy. Różnice
+materiałów wspiera forma, kolor, roughness i geometria fałd, nie sam mikrosplot.
+Atrybut `wear_mask` dodaje miejscowe błoto do butów, dolnych nogawek i płaszcza.
+To maska wykonana na tym modelu, nie oczekujący jeszcze zewnętrzny zestaw masek.
+Metali, rzemieni i masek kolejnej paczki nie deklarujemy jako zintegrowanych.
+
+## Kontrakt i ruch
+
+| Parametr | Wartość — bez zmiany globalnego kontraktu |
+|---|---|
+| Klatka | 192×192 RGBA; premultiplikowane filtrowanie z 384×384 |
+| Kotwica | (96, 158.353829), stała |
 | Kierunki | S, SW, W, NW, N, NE, E, SE; obroty −45°, bez odbić |
-| Atlas | kolumny = klatki, wiersze = kierunki |
+| Kamera / skala | ortograficzna 30°, 3,2 m kadru, 60 px/m; człowiek źródłowy 1,8 m |
+| Spoczynek | 8×400 ms, cykl 3,2 s; zapisane klucze 1–81 przy 25 fps |
+| Chód | 12×80 ms, cykl 0,96 s; klucze 1–25; ruch świata 0,9027777778 m/s |
+| Cycles | 64 próbki postaci / 16 cienia; seed 1703; bez denoisera; 4 wątki CPU |
+| Atlas | kolumny = fazy, wiersze = kierunki |
 
-`atlas/bohater.json` zachowuje bazowy format `character`, `frame_size`,
-`anchor_px`, `pixels_per_meter`, `directions`, `animations`, `durations_ms`,
-`loop`, `events`, `root_speed_mps`. Dodaje `shadow_file` dla oddzielnego cienia.
-Wspólnego kontraktu ani importera nie zmieniono.
+Chód w miejscu: dodano pracę miednicy, przeciwskręt klatki, spokojniejszą głowę,
+opóźnienie swobodnego ramienia, pivot pięty/palca i drobny wtórny ruch ładunku.
+To kontrolowane klucze, nie symulacja tkaniny ani mocap. Miecz zachowuje wymiary;
+proponowana poza prowadzi ostrze w dół i na zewnątrz, szczególnie dla N/NW.
+Wariant w pochwie jest wyłącznie porównaniem — decyzja o eksploracji otwarta,
+dłoń i akcje tego wariantu nie są ukończoną nową animacją.
 
-- `atlas/bohater_<animacja>.png`: postać RGBA.
-- `atlas/bohater_<animacja>_shadow.png`: osobny kontaktowy cień z Cycles.
-- `atlas/compat/`: wcześniejszy format z cieniem w tej samej klatce.
-- `renders/`: oryginalne obrazy 384 px i surowe fizyczne cienie.
-- `renders/cool/`, `renders/warm/`: osobno przeliczone próby oświetlenia.
+`atlas/bohater_<animacja>.png` oraz `_shadow.png`: osobna postać i kontaktowy
+cień. `atlas/compat/` zachowuje wcześniejszy format z cieniem w klatce.
+Światło ciepłe jest osobno w `renders/warm/`, chłodne w `renders/cool/`;
+nie wypieczono pochodni w atlas bazowy. Większe ujęcia to rzeczywiste rendery
+1152 px z tą samą skalą świata, a nie powiększone sprite'y.
 
-Cień jest monochromatyczną maską shadow catchera z filtracją szumu i łagodnym
-wygaszeniem od 0,75 do 1,05 m od kotwicy. To jawne ograniczenie kontaktowej
-łaty do klatki 192 px; dalekie cienie wypełnienia nie są w niej zachowywane.
-Surowe rendery pozostają dostępne. W atlasie postaci nie ma podłoża, zdjęcia
-referencyjnego ani wypieczonej pochodni.
+Kompozyty `koncept17-*` pokazują **ilustrację koncepcyjną, nie scenę gry**.
+Tło zachowuje oryginalne piksele. Ponieważ jego skala nie jest skalibrowana,
+przyjęto lokalnie 60 px/m przy kotwicy (590,810); postać pozostaje 1:1.
 
-## Sprawdzenie
+## Kontrole i ograniczenia
 
-```bash
-blender -b assets/sprites/player/source/bohater.blend --python-exit-code 1 \
-  --python assets/sprites/player/source/validate_blend.py
-blender -b assets/sprites/player/source/bohater.blend --python-exit-code 1 \
-  --python assets/sprites/player/source/validate_render.py
-python3 -B assets/sprites/player/source/export_player.py
-```
+`validate_blend.py`: 242 próbki szkieletu, pętle, 22 pozy kluczowe.
+`validate_render.py`: ponowny render z `.blend`, kotwica, kierunki i maski miecza.
+`validate_intersections.py`: próbki rzeczywistych powierzchni miecza/ubrania oraz
+dolnego płaszcza/spodni; zakres i wyjątki podane w raporcie, bez pełnej kontroli kolizji.
+Eksporter sprawdza 160 klatek, alfę, granice, sumy plików i kontakt stopy;
+porównywarka weryfikuje 160 komórek zgodności atlasu kompatybilnego.
 
-Kontrole obejmują 242 pozy, zamknięcie cykli i 22 klucze zapisanych akcji,
-ponowny render z `.blend`, projekcję kotwicy/kierunków i 32 maski widoczności
-miecza. Eksporter sprawdza wszystkie 160 klatek: pochodzenie, sumy plików,
-granice, alfę, ciągłość szkieletu, atlas/JSON i kompensację podparcia stopy.
-
-`previews/`: kierunki 1:1, rzeczywiste rendery 384 px, GIF/WebP, ruchome
-podłoże, kompozyty świata i raporty JSON. Obraz 384 px jest renderem roboczym
-2×; nie oznacza większej postaci w świecie. Silnika nie wybrano: import do
-gry, animacje walki, kompletna kontrola kolizji i odbiór artystyczny są otwarte.
-
-## Licencje
-
-`source/third_party/`: siatka i dane MakeHuman, wersja
-`a8bc2d54ff0ac92e78ff71431b1023eda42bf482`, CC0-1.0. Licencja, adresy plików
-i SHA-256 są zachowane. Nie kopiujemy kodu MakeHuman (AGPL), komercyjnych
-tekstur ani assetów o niejasnym pochodzeniu. Pozostała geometria i generator
-powstały w tym eksperymencie. Nie zmienia to licencji całego projektu.
+Blender 4.3.2, Python 3.12, NumPy i Pillow są dostępne w obrazie środowiska.
+Nie potrzeba usług, sekretów, portów ani instalacji globalnych. Dokładne wyniki,
+słabe kierunki/fazy i zakres oceny wizualnej zapisuje [REPORT.md](REPORT.md).
