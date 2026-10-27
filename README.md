@@ -36,3 +36,7 @@ Eksperymenty dotyczące modelowania, teksturowania, animacji, renderowania i sil
 `.agents/skills/` zawiera historyczne i projektowe narzędzia zespołu. Starsze materiały graficzne oraz ich porównania nie są aktualnym kontraktem produkcyjnym; trwają nowe testy. Dokumenty `docs/skills-graficzne.md` i `docs/zgodnosc-pixel-art.md` mają znaczenie archiwalne.
 
 Grafy `docs/graphs/` są **dokumentacją planowanego układu i zdarzeń**, nie wykonywalną implementacją gry.
+
+## Mapa ciągłego świata
+
+[**Projekt całej doliny Niemiru — mapa v0.1**](docs/world/README.md): 28 miejsc, 30 tras, 12 sektorów i kontrakt eksploracji bez ekranów ładowania. Układ przestrzenny jest **propozycją do greyboxu**, a nie zatwierdzonymi współrzędnymi świata. [Mapa SVG](docs/world/WORLD_MAP.svg) · [Karty sektorów](docs/world/SECTORS.md) · [Bezszwowy streaming](docs/world/STREAMING.md).
