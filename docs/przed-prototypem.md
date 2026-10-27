@@ -62,4 +62,4 @@ Autor doprecyzował, że na tym etapie potwory oznaczają bestiariusz i kompletn
 
 Przygotowano [mapę Niemiru i lasu](pakiet-04-mapa.md), [początek gry i pierwszą wyprawę](pakiet-04-poczatek.md) oraz [brief do obrazów](pakiet-04-obrazy.md). Status: propozycje do walidacji. [Przegląd 04](pakiet-04-przeglad.md) odróżnia kontrolę grafów od przyszłych testów gry.
 
-Następny uzgodniony etap: autor dostarczy repozytoria umiejętności rysowania, a obrazy pomogą wybrać kierunek wizualny. Nie wybrano jeszcze silnika ani formatu finalnych assetów. Pierwszy grywalny fragment nadal służy sprawdzeniu sterowania i wyprawy, nie produkcji całego demo naraz.
+Uzgodniony [kierunek artystyczny Niemiru](art/niemir/NIEMIR_ART_DIRECTION.md) i [16 szkiców koncepcyjnych](koncepty/README.md) znajdują się na `main`. Technologia przygotowania grafiki oraz docelowy silnik nadal pozostają otwarte; eksperymenty prowadzone są na oddzielnych gałęziach. Pierwszy grywalny fragment służy sprawdzeniu sterowania i wyprawy, nie produkcji całego demo naraz.
