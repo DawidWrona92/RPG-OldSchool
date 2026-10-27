@@ -87,13 +87,19 @@ def resize_premultiplied(src, dst, size):
     out[..., :3] = np.where(nz, sa[..., :3] / np.maximum(salpha, 1e-6), 0)
     Image.fromarray(np.clip(out, 0, 255).astype("uint8"), "RGBA").save(dst)
 
-def render_object(obj_name, out_prefix, variants=((0.0, ""), )):
+def render_object(obj_name, out_prefix, variants=((0.0, ""), ), spec=None):
+    if spec is None: spec = {}
     """Render assetu: warianty rotacji Z; RGBA (sam asset) + osobny cień."""
     ob = bpy.data.objects[obj_name]
     catcher = bpy.data.objects.get("OdbiornikCienia")
     preview = bpy.data.objects.get("PodgladPodloze")
     meshes = [o for o in bpy.data.objects if o.type == "MESH"]
     results = []
+    frame = spec.get("frame", 192) if isinstance(spec, dict) else 192
+    if frame != 192:
+        cam.data.ortho_scale = 3.2 * frame / 192
+        sc.render.resolution_x = frame * 2  # 2x supersampling jak 384->192
+        sc.render.resolution_y = frame * 2
     for rot, suffix in variants:
         ob.rotation_euler[2] = rot
         # --- RGBA pass: TYLKO asset ---
@@ -125,27 +131,40 @@ def render_object(obj_name, out_prefix, variants=((0.0, ""), )):
         results.append(f"{out_prefix}{suffix}.png")
         results.append(f"{out_prefix}{suffix}_shadow.png")
     ob.rotation_euler[2] = 0.0
+    if frame != 192:
+        cam.data.ortho_scale = 3.2
+        sc.render.resolution_x = 384
+        sc.render.resolution_y = 384
     for o in meshes:
         o.hide_render = False
     return results
 
 # ---------- RENDER ASSETÓW ----------
+# klatka 192 -> ortho 3.2; większa klatka N -> ortho 3.2*N/192 (skala px/m stała 60)
 assets = {
     "kamien_a": {"obj": "kamien_a", "variants": ((0.0, ""), (math.radians(47), "_rot47"), (math.radians(113), "_rot113"))},
     "kamien_b": {"obj": "kamien_b", "variants": ((0.0, ""),)},
     "kamien_c": {"obj": "kamien_c", "variants": ((0.0, ""),)},
-    "glaz": {"obj": "glaz", "variants": ((0.0, ""),)},
+    "glaz": {"obj": "glaz", "variants": ((0.0, ""),), "frame": 320},
+    "kepka_trawy_a": {"obj": "kepka_trawy_a", "variants": ((0.0, ""),)},
+    "kepka_trawy_b": {"obj": "kepka_trawy_b", "variants": ((0.0, ""),)},
+    "kepka_trawy_c": {"obj": "kepka_trawy_c", "variants": ((0.0, ""),)},
+    "paproc_a": {"obj": "paproc_a", "variants": ((0.0, ""),)},
+    "paproc_b": {"obj": "paproc_b", "variants": ((0.0, ""),)},
+    "chrust_a": {"obj": "chrust_a", "variants": ((0.0, ""),)},
+    "chrust_b": {"obj": "chrust_b", "variants": ((0.0, ""),)},
 }
 rendered = []
 for aid, spec in assets.items():
-    rendered += render_object(spec["obj"], aid, spec["variants"])
+    rendered += render_object(spec["obj"], aid, spec["variants"], spec)
 
 # ---------- ZMNIEJSZENIE 384->192 (premultiplied alpha) ----------
 final_files = []
 for f in rendered:
     src = os.path.join(OUTDIR, f)
     if os.path.exists(src):
-        resize_premultiplied(src, src, FINAL)
+        size = 320 if f.startswith("glaz") else 192
+        resize_premultiplied(src, src, size)
         final_files.append(f)
 
 # ---------- AUDYT ----------

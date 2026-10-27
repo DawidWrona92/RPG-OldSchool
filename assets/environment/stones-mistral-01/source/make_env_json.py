@@ -21,12 +21,26 @@ def bbox_meters(png):
         "bbox_px": [int(xs.min()), int(ys.min()), int(xs.max()), int(ys.max())],
     }
 
-def collision_estimate(png):
-    """Uproszczony obrys kolizji: okrąg o promieniu = połowa szerokości obrazu w metrach."""
-    r = bbox_meters(png)
-    if not r:
-        return None
-    return {"type": "circle", "radius_m": round(r["width_m"] / 2, 3), "note": "orientacyjne, do weryfikacji w grze"}
+# prawdziwe wymiary 3D odczytane z .blend (bbox świata w metrach)
+def mesh_dims_3d(obj_name, blend="/workspace/envwork/welesza_env_01.blend"):
+    import bpy, mathutils
+    bpy.ops.wm.open_mainfile(filepath=blend)
+    ob = bpy.data.objects[obj_name]
+    bb = [ob.matrix_world @ mathutils.Vector(c) for c in ob.bound_box]
+    xs = [p.x for p in bb]; ys = [p.y for p in bb]; zs = [p.z for p in bb]
+    bpy.ops.wm.read_factory_settings(use_empty=True)
+    return {
+        "width_m": round(max(xs)-min(xs), 3),   # X
+        "depth_m": round(max(ys)-min(ys), 3),    # Y
+        "height_m": round(max(zs)-min(zs), 3),  # Z
+    }
+
+def collision_estimate_3d(obj_name):
+    d = mesh_dims_3d(obj_name)
+    radius = max(d["width_m"], d["depth_m"]) / 2
+    return {"type": "circle", "radius_m": round(radius, 3),
+            "footprint_m": [d["width_m"], d["depth_m"]],
+            "note": "obrys w plaszczyznie X/Y swiata; orientacyjne, do weryfikacji w grze"}
 
 def build():
     assets = {}
@@ -35,11 +49,21 @@ def build():
         ("kamien_b", [""]),
         ("kamien_c", [""]),
         ("glaz", [""]),
+        ("kepka_trawy_a", [""]), ("kepka_trawy_b", [""]), ("kepka_trawy_c", [""]),
+        ("paproc_a", [""]), ("paproc_b", [""]),
+        ("chrust_a", [""]), ("chrust_b", [""]),
     ]
+    objs = {"kamien_a": "kamien_a", "kamien_b": "kamien_b", "kamien_c": "kamien_c",
+            "glaz": "glaz", "kepka_trawy_a": "kepka_trawy_a", "kepka_trawy_b": "kepka_trawy_b",
+            "kepka_trawy_c": "kepka_trawy_c", "paproc_a": "paproc_a", "paproc_b": "paproc_b",
+            "chrust_a": "chrust_a", "chrust_b": "chrust_b"}
     for aid, variants in specs:
+        obj_name = objs[aid]
+        frame = 320 if aid == "glaz" else 192
+        anchor = [160.0, 263.92304845413263] if aid == "glaz" else list(ANCHOR)  # 96;158.35 * 320/192
         entry = {
-            "frame_size": [192, 192],
-            "anchor_px": list(ANCHOR),
+            "frame_size": [frame, frame],
+            "anchor_px": anchor,
             "pixels_per_meter": PPM,
             "files": {},
         }
@@ -51,15 +75,10 @@ def build():
             entry["files"][f] = {
                 "shadow_file": f"{aid}{suf}_shadow.png",
                 "variants_rotation_deg": {"": 0, "_rot47": 47, "_rot113": 113}.get(suf, 0),
-                **bbox_meters(path),
+                "screen_bbox_px": bbox_meters(path)["bbox_px"],
             }
-        entry["collision_estimate"] = collision_estimate(os.path.join(OUT, f"{aid}.png"))
-        # głaz nie mieści się w 192 — własna klatka (kontrakt: duże obiekty)
-        if aid == "glaz":
-            gb = bbox_meters(os.path.join(OUT, "glaz.png"))
-            if gb:
-                entry["frame_size"] = [192, 192]  # w tej wersji głaz przycięty do 192; patrz note
-                entry["note"] = "glaz dotyka krawędzi klatki 192; wymaga większej klatki i własnej kotwicy — do poprawy w następnej iteracji"
+        entry["dimensions_3d"] = mesh_dims_3d(obj_name)
+        entry["collision_estimate"] = collision_estimate_3d(obj_name)
         assets[aid] = entry
     doc = {
         "pack": "stones-mistral-01",
