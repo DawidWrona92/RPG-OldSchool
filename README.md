@@ -21,7 +21,7 @@ Repozytorium jest obecnie w fazie projektowej. Nie wybrano silnika i nie ma jesz
 | [Pakiet 04: obrazy](docs/pakiet-04-obrazy.md) | Brief siedmiu kadrów do następnego etapu | Brief ART-01–07: do realizacji; istnieją osobne szkice koncepcyjne |
 | [Przegląd 04](docs/pakiet-04-przeglad.md) | Spójność, scenariusze graczy i walidacja połączeń mapy | Analiza projektu, nie testy gry |
 | [Przewodnik artystyczny Niemiru](docs/art/niemir/NIEMIR_ART_DIRECTION.md) ([PDF](docs/art/niemir/NIEMIR_ART_DIRECTION.pdf)) | Uzgodniony wygląd osady, przestrzeń, oświetlenie i kryteria oceny | Kierunek zatwierdzony; technologia otwarta |
-| [Biblioteka 17 szkiców koncepcyjnych](docs/koncepty/README.md) | Potwory, mieszkańcy, budynki i makiety izometryczne | Referencje wyglądu, nie gotowe sprite’y |
+| [Biblioteka 18 szkiców koncepcyjnych](docs/koncepty/README.md) | Potwory, mieszkańcy, budynki i makiety izometryczne | Referencje wyglądu, nie gotowe sprite’y |
 | [Indeks dokumentacji](docs/INDEX.md) | Wszystkie dokumenty fabularne, projektowe i grafiki koncepcyjne | Centralny punkt wejścia |
 | [Przed prototypem](docs/przed-prototypem.md) | Dalsza kolejność pracy i decyzje techniczne | Plan roboczy |
 
