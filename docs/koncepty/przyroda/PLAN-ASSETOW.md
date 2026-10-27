@@ -17,20 +17,11 @@ wprost z elementów widocznych na koncepcjach i potrzeb pierwszej lokacji
 - Każdy asset: warianty rotacji, punkt osadzenia, uproszczona kolizja (dane
   orientacyjne), metadane JSON.
 
-### Do poprawy w `stones-mistral-01` (stan gałęzi z 27 października 2026 r.)
+### Zgodność `stones-mistral-01` z kontraktem
 
-Odczytano z `welesza_env_01.blend` i `source/build_env.py` na gałęzi `vibe/environment-stones-mistral`:
+Stan na `9a2cc82` (27 października 2026 r.): Blender 4.3, kamera i trzy światła 1:1 z bohaterem, AgX i próbki z kontraktu, tekstury spakowane w `.blend`, cień jako sama alfa, `env_01.json`. Render z czystego klonu jest identyczny co do piksela z commitowanym eksportem (sprawdzone przez PM).
 
-| Parametr | Na gałęzi | Wymaga kontrakt |
-|---|---|---|
-| Wersja Blendera pliku | 5.0 (nie otworzy się w 4.3) | 4.3 |
-| Kamera | perspektywiczna, obiektyw 50 mm | ortograficzna, skala 3,2 m, obrót (60°; 0; 90°) |
-| Klatka | 512×512 (asset), 960×540 (scena) | 384 → 192×192, większa tylko dla dużych obiektów, z kotwicą w JSON |
-| Światło | słońce 6,5 + powierzchniowe 320 W | trzy światła powierzchniowe z kontraktu |
-| Kolor | AgX „Base Contrast”, ekspozycja 0 | AgX „Medium High Contrast”, ekspozycja −0,2 |
-| Próbki | 256 | 64 (cień 16), seed 1703 |
-
-Modele i materiały można zachować. Blender 4.3 nie otworzy pliku z 5.0, więc scenę trzeba odtworzyć skryptem `build_env.py` uruchomionym w 4.3, z kamerą i światłem z kontraktu.
+Otwarte: głaz wychodzi poza klatkę 192 px; kamienie mają zbyt gładkie, jajowate bryły, a tekstura głazu powtarza się wzorem łusek; `width_m`/`height_m` w JSON to rozmiary na ekranie, a promień kolizji jest liczony z szerokości ekranowej zamiast z obrysu w świecie; trawa, paprocie i chrust z wcześniejszej sceny nie zostały jeszcze przeniesione do wersji 4.3.
 
 ## Priorytet 1 — lokacja przy wozie (wioska → trakt)
 
