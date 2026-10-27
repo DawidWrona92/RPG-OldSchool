@@ -1,0 +1,161 @@
+{
+ "pack": "stones-mistral-01",
+ "version": "v2-kontrakt",
+ "frame_size_default": [
+  192,
+  192
+ ],
+ "anchor_px": [
+  96.0,
+  158.35382907247958
+ ],
+ "pixels_per_meter": 60.0,
+ "camera_elevation_deg": 30,
+ "assets": {
+  "kamien_a": {
+   "frame_size": [
+    192,
+    192
+   ],
+   "anchor_px": [
+    96.0,
+    158.35382907247958
+   ],
+   "pixels_per_meter": 60.0,
+   "files": {
+    "kamien_a.png": {
+     "shadow_file": "kamien_a_shadow.png",
+     "variants_rotation_deg": 0,
+     "width_m": 0.333,
+     "height_m": 0.383,
+     "bbox_px": [
+      85,
+      146,
+      105,
+      169
+     ]
+    },
+    "kamien_a_rot47.png": {
+     "shadow_file": "kamien_a_rot47_shadow.png",
+     "variants_rotation_deg": 47,
+     "width_m": 0.4,
+     "height_m": 0.367,
+     "bbox_px": [
+      83,
+      147,
+      107,
+      169
+     ]
+    },
+    "kamien_a_rot113.png": {
+     "shadow_file": "kamien_a_rot113_shadow.png",
+     "variants_rotation_deg": 113,
+     "width_m": 0.433,
+     "height_m": 0.333,
+     "bbox_px": [
+      82,
+      148,
+      108,
+      168
+     ]
+    }
+   },
+   "collision_estimate": {
+    "type": "circle",
+    "radius_m": 0.166,
+    "note": "orientacyjne, do weryfikacji w grze"
+   }
+  },
+  "kamien_b": {
+   "frame_size": [
+    192,
+    192
+   ],
+   "anchor_px": [
+    96.0,
+    158.35382907247958
+   ],
+   "pixels_per_meter": 60.0,
+   "files": {
+    "kamien_b.png": {
+     "shadow_file": "kamien_b_shadow.png",
+     "variants_rotation_deg": 0,
+     "width_m": 0.583,
+     "height_m": 0.45,
+     "bbox_px": [
+      78,
+      144,
+      113,
+      171
+     ]
+    }
+   },
+   "collision_estimate": {
+    "type": "circle",
+    "radius_m": 0.292,
+    "note": "orientacyjne, do weryfikacji w grze"
+   }
+  },
+  "kamien_c": {
+   "frame_size": [
+    192,
+    192
+   ],
+   "anchor_px": [
+    96.0,
+    158.35382907247958
+   ],
+   "pixels_per_meter": 60.0,
+   "files": {
+    "kamien_c.png": {
+     "shadow_file": "kamien_c_shadow.png",
+     "variants_rotation_deg": 0,
+     "width_m": 0.183,
+     "height_m": 0.25,
+     "bbox_px": [
+      90,
+      150,
+      101,
+      165
+     ]
+    }
+   },
+   "collision_estimate": {
+    "type": "circle",
+    "radius_m": 0.092,
+    "note": "orientacyjne, do weryfikacji w grze"
+   }
+  },
+  "glaz": {
+   "frame_size": [
+    192,
+    192
+   ],
+   "anchor_px": [
+    96.0,
+    158.35382907247958
+   ],
+   "pixels_per_meter": 60.0,
+   "files": {
+    "glaz.png": {
+     "shadow_file": "glaz_shadow.png",
+     "variants_rotation_deg": 0,
+     "width_m": 1.717,
+     "height_m": 1.4,
+     "bbox_px": [
+      47,
+      107,
+      150,
+      191
+     ]
+    }
+   },
+   "collision_estimate": {
+    "type": "circle",
+    "radius_m": 0.858,
+    "note": "orientacyjne, do weryfikacji w grze"
+   },
+   "note": "glaz dotyka krawędzi klatki 192; wymaga większej klatki i własnej kotwicy — do poprawy w następnej iteracji"
+  }
+ }
+}

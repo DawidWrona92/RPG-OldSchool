@@ -1,0 +1,142 @@
+{
+ "settings": {
+  "blender_version": "4.3.0",
+  "blend_sha256": "939a3f4ac9a504d21b8c649977e69fad60c36a80b18a5ed77fe69ac3e3fbc3bd",
+  "render_script_sha256": "60ec5c744ab395c6062457ba3439ffff08ed6af6393b0fc11f7e277827ba606e",
+  "camera": {
+   "type": "ORTHO",
+   "ortho_scale": 3.2,
+   "location": [
+    6.9282,
+    0.0,
+    5.2
+   ],
+   "rotation_deg": [
+    60.0,
+    0.0,
+    90.0
+   ]
+  },
+  "lights": [
+   {
+    "name": "Klucz",
+    "type": "AREA",
+    "shape": "DISK",
+    "energy": 520.0,
+    "size": 2.3,
+    "color": [
+     0.94,
+     0.92,
+     0.85
+    ],
+    "location": [
+     2.8,
+     -3.5,
+     6.0
+    ],
+    "rotation_deg": [
+     41.87,
+     0.0,
+     38.66
+    ]
+   },
+   {
+    "name": "Odbicie_ziemi",
+    "type": "AREA",
+    "shape": "DISK",
+    "energy": 65.0,
+    "size": 4.0,
+    "color": [
+     0.64,
+     0.68,
+     0.74
+    ],
+    "location": [
+     3.0,
+     4.0,
+     2.5
+    ],
+    "rotation_deg": [
+     73.3,
+     0.0,
+     143.13
+    ]
+   },
+   {
+    "name": "Wypelnienie_tyl",
+    "type": "AREA",
+    "shape": "DISK",
+    "energy": 140.0,
+    "size": 3.0,
+    "color": [
+     0.6,
+     0.7,
+     0.85
+    ],
+    "location": [
+     -3.0,
+     1.0,
+     4.0
+    ],
+    "rotation_deg": [
+     46.51,
+     0.0,
+     -108.43
+    ]
+   }
+  ],
+  "world": {
+   "color": [
+    0.18,
+    0.21,
+    0.26
+   ],
+   "strength": 0.2
+  },
+  "render": {
+   "engine": "CYCLES",
+   "samples": 64,
+   "seed": 1703,
+   "filter_size": 1.5,
+   "threads": 4,
+   "film_transparent": true,
+   "resolution": [
+    384,
+    384
+   ],
+   "view_transform": "AgX",
+   "look": "AgX - Medium High Contrast",
+   "exposure": -0.2,
+   "denoising": false
+  }
+ },
+ "rendered": {
+  "kamien_a.png": "0def7f0c06f56338c6cf525520359ecc09c9d72eaf3ec496c95eacdfcf67ca7f",
+  "kamien_a_shadow.png": "dd04b4b37da3a19c4d22989afa671a65832ca8b39e35f7fcac30f40a846f4bbe",
+  "kamien_a_rot47.png": "74e7e49e1d140f38ae92186d8b1f8fb2c41b8ba2e22c0ec2f11fc7af119e9898",
+  "kamien_a_rot47_shadow.png": "0ec5818b48e5ff5d659b9cad16b7ca0c1171428d0c505de87bcec08e42e8a8fb",
+  "kamien_a_rot113.png": "e390dbac31d1a15c7edc1fa2a192f6eda7bbbd7d83d7f4ad52b7d806ae17dd6a",
+  "kamien_a_rot113_shadow.png": "8d185fa72d52433bd70348bc7e39fd68a269d5e6f54b39cb328c7a023f057b26",
+  "kamien_b.png": "58e728eec31d128dcd7560405d71b2218e0312418a13ec1e133159c87b627774",
+  "kamien_b_shadow.png": "5db73f0ddea82bf6620f61fba2df6caff7158e2f0679c8a1cc5f548e8eeae14d",
+  "kamien_c.png": "b2100e5f175ab2d163df29ae8af6b87d7f713ae645b37deb9420d5aaf8590cab",
+  "kamien_c_shadow.png": "310a933fc79d9d03d28e02ceae35ddfbe4d83b852aba535e62a7a0ffaaf4a18c",
+  "glaz.png": "3757516bbdc9c6046b2c4eff201c352f4ff2718c7ab01b45f8e039904600c291",
+  "glaz_shadow.png": "f89d53c3672b9a828c65515f320a44aa325ec8bf4d36b565b14562b835272b31"
+ },
+ "contract": {
+  "frame": [
+   192,
+   192
+  ],
+  "render_frame": [
+   384,
+   384
+  ],
+  "pixels_per_meter": 60.0,
+  "anchor_px": [
+   96.0,
+   158.35382907247958
+  ]
+ }
+}
