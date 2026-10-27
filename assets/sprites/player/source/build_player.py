@@ -602,7 +602,7 @@ def set_pose(phase, walking=True, frame=None):
     return audit
 
 
-def setup_scene(samples=32, size=384):
+def setup_scene(samples=64, size=384, lighting='base'):
     scene=bpy.context.scene
     scene.render.engine='CYCLES'
     scene.cycles.device='CPU';scene.cycles.samples=samples
@@ -634,6 +634,39 @@ def setup_scene(samples=32, size=384):
         data=bpy.data.lights.new(name,'AREA');data.energy=power;data.color=color;data.shape='DISK';data.size=size
         lamp=bpy.data.objects.new(name,data);bpy.context.collection.objects.link(lamp);lamp.location=pos
         lamp.rotation_euler=(Vector((0,0,1))-lamp.location).to_track_quat('-Z','Y').to_euler()
+    if lighting=='warm':
+        data=bpy.data.lights.new('Próba lokalnej pochodni','POINT')
+        data.energy=85;data.color=(1,.33,.075);data.shadow_soft_size=.15
+        lamp=bpy.data.objects.new(data.name,data);bpy.context.collection.objects.link(lamp)
+        lamp.location=(1.2,-1.0,1.75)
+    elif lighting=='cool':
+        bpy.data.lights['Chłodne niebo / klucz z lewej'].color=(.63,.78,1)
+    # Two view layers retain a pure character RGBA and a separate physically
+    # rendered shadow in the same invocation. Ground never enters the sprite.
+    body_layer=scene.view_layers[0];body_layer.name='Bohater'
+    ground_collection=bpy.data.collections.new('Tylko odbiornik cienia')
+    scene.collection.children.link(ground_collection)
+    bpy.ops.mesh.primitive_plane_add(size=12,location=(0,0,-.001))
+    ground=bpy.context.object;ground.name='Odbiornik cienia / poza atlasem postaci'
+    for collection in list(ground.users_collection):collection.objects.unlink(ground)
+    ground_collection.objects.link(ground);ground.is_shadow_catcher=True
+    body_layer.layer_collection.children[ground_collection.name].exclude=True
+    shadow_layer=scene.view_layers.new('Cień')
+    shadow_layer.samples=16
+    shadow_layer.cycles.use_pass_shadow_catcher=True
+    scene.use_nodes=True
+    nodes,links=scene.node_tree.nodes,scene.node_tree.links;nodes.clear()
+    beauty=nodes.new('CompositorNodeRLayers');beauty.layer='Bohater'
+    shadow=nodes.new('CompositorNodeRLayers');shadow.layer='Cień'
+    composite=nodes.new('CompositorNodeComposite');links.new(beauty.outputs['Image'],composite.inputs[0])
+    bw=nodes.new('CompositorNodeRGBToBW');links.new(shadow.outputs['Shadow Catcher'],bw.inputs[0])
+    sub=nodes.new('CompositorNodeMath');sub.operation='SUBTRACT';sub.inputs[0].default_value=1;sub.use_clamp=True
+    links.new(bw.outputs[0],sub.inputs[1])
+    alpha=nodes.new('CompositorNodeSetAlpha');alpha.inputs[0].default_value=(0,0,0,1)
+    links.new(sub.outputs[0],alpha.inputs[1])
+    output=nodes.new('CompositorNodeOutputFile');output.name='Oddzielny cień'
+    output.format.file_format='PNG';output.format.color_mode='RGBA'
+    links.new(alpha.outputs[0],output.inputs[0])
     scene.render.threads_mode='FIXED';scene.render.threads=4
     scene.render.fps=25
     return scene
@@ -643,17 +676,18 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--pilot',action='store_true')
     parser.add_argument('--all',action='store_true')
-    parser.add_argument('--samples',type=int,default=24)
+    parser.add_argument('--samples',type=int,default=64)
     parser.add_argument('--size',type=int,default=384)
     parser.add_argument('--directions',type=int,nargs='+',choices=range(8))
     parser.add_argument('--animations',nargs='+',choices=['spoczynek','chod'])
     parser.add_argument('--save-only',action='store_true')
+    parser.add_argument('--lighting',choices=['base','warm','cool'],default='base')
     args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
     for file,meta in json.loads((THIRD/'manifest.json').read_text()).items():
         if hashlib.sha256((THIRD/file).read_bytes()).hexdigest()!=meta['sha256']:
             raise ValueError('Niezgodna suma źródła '+file)
-    build_character();scene=setup_scene(args.samples,args.size)
+    build_character();scene=setup_scene(args.samples,args.size,args.lighting)
     bpy.context.preferences.filepaths.save_version=0
     # Animations are genuine keyed armature actions, retained in the .blend.
     for name,count in [('spoczynek',8),('chod',12)]:
@@ -661,20 +695,26 @@ def main():
         CAPE.data.shape_keys.animation_data_create()
         CAPE.data.shape_keys.animation_data.action=bpy.data.actions.new(name+' / płaszcz')
         CAPE.data.shape_keys.animation_data.action.use_fake_user=True
-        for i in range(count+1):set_pose(i/count,name=='chod',frame=i+1)
+        step=2 if name=='chod' else 4.5  # 80 ms / 180 ms at 25 fps.
+        for i in range(count+1):set_pose(i/count,name=='chod',frame=1+i*step)
         for curve in RIG.animation_data.action.fcurves:
             for key in curve.keyframe_points:key.interpolation='LINEAR'
         RIG.animation_data.action.use_fake_user=True
     RIG.animation_data.action=None
     CAPE.data.shape_keys.animation_data_clear()
     set_pose(0,False)
-    scene.frame_start=1;scene.frame_end=13
-    bpy.ops.wm.save_as_mainfile(filepath=str(HERE/'bohater.blend'),check_existing=False)
-    out=ROOT/'renders';out.mkdir(exist_ok=True)
+    scene.frame_start=1;scene.frame_end=25
+    if args.lighting=='base':bpy.ops.wm.save_as_mainfile(filepath=str(HERE/'bohater.blend'),check_existing=False)
+    out=ROOT/'renders'
+    if args.lighting!='base':out=out/args.lighting
+    out.mkdir(exist_ok=True,parents=True)
+    shadow_dir=out/'shadows';shadow_dir.mkdir(exist_ok=True)
+    shadow_output=scene.node_tree.nodes['Oddzielny cień'];shadow_output.base_path=str(shadow_dir)
     audit={'directions':DIRS,'anchor_px':[96,158.35382907247958],
            'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
            'render':{'blender':bpy.app.version_string,'engine':'CYCLES','samples':args.samples,
-                     'size_px':args.size,'seed':1703,'denoising':False,'threads':4},'frames':{}}
+                     'shadow_samples':16,'size_px':args.size,'seed':1703,'denoising':False,
+                     'threads':4,'lighting':args.lighting},'frames':{}}
     targets=[('spoczynek',1,[0,1,2,4,7])] if args.pilot else [('spoczynek',8,range(8)),('chod',12,range(8))]
     if args.animations:targets=[t for t in targets if t[0] in args.animations]
     if args.save_only:targets=[]
@@ -686,7 +726,10 @@ def main():
                 info=set_pose(i/count,anim=='chod')
                 file=out/f'{anim}_{direction}_{i:02}.png'
                 scene.render.filepath=str(file)
+                shadow_output.file_slots[0].path=file.stem+'_'
                 bpy.ops.render.render(write_still=True)
+                shadow_file=shadow_dir/(file.stem+'_0001.png')
+                shadow_file.replace(shadow_dir/file.name)
                 audit['frames'][file.name]=info
                 print('WELESZA_FRAME',file.name,flush=True)
                 (out/'motion_audit.json').write_text(json.dumps(audit,indent=2)+'\n')
@@ -695,7 +738,9 @@ def main():
     CAPE.data.shape_keys.animation_data_create()
     CAPE.data.shape_keys.animation_data.action=bpy.data.actions['chod / płaszcz']
     scene.frame_set(1)
-    bpy.ops.wm.save_as_mainfile(filepath=str(HERE/'bohater.blend'),check_existing=False)
+    scene.render.filepath=str(ROOT/'previews'/'manual_render.png')
+    shadow_output.file_slots[0].path='manual_shadow_'
+    if args.lighting=='base':bpy.ops.wm.save_as_mainfile(filepath=str(HERE/'bohater.blend'),check_existing=False)
     print('WELESZA_DONE',flush=True)
 
 
