@@ -400,9 +400,16 @@ sc.render.resolution_y = 540
 sc.render.film_transparent = False
 render_to(os.path.join(OUT, "scena_testowa.png"))
 
-# close-up of materials in scene
-aim(None, cam, elev=30, dist=2.5, target=(-1.5, 1.2, 0.1))
+# close-up of materials in scene — high res for material evaluation
+aim(None, cam, elev=30, dist=2.2, target=(-1.8, 1.4, 0.05))
+sc.render.resolution_x = 1920
+sc.render.resolution_y = 1080
 render_to(os.path.join(OUT, "scena_zblizenie.png"))
+# second close-up: puddle detail on the road
+aim(None, cam, elev=30, dist=1.6, target=(0.8, -0.5, 0.02))
+render_to(os.path.join(OUT, "scena_zblizenie_kaluze.png"))
+sc.render.resolution_x = 960
+sc.render.resolution_y = 540
 
 # ============================== 2D COMPOSITE: hero sprite in test scene ==============================
 # external reference sprite from vibe/sprite-bohater-codex (unchanged, comparison only)
