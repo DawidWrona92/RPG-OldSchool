@@ -373,8 +373,8 @@ def make_wood_material(name, seed):
     nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
     # przyciemnione, desaturacja dla martwego drewna
     hsv = nt.nodes.new("ShaderNodeHueSaturation")
-    hsv.inputs["Saturation"].default_value = 0.4
-    hsv.inputs["Value"].default_value = 0.45
+    hsv.inputs["Saturation"].default_value = 0.35
+    hsv.inputs["Value"].default_value = 0.75
     nt.links.new(texc.outputs["Color"], hsv.inputs["Color"])
     nt.links.new(hsv.outputs["Color"], bsdf.inputs["Base Color"])
     bsdf.inputs["Roughness"].default_value = 0.95
