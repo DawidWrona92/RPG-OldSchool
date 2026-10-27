@@ -7,6 +7,7 @@ TAU=math.tau
 RIG=None
 CAPE=None
 REST={}
+RIGHT_HAND_CARRY=(.19,-.335,1.025)
 
 def bind():
     global RIG,CAPE,REST
@@ -64,7 +65,8 @@ def set_pose(phase, walking=True, frame=None):
         if side=='R':
             # A sword is carried with a modest elbow bend, not swung exactly
             # like an empty hand. Keep the blade low and outside the body.
-            hand=Vector((.19-(.030*math.cos(arm_phase-.2) if walking else 0),-.335-.009*math.sin(arm_phase),1.025+bob+.007*math.sin(arm_phase)))
+            hx,hy,hz=RIGHT_HAND_CARRY
+            hand=Vector((hx-(.030*math.cos(arm_phase-.2) if walking else 0),hy-.009*math.sin(arm_phase),hz+bob+.007*math.sin(arm_phase)))
         up,fore='upper_arm.'+side,'forearm.'+side
         l1=(REST[up][1]-REST[up][0]).length;l2=(REST[fore][1]-REST[fore][0]).length
         # Keep arm targets on their reachable sphere as equipment subtly swings.
