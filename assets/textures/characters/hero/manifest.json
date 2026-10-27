@@ -1,0 +1,118 @@
+{
+  "schema": "welesza.character-materials.v1",
+  "status": "PROTOTYPE_NOT_APPROVED",
+  "version": "0.1.0",
+  "texture_resolution": [
+    512,
+    512
+  ],
+  "source": "procedural, author-owned; no external photo stock",
+  "normal_map_convention": "OpenGL tangent +Y derived from synthetic height, not measured",
+  "seam_test": "continuous tile-like source; UV seam and in-engine sampling not yet validated",
+  "data": [
+    {
+      "material": "linen_shirt_worn",
+      "channel": "basecolor",
+      "path": "assets/textures/characters/hero/linen_shirt_worn_basecolor.png",
+      "sha": "6840742771defeffed9f222c2cfd6026c2f5f97e",
+      "bytes": 47576
+    },
+    {
+      "material": "linen_shirt_worn",
+      "channel": "roughness",
+      "path": "assets/textures/characters/hero/linen_shirt_worn_roughness.png",
+      "sha": "534fd04887d9e5322a65b52d9c3763726b4330d4",
+      "bytes": 68584
+    },
+    {
+      "material": "linen_shirt_worn",
+      "channel": "height",
+      "path": "assets/textures/characters/hero/linen_shirt_worn_height.png",
+      "sha": "f9a0df5290adae000c1ae6a4daa73469ec07a12c",
+      "bytes": 133771
+    },
+    {
+      "material": "linen_shirt_worn",
+      "channel": "normal_opengl",
+      "path": "assets/textures/characters/hero/linen_shirt_worn_normal_opengl.png",
+      "sha": "8147b376b09699a31c81bcccd93d074dffcce0c7",
+      "bytes": 152199
+    },
+    {
+      "material": "wool_cloak_dark_brown",
+      "channel": "basecolor",
+      "path": "assets/textures/characters/hero/wool_cloak_dark_brown_basecolor.png",
+      "sha": "90cfa00d6afacb3bd4ed86632bf5069e58cd1588",
+      "bytes": 46866
+    },
+    {
+      "material": "wool_cloak_dark_brown",
+      "channel": "roughness",
+      "path": "assets/textures/characters/hero/wool_cloak_dark_brown_roughness.png",
+      "sha": "2889e144972eb8787f12bb4ab4d395981f5a5d56",
+      "bytes": 85480
+    },
+    {
+      "material": "wool_cloak_dark_brown",
+      "channel": "height",
+      "path": "assets/textures/characters/hero/wool_cloak_dark_brown_height.png",
+      "sha": "895dc0925664e6ba84169ee3d8db1154d37e916c",
+      "bytes": 120019
+    },
+    {
+      "material": "wool_cloak_dark_brown",
+      "channel": "normal_opengl",
+      "path": "assets/textures/characters/hero/wool_cloak_dark_brown_normal_opengl.png",
+      "sha": "e6da9c56a6a20a8ab31d426164a4feb5520c7927",
+      "bytes": 141914
+    },
+    {
+      "material": "leather_vest_weathered_brown",
+      "channel": "basecolor",
+      "path": "assets/textures/characters/hero/leather_vest_weathered_brown_basecolor.png",
+      "sha": "975c1982236988bcae52fe4467a08ae5a8eae8ca",
+      "bytes": 110774
+    },
+    {
+      "material": "leather_vest_weathered_brown",
+      "channel": "roughness",
+      "path": "assets/textures/characters/hero/leather_vest_weathered_brown_roughness.png",
+      "sha": "d915a136e16eccc2c0ea501d1779e041505c174a",
+      "bytes": 124961
+    },
+    {
+      "material": "leather_vest_weathered_brown",
+      "channel": "height",
+      "path": "assets/textures/characters/hero/leather_vest_weathered_brown_height.png",
+      "sha": "0d884bee857699c1e6cf826ee5d7a16096dde431",
+      "bytes": 158755
+    },
+    {
+      "material": "leather_vest_weathered_brown",
+      "channel": "normal_opengl",
+      "path": "assets/textures/characters/hero/leather_vest_weathered_brown_normal_opengl.png",
+      "sha": "522dc31ce68a118dbf872d3df54be58197fd9c5f",
+      "bytes": 210180
+    }
+  ],
+  "materials": [
+    {
+      "id": "linen_shirt_worn",
+      "name": "Znoszony len / koszula",
+      "use": "tunika i podwinięte rękawy",
+      "note": "Nie wypiekać fałd ani cieni, splot skaluje się z UV"
+    },
+    {
+      "id": "wool_cloak_dark_brown",
+      "name": "Ciemnobrązowa wełna / płaszcz",
+      "use": "płaszcz, kaptur i warstwa naramienna",
+      "note": "Fałdy, postrzępienia i obszycia wymagają geometrii lub masek, nie tylko materiału"
+    },
+    {
+      "id": "leather_vest_weathered_brown",
+      "name": "Postarzana brązowa skóra / kaftan",
+      "use": "kaftan, pasy, sakwy i próbnie plecak",
+      "note": "Sama baza nie doda prawidłowych szwów i wytarć na krawędziach; oddzielne maski w kolejnych chunkach"
+    }
+  ]
+}
