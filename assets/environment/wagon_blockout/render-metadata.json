@@ -1,0 +1,30 @@
+{
+  "method": "numpy orthographic z-buffer",
+  "dimensions": [
+    768,
+    768
+  ],
+  "alpha": "straight RGBA",
+  "views": [
+    {
+      "name": "wagon-view-a",
+      "bbox": [
+        130,
+        142,
+        633,
+        581
+      ]
+    },
+    {
+      "name": "wagon-view-b",
+      "bbox": [
+        135,
+        192,
+        638,
+        603
+      ]
+    }
+  ],
+  "shadows": false,
+  "game_camera_verified": false
+}
