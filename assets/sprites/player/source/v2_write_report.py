@@ -7,6 +7,9 @@ def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 s=read(OUT/'source-validation.json');frames=read(OUT/'frame-validation.json');collision=read(OUT/'intersection-validation.json');repro=read(OUT/'reproduction-validation.json');p2=read(ROOT/'handoff/p2/manifest.json');package=read(OUT/'p2-validation.json');p1=read(ROOT/'handoff/p1/body-validation.json');source=read(ROOT/'source/bohater_v2.source.json');poses=read(ROOT/'handoff/p1/poses/manifest.json');digest=sha(ROOT/'source/bohater_v2.blend')
 assert all(m['source_blend_sha256']==digest for m in [s,frames,collision,repro,p2,package,p1,source,poses]);assert p2['complete'] and source['skin']['version']==3
 branch=subprocess.check_output(['git','branch','--show-current'],text=True).strip();modelcommit=subprocess.check_output(['git','log','-1','--format=%H','--','assets/sprites/player/source/bohater_v2.blend'],text=True).strip();names=list(p2['parts']);normalout=sum(p['normal_unit_length_outliers'] for p in package['parts']);normalsample=sum(p['normal_sampled_interior_pixels'] for p in package['parts']);boneerror=max(p['max_bone_length_error_m'] for p in p1['poses']);shadows_clipped=[p['direction'] for p in frames['frames'] if p['shadow_border_max_alpha']>0];identical=all(f['identical_decoded_rgba_pixels'] for f in repro['frames'])
+cachepath=OUT/'p2-resume-validation.json';cache=read(cachepath) if cachepath.exists() else None
+if cache:assert cache['source_blend_sha256']==digest
+cache_result=f"{cache['reused_parts_count']} części pominiętych, {cache['rebaked_parts_count']} nowych wypaleń; finalizer nie zmienił manifestu" if cache else 'Nie wykonywano osobnego testu wznowienia'
 links='[Przegląd HTML](reviews/v2-f0-f3/index.html) · [model](source/bohater_v2.blend) · [manifest źródła](source/bohater_v2.source.json) · [P1](handoff/p1/manifest.json) · [P2](handoff/p2/manifest.json)'
 text=f'''# Bohater v2 — F0–F3, do oceny autora
 
@@ -48,7 +51,7 @@ Kaftan ma osobne panele, otwarty przód i brzegi zachodzące na spodnie; rękawy
 
 {', '.join('`'+n+'`' for n in names)}.
 
-AO jest rzeczywistym wypaleniem Cycles z otoczeniem stroju i zasięgiem 0,15 m; może być ciemne pod innymi warstwami. Curvature to podpisany lokalny Laplacian geometrii, nie skan. Normalna powstaje z ewaluowanych fałd/Subsurf/Solidify do bazowego UV — nie opisujemy jej jako ręcznie rzeźbionego high-poly. Height ground to Z / 1,8 m, do błota/wilgoci, nie displacement. Scalar maps są liniowe 16-bit, normal/ID RGB 8-bit, UV RGBA, podglądy szare 768 RGBA. AO nie należy wpisywać na stałe do koloru albedo.
+AO jest rzeczywistym wypaleniem Cycles z otoczeniem stroju i zasięgiem 0,15 m; może być ciemne pod innymi warstwami. Curvature to podpisany lokalny Laplacian geometrii, nie skan. Normalna powstaje z ewaluowanych fałd/Subsurf/Solidify do bazowego UV — nie opisujemy jej jako ręcznie rzeźbionego high-poly. Po filtrowaniu bake wektory renormalizowano; rzadkie wektory bliskie zeru po zniesieniu kierunków na krawędzi zastąpiono neutralnym +Z. Manifest zachowuje SHA surowego bake, liczby, metodę i SHA finalizera. Height ground to Z / 1,8 m, do błota/wilgoci, nie displacement. Scalar maps są liniowe 16-bit, normal/ID RGB 8-bit, UV RGBA, podglądy szare 768 RGBA. AO nie należy wpisywać na stałe do koloru albedo.
 
 Kontrola [P2](reviews/v2-f0-f3/p2-validation.json) odczytała i zweryfikowała SHA, formaty oraz wymiary wszystkich 154 PNG. Długość wektorów normalnych sprawdzono na {normalsample:,} pikselach wewnątrz wysp UV; odchyłki powyżej 0,012: **{normalout:,}**. Liczby i ewentualne ubytki dla każdej części są jawne w raporcie, nie zastępują oceny malarskiej.
 
@@ -66,6 +69,7 @@ Kontrola [P2](reviews/v2-f0-f3/p2-validation.json) odczytała i zweryfikowała S
 | Kierunki / alfa / granice | 8 różnych renderów, bez odbić; RGBA postać i cień, postać nie dotyka brzegu; [klatki](reviews/v2-f0-f3/frame-validation.json) |
 | Brzeg cienia | {('Bez przycięcia w ośmiu kierunkach.' if not shadows_clipped else 'Alfa na brzegu w: '+', '.join(shadows_clipped)+'. Cień może być przycięty zgodnie z kontraktem.')} |
 | Powtórzenie z zapisanych źródeł | Ponowny osobny proces Blendera: S, klatka 1, postać i cień; identyczne zdekodowane piksele: **{identical}**; [pomiar różnic](reviews/v2-f0-f3/reproduction-validation.json) |
+| Wznowienie P2 / finalizer | {cache_result} |
 | Archiwum / atlas | Sumy obu starych `.blend` bez zmian. Nie wygenerowano atlasów ani animacji v2; stare eksporty są archiwum |
 
 Narzędzie PM bada **wszystkie renderowane MESH po modyfikatorach**, również warstwy stroju. Nie bada Curves, samoprzenikania jednej siatki, całkowitego zawierania jednej bryły w drugiej ani ruchu. Nie deklarujemy pełnej kontroli kolizji ani naturalności animacji. Kontakty włosów z ubraniem oceniano wizualnie w dużych widokach; nie ma automatycznej walidacji wszystkich włókien.
@@ -76,7 +80,7 @@ Narzędzie PM bada **wszystkie renderowane MESH po modyfikatorach**, również w
 
 Nie ma w v2 animacji spoczynku/chodu, prędkości chodu ani nowych atlasów. Te parametry będą ustalane i mierzone w B3/B4 po zgodzie B2; dane ruchu starego rev08 nie są przedstawiane jako wynik v2.
 
-**Otwarte:** szarozielona tęczówka v4, unikatowe tekstury stroju F4 oraz ocena artystyczna głowy i sylwetki. Włosy i przejście zarostu nadal mogą czytać się zbyt regularnie wobec 19; nie zakładamy ich akceptacji. Plecak, fałdy i wykończenie stroju pozostają interpretacją roboczą do oceny w 1× i zbliżeniach. Kontrast tymczasowych, płaskich materiałów nie jest oceną końcowych tkanin/skór. Sześć póz nie zastępuje pełnego zakresu deformacji, a statyka nie dowodzi gotowości stroju do ruchu.
+**Otwarte:** szarozielona tęczówka v4, unikatowe tekstury stroju F4 oraz ocena artystyczna głowy i sylwetki. Włosy i przejście zarostu nadal mogą czytać się zbyt regularnie wobec 19; nie zakładamy ich akceptacji. Plecak, fałdy i wykończenie stroju pozostają interpretacją roboczą do oceny w 1× i zbliżeniach. W N/NW pochwa i część rękojeści są przesłonięte płaszczem; czytelność w wariancie D1 wymaga oceny, bez technicznego progu pikseli i bez powiększania broni. Kontrast tymczasowych, płaskich materiałów nie jest oceną końcowych tkanin/skór. Sześć póz nie zastępuje pełnego zakresu deformacji, a statyka nie dowodzi gotowości stroju do ruchu.
 
 Źródła MakeHuman/targetów: CC0, przypięta rewizja i SHA w `source/third_party/`. Skóra GPT 6 jest autorską interpretacją proceduralną, nie skanem. Oczy zachowują pochodzenie repozytoryjne i ograniczenie nieudokumentowanego oryginalnego generatora opisane w paczce autora. Nie dodano zewnętrznych fotografii ani assetów z niejasnych źródeł.
 '''

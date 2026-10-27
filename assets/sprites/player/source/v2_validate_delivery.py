@@ -7,6 +7,7 @@ ROOT=Path(__file__).resolve().parent.parent;OUT=ROOT/'reviews/v2-f0-f3';P2=ROOT/
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 source_sha=sha(ROOT/'source/bohater_v2.blend');m=json.loads((P2/'manifest.json').read_text());assert m['complete'] and m['file_count']==154 and len(m['parts'])==22 and m['source_blend_sha256']==source_sha
 assert m['baker_sha256']==sha(ROOT/'source/v2_bake_p2.py')
+assert m['finisher_sha256']==sha(ROOT/'source/v2_finish_p2.py')
 reports=[]
 for name,part in m['parts'].items():
     for file,digest in part['files'].items():assert sha(P2/file)==digest

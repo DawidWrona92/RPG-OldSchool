@@ -1,42 +1,37 @@
-# Bohater v2 — przekazanie pracy
+# Bohater v2 — HANDOFF
 
-Gałąź: `vibe/sprite-bohater-codex`. **Aktywne źródło: `source/bohater_v2.blend`.** Stan roboczy przed B2; nie jest wzorem zatwierdzonym do produkcji.
+**Aktywne źródło: [source/bohater_v2.blend](source/bohater_v2.blend).** Stan: F0–F3 / przekazanie do F4, przed oceną B1/B2. Bez animacji i atlasów v2.
 
-## Wiążące ustalenia
+Gałąź `vibe/sprite-bohater-codex`. Commit modelu `ad5f69d0095317310f17f463616904488474b13a`. SHA-256 `6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5`, rewizja `v2-F3-equipment-review-16`. Wszystkie bieżące podglądy i P2 odnoszą się do tego źródła.
 
-- Dokumentacja i decyzje autora mają pierwszeństwo nad konceptami. Głowa według [19](../../../docs/koncepty/19-bohater-twarz.md), strój według [17](../../../docs/koncepty/17-bohater-i-woz.md).
-- Stary, mocno ogorzały, silny podróżnik; pełne policzki i mocna żuchwa, ciężkie brwi, bruzdy i zmęczony wyraz. Włosy średniej długości do żuchwy, ciemnobrązowe z siwizną, potargane. Broda i wąs z włókien, więcej siwizny na podbródku.
-- D1: miecz w pochwie przy lewym biodrze. D2: pełna grupa `body` MakeHuman, ta sama topologia i natywne UV. D3: `default.mhskel`, 163 kości, `default_weights.mhw`.
-- Nie animować i nie eksportować atlasów przed zgodą B2. Sześć pojedynczych póz diagnostycznych nie oznacza rozpoczęcia animacji.
+[Przegląd](reviews/v2-f0-f3/index.html) · [raport](V2_REVIEW.md) · [P1](handoff/p1/manifest.json) · [P2](handoff/p2/manifest.json) · [opis P2](handoff/p2/README.md).
 
-## Źródła i tekstury
+## Decyzje obowiązujące
 
-- `source/bohater.blend` (rev08) i `source/bohater_detale.blend` są archiwum. Sumy w `source/archive-sources.json`; nie nadpisywać.
-- Skóra **v3** z gałęzi `vibe/hero-textures-gpt6`, commit `bc1da51`: skopiowany katalog `assets/textures/characters/hero/unique/`, 51 plików zgodnych z manifestem. Nie scalano gałęzi. Obrazy ponownie załadowane i spakowane w v2.
-- Basecolor/oczy sRGB, mapy danych Non-Color, normal OpenGL strength 0,45, maska SSS × 0,30. Height pozostawiony niepodłączony obok normalnej, aby nie dublować reliefu. Blizny i pieprzyki wyłącznie z tekstury.
-- **Oczekiwane v4:** szarozielona tęczówka i dalsze poprawki skóry od GPT 6. Obecna tęczówka z paczki v3 jest jeszcze brązowa. Nazwy obrazów i natywne UV umożliwiają podmianę bez przebudowy shaderów.
-- MakeHuman i targety CC0, przypięta rewizja i SHA w `source/third_party/`. Nie dodano zewnętrznych zdjęć ani zasobów o nieustalonym pochodzeniu.
+- Wymagania pisemne i decyzje autora przed konceptami. Głowa według 19; strój według 17. Starszy, ogorzały podróżnik, pełne policzki i mocna żuchwa, ciężkie brwi, zmęczony surowy wyraz.
+- Włosy średniej długości do linii żuchwy, ciemnobrązowe z siwizną, potargane; gęsty zarost i wąs, więcej siwizny na podbródku. Blizny/pieprzyki tylko z tekstury.
+- D1 miecz w pochwie przy lewym biodrze. D2 pełna grupa body MakeHuman z nietkniętym natywnym UV. D3 default.mhskel, 163 kości, default_weights.mhw.
+- Nie animować i nie eksportować atlasów przed B2. Sześć statycznych póz diagnostycznych nie jest produkcją animacji.
 
-## Stan i kontrole w toku
+## Co jest gotowe do przekazania
 
-F0–F1: jedno źródło v2, pełne ciało, 163 kości. Zachowane 19158 indeksów wierzchołków OBJ, 13378 ścian grupy body i 53512 narożników natywnego UV. `handoff/p1/` zawiera pierwsze widoki UV i pomiary sześciu prób; po zmianach pozy trzeba odświeżyć P1 i obrazy sześciu póz.
+- Pełne ciało, native UV, 163 kości; P1: przód/bok/¾ z siatką UV i sześć prób deformacji. Ocenę B1 wykonuje autor/PM, nie automat.
+- F2 według 19 i **skóra v3** z `bc1da517031a63dabad00380e95566f32f2f3c65`: 51 plików zgodnych z manifestem, 7 używanych obrazów spakowanych i zgodnych bajtowo. Normal 0,45, maska SSS ×0,30, height niepodłączony obok normalnej.
+- F3: 22 części, własne UV ~1024 px/m, trzy utrwalone drapowania Cloth z późniejszymi poprawkami artystycznymi. Plecak i posłanie dopasowane do kontaktu, paski/sprzączki butów i pasy posłania są geometrią.
+- **P2 kompletne: 154 PNG**, siedem na część, 2K + podgląd 768, manifest SHA, `complete: true`. Normal/AO/curvature/height/ID/UV mają opis metod i ograniczeń. Obecne materiały stroju są tymczasowe, oczekują F4 od GPT 6.
+- Narzędzie z main: neutralna klatka 1, 0 niedozwolonych przecięć po jawnych wyjątkach oczu i głowicy/rękojeści. Brak wyjątków dla stroju. Nie obejmuje Curves, samoprzenikania jednej siatki ani ruchu.
+- Powtórzony S/body+shadow z zapisanego pliku: identyczne zdekodowane piksele `True`. Nie powtarzano wszystkich map P2 ani całych ośmiu kierunków.
 
-F2: rzeźba i włókna zmienione według 19, skóra v3. Pierwszy średni groom był zbyt równy — kolejny pass rozbija go na falujące, nierówne pasma. Portret końcowy do odświeżenia po dopasowaniu stroju.
+## Co jest otwarte
 
-F3: nowe części stroju, osobne UV, trzy rzeczywiste symulacje Cloth utrwalone w siatkach. Pierwsze drapowanie odrzucone jako niestabilne; drugie: 16 klatek, kolizje i self-collision. Potem poprawki artystyczne barków i luzów; metadane w scenie i częściach. **Przenikania nadal są naprawiane; nie deklarujemy zera. P2 jeszcze niewydane.**
+**Tęczówka v3 jest brązowa. Szarozielona oczekuje v4 od GPT 6.** Nie przemalowano jej zastępczo. Głowa/groom wymagają oceny z 19; włosy i linia zarostu mogą być nadal zbyt regularne. Strój czeka na unikatowe tekstury, zużycie, wilgoć i błoto F4. B2 nie jest zatwierdzone, kontrola statyki nie dowodzi jakości ruchu. Wagi/deformacje stroju wymagają oceny przy przyszłym B3.
 
-## Wznowienie
+## Wznowienie i podmiana tekstur
 
-1. Sprawdzić `git status`, bieżącą rewizję sceny i najnowszy commit; nie uruchamiać dawnych recept na nowym źródle. Każda ma strażnika rewizji. Renderer nie uruchamia recept ani nie zapisuje `.blend`.
-2. Kontrola całego modelu narzędziem PM z main:
+1. Pracować na bieżącym `.blend`, sprawdzić `git status`, często commitować i pushować. Recepty `v2_*.py` są zapisem kolejnych poprawek z guardami rewizji, nie krokiem renderu i nie regeneracją ręcznie poprawionego źródła.
+2. `v2_render_static.py` czyta model, nie zapisuje go. `--mode game` zachowuje kamerę kontraktu; `portrait`, `model`, `p1` to diagnostyka. Audyt zawiera źródło/renderer/obrazy SHA. Przy zmienionym źródle nie przepisywać starych audytów.
+3. Po otrzymaniu v4 skopiować tylko paczkę `unique/` z podanego commitu, bez scalania gałęzi. `v2_refresh_textures.py -- --version 4 --commit <pełny SHA>` w Blenderze na aktywnym źródle weryfikuje manifest, przeładowuje/packuje obrazy pod tymi samymi nazwami i sprawdza nienaruszenie geometrii, UV, rigu i Curves. **Przygotowany skrypt skompilowano, nie wykonywano go z nieotrzymaną v4.** Nowe źródło wymaga nowych podglądów/SHA; starszych manifestów nie aktualizować po cichu.
+4. P2 regenerować tylko z właściwego zapisanego źródła. `v2_bake_p2.py -- --resume` sprawdza zgodność źródła/bakera i gotowych plików; po zmianie modelu zachować starszą paczkę osobno i wykonać świeże wypalenia. `v2_finish_p2.py` weryfikuje kompletność i generuje szablony UV.
+5. Po F4 zintegrować tekstury stroju bez zmiany kamery/światła/skali, ponowić podglądy i pełny audyt main, przekazać B2 autorowi. Dopiero po zgodzie B2 wrócić do spoczynku/chodu, prędkości, każdej klatki kolizji i atlasów.
 
-```sh
-blender -b -t 4 --python-exit-code 1 --python tools/art/check_intersections.py -- \
-  assets/sprites/player/source/bohater_v2.blend --frame 1 --json /tmp/v2-intersections.json
-```
-
-Lista `--allow` może wymieniać tylko rzeczywiście zamierzone, konkretne styki (osadzone oczy i połączenia miecza). Nigdy całych warstw ubrań. Narzędzie bada siatki, nie Curves, przenikanie brył całkowicie zawartych ani samoprzenikanie pojedynczego obiektu.
-
-3. `source/v2_render_static.py`: read-only `--mode portrait|model|game|p1 --output ...`; kontraktowe światło pozostaje zapisane w modelu. `model`/`portrait` są kamerami diagnostycznymi, `game` zachowuje kamerę 30°, ortho 3,2 m i kotwicę (96; 158,353829) przy 192 px.
-4. Po ustabilizowaniu geometrii: `v2_bake_p2.py` + `v2_finish_p2.py`, manifest SHA i siedem plików na część. Nie wypalać niestabilnego stroju i nie mieszać źródeł SHA w paczce.
-5. Często commitować i wypychać na własną gałąź. Na koniec zaktualizować ten plik, raport, linki i zakres faktycznie wykonanych kontroli.
+Archiwum rev08/detale, ich atlasy i podglądy pozostały bez zmian. Sumy w `source/archive-sources.json`; nie są aktualnym eksportem v2. Pochodzenie/CC0 MakeHuman i targetów w `source/third_party/`, pochodzenie i ograniczenia tekstur w `unique/manifest.json` i `README.md`.

@@ -1,0 +1,19 @@
+{
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+  "renderer_sha256": "e5a24314f691bec881e45afad27eadd47d0479c701168034b4dea5e9d1324341",
+  "scope": "Ponownie uruchomiony Blender 4.3, zapisane źródło, kierunek S, klatka 1, postać i cień. Nie jest to powtórzenie wszystkich 8 kierunków ani całego P2.",
+  "frames": [
+    {
+      "file": "game_0.png",
+      "identical_decoded_rgba_pixels": true,
+      "max_channel_difference_255": 0,
+      "different_pixels": 0
+    },
+    {
+      "file": "shadows/game_0.png",
+      "identical_decoded_rgba_pixels": true,
+      "max_channel_difference_255": 0,
+      "different_pixels": 0
+    }
+  ]
+}

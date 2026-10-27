@@ -1,0 +1,647 @@
+{
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+  "p2_manifest_sha256": "37cfb33904db1e7af0629a53f76e7895c490e2023ffe53dd61996c4e52b9b566",
+  "p2_verified_png_files": 154,
+  "part_count": 22,
+  "parts": [
+    {
+      "part": "koszula",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1023.9999999999999,
+      "normal_sampled_interior_pixels": 811389,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.0033875028610666057,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.5652094300755321,
+          "max": 0.8665598535133898,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "spodnie",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 705222,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.006408789196612497,
+          "max": 0.9983367666132601,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.2605630579079881,
+          "max": 0.5954985885404745,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "kaftan",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 593302,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.00976577401388571,
+          "max": 0.9960936903944457,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.39983215075913636,
+          "max": 0.7458609903105211,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.4843823910887312,
+          "max": 0.8266269932097352,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "plaszcz",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1023.9999999999999,
+      "normal_sampled_interior_pixels": 955643,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.0018310826276035706,
+          "max": 0.9984740978103304,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.13441672388799877,
+          "max": 0.8216983291371023,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "peleryna",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1023.9999999999999,
+      "normal_sampled_interior_pixels": 574981,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.0,
+          "max": 0.883939879453727,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "kaptur",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 75143,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 0.98632791638056,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 9.155413138017853e-05,
+          "max": 0.9969481956206607,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.8827649347676814,
+          "max": 0.9197375448233768,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "but_lewy",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 406468,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.0011139085984588387,
+          "max": 0.2996566720073243,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "but_prawy",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 406942,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.0011139085984588387,
+          "max": 0.2996871900511177,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "pas_gorny",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 56200,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0371099412527657,
+          "max": 0.9980468451972229,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.4191195544365606,
+          "max": 0.5857022964827955,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.6118562600137332,
+          "max": 0.6328374151216907,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "pas_dolny",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 43181,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.03906309605554284,
+          "max": 0.9707026779583429,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.3680476081483177,
+          "max": 0.5869230182345312,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.5795681696803235,
+          "max": 0.595574883649958,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "rzemien_1",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 7396,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.01953154802777142,
+          "max": 0.5595635919737545,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.1121690699626154,
+          "max": 0.9732051575494011,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.642023346303502,
+          "max": 0.7909361409933623,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "rzemien_2",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 15877,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.003906309605554284,
+          "max": 0.8847638666361486,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.07864499885557336,
+          "max": 0.9974670023651484,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.6382085908293278,
+          "max": 0.7971160448615244,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "plecak",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 691265,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.0002746623941405356,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.5724422064545662,
+          "max": 0.7886778057526512,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "poslanie",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1023.9999999999999,
+      "normal_sampled_interior_pixels": 231459,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.46207370107576107,
+          "max": 0.9969787136644541,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.7916838330663004,
+          "max": 0.8716716258487831,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "manierka",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 51105,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.08398565651941711,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.6671549553673609,
+          "max": 0.8194094758525978,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.6138857099259938,
+          "max": 0.6972152285038529,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "sakwa_lewa",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 38814,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.6130922407873656,
+          "max": 0.7732356755931945,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.513893339436942,
+          "max": 0.5750057221332112,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "sakwa_prawa",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 39021,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.001953154802777142,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.6130922407873656,
+          "max": 0.7732356755931945,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.513893339436942,
+          "max": 0.5750057221332112,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "pochwa",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 61996,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.27539482719157704,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.5057602807660029,
+          "max": 0.8898908979934386,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.2409399557488365,
+          "max": 0.6115358205539025,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "rekojesc",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1023.9999999999999,
+      "normal_sampled_interior_pixels": 8060,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.507164110780499,
+          "max": 0.8337682154573892,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.6199130235751888,
+          "max": 0.6838025482566568,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "jelec",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 5452,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.035156786449988556,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.5062180514229038,
+          "max": 0.9029983978027009,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.6100251773861296,
+          "max": 0.6216678110933089,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "glowica",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 3515,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.5197375448233769,
+          "max": 0.53676661326009,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.6801098649576562,
+          "max": 0.7000686655985351,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "part": "sprzaczki",
+      "verified_files": 7,
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "normal_sampled_interior_pixels": 13957,
+      "normal_unit_length_outliers": 0,
+      "normal_unit_length_outlier_fraction": 0.0,
+      "scalars": {
+        "ao": {
+          "min": 0.0,
+          "max": 1.0,
+          "bit_depth": 16
+        },
+        "curvature": {
+          "min": 0.5093614099336232,
+          "max": 0.592462043183032,
+          "bit_depth": 16
+        },
+        "height_ground": {
+          "min": 0.5758297093156328,
+          "max": 0.7341725795376516,
+          "bit_depth": 16
+        }
+      }
+    }
+  ],
+  "note": "Długość normalnych sprawdzona na wnętrzach wysp UV; odstające piksele są raportowane, nie ukrywane. Kontrola formatów/hash nie zastępuje oceny malarskiej."
+}

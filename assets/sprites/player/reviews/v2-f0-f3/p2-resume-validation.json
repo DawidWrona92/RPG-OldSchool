@@ -1,0 +1,33 @@
+{
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+  "baker_sha256": "c968cc74f03a3e14ebe23fa4b91819fc99293545a3bee5d0869a3735939aae62",
+  "finisher_sha256": "91ec85f38c56cb505994a5245fce1b11cc6e241e7a17a4dbafb31aa915408aa6",
+  "manifest_sha256_before_and_after_idempotency_test": "37cfb33904db1e7af0629a53f76e7895c490e2023ffe53dd61996c4e52b9b566",
+  "finalizer_manifest_unchanged": true,
+  "reused_parts_count": 22,
+  "rebaked_parts_count": 0,
+  "reused_parts": [
+    "koszula",
+    "spodnie",
+    "kaftan",
+    "plaszcz",
+    "peleryna",
+    "kaptur",
+    "but_lewy",
+    "but_prawy",
+    "pas_gorny",
+    "pas_dolny",
+    "rzemien_1",
+    "rzemien_2",
+    "plecak",
+    "poslanie",
+    "manierka",
+    "sakwa_lewa",
+    "sakwa_prawa",
+    "pochwa",
+    "rekojesc",
+    "jelec",
+    "glowica",
+    "sprzaczki"
+  ]
+}

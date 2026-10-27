@@ -51,10 +51,16 @@
         "koszula_curvature.png": "fb864748fd4e3e1d914c1a27038c2ed3b25e5bc5406e35fface3d7d1d807f8e8",
         "koszula_height_ground.png": "e482a81b3062d5530ba7b3f44c001ea4ff1f5cf40cac4d7dda58eedd9068b376",
         "koszula_id.png": "214ae55d4a25743af0127e724819e7cee38bcd2775bfe35153365838e9edc20e",
-        "koszula_normal_sculpt.png": "b26a194244ddce48d27aa24d940ba81d266904c86fab601a763ebf45acebc41b",
-        "koszula_preview.png": "e6ebec0eae6042e19bbb761937e0df2eb8fcc1df65cabf9888909f3c539b5aba"
+        "koszula_normal_sculpt.png": "7a8d2d5d2e0e0fc022dd194ed3f1eaa4477405a9d3f5963a2b2c1ef6313d4c9f",
+        "koszula_preview.png": "e6ebec0eae6042e19bbb761937e0df2eb8fcc1df65cabf9888909f3c539b5aba",
+        "koszula_uv.png": "1cd1e1400c4489bc9e58a5594e94c42b5484ce44a95de4ded8272f2885f317ef"
       },
-      "uv_layout_pending": "koszula_uv.json"
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "b26a194244ddce48d27aa24d940ba81d266904c86fab601a763ebf45acebc41b",
+        "near_zero_vectors_set_neutral": 3,
+        "processed_non_background_pixels": 4194304
+      }
     },
     "spodnie": {
       "resolution": [
@@ -94,10 +100,16 @@
         "spodnie_curvature.png": "4cb5a914079d2f26f1635cb93c289419df79e4c61e2fddafc18c1e54839f193d",
         "spodnie_height_ground.png": "2d3b888a46bb7a28932c5a2ace98d9f0b3d38b60fac6e840fd6c906ed2e4bffb",
         "spodnie_id.png": "415f84a6ea42843ff238ef6bf01ccb9ffca4369a6b160941f81ab3f5e755d27d",
-        "spodnie_normal_sculpt.png": "35b1b42f461fe2ce664b80b2c343ed0e426896d4968229b086dadbbbb8d27868",
-        "spodnie_preview.png": "dc1ae478ea9531efc0e5a6c1b83a4a6364b7a6ab60cbe3950efbf8b74eccfefc"
+        "spodnie_normal_sculpt.png": "95e5358aa29e345c24983990778f83d08b5df64888966d7da7af00c7fb64c19d",
+        "spodnie_preview.png": "dc1ae478ea9531efc0e5a6c1b83a4a6364b7a6ab60cbe3950efbf8b74eccfefc",
+        "spodnie_uv.png": "bd370f418f976b9a320639b996030e2241cd11f097cbcf97b25c08ec3ae78693"
       },
-      "uv_layout_pending": "spodnie_uv.json"
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "35b1b42f461fe2ce664b80b2c343ed0e426896d4968229b086dadbbbb8d27868",
+        "near_zero_vectors_set_neutral": 11,
+        "processed_non_background_pixels": 4194304
+      }
     },
     "kaftan": {
       "resolution": [
@@ -137,10 +149,16 @@
         "kaftan_curvature.png": "1c558eba77d3b565a54fa06c2e372e08ebc3c94795d800e19a1e5356c44b47d4",
         "kaftan_height_ground.png": "663f39218223d523d35063e4e9254cc9b4a67c00eb62422f3cbd4433c1948f8f",
         "kaftan_id.png": "addea229ca2e2e3955ef1c9b29b603c2c24a4f55ccd9ce187ba748deadc62606",
-        "kaftan_normal_sculpt.png": "d40159cc768b1eb2beb636af24fbdb0ae6dc020e82366fe126ad2e4ab30c0705",
-        "kaftan_preview.png": "dfb457c79c27e3d29c766823b03e15b92c14f8017e675feb843d8f7606e03b89"
+        "kaftan_normal_sculpt.png": "8a7c68bebbd3f10da0669c31cd8cc2668ccd13d5e304bdfec2436d63d70ea534",
+        "kaftan_preview.png": "dfb457c79c27e3d29c766823b03e15b92c14f8017e675feb843d8f7606e03b89",
+        "kaftan_uv.png": "6300ca18ba27815a641fcd39ff8c335ed06212302fca89a28db7f485e970ffc9"
       },
-      "uv_layout_pending": "kaftan_uv.json"
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "d40159cc768b1eb2beb636af24fbdb0ae6dc020e82366fe126ad2e4ab30c0705",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
     },
     "plaszcz": {
       "resolution": [
@@ -172,10 +190,16 @@
         "plaszcz_curvature.png": "f23fbb7e09ba4f19e0a77c5ff731b693a9982f9fdbf769654e0ca5c8414df1e4",
         "plaszcz_height_ground.png": "4d8750f9319a5084938c406eeed5832242aad547f1402e3b419dfa6e455136c5",
         "plaszcz_id.png": "0e51fa9b26c0dc5acf5797f5b3ef63c54a558a62527393aa72d8aa42945ab00c",
-        "plaszcz_normal_sculpt.png": "7f2aa2fcd60debdc13e63875b636b6e25abca41adfc45432b2f3b9d3c2facee3",
-        "plaszcz_preview.png": "fc1eed899d7d9c056438d08fc4c4449fdc2b3016f3fec7df4c4b3445a1d5812e"
+        "plaszcz_normal_sculpt.png": "762d888dbdf35bb1889f89a044882d7d79ad7076e1380b5f66549df790128f76",
+        "plaszcz_preview.png": "fc1eed899d7d9c056438d08fc4c4449fdc2b3016f3fec7df4c4b3445a1d5812e",
+        "plaszcz_uv.png": "3d1c03cabaa14b7a29e9862ef3271d3619d284a4ade8749b4a29b50a146a150c"
       },
-      "uv_layout_pending": "plaszcz_uv.json"
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "7f2aa2fcd60debdc13e63875b636b6e25abca41adfc45432b2f3b9d3c2facee3",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
     },
     "peleryna": {
       "resolution": [
@@ -207,10 +231,16 @@
         "peleryna_curvature.png": "d699b4bc1ec49ac0d161300bd64677cb7d75e3f68032bd4ccd9812ec9333653c",
         "peleryna_height_ground.png": "f9ce338b09d6e95d4b06685a9e7c2d54cc749a1c5280b1079252cd693b2226a9",
         "peleryna_id.png": "f21d66f6f0fa577f4b6c3e826275f0da825146930af9f65cee3d917019678daa",
-        "peleryna_normal_sculpt.png": "b553caee8448b2b0ca2a70b2497b4310d246b9b3f1a8b301418a5e7269a46766",
-        "peleryna_preview.png": "f1ab2d751e96e79b2c23d9051a170e737c7f5340a335801da607c3a96f9b72c5"
+        "peleryna_normal_sculpt.png": "bec140fa1dd4c0d08ad15a534ff9886fd15c22eed920f121eb9615a72076df6e",
+        "peleryna_preview.png": "f1ab2d751e96e79b2c23d9051a170e737c7f5340a335801da607c3a96f9b72c5",
+        "peleryna_uv.png": "15af555d659c8e77a61d9bb7f22607bff122dbdeac2fe3ad4e009154dfeca556"
       },
-      "uv_layout_pending": "peleryna_uv.json"
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "b553caee8448b2b0ca2a70b2497b4310d246b9b3f1a8b301418a5e7269a46766",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
     },
     "kaptur": {
       "resolution": [
@@ -234,10 +264,16 @@
         "kaptur_curvature.png": "c80496fb2ddca28ff4fb946bd670b85e6cbd89f6dfa340b7b011d9424757223d",
         "kaptur_height_ground.png": "28f64f676aa60d3cc80dc5d02acaee1b52cc6385c13fba2f17cfc6724b47f61e",
         "kaptur_id.png": "c38503cae80050404d5633220495d2be8c781367c3d53e7c61748f403f0cc2cf",
-        "kaptur_normal_sculpt.png": "b42836511e7496afd427e470b22dec2d1cda7cc89533ad9180f7e17fca72fa3f",
-        "kaptur_preview.png": "6b93dbbf557de430953834042f3c008538347d32717b3a32eb1b2f875da022a3"
+        "kaptur_normal_sculpt.png": "6f3f6c60449994b4a814678d9a1be0d08b9f18f0b0e5e534faef44ecf2c24c76",
+        "kaptur_preview.png": "6b93dbbf557de430953834042f3c008538347d32717b3a32eb1b2f875da022a3",
+        "kaptur_uv.png": "26103a635b01e122efe9d1146fcd39e8dbea4e2cf5dd9b596a3c537d4ce45bf2"
       },
-      "uv_layout_pending": "kaptur_uv.json"
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "b42836511e7496afd427e470b22dec2d1cda7cc89533ad9180f7e17fca72fa3f",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
     },
     "but_lewy": {
       "resolution": [
@@ -293,19 +329,580 @@
         "but_lewy_curvature.png": "0c0b4ada3db8bdcedee1abbc8ca003b2fa05ccee41df0c76cf0b9f84536f0a5f",
         "but_lewy_height_ground.png": "b4bd5169d1c26ef5ba565cc93684fff13852de4615b93261dc492b312f096d3f",
         "but_lewy_id.png": "80d0e0c0f0b3de4b7d403f5a9f4441be66c17bb9754ce1c323d042234d2012ea",
-        "but_lewy_normal_sculpt.png": "60f4cf9708d77ded20e9c72a7755944994575213690c519122db4af26a7a1c29",
-        "but_lewy_preview.png": "7d7ee6332e06775c8f94d0eae1027fbd537b74649bb91655b7427766ab48f71e"
+        "but_lewy_normal_sculpt.png": "d09de7ad31b86d54869caa9c8ce32e1e1e145af0d25e390c75396517b20484be",
+        "but_lewy_preview.png": "7d7ee6332e06775c8f94d0eae1027fbd537b74649bb91655b7427766ab48f71e",
+        "but_lewy_uv.png": "101cb737b9e6adb79876cbcba209de8d970cb05e0f4adb23426167097f920ad0"
       },
-      "uv_layout_pending": "but_lewy_uv.json"
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "60f4cf9708d77ded20e9c72a7755944994575213690c519122db4af26a7a1c29",
+        "near_zero_vectors_set_neutral": 2,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "but_prawy": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Wysoka cholewa, wywinięcie, zamknięta podeszwa; dwa rzeczywiste paski i metalowe sprzączki w jednej siatce części. Material IDs rozróżniają skórę/pasy/metal.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        },
+        "2": {
+          "rgb": [
+            0,
+            1,
+            0
+          ],
+          "meaning": "dolny brzeg / podeszwa / panel dolny / pas posłania"
+        },
+        "3": {
+          "rgb": [
+            0,
+            0,
+            1
+          ],
+          "meaning": "górny panel / zapięcie / łata"
+        },
+        "4": {
+          "rgb": [
+            1,
+            1,
+            0
+          ],
+          "meaning": "podwinięcie rękawa / skórzane paski buta"
+        },
+        "5": {
+          "rgb": [
+            0,
+            1,
+            1
+          ],
+          "meaning": "metal sprzączki"
+        }
+      },
+      "files": {
+        "but_prawy_ao.png": "caa6bd9f676fa8ebd3f57aa904a092460d54da3c9842d3b306d0bd8770977860",
+        "but_prawy_curvature.png": "0903afc72eb81a9dff0999dda79a2ffb46638ae8a7c17bfd4e58b47ffe86d6d8",
+        "but_prawy_height_ground.png": "b935243e7b8889f43f5e27d92cae5e390a33570222499f9420f034ea1ed0bff7",
+        "but_prawy_id.png": "7622424f11af1fb99c4076fef8ed02b0fb212ca6d47560e82946ce7fd9f481e0",
+        "but_prawy_normal_sculpt.png": "9a8c40f53eb3058b2ba7a76ecfb4affb6b12321a6c0fd781f7184e731ca9311b",
+        "but_prawy_preview.png": "f0701d44dbd8a530e96cb06b3e63322ab303fe3e0ddd863bc1af32e657f881fb",
+        "but_prawy_uv.png": "bfd5d4118895e97166e029224b10bb270ede195b8677101a38e2ec60b2e12b95"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "a966685f74a785a394299606f5811b18cd6e90c3d280db0787efbe8fd1b98a11",
+        "near_zero_vectors_set_neutral": 3,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "pas_gorny": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "pas_gorny_ao.png": "1d834b821a001d6fe372bace53a07a0fdafa8e41d6502dde9a4fd0b657633fc5",
+        "pas_gorny_curvature.png": "8784acc60b6d7a7f510aaf666803036b3dd16698734627f7844092651d9c2e1f",
+        "pas_gorny_height_ground.png": "e23879b4569c5259d579f7c4c47ad6e65a19b5d0bfab2d5174451da49d059664",
+        "pas_gorny_id.png": "d43e7d28e6a13901d3bd099f362adbf949ed3d63934d90b1d5a6abb94466e3c7",
+        "pas_gorny_normal_sculpt.png": "8b853790653ed3bc79468d1952d5286233a2fb7f6618264dab49228c20ab9e20",
+        "pas_gorny_preview.png": "c6afcb42091c959feea8cb621dedf3ae0c0e14a908e6ae4bf821997d7699cf1b",
+        "pas_gorny_uv.png": "f9d15da8aa625abbaf9f8b6b43d326e7ed6e7a829603a90f93f00db22621ac87"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "6a8d03cdfd204d4d672631d06012bcfc31d27a6115a8f3a968bef9bc171c3d94",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "pas_dolny": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "pas_dolny_ao.png": "f286d493778c332bef950adccfddc0b527e18cb03723cddbef923ba57ac6698e",
+        "pas_dolny_curvature.png": "dc22e3b8a574a3b0353db2f871f82c610ce1130f696e249dfd0cb4d2880ab8cd",
+        "pas_dolny_height_ground.png": "e73d41b4e668eac465e533ea07df50d1562f450e55c19d3335ca1bc09503bd35",
+        "pas_dolny_id.png": "0921a02ae1c2dfad5466db204e606f2213d5fd2cb9d69ea46504f12d46de1264",
+        "pas_dolny_normal_sculpt.png": "ced76474ff13db18b3f69fdfd627c6ccd279932eaefe17e68f65611e0c750a4c",
+        "pas_dolny_preview.png": "c96a04be7562d7028ebf7882c7314a8ddf0bc430f84dc8daa74ee1b13584f58d",
+        "pas_dolny_uv.png": "cc778fb533c85c1fb2c5928aefba8f4c93cc52ee5ef04ffd988256306dcf1536"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "db50a9579247e9979d022b87e81e95d4c30ea30a254c27178b8d82b8ac3b55dc",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "rzemien_1": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "rzemien_1_ao.png": "ebd31f3af30aa09c0656b62d52871cb68ee42adb1f8d714f032ccdec55aafcf1",
+        "rzemien_1_curvature.png": "89d57a7b084b976922c6592c62c3834dc3e014375ae9a3cbeaf2d21b5ab4df8e",
+        "rzemien_1_height_ground.png": "451bc468e0d5c92bcc5271e4c8d0422cb6bee587d62ae3c2e9d4c3b3302257d9",
+        "rzemien_1_id.png": "ad38b4f35eeb97f3b2301c8ff5077c473ac1e8fa4e52b49ac666b8241c33ec3f",
+        "rzemien_1_normal_sculpt.png": "47d89016e72d96ac643623e37738dfe02081f3f5572a3ef04d510decbffee080",
+        "rzemien_1_preview.png": "07bf8a98ee780c62b6e47e06d9cd67a61699c4faeeb016f6c7f9c4cee26a9ffd",
+        "rzemien_1_uv.png": "e51955487348c7eb2394a917e906dc8701197a0558d6bb1b33bea20cef460c96"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "594ab196904b2ff112d759d335a21728d7d68a50ac3ba32dbc553e54904bcbe2",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "rzemien_2": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "rzemien_2_ao.png": "61224c7d4dc1ed80d20df3560245dde1095118f9e3c5ae0cc9b7b2e858ea8fb2",
+        "rzemien_2_curvature.png": "010a23bc12effa67e4521592efb83fda6e11fd006cc6c248144a01013ecca7df",
+        "rzemien_2_height_ground.png": "92aec96719ccff062f34e54d2ed7ddae43dff640b4f3ef1c58eb594df2439c7d",
+        "rzemien_2_id.png": "ab674c380a390015abbb101383939cefb84cb89ed1fb7f4e099a42e982d14d68",
+        "rzemien_2_normal_sculpt.png": "1335fca374a7bc84a1a466c8f026b9758d9c0ca5b4603cad480269695cbcbc5a",
+        "rzemien_2_preview.png": "6647fb8c8ad95bec45328a1f482ad38e4258006ac593d7df6fb4a7fc631d38a0",
+        "rzemien_2_uv.png": "de9faaa9399c9ac49a1a0d0e9989e313365c978ef03b0cd0c277ce2fa54cd243"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "70a71177393426c7506b344177c5bb1ed4c9478dc2ce45fa9897eca049a89490",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "plecak": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Miękki skórzany plecak z kieszeniami/klapą; przednia wyściółka dopasowana do zapisanej peleryny/płaszcza.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        },
+        "2": {
+          "rgb": [
+            0,
+            1,
+            0
+          ],
+          "meaning": "dolny brzeg / podeszwa / panel dolny / pas posłania"
+        },
+        "3": {
+          "rgb": [
+            0,
+            0,
+            1
+          ],
+          "meaning": "górny panel / zapięcie / łata"
+        }
+      },
+      "files": {
+        "plecak_ao.png": "a53dc3de1ff6ee46ff20dbea639424c4d0becc35ed1be2a45b6399d537d359b2",
+        "plecak_curvature.png": "e4e19a6619175f59bf97edfb38da53a14a83129968af8c7774e19099a1b09e19",
+        "plecak_height_ground.png": "83bf82392add41cadcfc9146b98cc6f74281a9fbb2d32cf7a64df472436908fa",
+        "plecak_id.png": "54f2538d3266abb5165621cc154c1f021fc67fd60a4ffaa2028134061f3379f5",
+        "plecak_normal_sculpt.png": "b811c752f0e3ec394ec9146d420602368ff3441944cb73d76e3bd54a3ed2007c",
+        "plecak_preview.png": "134f0ef987879456eb0ab1efa7da7a599274367c76b85040fde0630d5f6f7a1e",
+        "plecak_uv.png": "7a28f1c2ab6c456b66034dae80db4164ae30cc87516a3bd4ee17e6791d1ce2aa"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "79f5e3ea8a4f15f5fbee3899634e54f4d9017271545fc34141dd7fda98dae80f",
+        "near_zero_vectors_set_neutral": 2,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "poslanie": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1023.9999999999999,
+      "construction": "Miękki zwój z denkami, dwa skórzane pasy, osadzony na szczycie plecaka z luzem dla grubości pasów.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        },
+        "2": {
+          "rgb": [
+            0,
+            1,
+            0
+          ],
+          "meaning": "dolny brzeg / podeszwa / panel dolny / pas posłania"
+        }
+      },
+      "files": {
+        "poslanie_ao.png": "671148e34a6caa5fa4e245c826c6dfe338086b5a229b0c02cb9fcc67bd3229e9",
+        "poslanie_curvature.png": "9c7f4469afb68ec0ec01f5ff7ba8888a39746cc59b58f10613ec357ce0879ca7",
+        "poslanie_height_ground.png": "0a19da9a528631a0fc11fc9b080c618a265f800f674cb904624c4a2cc7acd136",
+        "poslanie_id.png": "963664c69edaf29a2c13ee352157e2c0412f19ed1c6c95d5db7dd8a16df11e5f",
+        "poslanie_normal_sculpt.png": "821092e09b6033cc79bc462cfd9a428bcfeba0d40a63161407b99274d9cca106",
+        "poslanie_preview.png": "849567e52d49cb1080c663968e56f7cdee23a66ef7a932154fd74d55d47d67e0",
+        "poslanie_uv.png": "5e9cddb9c652bc27c5c26332d3b6bdcfcc1a75143f70d778f7a627eb25f34192"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "7c26e83a726b2e94138729fb5e364be858cc2bf614907fe418764d3bcabad0e9",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "manierka": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "manierka_ao.png": "6a46fde845cf9bb054fcc00c2b38f55589bfbe5751c20aed269f244a00c2d8db",
+        "manierka_curvature.png": "bf67157c55053bb4ff6cca86a7df0ed1dcf687059e7a2e3d2d1f4c05ed58eb95",
+        "manierka_height_ground.png": "2ec14f3556b08644d3577fd56731190fc954bb733085813596e3f5b5a95b24ae",
+        "manierka_id.png": "d4455d76812a1756416615e7459a3ba9f9d67239c320f719d0bfe1d053d0d6b1",
+        "manierka_normal_sculpt.png": "9565f8d786d8b9019086fb27c94e8352af37b8f13efac3690e104f711a779e97",
+        "manierka_preview.png": "58a6581b8d59cee7c35ac580c4b94b8cb2bb61b1a583e997e1edfac710c5a344",
+        "manierka_uv.png": "7e8ab53b9a46b33baa9446db0d07377fb2a7e83b5638d9823c08e856b349b304"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "57f6628398f613e14de0656af445feebbc5d853858e78cbd753c12e4012e6a45",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "sakwa_lewa": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "sakwa_lewa_ao.png": "4454e46d29afe7aaea007b9127a6b4ecba4bd99cde5716177fc105bfb192b09e",
+        "sakwa_lewa_curvature.png": "da74204ebf5953189801bb68a94682e9eead22a0467f7748171615120d589437",
+        "sakwa_lewa_height_ground.png": "c99b52677f6236320e6e816cd8e21496caedc9b88ff669b136dcd2fb81dec255",
+        "sakwa_lewa_id.png": "060fe2deaa050f5258a32060c5cf81522e4a750cde4f01b10b0795321c03c877",
+        "sakwa_lewa_normal_sculpt.png": "75b22d3b73cab9239e34fe511326270634cc1b49b229921b3bb90b8d2989a878",
+        "sakwa_lewa_preview.png": "d4d49522f7361dc468ec88cca457f54ed9ec2441df2e5ae553687e611721cdc9",
+        "sakwa_lewa_uv.png": "e19218f92d66525d94ddf7bd93f40134155e9b30c9775df39af4895836e48f18"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "aecbf81f172e62f83caed53ec1c8a1cf6349b12cb282cdac8f5024b19a4403c7",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "sakwa_prawa": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "sakwa_prawa_ao.png": "82bc6f56ae2e0d83bd8a1057098e04f1beb25b681d6793252e70244e3cb47b5b",
+        "sakwa_prawa_curvature.png": "b977158214e65105ecbf7e3c57534c6d7671cc5fd27df18e63440c8a7a51a7e7",
+        "sakwa_prawa_height_ground.png": "d85b005d184ba376f12b582095e26fec9c9f24b7672df562fbbbba1034179a44",
+        "sakwa_prawa_id.png": "9eb86ddd3a1b59570e0ac0d06d7a163c0decf987952f4cad1b62f29f3ca3564e",
+        "sakwa_prawa_normal_sculpt.png": "ce6f117d7b7bc63a6457a6cfc574cf54aff8d836a4eec99e3b44350a2ad5bc7f",
+        "sakwa_prawa_preview.png": "25503d0654a2a5c67891cbcfa344357730803d7483d971b7c94cf26746d66496",
+        "sakwa_prawa_uv.png": "4675123d833486c7261385e4e2a05a40b027bc1776b997b0f93185fc51481c11"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "82d77b6fa5d9a73aa59dfb9c3fee079e8fa2a278d699960e054e336cdfd96a25",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "pochwa": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Pochwa przy lewym biodrze, zamknięta końcówka. D1: brak dobytego ostrza.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "pochwa_ao.png": "208896ff14282f59fad6dc1e57ff363a9578eb27d64684490a07c0488b0f2034",
+        "pochwa_curvature.png": "9462fa18d632af597e29628bd976be9d9e95f06387bf1a8e767b04698f89b4a7",
+        "pochwa_height_ground.png": "f0e1cf322999c7a8c430d306b34406170c996aabc2dd79c30a4996409ed06cd6",
+        "pochwa_id.png": "4b15e612d8641b07abb753ef094127d5285c98dffddea10f206a033abbc22ac8",
+        "pochwa_normal_sculpt.png": "0e2744167d554b70ab98ca774df9fdb108d4429751dd8b6cddf3c88485f56e8d",
+        "pochwa_preview.png": "ffda0919290af14db7986831a661b46dcbfad2378f94c80d0123c09d85a2d191",
+        "pochwa_uv.png": "239dc5eb7d738436cc1f9b19958d5653e2650b8129401741e380734e6626a822"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "c9bce33b97c7a590eacae56c9a4e107c68cc2289eb7d070bca359f21b8804bb2",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "rekojesc": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1023.9999999999999,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "rekojesc_ao.png": "072a280a700f10723d0221c5fa5955d12b25c55c399aeff62acf68d8f820c2ff",
+        "rekojesc_curvature.png": "6e2d0d0961fbe628e4feed32a2821f87e3adb5732fae03b1f1d0bccf47a9e0f2",
+        "rekojesc_height_ground.png": "223196e337b17330c0c1f19b98bd1a13cad5f5a98ec5e7fb90204984ae706685",
+        "rekojesc_id.png": "3f4fdc9a0064a2e3fb359078270767d16274a0962254cf91cc6dcc01af3eab5f",
+        "rekojesc_normal_sculpt.png": "57e70d47f38876e6e1d2e9d1becdd0d59fe0b994525cb5d1ac6a787d2264757f",
+        "rekojesc_preview.png": "d7d4f2ff88184391129024f6dc430c1833cafe999c451a559c649346f362f83d",
+        "rekojesc_uv.png": "ec42306852cac1803a9049e2461397d3fcca24b8619079b33f6ecb9921788d83"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "3ba3a1ea738bc3d151f06293652cdf0b5150db22887ea7af4896bd111f024877",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "jelec": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "jelec_ao.png": "507b804bea92639312a1e5c74c64a8912d5148cea2987a83a56ee366e85e7319",
+        "jelec_curvature.png": "4b473c2bee779a6d190ace34ad2496a86364ed9bba8b1290fa1a27ab8e5d66a1",
+        "jelec_height_ground.png": "8ac5adf2784ea1dab25c8dc1be37c179562162e48c7b75fc335a36f2f4df3127",
+        "jelec_id.png": "24d8f0316be35c63ca07aa9322884e8f690748e0d6b4d29371b0a3eee37bc5fb",
+        "jelec_normal_sculpt.png": "fe4848d11534f299cf0adedc0e99beee7debcac26fd52bdd14f63a7749b4dd85",
+        "jelec_preview.png": "71c7de34d20ac657641b5337f5b2ee31da663d0c7a2a0aa79ce75ac06ae996e8",
+        "jelec_uv.png": "e30ff3b8fb8f256d18d20bc1333ac10877a25414d41fdced2dab23f5caaf92c9"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "8f51b109df67d5931c7f5e33535fddd74e73c48395e97c0e7b1644d6a05ebec3",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "glowica": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "glowica_ao.png": "b80e45abcb9fa0bb988dc5d69a12d3dc1e3eced08d6128305d41079328d6e82b",
+        "glowica_curvature.png": "a059ba3506307f60d78d30b9f81b01a5b34532af1c497a02e6353e8a7bdd51cd",
+        "glowica_height_ground.png": "5afb3793d37e332253fc6827c2f45edc0b5c353d76ab20e04bcdb30264541b2d",
+        "glowica_id.png": "f8e79571e8eed561842a3c708307dd2cb414a0b3730cc0cb7d0ba4241d7b5ff2",
+        "glowica_normal_sculpt.png": "d7fcdbc32aa9df033a7f8ea164031cbbe01c7b2615b38a95b30e4a80f68019ff",
+        "glowica_preview.png": "fad6bcd6bc78277cd51a7b8da436eb17cf6a75ac1e351dbd393aacb8cc16a7f2",
+        "glowica_uv.png": "f516044dbc0f61e1ff07a05e6828c7d5994f1c502db215f55d30630e59ff9420"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "e651690916e71ac99903d25bf5e38fdc0a9862e926815c40848f5b51e6421e4d",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
+    },
+    "sprzaczki": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "sprzaczki_ao.png": "ac679a3dc2419d46b0a05f28dec88942cac569f9974a239883180e05ec539ad8",
+        "sprzaczki_curvature.png": "8218ff794b2ce34cee9c9ea0a3ee96f5c022c267722de0195bdc9ded34a11ac8",
+        "sprzaczki_height_ground.png": "0010ea9b6b59df0a8be78bfe34d6ad6ed8cf23575edca3f61960ff701c71ffdc",
+        "sprzaczki_id.png": "4f56b5ff69dfaf8d6dbfdc12681013884be82e88f149ff3fb076bb965d6da783",
+        "sprzaczki_normal_sculpt.png": "851bc1261ad60b8f6538c4a2afd832ca2828c429aad8a0605e2964629f52d86a",
+        "sprzaczki_preview.png": "1b812909b46bf8e0f2ddc98c70e28dd1751fcf7da0c1571e4b1d784ff051d044",
+        "sprzaczki_uv.png": "e5c556cbbc7a558e8e873b289c3d12ee6a7b0557552aa54cccda21e292da6415"
+      },
+      "normal_postprocess": {
+        "method": "Renormalizacja wektorów tangent po filtrowaniu bake, RGB8; tło czarne zachowane; bliskie zeru wektory po zniesieniu kierunków na krawędzi zastąpione neutralnym +Z.",
+        "source_bake_sha256": "519f38434edd44fc0be4b07f1b081b1248eca4d18e2d60176b1bab0e3dd38471",
+        "near_zero_vectors_set_neutral": 0,
+        "processed_non_background_pixels": 4194304
+      }
     }
   },
   "maps": {
     "uv": "Unikatowe wyspy, szablon krawędzi bazowej siatki.",
     "ao": "Cycles Ambient Occlusion, odległość 0.15 m; realna geometria całego stroju/ciała; nie do mnożenia przez skórę.",
     "curvature": "Lokalny podpisany Laplacian geometrii, 0 wklęsłe / .5 płaskie / 1 wypukłe; brak high-poly ręcznej rzeźby.",
-    "normal_sculpt": "Cycles selected-to-active, ewaluowana geometria z fałdami/Subsurf/Solidify na bazową siatkę UV, tangent OpenGL; nie skan i nie ręczny high-poly.",
+    "normal_sculpt": "Cycles selected-to-active z ewaluowanych fałd/Subsurf/Solidify na bazowe UV, tangent OpenGL; po bake renormalizacja RGB8, bliskie zeru wektory po zniesieniu kierunków na krawędzi neutralne +Z. SHA surowego bake i liczby w normal_postprocess każdej części. Nie skan ani ręczny high-poly.",
     "height_ground": "Z w metrach / 1.8; 16-bit grayscale, 0 ziemia / 1 wysokość 1.8 m.",
     "id": "Płaskie kolory regionów opisane przy części, nie końcowy kolor.",
     "preview": "768 px, szary materiał, izolowany element; kamera diagnostyczna, nie skala gry."
-  }
+  },
+  "complete": true,
+  "file_count": 154,
+  "source_validation_sha256": "502ddf8c847ca2993242fd4d808c761704332dba857d7476a72faafa859b49b2",
+  "finisher_sha256": "91ec85f38c56cb505994a5245fce1b11cc6e241e7a17a4dbafb31aa915408aa6"
 }
