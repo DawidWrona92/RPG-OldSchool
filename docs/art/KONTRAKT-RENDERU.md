@@ -29,6 +29,7 @@ Dokument ustala **wspólne zasady obrazu**, żeby postacie, potwory i otoczenie 
 | Układ świata | +X = przód postaci, +Y = lewo, +Z = góra; metry; podstawa (stopy) na z = 0 |
 | Kotwica | punkt świata (0; 0; 0) → piksel **(96; 158,353829)** w każdej klatce, kierunku i animacji |
 | Kierunki | 8 osobnych renderów obrotu modelu o −45°: **S, SW, W, NW, N, NE, E, SE**; S = przodem do kamery; **bez lustrzanych odbić** |
+| Obiekty bez przodu | kamienie, rośliny, pniaki: zamiast 8 kierunków **warianty obrotu** (`<id>_rotNNN.png`, NNN = kąt w stopniach); każdy wariant to osobny render, bez odbić |
 
 **Granice klatki.** Nic z postaci nie może dotykać krawędzi klatki. Przy tej kamerze punkt na ziemi w odległości r od kotwicy, wysunięty w stronę kamery, ląduje ok. 1,04 + 0,5·r m poniżej środka klatki, a klatka kończy się 1,6 m od środka — stąd **zasięg przy ziemi w stronę kamery ≤ ok. 1,1 m**. Wysoko uniesiona broń za postacią łatwo przekracza górną krawędź. Sprawdzaj wszystkie klatki, kierunki i warianty, a nie tylko pozę spoczynkową.
 
@@ -78,7 +79,14 @@ Jeśli import `bpy` zgłasza brak bibliotek systemowych (np. `libX11.so.6`, `lib
 
 ## Duże obiekty i otoczenie
 
-Drzewa, budynki, wozy i skały używają **tej samej kamery, kąta, skali 60 px/m i świateł**. Klatka może być większa niż 192×192, jeśli obiekt się nie mieści — wtedy JSON podaje rozmiar klatki i kotwicę (punkt styku z ziemią). *Dokładne zasady klatek dla dużych obiektów: propozycja do potwierdzenia przy pierwszym budynku wzorcowym.*
+Drzewa, budynki, wozy i skały używają **tej samej kamery, kąta, skali 60 px/m i świateł**. Klatka może być większa niż 192×192, jeśli obiekt się nie mieści:
+
+- klatka N×N px (wielokrotność 32), render 2N×2N i zmniejszenie jak dla 192;
+- skala ortograficzna **3,2 · N / 192** m, położenie i obrót kamery **bez zmian** (oś celuje w (0; 0; 1,2) m);
+- kotwica punktu (0; 0; 0) wypada wtedy w **(N/2; N/2 + 62,354)** px, np. (160; 222,354) dla N = 320. Wartość zapisaną w JSON liczymy rzutem kamery w Blenderze (`world_to_camera_view`), nie ręcznie;
+- JSON podaje `frame_size` i `anchor_px` dla każdego takiego assetu.
+
+*Zasady dzielenia bardzo dużych obiektów (budynki, drzewa z koroną) na części: propozycja do potwierdzenia przy pierwszym budynku wzorcowym.*
 
 ## Kontrola przed oddaniem
 
