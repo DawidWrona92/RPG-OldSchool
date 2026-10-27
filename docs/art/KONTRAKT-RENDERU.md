@@ -85,8 +85,9 @@ Drzewa, budynki, wozy i skały używają **tej samej kamery, kąta, skali 60 px/
 1. Kamera, skala i światła zgodne z tabelami (sprawdzone w pliku `.blend`, nie z pamięci); render w Blenderze 4.3, wersja zapisana w audycie.
 2. Kotwica stała; osiem różnych kierunków, żadnego odbicia lustrzanego.
 3. Postać nie dotyka krawędzi klatki w żadnej klatce i kierunku; cień może zostać przycięty, ale to odnotowujemy.
-4. Atlas, JSON i podglądy z tej samej rewizji źródła co rendery.
-5. Ocena w skali 1× na ciemnym tle lasu, obok bohatera — sylwetka, broń i sygnały ataku czytelne.
-6. Zgodność ze szkicem i kartą bestiariusza; rozbieżności zgłaszamy autorowi.
+4. Brak przenikań między warstwami stroju i rekwizytami w spoczynku i każdej klatce animacji: [`tools/art/check_intersections.py`](../../tools/art/check_intersections.py); zamierzone styki wymienione jawnie w `--allow`.
+5. Atlas, JSON i podglądy z tej samej rewizji źródła co rendery.
+6. Ocena w skali 1× na ciemnym tle lasu, obok bohatera — sylwetka, broń i sygnały ataku czytelne.
+7. Zgodność ze szkicem i kartą bestiariusza; rozbieżności zgłaszamy autorowi.
 
 Powiązane: [przewodnik artystyczny Niemiru](niemir/NIEMIR_ART_DIRECTION.md) · [biblioteka szkiców](../koncepty/README.md) · [bestiariusz](../bestiariusz-demo.md) · [materiały bohatera](characters/HERO_MATERIAL_PLAN.md).
