@@ -1,0 +1,19 @@
+{
+  "commit": "a0a6c27e33b5d634e1ccad59e7634e4ab4d7ccde",
+  "branch": "vibe/sprite-bohater-codex",
+  "source": "assets/sprites/player/source/bohater.blend",
+  "source_sha256": "f1077d05f4f44ce69c6ce9fdd6cf865eea2fdabf3aa1ffb0fec5ab8a23825ffc",
+  "note": "Zatwierdzony kierunek / prototyp przed etapem dopracowania. Pełny stan źródeł i 160 klatek odzyskiwalny z commitu.",
+  "files": {
+    "atlas/bohater_spoczynek.png": "a93f16f270583ad597c3cc822b0c1b30aaaa166fa12fb1498ef0950a8f56d077",
+    "atlas/bohater_chod.png": "b8a0a4409ab9fa08a5ecfd81fafd4839abf4fa30e280b77701b7f76b285c86b3",
+    "atlas/bohater_spoczynek_shadow.png": "818ee1d63eb34060e40f3a93162251cbf7c7006681ac68616fcac8cccb392b35",
+    "atlas/bohater_chod_shadow.png": "3d04f25b565ee19da6747157bd1cc1c7e94d2ff12ce8658f5046ed92eac13c7b",
+    "previews/osiem-kierunkow-render-384.png": "e4b36232b8ff28d98996561b0b49155e2389ba06c0d29b303efecbee09153260",
+    "previews/bohater_spoczynek.gif": "ee9436effcbaa8adb4bf7c687d92718bd5ee7da7ece3a5be50de5cb6f5a99af8",
+    "previews/bohater_chod.gif": "bda5770ce8d59e36254275da398e511e25d725e1a29f3dad9961666beeb2072d",
+    "previews/chod-kontakt-stop.gif": "ae7e008a400c4301ddeb0103b30fa98a67efb92eae3d1bc3ac1a3d069ead14e1",
+    "previews/technical-report.json": "2e6db91614619d3f5d43f80ecc257ac780c1b425a6f23a9e8146b866f166d220",
+    "previews/render-validation.json": "b2ffd7304e3cc8b7b74e44de56f2583c748ea90f04ba16fa9de7584d30a442de"
+  }
+}
