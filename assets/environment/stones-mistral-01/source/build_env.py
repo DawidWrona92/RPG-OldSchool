@@ -160,6 +160,81 @@ rock_mat_boulder = make_rock_material("WELESZA_rock_boulder", 4)
 
 # ============================== ROCK ASSETS ==============================
 # 60 px/m like the hero sprite pipeline; hero is ~1.75 m tall.
+def make_grass_tuft(name, seed, blades=48, height=(0.15, 0.38), radius=0.22):
+    import mathutils
+    r = random.Random(seed)
+    mesh = bpy.data.meshes.new(name)
+    ob = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(ob)
+    verts, faces = [], []
+    for i in range(blades):
+        ang = r.uniform(0, 2*math.pi)
+        dist = r.uniform(0, radius) * math.sqrt(r.random())
+        bx, by = math.cos(ang)*dist, math.sin(ang)*dist
+        h = r.uniform(*height)
+        lean = r.uniform(0.05, 0.35)
+        lean_dir = r.uniform(0, 2*math.pi)
+        w = 0.006 + r.random()*0.008
+        # quad blade: base two verts, tip two verts
+        pdir = mathutils.Vector((math.cos(lean_dir), math.sin(lean_dir), 0))
+        side = mathutils.Vector((-math.sin(lean_dir), math.cos(lean_dir), 0))
+        b0 = mathutils.Vector((bx, by, 0)) - side*w
+        b1 = mathutils.Vector((bx, by, 0)) + side*w
+        t0 = b0 + pdir*lean + mathutils.Vector((0,0,h))
+        t1 = b1 + pdir*lean + mathutils.Vector((0,0,h))
+        base = len(verts)
+        verts += [b0, b1, t1, t0]
+        faces.append((base, base+1, base+2, base+3))
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    return ob
+
+def make_grass_material(name, seed):
+    m = bpy.data.materials.new(name)
+    m.use_nodes = True
+    nt = m.node_tree
+    bsdf = nt.nodes["Principled BSDF"]
+    r = random.Random(seed)
+    tex = ["ground/wet_grass_earth", "ground/forest_soil_sparse_grass", "ground/dense_forest_moss"][seed % 3]
+    col = load_img(os.path.join(TEX, f"{tex}_color.png"), f"grass_{seed}_color")
+    texc = nt.nodes.new("ShaderNodeTexImage"); texc.image = col
+    mapping = nt.nodes.new("ShaderNodeMapping")
+    mapping.inputs["Scale"].default_value = (r.uniform(3.0, 6.0), r.uniform(3.0, 6.0), 1.0)
+    tco = nt.nodes.new("ShaderNodeTexCoord")
+    nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
+    nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
+    # vertex-color-like gradient: darker at base — emulate with geometry Z
+    sep = nt.nodes.new("ShaderNodeSeparateXYZ")
+    nt.links.new(tco.outputs["Object"], sep.inputs["Vector"])
+    g = nt.nodes.new("ShaderNodeMapRange")
+    g.inputs["From Min"].default_value = 0.0
+    g.inputs["From Max"].default_value = 0.28
+    nt.links.new(sep.outputs["Z"], g.inputs["Value"])
+    mixc = nt.nodes.new("ShaderNodeMix"); mixc.data_type = "RGBA"
+    mixc.inputs["Factor"].default_value = 0.55
+    dark = nt.nodes.new("ShaderNodeRGB")
+    dark.outputs[0].default_value = (0.05, 0.06, 0.035, 1.0)
+    nt.links.new(dark.outputs[0], mixc.inputs[6])
+    nt.links.new(texc.outputs["Color"], mixc.inputs[7])
+    nt.links.new(g.outputs["Result"], mixc.inputs["Factor"])
+    nt.links.new(mixc.outputs[2], bsdf.inputs["Base Color"])
+    bsdf.inputs["Roughness"].default_value = 0.9
+    bsdf.inputs["Specular IOR Level"].default_value = 0.1
+    # backside translucency look via SSS-ish
+    bsdf.inputs["Subsurface Weight"].default_value = 0.15
+    return m
+
+grass_mats = [make_grass_material(f"WELESZA_grass_{i}", i) for i in range(3)]
+tufts = []
+for gi, (name, seed, pos) in enumerate([
+    ("kepka_trawy_a", 101, (-3.4, 2.6, 0)),
+    ("kepka_trawy_b", 102, (2.3, 2.9, 0)),
+    ("kepka_trawy_c", 103, (4.6, -2.4, 0)),
+]):
+    ob = make_grass_tuft(name, seed)
+    ob.data.materials.append(grass_mats[gi % 3])
+    tufts.append((ob, pos))
+
 rock_specs = [
     # name, seed, radius(m), squash, (sx, sy, sz), spikes
     ("kamien_a", 11, 0.22, 0.62, (1.25, 0.95, 1.0), 0.35),
@@ -262,6 +337,10 @@ def render_asset(ob, out_prefix, mats=("neutral", "mud", "litter", "shadow"), ro
 # render each rock + boulder
 for name, ob in rocks.items():
     render_asset(ob, name)
+for ob, _pos in tufts:
+    render_asset(ob, ob.name, mats=("neutral", "litter", "shadow"))
+for ob, pos in tufts:
+    ob.location = pos
 render_asset(boulder, "glaz")
 # rotation variants of kamien_a (3 variants) to prove reuse
 for i, rotdeg in enumerate((47, 113, 251)):
