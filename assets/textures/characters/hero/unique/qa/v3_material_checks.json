@@ -1,0 +1,75 @@
+{
+  "version": 3,
+  "status": "PROTOTYPE_NOT_APPROVED",
+  "scars": [
+    {
+      "a": [
+        0.30869999527931213,
+        7.375100135803223,
+        1.371000051498413
+      ],
+      "b": [
+        0.29750001430511475,
+        7.440400123596191,
+        1.2575000524520874
+      ],
+      "width_source": 0.01,
+      "max_mask": 0.9987620711326599,
+      "pixels_gt_025": 1571
+    },
+    {
+      "a": [
+        -0.5174000263214111,
+        6.897200107574463,
+        1.2747000455856323
+      ],
+      "b": [
+        -0.5503000020980835,
+        6.790299892425537,
+        1.1836999654769897
+      ],
+      "width_source": 0.011,
+      "max_mask": 0.9986171722412109,
+      "pixels_gt_025": 1186
+    }
+  ],
+  "moles": [
+    {
+      "center": [
+        0.5497000217437744,
+        6.982100009918213,
+        1.263700008392334
+      ],
+      "max_mask": 0.9993090629577637,
+      "pixels_gt_025": 444
+    },
+    {
+      "center": [
+        -0.3010999858379364,
+        5.832499980926514,
+        0.6140000224113464
+      ],
+      "max_mask": 0.9978330135345459,
+      "pixels_gt_025": 574
+    }
+  ],
+  "jaw_neck_blend_mm": 49.70316167333978,
+  "forehead_creases": 3,
+  "crowfeet_per_side": 2,
+  "hand_lines": false,
+  "veins": false,
+  "tendons": false,
+  "beard_lower_edge": "asymmetric curved field; 0.41 native units soft fade",
+  "recommended_normal_strength": 0.45,
+  "scar_roughness": 0.43,
+  "scar_height": 0.4965,
+  "scar_tissue_rgb": [
+    188,
+    158,
+    135
+  ],
+  "tattoos": false,
+  "fresh_wounds": false,
+  "lighting_baked": false,
+  "note": "Masks use native 3D coordinates. Counts confirm marks intersect the UV interior; artistic acceptance requires render review."
+}

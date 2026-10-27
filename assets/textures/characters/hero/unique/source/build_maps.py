@@ -73,10 +73,10 @@ def main():
     noise=rng.normal(0,1,(n,n)).astype(np.float32)
     pores=gaussian_filter(noise,.65)-gaussian_filter(noise,2.2)
     pores/=pores.std()
-    # V2 overrides pigment/relief fields using the author's old-traveler direction.
+    # V3 refines pigment/relief fields using the author's old-traveler direction.
     from aging_v2 import apply
-    color,height,rough,sss=apply(xyz,detail,noise,pores,micro,macro,args.mesh,mesh_data,ROOT/'qa'/'v2_material_checks.json')
-    # Preserve v1 padding/export contracts after applying v2 surface fields.
+    color,height,rough,sss=apply(xyz,detail,noise,pores,micro,macro,args.mesh,mesh_data,ROOT/'qa'/'v3_material_checks.json')
+    # Preserve v1 padding/export contracts after applying v3 surface fields.
     _,nearest=distance_transform_edt(~valid,return_indices=True)
 
     color=np.clip(color,0,255)

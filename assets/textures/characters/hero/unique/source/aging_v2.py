@@ -1,4 +1,4 @@
-"""V2 author direction: old, deeply weathered traveler. Native surface units: 0.108m.
+"""V3 refinement of the v2 skin fields: restrained, mature weathered traveler. Native surface units: 0.108m.
 All marks are surface-position fields, never lighting/AO. Asymmetric healed scars
 and moles are appearance only. Scalar relief is interpreted by the existing exporter.
 """
@@ -42,10 +42,14 @@ def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_p
     transition=np.exp(-((y-hairline)/.18)**2)*front
     paint(transition*smooth(.65,1.8,follicle)*detail,[54,46,39],.65)
     beardtop=7.02-.24*ax+.055*np.sin(x*19+z*6)+.025*np.sin(x*39)
-    beard=head*front*(1-smooth(beardtop-.21,beardtop+.14,y))
+    beard=front*(1-smooth(beardtop-.21,beardtop+.14,y))
     beard*=1-np.clip(nose*.92+lips*.9,0,1)
     beard=np.maximum(beard,g(.14,6.67,1.52,.21,.075,.21)*.95)
     beard=np.maximum(beard,g(.22,6.22,.87,.49,.23,.58)*.90)
+    # Curved, softly irregular underside of jaw, not a plane at a fixed Y.
+    lower=5.99+.52*np.minimum(ax/.8,1.4)**1.7+.06*(z-.9)
+    lower+=.035*np.exp(-((x-.21)/.12)**2)-.030*np.exp(-((x+.38)/.16)**2)
+    beard*=smooth(lower-.19,lower+.22,y)
     paint(beard,[94,89,83],.48)
     stubble=smooth(.35,1.7,follicle)*beard*detail
     paint(stubble,[48,42,35],.90)
@@ -81,24 +85,31 @@ def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_p
         vessels+=.4*np.exp(-((x-branch)/.0035)**2)*np.exp(-((y-6.96)/.11)**2)
     vessels=np.clip(vessels,0,1)*np.clip(nose+cheeks,0,1)*detail
     paint(vessels,[143,91,78],.23)
-    # Finite, curved age creases. Relief only; pigmentation never includes shadows.
+    # Three separate, non-periodic central forehead creases with unequal length,
+    # curvature, skew, taper and depth. The temple field is exactly zero.
     wrinkles=np.zeros_like(x)
-    for j,cy in enumerate([7.46,7.60,7.75,7.87]):
-        curve=cy+.028*np.cos(x*4)+.010*np.sin(x*19+j*1.7)
-        wrinkles+=np.exp(-((y-curve)/(.014+j*.0015))**2)*forehead*(.8+.18*np.sin(x*7+j))
-    corner=g(.59,7.22,1.28,.17,.17,.34)*smooth(.43,.55,ax)
-    for slope in [-.62,-.08,.49]:
-        curve=7.215+slope*(ax-.48)+.008*np.sin(x*27)
-        wrinkles+=np.exp(-((y-curve)/.010)**2)*corner*.8
+    forehead_specs=[(7.47,-.025,.36,.020,-.010,.48),
+                    (7.59,.030,.43,.032,.006,.57),
+                    (7.71,-.050,.31,.014,-.008,.35)]
+    for cy,cx,halfwidth,bend,skew,depth in forehead_specs:
+        q=(x-cx)/halfwidth
+        taper=1-smooth(.57,1,np.abs(q))
+        curve=cy+bend*q*q+skew*q+.005*q*q*q
+        width=.012*(1+.16*q.clip(-1,1))
+        wrinkles+=np.exp(-((y-curve)/width)**2)*forehead*taper*depth
+    # Two short shallow crow's feet at each outer eye corner, asymmetrically weighted.
+    corner=g(.555,7.22,1.28,.10,.075,.30)*smooth(.47,.52,ax)*(1-smooth(.59,.68,ax))
+    for slope,offset,depth in [(-.35,-.002,.25),(.30,.007,.30)]:
+        curve=7.215+offset+slope*(ax-.49)+.025*(ax-.53)**2
+        wrinkles+=np.exp(-((y-curve)/.009)**2)*corner*depth*(1+.10*x)
     crease=np.exp(-((ax-(.19+.51*(6.98-y)+.014*np.sin(y*13)))/.022)**2)*g(.3,6.79,1.4,.26,.34,.45)
     wrinkles+=crease*1.1
     wrinkles+=g(.34,7.04,1.32,.24,.016,.32)*.7
     for j,cy in enumerate([5.63,5.83,6.02]):
         curve=cy+.07*x*x+.016*np.sin(x*13+j)
         wrinkles+=np.exp(-((y-curve)/.018)**2)*neck*.60
-    handlines=hands*(.5+.5*np.sin((ax*.7+y*.5+z*.6)*63))**20
     lipcracks=lips*(.5+.5*np.sin(x*175+y*13))**16
-    height=.5+detail*(pores*.0017+micro*.0007-wrinkles*.018-handlines*.004-lipcracks*.003+bags*.006)
+    height=.5+detail*(pores*.0017+micro*.0007-wrinkles*.018-lipcracks*.003+bags*.006)
     rough=.61+.018*macro+.014*micro
     rough=rough*(1-forehead*.65)+.47*forehead*.65
     rough=rough*(1-nose)+.45*nose
@@ -114,14 +125,13 @@ def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_p
     cc=np.clip((uvp[:,0]*detail.shape[1]).astype(int),0,detail.shape[1]-1)
     safe=vertices[np.unique(corners[detail[rr,cc]>.8,0])]
     def snap(p):return safe[np.argmin(np.sum((safe-p)**2,axis=1))]
-    # Healed scars: 3 signed-position capsules, no mirrored copy, no narrative.
+    # Healed scars: 2 facial signed-position capsules, no mirrored copy, no narrative.
     def stroke(a,b,width):
         d=np.array(b)-a;length2=float(d@d)
         t=np.clip(((x-a[0])*d[0]+(y-a[1])*d[1]+(z-a[2])*d[2])/length2,0,1)
         return np.exp(-.5*((x-a[0]-t*d[0])**2+(y-a[1]-t*d[1])**2+(z-a[2]-t*d[2])**2)/width**2)
     scar_segments=[((.32,7.32,1.34),(.29,7.49,1.25),.010),
-                   ((-.50,6.86,1.29),(-.59,6.76,1.17),.011),
-                   ((4.72,1.94,2.53),(4.79,1.85,2.59),.014)]
+                   ((-.50,6.86,1.29),(-.59,6.76,1.17),.011)]
     scars=np.zeros_like(x); scar_checks=[]
     for a,b,w in scar_segments:
         a=snap(a);b=snap(b)
@@ -142,7 +152,7 @@ def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_p
         assert mark.max()>.3 and (mark>.25).sum()>1,'Mole missed UV interior'
         moles+=mark
     paint(moles,[77,55,40],.88)
-    # Hand tendons, veins and knuckles follow the actual skeleton helpers.
+    # Hands: only soft joint/callus fields, never strokes, sine creases, veins or tendons.
     vertices,_,_=mesh_data(meshpath);joints={};group=''
     for line in open(meshpath):
         tok=line.split()
@@ -151,25 +161,18 @@ def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_p
         elif tok[0]=='f' and group.startswith('joint-l-'):
             joints.setdefault(group,[]).extend(int(t.split('/')[0])-1 for t in tok[1:])
     def joint(name):return vertices[np.unique(joints[name])].mean(0)
-    knuckles=np.zeros_like(x);tendons=np.zeros_like(x);veins=np.zeros_like(x)
-    wrist=joint('joint-l-hand-2')
+    knuckles=np.zeros_like(x)
     for f in range(1,6):
         for j in [1,2]:
             c=joint(f'joint-l-finger-{f}-{j}');knuckles+=g(*c,.11,.10,.12)*hands
-        c=joint(f'joint-l-finger-{f}-1');a=wrist.copy();a[0]+=.08;b=c.copy();b[0]+=.08
-        for side in [-1,1]:
-            aa=a.copy();bb=b.copy();aa[0]*=side;bb[0]*=side
-            tendons+=stroke(aa,bb,.033)
-            mid=(aa+bb)*.5;mid[0]+=.03*side;mid[1]+=.03
-            veins+=stroke(aa,mid,.017)*.7+stroke(mid,bb,.014)*.6
-    knuckles=np.clip(knuckles,0,1);tendons=np.clip(tendons,0,1)*dorsal;veins=np.clip(veins,0,1)*dorsal
-    height+=detail*(tendons*.010+veins*.005+knuckles*.003)
-    paint(knuckles,[130,96,73],.36);paint(veins*detail,[113,112,94],.16)
-    paint(dorsal*spots,[109,76,52],.22)
+    knuckles=np.clip(knuckles,0,1)
+    height+=detail*knuckles*.0018
+    paint(knuckles,[130,96,73],.20)
     paint(hands*(1-dorsal),[180,145,125],.42)
-    dirt=hands*(.18+.82*handlines)*detail
-    paint(dirt,[83,69,48],.42)
-    rough=np.clip(rough+knuckles*.035,0,1)
+    recesses=g(4.46,1.99,2.65,.10,.14,.13)+g(4.65,1.85,2.4,.10,.14,.16)+g(4.15,2.18,2.45,.13,.12,.18)
+    dirt=hands*(.08+.20*np.clip(recesses,0,1))*detail
+    paint(dirt,[83,69,48],.25)
+    rough=np.clip(rough+knuckles*.020,0,1)
     # Short nails retain pale keratin; their distal margins collect dirt.
     for f in range(1,6):
         tip=joint(f'joint-l-finger-{f}-4');base=joint(f'joint-l-finger-{f}-3');axis=tip-base;axis/=np.linalg.norm(axis)
@@ -179,16 +182,16 @@ def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_p
         plate=np.exp(-((along/.095)**4+(perp/.0045)**2))*hands
         paint(plate,[171,142,123],.75)
         edge=plate*np.exp(-((along-.063)/.024)**2)
-        paint(edge,[73,62,43],.75)
+        paint(edge,[73,62,43],.55)
         rough=rough*(1-plate*.6)+.48*plate*.6
-    # Reapply healed hand scar after dirt; scar tissue remains smooth and pale.
+    # Reapply the two healed facial scars after pigment layers; scar tissue remains smooth and pale.
     paint(scars,[188,158,135],.55)
     rough=rough*(1-scars)+.43*scars
     height=height*(1-scars)+(.5-.0035)*scars
     color+=detail[...,None]*(pores[...,None]*.60+micro[...,None]*.9)
     sss=np.clip(.25+.48*ears+.33*nose+.27*hands*smooth(4.15,4.55,ax)-.06*scalp,0,1)
-    report={'version':2,'status':'PROTOTYPE_NOT_APPROVED','scars':scar_checks,'moles':mole_checks,
-            'jaw_neck_blend_mm':.46*(1800/16.6589),'recommended_normal_strength':.45,
+    report={'version':3,'status':'PROTOTYPE_NOT_APPROVED','scars':scar_checks,'moles':mole_checks,
+            'jaw_neck_blend_mm':.46*(1800/16.6589),'forehead_creases':3,'crowfeet_per_side':2,'hand_lines':False,'veins':False,'tendons':False,'beard_lower_edge':'asymmetric curved field; 0.41 native units soft fade','recommended_normal_strength':.45,
             'scar_roughness':.43,'scar_height':.4965,'scar_tissue_rgb':[188,158,135],
             'tattoos':False,'fresh_wounds':False,'lighting_baked':False,
             'note':'Masks use native 3D coordinates. Counts confirm marks intersect the UV interior; artistic acceptance requires render review.'}
