@@ -1,0 +1,65 @@
+[
+  {
+    "file": "caucasian-male-old.target",
+    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/caucasian-male-old.target",
+    "sha256": "b0d2b1d58cba0358af59833740e70229265f7da1c20a11240f4123b7192cfd6d",
+    "weight": 1.0,
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "universal-male-old-maxmuscle-averageweight.target",
+    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/universal-male-old-maxmuscle-averageweight.target",
+    "sha256": "6385a3125af0dbc445b8f2a10100166ba93a7c62ac2d49a13557feb3791f2c74",
+    "weight": 0.65,
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "universal-male-old-averagemuscle-averageweight.target",
+    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/universal-male-old-averagemuscle-averageweight.target",
+    "sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249",
+    "weight": 0.35,
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "chin-width-incr.target",
+    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-width-incr.target",
+    "sha256": "deef506bfe1883d9d4c38667332c9970785226566efbae4724fd3d60c02efcf4",
+    "weight": 0.2,
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "chin-prominent-incr.target",
+    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-prominent-incr.target",
+    "sha256": "d2493ca5f69aabeb8557d77a56c49cfcf2062ff90c0cad03073d87990d11448b",
+    "weight": 0.2,
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "l-cheek-bones-incr.target",
+    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/l-cheek-bones-incr.target",
+    "sha256": "244ffa39d2d2db94ff15130719346b4cae2236bf2a309c5682eac352da06be50",
+    "weight": 0.25,
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "r-cheek-bones-incr.target",
+    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/r-cheek-bones-incr.target",
+    "sha256": "a393f67acce21568ab832091daadab267685d464492647cb0c4e8cb5af58c4c9",
+    "weight": 0.25,
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "l-cheek-inner-decr.target",
+    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/l-cheek-inner-decr.target",
+    "sha256": "db665941e27c700ca6ccb514efcdf108d4100efcae6e68b0abf3f95333924dd1",
+    "weight": 0.18,
+    "license": "CC0-1.0"
+  },
+  {
+    "file": "r-cheek-inner-decr.target",
+    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/r-cheek-inner-decr.target",
+    "sha256": "931435368577ebb410f2179e7e1ed121f741e6ad18fd7eb92ec96c679db1608f",
+    "weight": 0.18,
+    "license": "CC0-1.0"
+  }
+]

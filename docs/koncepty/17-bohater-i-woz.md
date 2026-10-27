@@ -16,4 +16,4 @@ Dolny kadr sugeruje mokry trakt, ciemny las, kamienie, korzenie, rozproszone pak
 
 **Uwaga fabularna:** zatwierdzona [fabuła](../demo-fabula.md) mówi, że przy wozie koń jeszcze żyje; na planszy go nie pokazano. Pierwsza wizyta przy wozie bez aktywnego starcia oraz późniejsza walka z Psem są opisane jako propozycja w [początku gry](../pakiet-04-poczatek.md). Obraz nie rozstrzyga stanu konia, położenia latarni ani układu terenu.
 
-Grafika wygenerowana w ChatGPT jako referencja wizualna; nie zawiera osobnych warstw, modelu ani źródeł renderu. Technologia produkcji pozostaje otwarta.
+Grafika wygenerowana w ChatGPT jako referencja wizualna; nie zawiera osobnych warstw, modelu ani źródeł renderu. Sprite'y produkujemy zgodnie z [kontraktem renderu](../art/KONTRAKT-RENDERU.md).
