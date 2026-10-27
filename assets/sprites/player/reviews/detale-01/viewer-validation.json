@@ -1,0 +1,62 @@
+{
+  "source_sha256": "bfa713745c1d57f3004688220af77a36f75aacbdc2fd7f3552306705f753e76f",
+  "images": [
+    {
+      "file": "osiem-kierunkow-1x.png",
+      "natural": [
+        768,
+        384
+      ],
+      "displayed": [
+        768,
+        384
+      ]
+    },
+    {
+      "file": "porownanie-1x.png",
+      "natural": [
+        1536,
+        384
+      ],
+      "displayed": [
+        1536,
+        384
+      ]
+    },
+    {
+      "file": "model-przed-po.png",
+      "natural": [
+        1024,
+        1472
+      ],
+      "displayed": [
+        1024,
+        1472
+      ]
+    },
+    {
+      "file": "glowa-przed-po.png",
+      "natural": [
+        1536,
+        768
+      ],
+      "displayed": [
+        1536,
+        768
+      ]
+    },
+    {
+      "file": "swiatlo-1x.png",
+      "natural": [
+        576,
+        192
+      ],
+      "displayed": [
+        576,
+        192
+      ]
+    }
+  ],
+  "javascript_errors": [],
+  "scope": "static review page; native image dimensions; not gameplay"
+}

@@ -17,6 +17,7 @@
   "osiem-kierunkow-1x.png": "070d57f342e101cc69b28ebb0485d7d1a9cafc01f9d483ebe1f3547472ef438a",
   "plaszcz-detal.png": "d7ec7981217f943105b61abbd3bf0005b64ceca041d9f07f50e6d8e28f0f5922",
   "porownanie-1x.png": "aa340d59610cd0590c7dab91eb087d665ed144fcfbc66e96ce1cc4593cfcb88d",
+  "przeglad-kontrola.png": "55ca03ad37874b33ed5ad611a5c8d0326b69d006cf33ab21a91417ea96c13c89",
   "renders/motion_audit.json": "04f81f547554f5ccf7a3cbc14a073a41f5f729b63298dd7735ce4965365b1a61",
   "renders/shadows/spoczynek_0_00.png": "2139368f03f9657301424f67a8cabbd3b465d4d8b2636436161d1d39b2ebec14",
   "renders/shadows/spoczynek_1_00.png": "b5e613d7b92113a27ae1a9ccde5007e8cf1ef9ee13315d7d285b0474d370118b",
@@ -38,6 +39,7 @@
   "source-validation.json": "8634b3977987c006678da98e3a8942b6a2be2aa99e316abdc1f81b54cee15331",
   "swiatlo-1x.png": "2e16ab6f4b27412d6fc7c0818993517a91437128c1c0e1e6394d55ca06bf53d3",
   "validation.json": "89c33296b1cf35fac9acbdfc49d7d6b5cb927c1ebaca6c4a5396e83df7c8fe5f",
+  "viewer-validation.json": "afe8b23e670d23b552f40cfa77b2345ef355c978523967fb71ea0c626329e7b9",
   "warm/motion_audit.json": "3ac4771c6a60ddf2355de439d757dbae2ec25df267802fa9309b0d76d749beff",
   "warm/shadows/spoczynek_1_00.png": "fe2e463b403d5f52486d504685073e2c806a3546c837c0616ed3e851e62e9085",
   "warm/spoczynek_1_00.png": "67da586d827b2a8f127c91f92b89578dc924bb2e92f3377fc6cb9589eedc6ecf"
