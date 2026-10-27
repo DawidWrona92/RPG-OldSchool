@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from v2_common import *
 import numpy as np
-ap=argparse.ArgumentParser();ap.add_argument('--parts',nargs='+');ap.add_argument('--resume',action='store_true');args=ap.parse_args(sys.argv[sys.argv.index('--')+1:])
+ap=argparse.ArgumentParser();ap.add_argument('--parts',nargs='+');ap.add_argument('--resume',action='store_true');args=ap.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
 source=Path(bpy.data.filepath);source_sha=sha(source);sc=bpy.context.scene;out=ROOT/'handoff/p2';out.mkdir(parents=True,exist_ok=True)
 manifest_path=out/'manifest.json';manifest={'source_blend_sha256':source_sha,'baker_sha256':sha(__file__),'source':'../../source/bohater_v2.blend','status':'P2_TEMPORARY_CLOTHING_BEFORE_B2','parts':{},'maps':{'uv':'Unikatowe wyspy, szablon krawędzi bazowej siatki.','ao':'Cycles Ambient Occlusion, odległość 0.15 m; realna geometria całego stroju/ciała; nie do mnożenia przez skórę.','curvature':'Lokalny podpisany Laplacian geometrii, 0 wklęsłe / .5 płaskie / 1 wypukłe; brak high-poly ręcznej rzeźby.','normal_sculpt':'Cycles selected-to-active, ewaluowana geometria z fałdami/Subsurf/Solidify na bazową siatkę UV, tangent OpenGL; nie skan i nie ręczny high-poly.','height_ground':'Z w metrach / 1.8; 16-bit grayscale, 0 ziemia / 1 wysokość 1.8 m.','id':'Płaskie kolory regionów opisane przy części, nie końcowy kolor.','preview':'768 px, szary materiał, izolowany element; kamera diagnostyczna, nie skala gry.'}}
 if args.resume and manifest_path.exists():
