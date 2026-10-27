@@ -1,6 +1,6 @@
 # Codex — gotowy pakiet materiałów PBR, Chunk 03
 
-**Źródło:** branch `vibe/hero-materials-chunk02-gpt6`, katalog `assets/textures/characters/hero/`. Modyfikacje są dodane obok Chunks 01 i 02; nie ma zmian w Twoich plikach modelu.
+**Źródło:** branch `main` (dawniej gałąź `vibe/hero-materials-chunk02-gpt6`, scalona 27.10.2026), katalog `assets/textures/characters/hero/`. Modyfikacje są dodane obok Chunks 01 i 02; nie ma zmian w Twoich plikach modelu.
 
 **Skoncentruj się na integracji** pięciu zestawów: rzemienie, kute żelazo, stal głowni, skóra podróżnika, włosy; plus cztery maski/nakładki. Poprzednie cztery zestawy (spodnie, buty, plecak, posłanie) są w tym samym branchu. Materiały Chunk 01 istnieją na `main`.
 
