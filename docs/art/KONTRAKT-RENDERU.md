@@ -60,13 +60,29 @@ Dokument ustala **wspólne zasady obrazu**, żeby postacie, potwory i otoczenie 
 - Zasoby zewnętrzne tylko z jasną licencją i zapisanym źródłem (np. MakeHuman CC0 z przypiętą wersją). Tekstury z biblioteki `assets/textures/` są obrazami roboczymi, nie pomiarowym PBR — zob. ich manifesty.
 - Szkielet i siatkę bohatera można **ponownie wykorzystać dla ludzkich postaci** (Drwal, Powrotnik, Stróż, cywile), zamiast budować każdą od zera.
 
+## Wersja Blendera i środowisko
+
+**Obowiązuje linia Blender 4.3** (bohater: 4.3.2). Nie otwieramy i nie zapisujemy plików źródłowych w nowszej wersji bez decyzji autora: plik zapisany w 5.x nie otworzy się w 4.3, a skrypty renderu przestają działać (w 5.x scena nie ma już `scene.node_tree`, z którego korzysta przebieg cienia).
+
+Bez pełnego Blendera, np. w kontenerze agenta, wystarczy moduł `bpy` z PyPI. Wersja 4.3 wymaga Pythona 3.11:
+
+```bash
+python3.11 -m venv ~/bpy43            # albo: uv venv ~/bpy43 --python 3.11
+~/bpy43/bin/pip install bpy==4.3.0 "numpy<2" pillow
+~/bpy43/bin/python -c "import bpy; print(bpy.app.version_string)"   # 4.3.0
+```
+
+Plik `.blend` otwiera się wtedy przez `bpy.ops.wm.open_mainfile(filepath=...)`, a skrypt renderu uruchamia się w tym samym procesie. Sprawdzono 27 października 2026 r.: `bpy` 4.3.0 odtwarza klatkę `spoczynek_0_00` bohatera i jej cień z różnicą najwyżej 1/255 na kilkudziesięciu pikselach, a render jednej klatki 384×384 na CPU trwa ok. 16 s.
+
+Jeśli import `bpy` zgłasza brak bibliotek systemowych (np. `libX11.so.6`, `libSM`), a nie ma praw roota, można rozpakować pakiety Debiana przez `dpkg-deb -x` do katalogu użytkownika i wskazać go w `LD_LIBRARY_PATH`. Pobieraj je wtedy przez HTTPS z `deb.debian.org` i sprawdzaj sumę SHA256 każdego pakietu z indeksu `Packages`. Lepiej jednak wpisać instalację do skryptu startowego środowiska, żeby każdy wykonawca miał to samo. Odszumianie (OpenImageDenoise) nie jest potrzebne, bo kontrakt go nie używa.
+
 ## Duże obiekty i otoczenie
 
 Drzewa, budynki, wozy i skały używają **tej samej kamery, kąta, skali 60 px/m i świateł**. Klatka może być większa niż 192×192, jeśli obiekt się nie mieści — wtedy JSON podaje rozmiar klatki i kotwicę (punkt styku z ziemią). *Dokładne zasady klatek dla dużych obiektów: propozycja do potwierdzenia przy pierwszym budynku wzorcowym.*
 
 ## Kontrola przed oddaniem
 
-1. Kamera, skala i światła zgodne z tabelami (sprawdzone w pliku `.blend`, nie z pamięci).
+1. Kamera, skala i światła zgodne z tabelami (sprawdzone w pliku `.blend`, nie z pamięci); render w Blenderze 4.3, wersja zapisana w audycie.
 2. Kotwica stała; osiem różnych kierunków, żadnego odbicia lustrzanego.
 3. Postać nie dotyka krawędzi klatki w żadnej klatce i kierunku; cień może zostać przycięty, ale to odnotowujemy.
 4. Atlas, JSON i podglądy z tej samej rewizji źródła co rendery.
