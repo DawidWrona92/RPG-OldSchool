@@ -1,7 +1,7 @@
 # Welesza — indeks dokumentacji projektu
 
 **Źródło prawdy:** `main` • **Zakres:** świat, fabuła, mechaniki, level design, bestiariusz, dokumentacja wizualna i grafiki koncepcyjne.
-**Nie obejmuje:** kodu gry, generatorów grafiki, testowych sprite'ów, atlasów, animacji ani instrukcji narzucających renderer.
+**Nie obejmuje:** kodu gry, generatorów grafiki, testowych sprite'ów, atlasów ani animacji. Wspólne zasady renderu opisuje [kontrakt renderu](art/KONTRAKT-RENDERU.md).
 
 Dokumenty wyraźnie odróżniają **decyzje autora**, **uzgodniony kierunek artystyczny**, **propozycje** i **rzeczy do przetestowania**. Nie zmieniaj statusu decyzji bez potwierdzenia autora.
 
@@ -35,10 +35,11 @@ Dokumenty wyraźnie odróżniają **decyzje autora**, **uzgodniony kierunek arty
 
 - **[Przewodnik artystyczny Niemiru v1.1](art/niemir/NIEMIR_ART_DIRECTION.md)** — zaakceptowany klimat osady, paleta, kompozycja i standard oceny.
 - [PDF przewodnika](art/niemir/NIEMIR_ART_DIRECTION.pdf) — wersja do czytania.
+- **[Kontrakt renderu sprite'ów](art/KONTRAKT-RENDERU.md)** — decyzja autora: prerender w Blenderze; kamera, skala, kierunki, kotwica, światło, eksport i kontrola jakości.
 - **[18 ilustracji koncepcyjnych](koncepty/README.md)** — potwory, cywile, architektura i kadry z perspektywy gry.
 
 ## Granice między dokumentacją a produkcją
 
-`main` utrzymuje wspólną wiedzę o grze oraz zatwierdzone referencje artystyczne. Metoda renderowania postaci i otoczenia **nie jest obecnie zatwierdzona**. Prace graficzne i kodowe pozostają na niezależnych gałęziach, a ich wynik może trafić do wspólnej bazy dopiero po ocenie. Dokumenty archiwalnych prób technicznych nie stanowią nowego standardu produkcji.
+`main` utrzymuje wspólną wiedzę o grze, zatwierdzone referencje artystyczne i [kontrakt renderu](art/KONTRAKT-RENDERU.md). Metoda jest zatwierdzona (prerender w Blenderze), ale same generatory, pliki `.blend`, rendery i atlasy pozostają na niezależnych gałęziach, a ich wynik może trafić do wspólnej bazy dopiero po ocenie. Dokumenty archiwalnych prób technicznych (`skills-graficzne.md`, `zgodnosc-pixel-art.md`) nie stanowią standardu produkcji.
 
 [Wróć do README](../README.md).

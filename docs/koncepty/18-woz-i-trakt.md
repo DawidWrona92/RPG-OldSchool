@@ -44,6 +44,6 @@ Nie ustalamy arbitralnych metrów ani szerokości przejść. Zgodnie z [metrykam
 5. Przejście wóz → rozstaj → brama działa płynnie bez ekranu ładowania podczas normalnego ruchu; sposób doczytywania pozostaje decyzją techniczną do prototypu.
 6. Pętla drogi i powroty zachowują stan świata i nie przenoszą aktywnej walki. Rozwiązanie przejścia wymaga osobnego eksperymentu.
 
-**Wynik:** powyższych testów nie wykonano; obraz nie jest testem kolizji ani pomiarem wydajności. Docelowy renderer, kontrakt grafiki i silnik pozostają otwarte.
+**Wynik:** powyższych testów nie wykonano; obraz nie jest testem kolizji ani pomiarem wydajności. Render obiektów obowiązuje zgodnie z [kontraktem renderu](../art/KONTRAKT-RENDERU.md); silnik gry pozostaje otwarty.
 
 Powiązane: [bohater](17-bohater-i-woz.md), [biblioteka konceptów](README.md), [plan mapy](../pakiet-04-mapa.md).
