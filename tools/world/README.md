@@ -1,6 +1,6 @@
-# Welesza — walidator statycznej mapy (branch techniczny)
+# Welesza — walidator statycznej mapy
 
-Źródło prawdy o świecie jest na `main` w `docs/world/`. Kod narzędzia i testy regresyjne znajdują się wyłącznie na gałęzi **`vibe/world-map-validator-gpt6`**, nie na `main`.
+Źródło prawdy o świecie jest na `main` w `docs/world/`. Walidator `tools/world/validate_world.py` i testy regresyjne `tests/test_world_layout.py` są utrzymywane na `main` razem z wersjonowanym modelem mapy. Branch `vibe/world-map-validator-gpt6` był gałęzią wdrożeniową.
 
 **Wymagania:** Python 3.9+ (wyłącznie standardowa biblioteka). Walidacja nie wymaga Godota ani Blendera.
 

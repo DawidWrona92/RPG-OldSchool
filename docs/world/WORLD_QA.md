@@ -1,6 +1,6 @@
 # Welesza — statyczna kontrola mapy v0.2
 
-**Wykonano rzeczywiście** kontrolę danych `docs/world/world-layout.v0.2.json` i testy regresyjne kodu `tools/world/validate_world.py` z brancha **`vibe/world-map-validator-gpt6`**. Interpretacja: kontrola **planistycznego grafu i prostokątów**, nie grywalnej geometrii ani wydajności silnika.
+**Wykonano rzeczywiście** kontrolę danych `docs/world/world-layout.v0.2.json` i testy regresyjne kodu `tools/world/validate_world.py` (obecnie na **`main`**). Interpretacja: kontrola **planistycznego grafu i prostokątów**, nie grywalnej geometrii ani wydajności silnika.
 
 ## Komendy do powtórzenia
 
@@ -10,7 +10,7 @@ python3 tools/world/validate_world.py docs/world/world-layout.v0.2.json --json
 python3 -m unittest discover -s tests -p 'test_world_layout.py' -v
 ```
 
-Python 3.9+, bez pakietów zewnętrznych. Na `main` znajduje się JSON i dokumentacja; kod tylko na osobnej gałęzi. Aby uruchomić w jednej kopii, sprawdź branch `vibe/world-map-validator-gpt6` po jego aktualizacji z `main` lub pobierz oba katalogi do jednego katalogu roboczego.
+Python 3.9+, bez pakietów zewnętrznych. Na `main` znajdują się JSON, dokumentacja, kod walidatora i testy; polecenia uruchomisz bez przełączania branchy.
 
 ## Wyniki uruchomienia
 
