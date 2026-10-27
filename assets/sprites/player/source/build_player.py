@@ -403,6 +403,25 @@ def build_character():
                           1.575-.16*t+.01*math.sin(a*8)*math.sin(t*math.pi)))
     fs=[(j*33+i,j*33+i+1,(j+1)*33+i+1,(j+1)*33+i) for j in range(12) for i in range(32)]
     mesh('Opuszczony kaptur / warstwy tkaniny',verts,fs,wool,[{'chest':1} for _ in verts],2,.004)
+    # A second shoulder layer and its actual sewn edge provide a readable
+    # garment construction, rather than detail made solely by shader noise.
+    shoulder_cloth=material('Przetarta warstwa naramienna',(.092,.088,.062))
+    sv=[]; sn=49
+    for j in range(7):
+        t=j/6; z=1.54-.27*t
+        for i in range(sn):
+            a=math.radians(70+220*i/(sn-1))
+            rx=.103+.095*math.sin(t*math.pi/2)
+            ry=.137+.137*math.sin(t*math.pi/2)
+            fold=.006*math.sin(a*12+t*3)*t
+            sv.append((-.025+(rx+fold)*math.cos(a),(ry+fold)*math.sin(a),z+.009*math.sin(a*21)*t**5))
+    sf=[(j*sn+i,j*sn+i+1,(j+1)*sn+i+1,(j+1)*sn+i) for j in range(6) for i in range(sn-1)]
+    mesh('Naramienna warstwa płaszcza',sv,sf,shoulder_cloth,[{'chest':1} for _ in sv],2,.003)
+    tube('Obszycie warstwy naramiennej',sv[-sn:],.0018,seam,bone_weight('chest'))
+    # Seams at the opening stay attached to the same skinning as the cloak.
+    for side in [0,na-1]:
+        pts=[tuple(CAPE.data.vertices[j*na+side].co) for j in range(nr)]
+        tube('Płaszcz / boczny szew',pts,.0016,seam,torso_weight)
     # Scalp and stubble follow the anatomical surface, including the real nose and ears.
     subset('Włosy / krótki nieregularny obrys',v,faces,weights,hair,
             lambda p,f:p[2]>1.755+.008*math.sin(p[1]*65) or (p[2]>1.671 and p[0]<-.015),
@@ -458,7 +477,7 @@ def build_character():
              boots,bw,wrinkles=.0025,solid=.003)
         loft('But / nosek '+side,[(.016,.065,cy,.116,.054),(.027,.064,cy,.121,.06),
              (.060,.060,cy,.118,.061),(.09,.041,cy,.094,.052),(.115,.015,cy,.056,.047)],boots,bone_weight(foot),sub=2)
-        loft('Podeszwa '+side,[(.012,.065,cy,.119,.057),(.018,.065,cy,.121,.06),(.03,.065,cy,.120,.061)],dark,bone_weight(foot),sub=1)
+        loft('Podeszwa '+side,[(0,.065,cy,.119,.057),(.008,.065,cy,.121,.06),(.03,.065,cy,.120,.061)],dark,bone_weight(foot),sub=1)
         for z in [.17,.255,.305]:
             tube('Obszycie buta '+side,[(.01+.069*math.cos(t),cy+.067*math.sin(t),z+.003*math.sin(t*4)) for t in np.linspace(0,TAU,40)],.002,edge,bw)
         for i in range(5):
@@ -522,7 +541,7 @@ def set_pose(phase, walking=True, frame=None):
     chestpivot=REST['chest'][0]
     cm=pmat@Matrix.Translation(chestpivot)@Matrix.Rotation(-bodyyaw*1.7,4,'Z')@Matrix.Rotation(.035,4,'Y')@Matrix.Translation(-chestpivot)
     maps={'pelvis':pmat,'spine':pmat,'chest':cm,'neck':cm,'head':cm}
-    audit={'feet':{},'ik_reach_error_m':0}
+    audit={'feet':{}}
     for side,sign in [('L',1),('R',-1)]:
         th,sh='thigh.'+side,'shin.'+side
         hip=pmat@REST[th][0]
@@ -570,6 +589,16 @@ def set_pose(phase, walking=True, frame=None):
             key.value=(.55 if walking else .08)*math.sin(TAU*phase-i*.8)
             if frame is not None:key.keyframe_insert('value',frame=frame)
     bpy.context.view_layer.update()
+    gaps=[];length_errors=[]
+    for side in ['L','R']:
+        for child,parent in [('forearm','upper_arm'),('hand','forearm'),('shin','thigh'),('foot','shin')]:
+            gaps.append((RIG.pose.bones[child+'.'+side].head-RIG.pose.bones[parent+'.'+side].tail).length)
+    for b in RIG.pose.bones:
+        length_errors.append(abs((b.tail-b.head).length-b.bone.length))
+    audit['max_joint_gap_m']=max(gaps)
+    audit['max_bone_length_error_m']=max(length_errors)
+    if audit['max_joint_gap_m']>.0001 or audit['max_bone_length_error_m']>.0001:
+        raise ValueError('Niespójny szkielet: '+str(audit))
     return audit
 
 
@@ -589,7 +618,9 @@ def setup_scene(samples=32, size=384):
     scene.view_settings.view_transform='AgX'
     scene.world.color=(.11,.125,.15)
     scene.world.use_nodes=True
-    bg=scene.world.node_tree.nodes.get('Background');bg.inputs[0].default_value=(.18,.21,.26,1);bg.inputs[1].default_value=.45
+    bg=scene.world.node_tree.nodes.get('Background');bg.inputs[0].default_value=(.18,.21,.26,1);bg.inputs[1].default_value=.20
+    scene.view_settings.look='AgX - Medium High Contrast'
+    scene.view_settings.exposure=-.2
     camera=bpy.data.cameras.new('Kamera / zgodny kontrakt 30 stopni')
     obj=bpy.data.objects.new('Kamera',camera);bpy.context.collection.objects.link(obj)
     target=Vector((0,0,1.2));obj.location=target+Vector((8*math.cos(math.pi/6),0,4))
@@ -597,9 +628,9 @@ def setup_scene(samples=32, size=384):
     camera.type='ORTHO';camera.ortho_scale=3.2;camera.lens=50
     scene.camera=obj
     for name,pos,power,color,size in [
-        ('Chłodne niebo / klucz z lewej', (2.8,-3.5,6),480,(.85,.9,1),3),
-        ('Odbite światło ziemi',(3,4,2.5),110,(.72,.68,.56),4),
-        ('Chłodne niebo / tył',(-3,1,4),170,(.60,.70,.85),3)]:
+        ('Chłodne niebo / klucz z lewej', (2.8,-3.5,6),520,(.94,.92,.85),2.3),
+        ('Odbite światło ziemi',(3,4,2.5),65,(.64,.68,.74),4),
+        ('Chłodne niebo / tył',(-3,1,4),140,(.60,.70,.85),3)]:
         data=bpy.data.lights.new(name,'AREA');data.energy=power;data.color=color;data.shape='DISK';data.size=size
         lamp=bpy.data.objects.new(name,data);bpy.context.collection.objects.link(lamp);lamp.location=pos
         lamp.rotation_euler=(Vector((0,0,1))-lamp.location).to_track_quat('-Z','Y').to_euler()
@@ -614,15 +645,22 @@ def main():
     parser.add_argument('--all',action='store_true')
     parser.add_argument('--samples',type=int,default=24)
     parser.add_argument('--size',type=int,default=384)
+    parser.add_argument('--directions',type=int,nargs='+',choices=range(8))
+    parser.add_argument('--animations',nargs='+',choices=['spoczynek','chod'])
+    parser.add_argument('--save-only',action='store_true')
     args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
     for file,meta in json.loads((THIRD/'manifest.json').read_text()).items():
         if hashlib.sha256((THIRD/file).read_bytes()).hexdigest()!=meta['sha256']:
             raise ValueError('Niezgodna suma źródła '+file)
     build_character();scene=setup_scene(args.samples,args.size)
+    bpy.context.preferences.filepaths.save_version=0
     # Animations are genuine keyed armature actions, retained in the .blend.
     for name,count in [('spoczynek',8),('chod',12)]:
         RIG.animation_data_create();RIG.animation_data.action=bpy.data.actions.new(name)
+        CAPE.data.shape_keys.animation_data_create()
+        CAPE.data.shape_keys.animation_data.action=bpy.data.actions.new(name+' / płaszcz')
+        CAPE.data.shape_keys.animation_data.action.use_fake_user=True
         for i in range(count+1):set_pose(i/count,name=='chod',frame=i+1)
         for curve in RIG.animation_data.action.fcurves:
             for key in curve.keyframe_points:key.interpolation='LINEAR'
@@ -633,9 +671,15 @@ def main():
     scene.frame_start=1;scene.frame_end=13
     bpy.ops.wm.save_as_mainfile(filepath=str(HERE/'bohater.blend'),check_existing=False)
     out=ROOT/'renders';out.mkdir(exist_ok=True)
-    audit={'directions':DIRS,'anchor_px':[96,158.35382907247958],'frames':{}}
+    audit={'directions':DIRS,'anchor_px':[96,158.35382907247958],
+           'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+           'render':{'blender':bpy.app.version_string,'engine':'CYCLES','samples':args.samples,
+                     'size_px':args.size,'seed':1703,'denoising':False,'threads':4},'frames':{}}
     targets=[('spoczynek',1,[0,1,2,4,7])] if args.pilot else [('spoczynek',8,range(8)),('chod',12,range(8))]
+    if args.animations:targets=[t for t in targets if t[0] in args.animations]
+    if args.save_only:targets=[]
     for anim,count,directions in targets:
+        if args.directions is not None:directions=args.directions
         for direction in directions:
             RIG.rotation_euler.z=-direction*math.pi/4
             for i in range(count):
@@ -646,6 +690,12 @@ def main():
                 audit['frames'][file.name]=info
                 print('WELESZA_FRAME',file.name,flush=True)
                 (out/'motion_audit.json').write_text(json.dumps(audit,indent=2)+'\n')
+    RIG.rotation_euler.z=0
+    RIG.animation_data.action=bpy.data.actions['chod']
+    CAPE.data.shape_keys.animation_data_create()
+    CAPE.data.shape_keys.animation_data.action=bpy.data.actions['chod / płaszcz']
+    scene.frame_set(1)
+    bpy.ops.wm.save_as_mainfile(filepath=str(HERE/'bohater.blend'),check_existing=False)
     print('WELESZA_DONE',flush=True)
 
 
