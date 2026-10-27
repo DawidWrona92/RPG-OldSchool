@@ -290,12 +290,13 @@ def make_stone(name, col, radius=0.35, height=0.28, seed=1, flatness=0.8,
     mod.factor = 0.6
     mod.iterations = 2
     bpy.ops.object.modifier_apply(modifier=mod.name)
-    # przesunięcie tak, żeby dół był na z=0
-    zmin = min(v.co.z for v in obj.data.vertices)
-    obj.location.z = location[2] - zmin
-    obj.location.x = location[0]
-    obj.location.y = location[1]
+    # środek na (location.x, location.y, 0), potem korekta po obrocie,
+    # żeby najniższy punkt w świecie leżał na zadanej wysokości location[2]
+    obj.location = (location[0], location[1], 0.0)
     obj.rotation_euler = rotation
+    bpy.context.view_layer.update()
+    zmin_w = min((obj.matrix_world @ v.co).z for v in obj.data.vertices)
+    obj.location.z += location[2] - zmin_w
     if mat:
         obj.data.materials.append(mat)
     return obj
@@ -323,12 +324,12 @@ def make_boulder(name, col, size=1.1, seed=7, mat=None, location=(0, 0, 0), rota
     mod.factor = 0.35
     mod.iterations = 1
     bpy.ops.object.modifier_apply(modifier=mod.name)
-    # dół na z=0 (przed obrotem)
-    zmin = min(v.co.z for v in obj.data.vertices)
-    obj.location.z = location[2] - zmin
-    obj.location.x = location[0]
-    obj.location.y = location[1]
+    # dół na zadanej wysokości (korekta po obrocie, w przestrzeni świata)
+    obj.location = (location[0], location[1], 0.0)
     obj.rotation_euler = rotation
+    bpy.context.view_layer.update()
+    zmin_w = min((obj.matrix_world @ v.co).z for v in obj.data.vertices)
+    obj.location.z += location[2] - zmin_w
     if mat:
         obj.data.materials.append(mat)
     return obj
