@@ -1,7 +1,7 @@
 {
   "source": "source/bohater_detale.blend",
   "parent_source_sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3",
-  "source_sha256": "ed566431b52d1d743611fae9434ace2c7030f7ab2298b8a13b6ed7891ba597ed",
+  "source_sha256": "29a28d31c6b5cd1238ced424f3bd3fa60c9ce5ecc2cb1684bed23f82a84b4d15",
   "status": "static review first; existing actions preserved, new cloth motion not accepted",
   "recipe": "detail_clothing.py",
   "changes": [
@@ -10,5 +10,2085 @@
     "sewn cloak and knee patches",
     "leather panels overlap trousers",
     "controlled irregular linen hem"
-  ]
+  ],
+  "revision": "detail-render-04-review",
+  "groom_recipe": "detail_groom.py",
+  "native_hair_strands": 14000,
+  "native_beard_strands": 4260,
+  "attachment_matrix_max_error": 2.0186416804790497e-07,
+  "finish_recipe": "detail_finish.py",
+  "cloak_hole_threshold": 0.45,
+  "ready_recipe": "detail_ready.py",
+  "object_materials": {
+    "Anatomiczna głowa, szyja i odkryte przedramiona": [
+      {
+        "material": "Skóra podróżnika / Chunk03",
+        "texture_set": "skin_traveler_weathered"
+      }
+    ],
+    "Brew / łuk nad okiem": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Brew / łuk nad okiem.001": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "But / nosek L": [
+      {
+        "material": "Skóra butów / wilgoć",
+        "texture_set": "leather_boots_dark_mud"
+      }
+    ],
+    "But / nosek R": [
+      {
+        "material": "Skóra butów / wilgoć",
+        "texture_set": "leather_boots_dark_mud"
+      }
+    ],
+    "But / organiczna cholewka L": [
+      {
+        "material": "Skóra butów / wilgoć",
+        "texture_set": "leather_boots_dark_mud"
+      }
+    ],
+    "But / organiczna cholewka R": [
+      {
+        "material": "Skóra butów / wilgoć",
+        "texture_set": "leather_boots_dark_mud"
+      }
+    ],
+    "Głowica miecza": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Jelec": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Język sprzączki": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Kaftan / dolna poła zachodząca na spodnie": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Kaftan / dolna poła zachodząca na spodnie.001": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Kaftan / przetarty brzeg": [
+      {
+        "material": "Szew krawędzi / trim Chunk03",
+        "texture_set": "procedural"
+      }
+    ],
+    "Kaftan / przetarty brzeg.001": [
+      {
+        "material": "Szew krawędzi / trim Chunk03",
+        "texture_set": "procedural"
+      }
+    ],
+    "Kaftan / szew boku": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Kaftan / szew boku.001": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Kaftan / zszywane otwarte połacie": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Kaftan / zużyte obszycie dołu": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Kaftan / zużyte obszycie dołu.001": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Klapa plecaka": [
+      {
+        "material": "Plecak / postarzana skóra",
+        "texture_set": "leather_backpack_aged"
+      }
+    ],
+    "Koszula / nierówny lniany brzeg pod kaftanem": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Krótki płaszcz / miękkie fałdy": [
+      {
+        "material": "Mokry płaszcz / ciemnobrązowa wełna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Lniana koszula / luźne rękawy": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Lniana tunika / krój i pionowe fałdy": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Miecz / głownia z grzbietem": [
+      {
+        "material": "Stal głowni / Chunk03",
+        "texture_set": "steel_sword_weathered"
+      }
+    ],
+    "Miękki kołnierz lnu": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Naramienna warstwa płaszcza": [
+      {
+        "material": "Przetarta warstwa naramienna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Obszycie buta L": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Obszycie buta L.001": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Obszycie buta L.002": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Obszycie buta R": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Obszycie buta R.001": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Obszycie buta R.002": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Obszycie warstwy naramiennej": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Oko": [
+      {
+        "material": "Oko / ciepła kość słoniowa",
+        "texture_set": "procedural"
+      }
+    ],
+    "Oko.001": [
+      {
+        "material": "Oko / ciepła kość słoniowa",
+        "texture_set": "procedural"
+      }
+    ],
+    "Okucie pochwy": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Opuszczony kaptur / warstwy tkaniny": [
+      {
+        "material": "Mokry płaszcz / ciemnobrązowa wełna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Owijka nadgarstka L": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Owijka nadgarstka R": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Palec zgięty na rękojeści": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Palec zgięty na rękojeści.001": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Palec zgięty na rękojeści.002": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Palec zgięty na rękojeści.003": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Pas naramienny / nośny": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Pas skórzany": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Plecak / kieszeń boczna": [
+      {
+        "material": "Plecak / postarzana skóra",
+        "texture_set": "leather_backpack_aged"
+      }
+    ],
+    "Plecak / kieszeń boczna.001": [
+      {
+        "material": "Plecak / postarzana skóra",
+        "texture_set": "leather_backpack_aged"
+      }
+    ],
+    "Plecak / pionowy rzemień": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Plecak / pionowy rzemień.001": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Plecak / sprzączka": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Plecak / sprzączka.001": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Plecak / szelka połączona z korpusem": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Plecak / szelka połączona z korpusem.001": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Plecak / szew klinu": [
+      {
+        "material": "Szew krawędzi / trim Chunk03",
+        "texture_set": "procedural"
+      }
+    ],
+    "Plecak / szew klinu.001": [
+      {
+        "material": "Szew krawędzi / trim Chunk03",
+        "texture_set": "procedural"
+      }
+    ],
+    "Plecak podróżny": [
+      {
+        "material": "Plecak / postarzana skóra",
+        "texture_set": "leather_backpack_aged"
+      }
+    ],
+    "Podeszwa L": [
+      {
+        "material": "Spodnie / brunatna wełna",
+        "texture_set": "wool_trousers_charcoal"
+      }
+    ],
+    "Podeszwa R": [
+      {
+        "material": "Spodnie / brunatna wełna",
+        "texture_set": "wool_trousers_charcoal"
+      }
+    ],
+    "Podwinięty rękaw L": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Podwinięty rękaw L.001": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Podwinięty rękaw L.002": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Podwinięty rękaw R": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Podwinięty rękaw R.001": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Podwinięty rękaw R.002": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Posłanie / brzeg płótna": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Posłanie / brzeg płótna.001": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Prawa rękawica / dłoń": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Pusta pochwa przy lewym biodrze": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Płaszcz / luźne włókno": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.001": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.002": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.003": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.004": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.005": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.006": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.007": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.008": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.009": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.010": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.011": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.012": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.013": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.014": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.015": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.016": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / luźne włókno.017": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / miękki zużyty brzeg": [
+      {
+        "material": "Mokry płaszcz / ciemnobrązowa wełna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Płaszcz / miękki zużyty brzeg.001": [
+      {
+        "material": "Mokry płaszcz / ciemnobrązowa wełna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Płaszcz / naszyta łata": [
+      {
+        "material": "Łata płaszcza / brunatna naprawiana wełna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Płaszcz / nieregularne strzępki brzegu": [
+      {
+        "material": "Mokry płaszcz / ciemnobrązowa wełna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Rzemień posłania": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Rzemień posłania.001": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Rękojeść": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Sakwa / sznur": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sakwa / sznur.001": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sakwa przy pasie": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Sakwa przy pasie.001": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Spirala posłania": [
+      {
+        "material": "Mokry płaszcz / ciemnobrązowa wełna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Spirala posłania.001": [
+      {
+        "material": "Mokry płaszcz / ciemnobrązowa wełna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Spodnie / marszczenia kolan": [
+      {
+        "material": "Spodnie / brunatna wełna",
+        "texture_set": "wool_trousers_charcoal"
+      }
+    ],
+    "Spodnie / miękka naszywana łata kolana": [
+      {
+        "material": "Łata kolana / zszarzała brunatna wełna",
+        "texture_set": "wool_trousers_charcoal"
+      }
+    ],
+    "Sprzączka pasa": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Szew pasa naramiennego": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Szlif ostrza": [
+      {
+        "material": "Szlif krawędzi / Chunk03",
+        "texture_set": "steel_sword_weathered"
+      }
+    ],
+    "Szlif ostrza.001": [
+      {
+        "material": "Szlif krawędzi / Chunk03",
+        "texture_set": "steel_sword_weathered"
+      }
+    ],
+    "Sznur buta L": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.001": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.002": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.003": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.004": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.005": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.006": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.007": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.008": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.009": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.001": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.002": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.003": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.004": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.005": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.006": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.007": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.008": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.009": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Tęczówka": [
+      {
+        "material": "Tęczówka / ciemny brąz",
+        "texture_set": "procedural"
+      }
+    ],
+    "Tęczówka.001": [
+      {
+        "material": "Tęczówka / ciemny brąz",
+        "texture_set": "procedural"
+      }
+    ],
+    "Wiązanie kaftana": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Wiązanie kaftana.001": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Wiązanie kaftana.002": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Włosy / nasada przy skórze": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / naturalny przepływ pasm": [
+      {
+        "material": "Włosy / fizyczne drobne włókna",
+        "texture_set": "procedural"
+      }
+    ],
+    "Zarost / policzki żuchwa i podbródek": [
+      {
+        "material": "Zarost / krótka broda z przejściem",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.001": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.002": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.003": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.004": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.005": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.006": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.007": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.008": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.009": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.010": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.011": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.012": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.013": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.014": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.015": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.016": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.017": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / włókna na żuchwie": [
+      {
+        "material": "Zarost / krótkie włókna",
+        "texture_set": "procedural"
+      }
+    ],
+    "Zrolowane posłanie": [
+      {
+        "material": "Posłanie / zszarzałe płótno",
+        "texture_set": "canvas_bedroll_ashen"
+      }
+    ],
+    "Łata kolana / ręczny ścieg": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.001": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.002": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.003": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.004": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.005": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.006": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.007": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.008": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.009": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.010": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.011": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.012": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.013": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.014": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.015": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.016": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.017": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.018": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.019": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.020": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata kolana / ręczny ścieg.021": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.001": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.002": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.003": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.004": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.005": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.006": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.007": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.008": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.009": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.010": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.011": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.012": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.013": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.014": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.015": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.016": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.017": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.018": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.019": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.020": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.021": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.022": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.023": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.024": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.025": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.026": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.027": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.028": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.029": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.030": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Łata płaszcza / fastryga.031": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ]
+  },
+  "packed_images": {
+    "canvas_bedroll_ashen_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "canvas_bedroll_ashen_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "canvas_bedroll_ashen_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "edge_wear_breakup_mask.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "hair_dark_umber_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "hair_dark_umber_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "hair_dark_umber_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "iron_hardware_blackened_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "iron_hardware_blackened_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "iron_hardware_blackened_metallic.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "iron_hardware_blackened_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_backpack_aged_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_backpack_aged_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_backpack_aged_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_boots_dark_mud_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_boots_dark_mud_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_boots_dark_mud_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_straps_worn_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_straps_worn_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_straps_worn_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_vest_weathered_brown_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_vest_weathered_brown_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_vest_weathered_brown_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "linen_shirt_worn_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "linen_shirt_worn_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "linen_shirt_worn_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "mud_spatter_decal_rgba.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "skin_traveler_weathered_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "skin_traveler_weathered_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "skin_traveler_weathered_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "steel_sword_weathered_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "steel_sword_weathered_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "steel_sword_weathered_metallic.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "steel_sword_weathered_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "stitching_trim_strip_rgba.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        1024,
+        256
+      ]
+    },
+    "wetness_breakup_mask.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "wool_cloak_dark_brown_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "wool_cloak_dark_brown_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "wool_cloak_dark_brown_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "wool_trousers_charcoal_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "wool_trousers_charcoal_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "wool_trousers_charcoal_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    }
+  },
+  "actions": {
+    "chod": [
+      1.0,
+      25.0
+    ],
+    "chod / Klapa plecaka": [
+      1.0,
+      25.0
+    ],
+    "chod / Krótki płaszcz / miękkie fałdy": [
+      1.0,
+      25.0
+    ],
+    "chod / Naramienna warstwa płaszcza": [
+      1.0,
+      25.0
+    ],
+    "chod / Plecak podróżny": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.001": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.002": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.003": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.004": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.005": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.006": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.007": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.008": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.009": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.010": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.011": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.012": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.013": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.014": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.015": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.016": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / luźne włókno.017": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / miękki zużyty brzeg": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / miękki zużyty brzeg.001": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / naszyta łata": [
+      1.0,
+      25.0
+    ],
+    "chod / Płaszcz / nieregularne strzępki brzegu": [
+      1.0,
+      25.0
+    ],
+    "chod / Zrolowane posłanie": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.001": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.002": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.003": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.004": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.005": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.006": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.007": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.008": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.009": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.010": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.011": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.012": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.013": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.014": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.015": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.016": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.017": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.018": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.019": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.020": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.021": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.022": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.023": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.024": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.025": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.026": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.027": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.028": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.029": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.030": [
+      1.0,
+      25.0
+    ],
+    "chod / Łata płaszcza / fastryga.031": [
+      1.0,
+      25.0
+    ],
+    "spoczynek": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Klapa plecaka": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Krótki płaszcz / miękkie fałdy": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Naramienna warstwa płaszcza": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Plecak podróżny": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.001": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.002": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.003": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.004": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.005": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.006": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.007": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.008": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.009": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.010": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.011": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.012": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.013": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.014": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.015": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.016": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / luźne włókno.017": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / miękki zużyty brzeg": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / miękki zużyty brzeg.001": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / naszyta łata": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Płaszcz / nieregularne strzępki brzegu": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Zrolowane posłanie": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.001": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.002": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.003": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.004": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.005": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.006": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.007": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.008": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.009": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.010": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.011": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.012": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.013": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.014": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.015": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.016": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.017": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.018": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.019": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.020": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.021": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.022": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.023": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.024": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.025": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.026": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.027": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.028": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.029": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.030": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Łata płaszcza / fastryga.031": [
+      1.0,
+      81.0
+    ]
+  },
+  "art_revision": "detail-render-04-review",
+  "source_policy": "Canonical artistic blend; render reads saved geometry/actions and never writes blend; recipes are explicit one-time edits only."
 }

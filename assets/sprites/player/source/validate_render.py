@@ -16,6 +16,15 @@ from mathutils import Vector
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'previews'
+if '--output' in sys.argv:OUT=Path(sys.argv[sys.argv.index('--output')+1]).resolve()
+OUT.mkdir(exist_ok=True,parents=True)
+allowed_dirs=set(range(8))
+if '--directions' in sys.argv:
+    values=[]
+    for value in sys.argv[sys.argv.index('--directions')+1:]:
+        if value.startswith('--'):break
+        values.append(int(value))
+    allowed_dirs=set(values)
 TMP=Path('/tmp/welesza-render-check');TMP.mkdir(exist_ok=True)
 scene=bpy.context.scene;rig=bpy.data.objects['Bohater_RIG']
 import sys
@@ -67,7 +76,7 @@ anchor=[origin.x*192,(1-origin.y)*192]
 assert abs(anchor[0]-96)<.01 and abs(anchor[1]-158.35382907248)<.01,anchor
 visibility={'spoczynek':{},'chod':{}};orientation={}
 for d,label in enumerate(['S','SW','W','NW','N','NE','E','SE']):
-    if '--quick' in sys.argv and d not in [3,4]:continue
+    if d not in allowed_dirs or ('--quick' in sys.argv and d not in [3,4]):continue
     rig.rotation_euler.z=-d*math.pi/4;bpy.context.view_layer.update()
     point=rig.matrix_world.to_3x3()@Vector((1,0,0))
     screen=world_to_camera_view(scene,scene.camera,point)
@@ -89,7 +98,7 @@ for d,label in enumerate(['S','SW','W','NW','N','NE','E','SE']):
             # Visibility counts are evidence, not a visual acceptance gate.
             visibility[anim][label+'_'+str(frame)]=count
 report={'source_blend_sha256':hashlib.sha256(Path(bpy.data.filepath).read_bytes()).hexdigest(),'reproduction':repro,'anchor_projection_px':anchor,'visible_sword_pixels_at_192px':visibility,
-        'orientation':orientation,'tested_poses':('quick N/NW idle0, walk0/4/8' if '--quick' in sys.argv else 'all 8 idle and 12 walk phases in eight directions (160 masks)'),
+        'orientation':orientation,'mask_count':sum(len(v) for v in visibility.values()),'tested_directions':sorted(orientation),'tested_poses':('quick idle0, walk0/4/8' if '--quick' in sys.argv else 'all 8 idle and 12 walk phases in listed directions'),
         'limits':['weapon masks do not prove absence of all garment collisions',
                   'all walk frames were visually reviewed on contact sheets, not motion-captured']}
 (OUT/'render-validation.json').write_text(json.dumps(report,indent=2)+'\n')
