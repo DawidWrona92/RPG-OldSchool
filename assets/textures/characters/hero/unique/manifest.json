@@ -1,0 +1,1092 @@
+{
+  "schema_version": 1,
+  "status": "PROTOTYPE_NOT_APPROVED",
+  "scope": "Part A v2 old weathered traveler; three healed scars, two moles; no clothing.  ten skin maps plus two retained eye maps and diagnostic/support files",
+  "repository": "DawidWrona92/RPG-OldSchool",
+  "branch": "vibe/hero-textures-gpt6",
+  "main_base_commit": "9bf3ff94dfa62aad057594425f4f4bf2b0a44208",
+  "previous_work_commit": "bdc6529908389f3422aca66945cd0b7c1ebcb8ec",
+  "material_version": 2,
+  "author_direction_main_commit": "0d52d9efc9986db123affdc132290efcf05483e1",
+  "mesh": {
+    "repository": "DawidWrona92/RPG-OldSchool",
+    "commit": "421c7e895e6a029181dcb7c63ab277ad7bab4ca0",
+    "path": "assets/sprites/player/source/third_party/base.obj",
+    "group": "body",
+    "license": "CC0 (MakeHuman hm08 header)",
+    "sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c"
+  },
+  "normal_convention": "Tangent OpenGL +Y; Blender MikkTSpace basis; no high-poly bake",
+  "height_convention": {
+    "neutral": 0.5,
+    "suggested_full_range_meters": 0.002
+  },
+  "padding": "Nearest-surface full-background dilation; microdetail fades 32–56 px from UV boundary",
+  "ai_image_attempt": "image_gen face-UV painting trial was rejected for production alignment; none of its pixels are used in the delivered maps. No external photographs used. Eye generator remains undocumented.",
+  "manifest_self_hash": "Excluded to avoid circular hashing. Every other delivered file is listed.",
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "b1d1258a0e4f6de4e361e2db4e4b4e7f8b6cb197b26a355a3c12cea7eefd1396",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "documentation",
+      "color_space": "not applicable",
+      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "tools": [
+        "Codex"
+      ],
+      "models": null,
+      "sources": [
+        "repository brief and references"
+      ]
+    },
+    {
+      "file": "hero_eye_iris_basecolor.png",
+      "sha256": "98c9922c0e8498e6c4e5b28cc81e013e95575e4edf7d9ea3a807ca13f0f5aaba",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "RGBA",
+      "bit_depth": 8,
+      "map": "iris_basecolor",
+      "color_space": "sRGB",
+      "method": "Reused byte-for-byte from existing repository branch after decoding, dimension and visual checks; generator/model undocumented.",
+      "tools": [
+        "Unknown original tool; audited with Pillow 12.3.0 and NumPy 2.3.5"
+      ],
+      "models": null,
+      "sources": [
+        {
+          "repository": "DawidWrona92/RPG-OldSchool",
+          "commit": "59966fbb59ef87f685dd6ef67bed5b8d0e540144",
+          "path": "assets/textures/characters/hero/unique/hero_eye_iris_basecolor.png"
+        }
+      ]
+    },
+    {
+      "file": "hero_eye_sclera_basecolor.png",
+      "sha256": "b4ec512375ec4521a415262b1234c4b528387e3a1b167519027a44864b935f7f",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        512,
+        512
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "sclera_basecolor",
+      "color_space": "sRGB",
+      "method": "Reused byte-for-byte from existing repository branch after decoding, dimension and visual checks; generator/model undocumented.",
+      "tools": [
+        "Unknown original tool; audited with Pillow 12.3.0 and NumPy 2.3.5"
+      ],
+      "models": null,
+      "sources": [
+        {
+          "repository": "DawidWrona92/RPG-OldSchool",
+          "commit": "59966fbb59ef87f685dd6ef67bed5b8d0e540144",
+          "path": "assets/textures/characters/hero/unique/hero_eye_sclera_basecolor.png"
+        }
+      ]
+    },
+    {
+      "file": "hero_skin_body_basecolor.png",
+      "sha256": "daea8b6b3996a232654d24267aadb4d3bb3142fce998a3bd807eb3a7abca7d88",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "basecolor",
+      "color_space": "sRGB",
+      "method": "Procedural unlit pigment material at native UV-interpolated surface positions: smooth regional tanning, age spots, broken capillaries, healed scars and moles, eye bags, irregular scalp transition, salt-and-pepper stubble, hand dirt and nails; no illumination/AO input.",
+      "tools": [
+        "CPython 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
+      ],
+      "models": null,
+      "sources": [
+        "source/build_maps.py",
+        "source/aging_v2.py",
+        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
+        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
+        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
+        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+      ]
+    },
+    {
+      "file": "hero_skin_body_basecolor_2048.png",
+      "sha256": "971ea88fcf90980f953443ea5ec110b1c9475244f4790cb306dccb6428806dbb",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "basecolor",
+      "color_space": "sRGB",
+      "method": "Procedural unlit pigment material at native UV-interpolated surface positions: smooth regional tanning, age spots, broken capillaries, healed scars and moles, eye bags, irregular scalp transition, salt-and-pepper stubble, hand dirt and nails; no illumination/AO input. 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.",
+      "tools": [
+        "CPython 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
+      ],
+      "models": null,
+      "sources": [
+        "source/build_maps.py",
+        "source/aging_v2.py",
+        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
+        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
+        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
+        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+      ]
+    },
+    {
+      "file": "hero_skin_body_height.png",
+      "sha256": "df82176bfcddebdbfff860ff436cf1000312049b032d7ac3ce10fef794f89317",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "channels": "I;16",
+      "bit_depth": 16,
+      "map": "height",
+      "color_space": "linear / Non-Color",
+      "method": "16-bit linear scalar microrelief: pores, forehead/crowfeet/nasolabial creases, neck folds, eye bags, hand lines, tendons, veins, shallow healed scars and lip cracks. Neutral 0.5; proposed full range 0.002 m; no high-poly sculpt.",
+      "tools": [
+        "CPython 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
+      ],
+      "models": null,
+      "sources": [
+        "source/build_maps.py",
+        "source/aging_v2.py",
+        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
+        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
+        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
+        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+      ]
+    },
+    {
+      "file": "hero_skin_body_height_2048.png",
+      "sha256": "bbb5c9afb434d7ebecccb89c0751c1349de1798f7babdf8cd5de0dfc68215407",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "channels": "I;16",
+      "bit_depth": 16,
+      "map": "height",
+      "color_space": "linear / Non-Color",
+      "method": "16-bit linear scalar microrelief: pores, forehead/crowfeet/nasolabial creases, neck folds, eye bags, hand lines, tendons, veins, shallow healed scars and lip cracks. Neutral 0.5; proposed full range 0.002 m; no high-poly sculpt. 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.",
+      "tools": [
+        "CPython 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
+      ],
+      "models": null,
+      "sources": [
+        "source/build_maps.py",
+        "source/aging_v2.py",
+        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
+        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
+        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
+        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+      ]
+    },
+    {
+      "file": "hero_skin_body_normal_opengl.png",
+      "sha256": "2c7eb0557fe84a1e9c1c8a169228cc3ffcd3b689c159ec3a13f947a1c90fa901",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "normal_opengl",
+      "color_space": "linear / Non-Color",
+      "method": "Normalized tangent-space RGB vectors from height gradient; +Y OpenGL (UV V increases upward). Used with Blender MikkTSpace normal mapping. Not a sculpt bake.",
+      "tools": [
+        "CPython 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
+      ],
+      "models": null,
+      "sources": [
+        "source/build_maps.py",
+        "source/aging_v2.py",
+        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
+        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
+        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
+        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+      ]
+    },
+    {
+      "file": "hero_skin_body_normal_opengl_2048.png",
+      "sha256": "1180e0a0f8bca66b103983e9e028a161bb5868e32b1138ac9448c1c0b646e66a",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "normal_opengl",
+      "color_space": "linear / Non-Color",
+      "method": "Normalized tangent-space RGB vectors from height gradient; +Y OpenGL (UV V increases upward). Used with Blender MikkTSpace normal mapping. Not a sculpt bake. 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.",
+      "tools": [
+        "CPython 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
+      ],
+      "models": null,
+      "sources": [
+        "source/build_maps.py",
+        "source/aging_v2.py",
+        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
+        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
+        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
+        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+      ]
+    },
+    {
+      "file": "hero_skin_body_roughness.png",
+      "sha256": "7d73187c3e7b00adef59c6aa05f3755988102fd17208d15916565ef330167942",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "channels": "L",
+      "bit_depth": 8,
+      "map": "roughness",
+      "color_space": "linear / Non-Color",
+      "method": "Anatomical scalar material response with T-zone, cheeks, lips, scalp, stubble, hands, keratin and pore variation; not inferred from albedo luminance.",
+      "tools": [
+        "CPython 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
+      ],
+      "models": null,
+      "sources": [
+        "source/build_maps.py",
+        "source/aging_v2.py",
+        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
+        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
+        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
+        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+      ]
+    },
+    {
+      "file": "hero_skin_body_roughness_2048.png",
+      "sha256": "214fbf0b35ca6389926c1ea83a19720505bc19bf9ea3f4b99cc60c9d94f7cc90",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "channels": "L",
+      "bit_depth": 8,
+      "map": "roughness",
+      "color_space": "linear / Non-Color",
+      "method": "Anatomical scalar material response with T-zone, cheeks, lips, scalp, stubble, hands, keratin and pore variation; not inferred from albedo luminance. 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.",
+      "tools": [
+        "CPython 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
+      ],
+      "models": null,
+      "sources": [
+        "source/build_maps.py",
+        "source/aging_v2.py",
+        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
+        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
+        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
+        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+      ]
+    },
+    {
+      "file": "hero_skin_body_sss_mask.png",
+      "sha256": "d153c88da6725376dbca1134e97b41b105a7e1379acf8d2052c22183cf6cdad2",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        4096,
+        4096
+      ],
+      "channels": "L",
+      "bit_depth": 8,
+      "map": "sss_mask",
+      "color_space": "linear / Non-Color",
+      "method": "Relative anatomical thinness proxy: brighter ears, nose and fingers. Not a measured thickness/radius map.",
+      "tools": [
+        "CPython 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
+      ],
+      "models": null,
+      "sources": [
+        "source/build_maps.py",
+        "source/aging_v2.py",
+        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
+        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
+        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
+        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+      ]
+    },
+    {
+      "file": "hero_skin_body_sss_mask_2048.png",
+      "sha256": "362d29315b84c580d07c1c4eb44b6d7d0eded09ae8992f5ebe43ad55f62d6141",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "channels": "L",
+      "bit_depth": 8,
+      "map": "sss_mask",
+      "color_space": "linear / Non-Color",
+      "method": "Relative anatomical thinness proxy: brighter ears, nose and fingers. Not a measured thickness/radius map. 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.",
+      "tools": [
+        "CPython 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
+      ],
+      "models": null,
+      "sources": [
+        "source/build_maps.py",
+        "source/aging_v2.py",
+        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
+        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
+        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
+        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+      ]
+    },
+    {
+      "file": "podglad/skin_back.png",
+      "sha256": "e2e7b6e7c208cf6bd460a151548832ee9277aeb45d664568682f1344d5d2fe13",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/skin_body_back.png",
+      "sha256": "faa2c6da31011a422a505625ac01af28ee3a5015cf795159e70f8402f9e6c4cd",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/skin_body_front.png",
+      "sha256": "eccc7cc495de8f039f24c0d4804b4fbbd7324f8cc8d0c16b898cdf2df9edac6e",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/skin_body_profile.png",
+      "sha256": "3cd36ffc43b5bdb4d9cf21fd336bba172b689fe5b1f7ffab24efdf33887ac17c",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/skin_front.png",
+      "sha256": "cc85d1c10abafae9013ad86948ea88b183429ca975d93748e2402587f02cf601",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/skin_hands_back.png",
+      "sha256": "639569561ab65798f1bc924518778b149a0290c6558e291757d4e7c0472d5a92",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/skin_hands_dorsal.png",
+      "sha256": "8e032c8df1042dcf6865a2c15629f6824dd792669032256d14db01a3cd8a13c5",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/skin_hands_front.png",
+      "sha256": "4dca2469deeffe786c97380e68b3c9d7623462907aa3f18b11425dcd313b31e1",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/skin_profile.png",
+      "sha256": "7e2a1f4ecbe52cb3e6a971aa7ef388c76a5f48668c85ce158c5eae04a8e00e33",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/v2/after/skin_front.png",
+      "sha256": "cc85d1c10abafae9013ad86948ea88b183429ca975d93748e2402587f02cf601",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/v2/after/skin_hands_back.png",
+      "sha256": "639569561ab65798f1bc924518778b149a0290c6558e291757d4e7c0472d5a92",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/v2/after/skin_hands_dorsal.png",
+      "sha256": "8e032c8df1042dcf6865a2c15629f6824dd792669032256d14db01a3cd8a13c5",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/v2/after/skin_hands_front.png",
+      "sha256": "4dca2469deeffe786c97380e68b3c9d7623462907aa3f18b11425dcd313b31e1",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/v2/after/skin_profile.png",
+      "sha256": "7e2a1f4ecbe52cb3e6a971aa7ef388c76a5f48668c85ce158c5eae04a8e00e33",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current v2 hero_skin_body_*.png",
+        "pinned mesh below"
+      ],
+      "material_version": 2,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/v2/before/skin_front.png",
+      "sha256": "bf63e9a0aedf2404e35238c62f9d5dbecfb86a4978b88cd1fbf9af86768590aa",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "bdc6529908389f3422aca66945cd0b7c1ebcb8ec skin maps",
+        "pinned mesh below"
+      ],
+      "material_version": 1,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/v2/before/skin_hands_back.png",
+      "sha256": "46be5fd73c67cb97ad31920446b4aa38e7d798a8884e0155bce2b537892c4231",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "bdc6529908389f3422aca66945cd0b7c1ebcb8ec skin maps",
+        "pinned mesh below"
+      ],
+      "material_version": 1,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/v2/before/skin_hands_dorsal.png",
+      "sha256": "b633b7b5728a05da73ece8234fb91c20029b11b93dce56b325bafff53a83d4d5",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "bdc6529908389f3422aca66945cd0b7c1ebcb8ec skin maps",
+        "pinned mesh below"
+      ],
+      "material_version": 1,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/v2/before/skin_hands_front.png",
+      "sha256": "ffb6fcc595ed00da37b442e8af2f037e831c106e48bf7269a18b40c35bcc3f2f",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "bdc6529908389f3422aca66945cd0b7c1ebcb8ec skin maps",
+        "pinned mesh below"
+      ],
+      "material_version": 1,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/v2/before/skin_profile.png",
+      "sha256": "e0f3e84c73a387b19ae664a3c390bdccdc3f69dc75a131ce1f514c98d3639d33",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "bdc6529908389f3422aca66945cd0b7c1ebcb8ec skin maps",
+        "pinned mesh below"
+      ],
+      "material_version": 1,
+      "normal_strength": 0.45
+    },
+    {
+      "file": "podglad/v2/porownanie.png",
+      "sha256": "a00198648601a1257811187d83e9f7ccb1e0f1adbc594f3f12610706735e1e70",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        1536,
+        2436
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "comparison_sheet",
+      "color_space": "sRGB / AgX",
+      "method": "Side-by-side unaltered Cycles renders; no rescaling or color edits.",
+      "tools": [
+        "Pillow 12.3.0"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/compare_v2.py",
+        "podglad/v2/before",
+        "podglad/v2/after"
+      ],
+      "material_version": [
+        1,
+        2
+      ],
+      "normal_strength": 0.45
+    },
+    {
+      "file": "qa/v2_material_checks.json",
+      "sha256": "a21a062ca5d2cd58c33eb18343ce97305c85e26ef1b16881dabb152207347f81",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "validation_report",
+      "color_space": "not applicable",
+      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "tools": [
+        "Codex"
+      ],
+      "models": null,
+      "sources": [
+        "repository brief and references"
+      ]
+    },
+    {
+      "file": "qa/validation.json",
+      "sha256": "4f499020d1ffe230911992d4ff57cbe5f2d85ea581ca0dbba4f36fae7da25535",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "validation_report",
+      "color_space": "not applicable",
+      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "tools": [
+        "Codex"
+      ],
+      "models": null,
+      "sources": [
+        "repository brief and references"
+      ]
+    },
+    {
+      "file": "source/README-v1.md",
+      "sha256": "91972f495633e637cb219fa60ca3ce526f5e4ced47a947276033db23e05a7cee",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "documentation",
+      "color_space": "not applicable",
+      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "tools": [
+        "Codex"
+      ],
+      "models": null,
+      "sources": [
+        "repository brief and references"
+      ]
+    },
+    {
+      "file": "source/aging_v2.py",
+      "sha256": "994daa16c178d9cb6cbf81472dc3204701a2faf1525e7999d6f860dbbc76f2da",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "source_script",
+      "color_space": "not applicable",
+      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "tools": [
+        "Codex"
+      ],
+      "models": null,
+      "sources": [
+        "repository brief and references"
+      ]
+    },
+    {
+      "file": "source/build_maps.py",
+      "sha256": "26044e5d913002a4a21bfe528493ce0e04f59a958b018a4af784bfdeec111d53",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "source_script",
+      "color_space": "not applicable",
+      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "tools": [
+        "Codex"
+      ],
+      "models": null,
+      "sources": [
+        "repository brief and references"
+      ]
+    },
+    {
+      "file": "source/compare_v2.py",
+      "sha256": "af11782dad5b3a6e5db924a70d5178552a35a4651a221a0ab3f4baeb7029696a",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "source_script",
+      "color_space": "not applicable",
+      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "tools": [
+        "Codex"
+      ],
+      "models": null,
+      "sources": [
+        "repository brief and references"
+      ]
+    },
+    {
+      "file": "source/render_check.py",
+      "sha256": "b9f4fe600b08a40be30932cf14a6d03c0d80b7ac2dea1a2ca9b400e4381c5a46",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "source_script",
+      "color_space": "not applicable",
+      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "tools": [
+        "Codex"
+      ],
+      "models": null,
+      "sources": [
+        "repository brief and references"
+      ]
+    },
+    {
+      "file": "source/validate.py",
+      "sha256": "d9c95ef81efb25768f46bcdb26676b82d74808f64d8d56be0dfd7f7c91b92830",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "source_script",
+      "color_space": "not applicable",
+      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "tools": [
+        "Codex"
+      ],
+      "models": null,
+      "sources": [
+        "repository brief and references"
+      ]
+    },
+    {
+      "file": "source/write_manifest.py",
+      "sha256": "7605dad3c927490a87a2b843d5789b3c5b53270880a6f74b971d386122183d72",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "source_script",
+      "color_space": "not applicable",
+      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "tools": [
+        "Codex"
+      ],
+      "models": null,
+      "sources": [
+        "repository brief and references"
+      ]
+    }
+  ]
+}

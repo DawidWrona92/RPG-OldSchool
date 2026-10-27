@@ -1,0 +1,17 @@
+{
+  "status": "ARCHIVE_READ_ONLY",
+  "checkpoint_commit": "421c7e895e6a029181dcb7c63ab277ad7bab4ca0",
+  "main_review_commit": "0d52d9efc9986db123affdc132290efcf05483e1",
+  "active_source": "source/bohater_v2.blend",
+  "archives": [
+    {
+      "path": "source/bohater.blend",
+      "sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3"
+    },
+    {
+      "path": "source/bohater_detale.blend",
+      "sha256": "bfa713745c1d57f3004688220af77a36f75aacbdc2fd7f3552306705f753e76f"
+    }
+  ],
+  "note": "Starsze pliki i odpowiadaj\u0105ce im atlasy pozostaj\u0105 nienaruszone do por\u00f3wna\u0144. Nie s\u0105 \u017ar\u00f3d\u0142em v2."
+}
