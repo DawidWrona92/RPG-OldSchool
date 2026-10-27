@@ -1,6 +1,6 @@
 # Welesza — płynne przechodzenie przez świat (v0.2)
 
-**Status:** wymóg gracza zatwierdzony; architektura i limity wydajności są **hipotezami technicznymi**. Nie wybrano silnika ani reprezentacji scen. Dokument nie narzuca SDF, Blendera ani innego renderera.
+**Status:** wymóg gracza zatwierdzony; architektura i limity wydajności są **hipotezami technicznymi**. Silnik: Godot 4 ([decyzja warunkowa](../SILNIK.md)); reprezentacja scen nie jest wybrana. Dokument nie narzuca SDF, Blendera ani innego renderera.
 
 ## A. Twardy kontrakt doświadczenia gracza
 
@@ -59,7 +59,7 @@ Zaproponowany cel użytkowy: płynność wystarczająca do wiarygodnego uniku i 
 
 Pomiary: wykres czasów klatek (nie tylko średni FPS), CPU/GPU, zużycie i piki pamięci, czas decode/upload zasobów, koszt tworzenia colliderów, stan fizyki i AI przy przechodzeniu, opóźnienie inputu, ponowne wejście po natychmiastowym zawróceniu oraz niskopamięciowy scenariusz. Każdy pomiar zawiera build, sprzęt, obciążenie i zapis wideo.
 
-## G. Testy akceptacyjne do uruchomienia po wyborze silnika
+## G. Testy akceptacyjne do uruchomienia w prototypie Godota
 
 1. Marsz i sprint: brama → rozstaj → wóz → podejście do mostu → pełen nawrót, bez przerwy; szwy dowolnej organizacji silnika są niewidoczne.
 2. Walka i pociski na potencjalnym szwie, również podczas uniku i odwrotu.

@@ -36,6 +36,7 @@ Dokumenty wyraźnie odróżniają **decyzje autora**, **uzgodniony kierunek arty
 - **[Przewodnik artystyczny Niemiru v1.2](art/niemir/NIEMIR_ART_DIRECTION.md)** — zaakceptowany klimat osady, paleta, kompozycja i standard oceny; technika renderu: [kontrakt](art/KONTRAKT-RENDERU.md).
 - [PDF przewodnika](art/niemir/NIEMIR_ART_DIRECTION.pdf) — wersja do czytania.
 - **[Kontrakt renderu sprite'ów](art/KONTRAKT-RENDERU.md)** — decyzja autora: prerender w Blenderze; kamera, skala, kierunki, kotwica, światło, eksport i kontrola jakości.
+- **[Silnik gry: Godot 4](SILNIK.md)** — decyzja warunkowa; wersja, warunki i wynik pierwszego testu.
 - **[18 ilustracji koncepcyjnych](koncepty/README.md)** — potwory, cywile, architektura i kadry z perspektywy gry.
 - [Przyroda boru](koncepty/przyroda/README.md) — arkusze roślinności, skał i drzew, plansze materiałów i [plan assetów](koncepty/przyroda/PLAN-ASSETOW.md).
 

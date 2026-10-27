@@ -10,7 +10,7 @@ Dokument ustala **wspólne zasady obrazu**, żeby postacie, potwory i otoczenie 
 
 | Obowiązuje | Jeszcze otwarte |
 |---|---|
-| Bohater, potwory, NPC, rekwizyty, roślinność, budynki — wszystko, co jest sprite'em w świecie gry | Silnik gry i sposób importu atlasów |
+| Bohater, potwory, NPC, rekwizyty, roślinność, budynki — wszystko, co jest sprite'em w świecie gry | Importer atlasów do silnika ([Godot 4, decyzja warunkowa](../SILNIK.md)) |
 | Kamera, skala, kierunki, kotwica, bazowe światło, eksport | Ostateczny grading kolorów po teście w silniku |
 | Organizacja źródeł i kontrola jakości | Kafle podłoża i technika terenu (muszą jednak przyjąć tę samą kamerę i skalę) |
 | | Rozmiar klatki dla dużych obiektów (zob. „Duże obiekty”) |

@@ -40,7 +40,7 @@ Zestaw służy głównie do proceduralnych sprite'ów i atlasów. Nie stanowi ob
 
 Skalę, światło, projekcję, kotwicę i filtrację trzeba uzgodnić przed łączeniem wyników różnych narzędzi. Eksport ma zawierać źródło generatora, obraz natywny, wymagane metadane i raport kontroli.
 
-Instalacja adaptera Godot nie zatwierdza wyboru silnika. Podane w jego instrukcji przykładowe konwencje projektu nie są automatycznie konwencjami Weleszy — projekt silnika gry jeszcze nie istnieje.
+Silnik Godot 4 wybrano osobno ([SILNIK.md](SILNIK.md)). Przykładowe konwencje z instrukcji tego adaptera (np. kafel 96×48, własny format JSON) nie są konwencjami Weleszy — obowiązuje format z kontraktu renderu.
 
 Na tym etapie nie wygenerowano nowych ilustracji ani assetów Weleszy; obrazy w `demo/` są przykładami dostarczonymi przez repozytorium źródłowe.
 
