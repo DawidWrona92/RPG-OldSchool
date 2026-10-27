@@ -1,0 +1,50 @@
+{
+  "browser": "system Chromium / Playwright",
+  "source_blend_sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3",
+  "loaded_atlases": 8,
+  "canvas_native_dimensions": [
+    {
+      "internal": [
+        768,
+        432
+      ],
+      "css": [
+        768,
+        432
+      ]
+    },
+    {
+      "internal": [
+        768,
+        432
+      ],
+      "css": [
+        768,
+        432
+      ]
+    }
+  ],
+  "manual_steps": {
+    "chod": {
+      "manual_frame_0_vs_3_different": true,
+      "frame_count": 12
+    },
+    "spoczynek": {
+      "manual_frame_0_vs_3_different": true,
+      "frame_count": 8
+    }
+  },
+  "playback_sample": {
+    "start": {
+      "t": 929.5,
+      "f": 0
+    },
+    "end": {
+      "t": 2144,
+      "f": 3
+    },
+    "expected_ms_per_walk_frame": 80
+  },
+  "javascript_errors": [],
+  "scope": "interactive preview only; not target engine or artistic motion acceptance"
+}

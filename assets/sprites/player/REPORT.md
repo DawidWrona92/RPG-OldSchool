@@ -6,6 +6,9 @@ Punkt „przed”: `a0a6c27e33b5d634e1ccad59e7634e4ab4d7ccde`, zachowany razem
 z modelem w [baseline](baseline/checkpoint.json). To ta sama postać i szkielet;
 nie rozpoczęto ataków, uników, śmierci ani innych postaci.
 
+Najnowsza praca nad detalami jest osobną wersją roboczą: `source/bohater_detale.blend`.
+Poniższe kompletne atlasy i testy dotyczą zachowanego modelu rewizji 08.
+
 ## Materiał do przeglądu
 
 - [Odtwarzacz przed/po, osiem kierunków 1:1](previews/review.html).
@@ -146,7 +149,30 @@ wybiciu (około 0,22 px w rzucie poziomym); końcowy raport zachowuje rzeczywist
 pomiar, oddzielnie od idealnego kontaktu pivotu. To ograniczenie obecnej siatki
 buta, nie „pełna poprawność kontaktu” na podstawie samego wzoru.
 
-Wyniki końcowych kontroli i konkretne słabe fazy zostaną dopisane poniżej po
-zakończeniu renderowania bieżącej rewizji. Bieżące dane maszynowe są w
-`previews/*validation.json` i `previews/technical-report.json`; sprawdzaj zgodność
-ich SHA źródła z `source/art-source.json`.
+## Wykonane kontrole — pełny eksport rewizji 08
+
+Źródło: SHA-256 `bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3`.
+
+- 160 klatek bazowych: RGBA, przezroczyste granice, marginesy i zgodne hashe postaci/cienia.
+- 28 dodatkowych par postać/cień: chłodne i ciepłe światło, pochwa oraz duże rendery przed/po; pochodzenie zweryfikowane oddzielnie.
+- 242 próbki zapisanych akcji i 22 klucze: największa szczelina stawów 0,000000400 m, błąd długości kości 0,000000412 m; błąd zamknięcia pętli 0.
+- Kotwica z kamery: (95,999960; 158,353849) px; osiem poprawnych projekcji kierunków.
+- 13 par podparcia: największy błąd kompensacji ruchu z rzeczywistych landmarków stopy 0,000000246 m.
+- Ponowny render z zapisanego `.blend`: identyczne dekodowane piksele RGBA dla spoczynku S0.
+- Izolowana naprawa uszkodzonej klatki: identyczne piksele postaci i cienia; odrzucenie cache innego źródła; wznowienie pełnego zestawu 160/160 bez renderowania.
+- 160 komórek atlasu kompatybilnego zgodnych z kompozycją osobnej postaci i cienia; czasy GIF/WebP odczytane z gotowych animacji.
+- Chromium: załadowano osiem atlasów; canvas 1:1, pauza, zmiana klatek i odtwarzanie, bez błędów JavaScript.
+- BVH: 20 póz, ostrze wobec siedmiu wskazanych powierzchni oraz dolny płaszcz wobec spodni — nie wykryto przecięć w tym zakresie. Nie badano pełnych objętości, wszystkich dodatków ani wszystkich subklatek. Minimum powierzchni podeszwy względem z=0: −0,003733 m.
+
+**Pełna kontrola broni wykazała regresję pozy:** W, fazy chodu **4–7** mają
+0 widocznych pikseli broni. NW jest słaby zwłaszcza w fazie 2 (5 px),
+w fazach 1/3 jest 6 px. N ma 78–92 px w chodzie, lecz poprawa N nie rekompensuje
+regresji W. Tej pozy nie uznajemy za rozwiązanie czytelności ani za gotową do
+integracji. Osiem kierunków i podglądy wszystkich faz pokazują problem jawnie.
+Drugi kandydat poprawiał W (minimum 36 px), ale pogarszał NW (2 px); również nie
+został przyjęty. Po nowej dyspozycji autora prace skupiają się na detalach renderu,
+a rozstrzygnięcie pozy pozostaje otwarte.
+
+Dane maszynowe: `previews/*validation.json`, `technical-report.json`.
+Nowy statyczny pass detali jest osobno w `source/bohater_detale.blend` i ma
+własny manifest; nie przypisujemy mu powyższych wyników animacji rewizji 08.

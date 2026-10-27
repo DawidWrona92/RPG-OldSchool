@@ -1,11 +1,29 @@
 {
-  "sampled_poses": 242,
-  "keyed_poses_checked": 22,
+  "source_blend_sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3",
+  "sampled_saved_poses": 242,
+  "export_keys_verified": 22,
   "bones": 17,
-  "max_joint_gap_m": 5.308244565295242e-07,
-  "max_bone_length_error_m": 4.3185976988935337e-07,
-  "max_actual_foot_target_error_m": 7.875090993478186e-07,
-  "max_action_matrix_error": 0,
-  "loop_seams": "passed / idle and walk",
+  "max_joint_gap_m": 3.998401124775034e-07,
+  "max_bone_length_error_m": 4.1235044495602224e-07,
+  "max_loop_matrix_error": 0,
+  "actions": {
+    "spoczynek": {
+      "range": [
+        1.0,
+        81.0
+      ],
+      "curves": 170,
+      "export_keys": 9
+    },
+    "chod": {
+      "range": [
+        1.0,
+        25.0
+      ],
+      "curves": 170,
+      "export_keys": 13
+    }
+  },
+  "scope": "saved bone actions; no comparison to regenerated poses; geometry disabled only in this bone validator",
   "action_timing": "25 fps / idle 400 ms / walk 80 ms"
 }

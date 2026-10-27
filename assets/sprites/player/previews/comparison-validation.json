@@ -1,0 +1,15 @@
+{
+  "native_comparison_frames": 160,
+  "compat_cells_verified": 160,
+  "baseline_commit": "a0a6c27e33b5d634e1ccad59e7634e4ab4d7ccde",
+  "same_camera_exposure_scale": true,
+  "world_background": "concept illustration 17, not a playable scene",
+  "background_scale_assumption": "60 px/m near anchor (590,810); image has no calibrated world scale; sprite not enlarged",
+  "moving_ground_mps": 0.9027777777777779,
+  "material_maps": "UV metric 0.32 m repeat; scalar height bump, tangent normal files unused to avoid double relief",
+  "visual_limits": [
+    "No claim of production acceptance",
+    "Microdetail largely disappears at 192px",
+    "Sheathed option only a preview; hand pose not a finished exploration animation"
+  ]
+}

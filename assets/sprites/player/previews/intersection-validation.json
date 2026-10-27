@@ -1,5 +1,5 @@
 {
-  "source_blend_sha256": "e55d5faa044b6e5a36a73f8e0cd6e3f2ee455459698b5256f27b22cd2991d661",
+  "source_blend_sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3",
   "sampled_poses": 20,
   "rotation_note": "Przecięcia nie zmieniają się po wspólnym obrocie do 8 kierunków.",
   "method": "evaluated modifier meshes / triangle surface BVH overlap, epsilon=0",

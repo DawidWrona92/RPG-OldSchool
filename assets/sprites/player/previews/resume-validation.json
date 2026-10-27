@@ -1,5 +1,6 @@
 {
-  "source_blend_sha256": "e55d5faa044b6e5a36a73f8e0cd6e3f2ee455459698b5256f27b22cd2991d661",
+  "source_blend_sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3",
+  "full_set_resume_reused_frames": 160,
   "cache_reused_frames": 1,
   "cache_rendered_frames": 0,
   "isolated_corrupt_frame_repaired": 1,
@@ -7,5 +8,5 @@
   "identical_decoded_shadow_pixels": true,
   "changed_source_cache_rejected": true,
   "canonical_blend_unchanged": true,
-  "scope": "one body/shadow pair and source-mismatch rejection in isolated temporary directory; full 160-frame resume separately logged"
+  "scope": "one body/shadow pair and source-mismatch rejection in isolated temporary directory; full 160-frame cache reused with zero renders"
 }

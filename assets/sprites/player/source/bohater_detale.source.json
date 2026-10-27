@@ -1,0 +1,14 @@
+{
+  "source": "source/bohater_detale.blend",
+  "parent_source_sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3",
+  "source_sha256": "ed566431b52d1d743611fae9434ace2c7030f7ab2298b8a13b6ed7891ba597ed",
+  "status": "static review first; existing actions preserved, new cloth motion not accepted",
+  "recipe": "detail_clothing.py",
+  "changes": [
+    "longer irregular cloak",
+    "actual cloak holes and frayed tabs",
+    "sewn cloak and knee patches",
+    "leather panels overlap trousers",
+    "controlled irregular linen hem"
+  ]
+}
