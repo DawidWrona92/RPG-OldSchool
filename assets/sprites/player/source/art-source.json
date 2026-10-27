@@ -1,8 +1,8 @@
 {
   "baseline_commit": "a0a6c27e33b5d634e1ccad59e7634e4ab4d7ccde",
-  "art_revision": "refinement-05-chunk03",
+  "art_revision": "refinement-08-review",
   "authoritative_source": "source/bohater.blend",
-  "source_sha256": "33d97b9ded60ba421a25b1ab2fc3aa661ccda223ded4596f90ae901b2764030b",
+  "source_sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3",
   "textures_packed": true,
   "materials": {
     "Znoszony len": [
@@ -202,5 +202,9 @@
     0.01,
     -0.4,
     1.07
-  ]
+  ],
+  "groom_recipe": "groom_player.py",
+  "shirt_note": "lower linen tucked inside belt/trousers; removed light crotch patch",
+  "fine_groom_recipe": "refine_groom.py",
+  "finish_groom_recipe": "finish_groom.py"
 }

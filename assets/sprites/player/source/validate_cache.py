@@ -17,6 +17,9 @@ with tempfile.TemporaryDirectory(prefix='welesza-cache-',dir='/tmp') as director
  # A changed source fingerprint must reject the cache before any PNG changes.
  wrong=json.loads((folder/'motion_audit.json').read_text());wrong['source_blend_sha256']='0'*64;(folder/'motion_audit.json').write_text(json.dumps(wrong));previous=sha(folder/file)
  third=subprocess.run(command,cwd=REPO,capture_output=True,text=True);assert third.returncode!=0 and 'Cache differs: source_blend_sha256' in third.stdout+third.stderr;assert previous==sha(folder/file)
+full=subprocess.run(['blender','-b',str(source),'-t','4','--python-exit-code','1','--python',str(ROOT/'source/render_player.py'),'--','--all','--resume'],cwd=REPO,capture_output=True,text=True)
+assert full.returncode==0,full.stdout[-2000:]+full.stderr[-2000:]
+assert full.stdout.count('WELESZA_REUSE')==160 and 'WELESZA_FRAME' not in full.stdout
 assert sha(source)==source_sha
-report={'source_blend_sha256':source_sha,'cache_reused_frames':1,'cache_rendered_frames':0,'isolated_corrupt_frame_repaired':1,'identical_decoded_body_pixels':identical[0],'identical_decoded_shadow_pixels':identical[1],'changed_source_cache_rejected':True,'canonical_blend_unchanged':True,'scope':'one body/shadow pair and source-mismatch rejection in isolated temporary directory; full 160-frame resume separately logged'}
+report={'source_blend_sha256':source_sha,'full_set_resume_reused_frames':160,'cache_reused_frames':1,'cache_rendered_frames':0,'isolated_corrupt_frame_repaired':1,'identical_decoded_body_pixels':identical[0],'identical_decoded_shadow_pixels':identical[1],'changed_source_cache_rejected':True,'canonical_blend_unchanged':True,'scope':'one body/shadow pair and source-mismatch rejection in isolated temporary directory; full 160-frame cache reused with zero renders'}
 (ROOT/'previews/resume-validation.json').write_text(json.dumps(report,indent=2)+'\n');print('PASS',json.dumps(report))

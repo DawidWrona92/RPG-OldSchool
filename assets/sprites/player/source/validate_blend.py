@@ -15,6 +15,9 @@ import sys
 sys.path.insert(0,str(HERE))
 import motion_player as module
 module.bind()
+# Bone-only tests skip mesh evaluation; surface intersections are checked separately.
+for obj in bpy.data.objects:
+    if obj.type=='MESH':obj.hide_viewport=True
 rig=module.RIG;cape=module.CAPE.data.shape_keys;scene=bpy.context.scene
 rig.animation_data.action=None;cape.animation_data_clear()
 max_gap=0;max_length=0;max_target=0;poses=0
