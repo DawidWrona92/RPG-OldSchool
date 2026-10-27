@@ -39,10 +39,11 @@ Kolory widoczne na koncepcie (mediana próbek, **ze światłem ilustracji** — 
 
 ## 3. Kanon i ograniczenia
 
-- Mężczyzna **35–40 lat**, jasna, środkowoeuropejska karnacja **ogorzała od wiatru i słońca**: twarz, szyja, dłonie i przedramiona cieplejsze i ciemniejsze niż ciało pod ubraniem.
+- **[DECYZJA AUTORA, 27.10.2026] Stary, mocno ogorzały podróżnik** — postać wygląda starzej niż na koncepcie 17: głębokie zmarszczki czoła, kurze łapki, bruzdy nosowo-wargowe, zwiotczała skóra pod oczami, przebarwienia od słońca. Jasna, środkowoeuropejska karnacja **ogorzała od wiatru i słońca**: twarz, szyja, dłonie i przedramiona cieplejsze i ciemniejsze niż ciało pod ubraniem.
 - **Kilkudniowy, ciemnobrązowy zarost** na policzkach, żuchwie, podbródku, nad wargą i pod żuchwą; włosy ciemne (model dostanie włókna — Twoja tekstura daje pod nimi ciemniejszą skórę głowy i cień zarostu).
 - Brud i zmęczenie drogą: brud w zagłębieniach dłoni, przy paznokciach i na kostkach; lekkie zaczerwienienia nosa, policzków i uszu od chłodu.
-- **Nie dodawaj** blizn, tatuaży, malunków, biżuterii, ran ani znaków szczególnych — nie są kanonem. Wątpliwości zgłaszasz autorowi.
+- **[DECYZJA AUTORA, 27.10.2026] Ślady życia w drodze są dozwolone:** kilka starych, wygojonych blizn (np. przecięcie brwi lub policzka, drobne blizny na dłoniach i knykciach) i jeden–dwa pieprzyki na twarzy lub szyi. Blizny są jaśniejsze i gładsze od skóry, bez świeżych ran i zaczerwienień. To wygląd postaci, nie nowe fakty fabularne — nie wymyślaj ich historii.
+- **Nadal nie dodawaj** tatuaży, malunków, biżuterii ani świeżych ran.
 - **Bez wpieczonego światła:** albedo nie ma cieni, połysków, okluzji ani kierunku światła. Model oświetla Blender według [kontraktu renderu](../../KONTRAKT-RENDERU.md).
 - Nie kopiuj fotografii ani tekstur o niejasnej licencji. Narzędzia i modele, których użyłeś, zapisz w manifeście. Tekstury tworzone przez AI są dopuszczone decyzją autora.
 
@@ -104,7 +105,7 @@ Dla każdej części: `hero_<czesc>_basecolor.png`, `_roughness.png`, `_normal_o
 
 ## 7. Kryteria akceptacji (sprawdza PM i autor po renderze Sola)
 
-1. Portret 768 px: wiek i charakter twarzy zgodne z konceptem; zarost czytelny; usta, oczodoły i uszy naturalne.
+1. Portret 768 px: twarz starego, ogorzałego podróżnika (zgodnie z decyzją autora), rysy zgodne z konceptem; zarost czytelny; usta, oczodoły i uszy naturalne.
 2. Brak widocznych szwów w ujęciach przód, profil, tył, dłonie.
 3. Brak wpieczonego światła i powtórzeń kafelka.
 4. W skali gry (1×) twarz i przedramiona czytają się jako ogorzała skóra, a nie jako jednolita beżowa plama.

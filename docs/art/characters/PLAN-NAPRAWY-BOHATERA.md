@@ -40,12 +40,12 @@ D2 jest warunkiem równoległej pracy: tekstura skóry GPT 6 powstaje na natywny
 
 ### F1 — Ciało i szkielet (Sol)
 - Pełne ciało z `base.obj` (grupa `body`), natywne UV MakeHuman nietknięte.
-- Proporcje z konceptu: mężczyzna 35–40 lat, 1,80 m, atletyczny, szerokie barki, wyprostowana postawa. Targety MakeHuman (CC0, ta sama przypięta rewizja repozytorium MakeHuman) albo MPFB — wynik zapisany jako kształt, nie nowa siatka.
+- Proporcje z konceptu: mężczyzna 1,80 m, **stary i mocno ogorzały** (decyzja autora 27.10.2026 — starszy niż na koncepcie), wciąż silny i żylasty, szerokie barki, wyprostowana postawa. Targety MakeHuman (CC0, ta sama przypięta rewizja repozytorium MakeHuman) albo MPFB — wynik zapisany jako kształt, nie nowa siatka.
 - Szkielet `default.mhskel` + `default_weights.mhw`; sprawdzić deformację barków, łokci, nadgarstków, palców i kolan w pozach testowych.
 - **Wydanie dla GPT 6 (przekazanie P1):** render siatki ciała w pozie spoczynkowej (przód, profil, ¾) z nałożonym szablonem UV, aby potwierdzić, że UV jest natywne.
 
 ### F2 — Głowa (Sol, równolegle z F3; tekstury GPT 6 równolegle)
-- Rzeźba twarzy według konceptu (wiek, żuchwa, kości policzkowe, łuki brwiowe, zmarszczki mimiczne) — jako kształt na tej samej topologii.
+- Rzeźba twarzy według konceptu, postarzona zgodnie z decyzją autora (głębsze bruzdy i zmarszczki, zapadnięte policzki, wyraźne łuki brwiowe i żuchwa; blizny i pieprzyki z tekstury GPT 6) — jako kształt na tej samej topologii.
 - Oczy: kula oka z rogówką i osobną teksturą tęczówki od GPT 6; powieki nachodzą na oko bez przenikania na zewnątrz.
 - Włosy krótkie, ciemne, potargane, zaczesane do tyłu i na bok (krzywe); brwi i zarost z krótkich włókien **oraz** w teksturze skóry (cień zarostu).
 - Skóra: Principled BSDF z teksturami GPT 6, SSS 0,2–0,3, promienie czerwień > zieleń > niebieski.
