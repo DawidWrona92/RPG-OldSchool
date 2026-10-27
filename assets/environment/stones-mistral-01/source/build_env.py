@@ -235,6 +235,161 @@ for gi, (name, seed, pos) in enumerate([
     ob.data.materials.append(grass_mats[gi % 3])
     tufts.append((ob, pos))
 
+def make_fern(name, seed, fronds=7, length=(0.18, 0.34)):
+    """Paproc: kazdy frond = rachida z parami listkow (quad strip, lekko zwinieta)."""
+    import mathutils
+    r = random.Random(seed)
+    mesh = bpy.data.meshes.new(name)
+    ob = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(ob)
+    verts, faces = [], []
+    for fi in range(fronds):
+        ang = r.uniform(0, 2*math.pi)
+        L = r.uniform(*length)
+        tilt = r.uniform(0.5, 1.1)  # nachylenie fronda od pionu
+        segs = 6
+        prev_dir = mathutils.Vector((math.cos(ang)*math.sin(tilt), math.sin(ang)*math.sin(tilt), math.cos(tilt)))
+        base_i = len(verts)
+        # rachida jako ciag par wierzcholkow
+        points = [mathutils.Vector((0,0,0))]
+        for si in range(1, segs+1):
+            t = si/segs
+            p = points[-1] + prev_dir * (L/segs) * (1 - 0.15*t)
+            p.z = max(p.z, 0)
+            points.append(p)
+        for si, p in enumerate(points):
+            side = mathutils.Vector((-prev_dir.y, prev_dir.x, 0)).normalized()
+            w = 0.004 * (1 - si/segs*0.5)
+            verts.append(p - side*w)
+            verts.append(p + side*w)
+        for si in range(segs):
+            b = base_i + si*2
+            faces.append((b, b+1, b+3, b+2))
+        # listki: pary malych quadow wzdiz rachidy
+        for si in range(1, segs):
+            t = si/segs
+            p = points[si]
+            side = mathutils.Vector((-prev_dir.y, prev_dir.x, 0)).normalized()
+            leaf_len = 0.05 + 0.07*(1-t)
+            for sgn in (-1, 1):
+                ldir = (prev_dir*0.3 + side*sgn).normalized()
+                tip = p + ldir*leaf_len
+                tip.z = max(tip.z, 0.005)
+                b = len(verts)
+                verts += [p, p + mathutils.Vector((0,0,0.012)), tip + mathutils.Vector((0,0,0.006)), tip]
+                faces.append((b, b+1, b+2, b+3))
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    return ob
+
+def make_fern_material(name, seed):
+    m = bpy.data.materials.new(name)
+    m.use_nodes = True
+    nt = m.node_tree
+    bsdf = nt.nodes["Principled BSDF"]
+    r = random.Random(seed)
+    tex = ["ground/dense_forest_moss", "ground/wet_grass_earth"][seed % 2]
+    col = load_img(os.path.join(TEX, f"{tex}_color.png"), f"fern_{seed}_color")
+    texc = nt.nodes.new("ShaderNodeTexImage"); texc.image = col
+    mapping = nt.nodes.new("ShaderNodeMapping")
+    mapping.inputs["Scale"].default_value = (r.uniform(4.0, 8.0), r.uniform(4.0, 8.0), 1.0)
+    tco = nt.nodes.new("ShaderNodeTexCoord")
+    nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
+    nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
+    # ciemniejsza, chlodniejsza zielec paproci
+    hsv = nt.nodes.new("ShaderNodeHueSaturation")
+    hsv.inputs["Saturation"].default_value = 0.75
+    hsv.inputs["Value"].default_value = 0.6
+    hsv.inputs["Hue"].default_value = 0.45
+    nt.links.new(texc.outputs["Color"], hsv.inputs["Color"])
+    nt.links.new(hsv.outputs["Color"], bsdf.inputs["Base Color"])
+    bsdf.inputs["Roughness"].default_value = 0.85
+    bsdf.inputs["Specular IOR Level"].default_value = 0.1
+    bsdf.inputs["Subsurface Weight"].default_value = 0.2
+    return m
+
+fern_mats = [make_fern_material(f"WELESZA_fern_{i}", 10+i) for i in range(2)]
+ferns = []
+for gi, (name, seed, pos, rot) in enumerate([
+    ("paproc_a", 201, (-4.6, 2.2, 0), 0.4),
+    ("paproc_b", 202, (1.9, 3.1, 0), 2.1),
+]):
+    ob = make_fern(name, seed)
+    ob.data.materials.append(fern_mats[gi % 2])
+    ob.rotation_euler[2] = rot
+    ferns.append((ob, pos))
+
+def make_twigs(name, seed, count=5, radius=(0.008, 0.02), length=(0.25, 0.6)):
+    """Chrust: kilka suchych galezi na ziemi."""
+    import mathutils
+    r = random.Random(seed)
+    mesh = bpy.data.meshes.new(name)
+    ob = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(ob)
+    verts, faces = [], []
+    for i in range(count):
+        ang = r.uniform(0, 2*math.pi)
+        L = r.uniform(*length)
+        rad = r.uniform(*radius)
+        cx, cy = r.uniform(-0.25, 0.25), r.uniform(-0.25, 0.25)
+        dirv = mathutils.Vector((math.cos(ang), math.sin(ang), 0))
+        segs = 4
+        base = len(verts)
+        for si in range(segs+1):
+            t = si/segs
+            p = mathutils.Vector((cx, cy, rad*0.7)) + dirv*(t-0.5)*L
+            rr = rad*(1-t*0.4)
+            for k in range(5):
+                a = k*2*math.pi/5
+                verts.append(p + mathutils.Vector((math.cos(a)*rr, math.sin(a)*rr, 0)))
+        for si in range(segs):
+            b = base + si*5
+            for k in range(5):
+                b0, b1 = b+k, b+(k+1)%5
+                faces.append((b0, b1, b1+5, b0+5))
+        # piki na koncow
+        tip = base + segs*5
+        center = len(verts)
+        verts.append(mathutils.Vector((cx, cy, rad*0.7)) + dirv*0.5*L)
+        for k in range(5):
+            faces.append((tip+k, tip+(k+1)%5, center))
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    return ob
+
+def make_wood_material(name, seed):
+    m = bpy.data.materials.new(name)
+    m.use_nodes = True
+    nt = m.node_tree
+    bsdf = nt.nodes["Principled BSDF"]
+    r = random.Random(seed)
+    tex = ["bark/old_bark_weathered", "bark/pine_bark_reddish_flaky"][seed % 2]
+    col = load_img(os.path.join(TEX, f"{tex}_color.png"), f"twig_{seed}_color")
+    texc = nt.nodes.new("ShaderNodeTexImage"); texc.image = col
+    mapping = nt.nodes.new("ShaderNodeMapping")
+    mapping.inputs["Scale"].default_value = (r.uniform(1.5, 3.0), r.uniform(1.5, 3.0), 1.0)
+    tco = nt.nodes.new("ShaderNodeTexCoord")
+    nt.links.new(tco.outputs["Object"], mapping.inputs["Vector"])
+    nt.links.new(mapping.outputs["Vector"], texc.inputs["Vector"])
+    # przyciemnione, desaturacja dla martwego drewna
+    hsv = nt.nodes.new("ShaderNodeHueSaturation")
+    hsv.inputs["Saturation"].default_value = 0.4
+    hsv.inputs["Value"].default_value = 0.45
+    nt.links.new(texc.outputs["Color"], hsv.inputs["Color"])
+    nt.links.new(hsv.outputs["Color"], bsdf.inputs["Base Color"])
+    bsdf.inputs["Roughness"].default_value = 0.95
+    return m
+
+twig_mat = make_wood_material("WELESZA_chrust", 31)
+twigs = []
+for name, seed, pos in [
+    ("chrust_a", 301, (-2.8, 2.9, 0)),
+    ("chrust_b", 302, (3.8, 2.0, 0)),
+]:
+    ob = make_twigs(name, seed)
+    ob.data.materials.append(twig_mat)
+    twigs.append((ob, pos))
+
 rock_specs = [
     # name, seed, radius(m), squash, (sx, sy, sz), spikes
     ("kamien_a", 11, 0.22, 0.62, (1.25, 0.95, 1.0), 0.35),
@@ -339,7 +494,15 @@ for name, ob in rocks.items():
     render_asset(ob, name)
 for ob, _pos in tufts:
     render_asset(ob, ob.name, mats=("neutral", "litter", "shadow"))
+for ob, _ in ferns:
+    render_asset(ob, ob.name, mats=("neutral", "litter", "shadow"))
+for ob, _ in twigs:
+    render_asset(ob, ob.name, mats=("neutral", "litter", "shadow"))
 for ob, pos in tufts:
+    ob.location = pos
+for ob, pos in ferns:
+    ob.location = pos
+for ob, pos in twigs:
     ob.location = pos
 render_asset(boulder, "glaz")
 # rotation variants of kamien_a (3 variants) to prove reuse
