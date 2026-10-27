@@ -56,3 +56,5 @@ Makiety pokazują docelowy nastrój: ciemna, mokra ziemia, ciepłe punktowe świ
 
 - [17 — plansza bohatera i scena przy wozie](17-bohater-i-woz.jpg) — trzy ujęcia podróżnika i koncepcyjny widok lasu z kamerą zbliżoną do gry. [Opis i wskazówki dla twórców](17-bohater-i-woz.md).
 
+
+- [18 — wóz i trakt na skraju lasu](18-woz-i-trakt.jpg) — koncepcyjne widoki wozu oraz scena w lesie; [plan i opis](18-woz-i-trakt.md).
