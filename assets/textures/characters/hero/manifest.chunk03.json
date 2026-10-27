@@ -1,0 +1,213 @@
+{
+  "schema": "welesza.character-materials.chunk03.v1",
+  "version": "0.3.0",
+  "status": "PROTOTYPE_UV_AND_SPRITE_QA_REQUIRED",
+  "target_branch": "vibe/hero-materials-chunk02-gpt6",
+  "source": "self-authored procedural PBR-style maps; no photo stock, not physical measurements",
+  "palette": "muted earth, late medieval traveler, concept 17",
+  "normal_map": "OpenGL tangent +Y (from synthetic height)",
+  "image_color_space": {
+    "basecolor": "sRGB",
+    "roughness": "Non-Color",
+    "height": "Non-Color",
+    "normal_opengl": "Non-Color",
+    "metallic": "Non-Color"
+  },
+  "materials": [
+    {
+      "id": "leather_straps_worn",
+      "usage": "pasy, rzemienie, pochwa i uchwyty",
+      "resolution": [
+        512,
+        512
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "assets/textures/characters/hero/leather_straps_worn_basecolor.png",
+          "sha": "d7bd867ddfa7ad429985b74bd362f6b7fa300ea6"
+        },
+        "roughness": {
+          "path": "assets/textures/characters/hero/leather_straps_worn_roughness.png",
+          "sha": "f0b0fee54c533a347cfddaf4eb67bf511fa85d43"
+        },
+        "height": {
+          "path": "assets/textures/characters/hero/leather_straps_worn_height.png",
+          "sha": "748bdd35c5afe11a123367ccd23d5ce02097aa82"
+        },
+        "normal_opengl": {
+          "path": "assets/textures/characters/hero/leather_straps_worn_normal_opengl.png",
+          "sha": "f3dcf91df18d7404e1f6d469e3898e7477fec420"
+        }
+      }
+    },
+    {
+      "id": "iron_hardware_blackened",
+      "usage": "sprzączki, nity, jelec i żelazne okucia",
+      "resolution": [
+        512,
+        512
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "assets/textures/characters/hero/iron_hardware_blackened_basecolor.png",
+          "sha": "97ea4f8591bc2392bb38aba2f0d6fa7dc4ca23db"
+        },
+        "roughness": {
+          "path": "assets/textures/characters/hero/iron_hardware_blackened_roughness.png",
+          "sha": "636fd54bee536bc19d12b5d6a17c431a4fe9b205"
+        },
+        "height": {
+          "path": "assets/textures/characters/hero/iron_hardware_blackened_height.png",
+          "sha": "9bfc576f3767da55a8fa61b9f90a3213bb190bfc"
+        },
+        "normal_opengl": {
+          "path": "assets/textures/characters/hero/iron_hardware_blackened_normal_opengl.png",
+          "sha": "04046f55891bf08c15dbb2024b7ca13ac7e77fef"
+        },
+        "metallic": {
+          "path": "assets/textures/characters/hero/iron_hardware_blackened_metallic.png",
+          "sha": "904aebce1f3117c0ae639c548937dd1b2a38bfc1"
+        }
+      }
+    },
+    {
+      "id": "steel_sword_weathered",
+      "usage": "głownia miecza",
+      "resolution": [
+        512,
+        512
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "assets/textures/characters/hero/steel_sword_weathered_basecolor.png",
+          "sha": "66891758e2fc3d230bf7bc87e5f46f27e44d303f"
+        },
+        "roughness": {
+          "path": "assets/textures/characters/hero/steel_sword_weathered_roughness.png",
+          "sha": "e6cfdb82c2299431261f018a1a11bedee1b17cbb"
+        },
+        "height": {
+          "path": "assets/textures/characters/hero/steel_sword_weathered_height.png",
+          "sha": "2f8185cfaef0c8013ab4d840dc525d9fcf5bd849"
+        },
+        "normal_opengl": {
+          "path": "assets/textures/characters/hero/steel_sword_weathered_normal_opengl.png",
+          "sha": "5505001ad9ef3907857379700d5475b52f1caf03"
+        },
+        "metallic": {
+          "path": "assets/textures/characters/hero/steel_sword_weathered_metallic.png",
+          "sha": "7894d5624c27bbc91220e0619ffbe789afb6eb04"
+        }
+      }
+    },
+    {
+      "id": "skin_traveler_weathered",
+      "usage": "twarz, szyja i odsłonięte przedramiona (roboczo)",
+      "resolution": [
+        512,
+        512
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "assets/textures/characters/hero/skin_traveler_weathered_basecolor.png",
+          "sha": "656c93cc3478148efc2e9308d13ee1e327c82b90"
+        },
+        "roughness": {
+          "path": "assets/textures/characters/hero/skin_traveler_weathered_roughness.png",
+          "sha": "ffb21631af44f3e0209dc5cac2acd12d8003ae76"
+        },
+        "height": {
+          "path": "assets/textures/characters/hero/skin_traveler_weathered_height.png",
+          "sha": "8eb35c55a08ed7836db028f3b8b9edba4373c491"
+        },
+        "normal_opengl": {
+          "path": "assets/textures/characters/hero/skin_traveler_weathered_normal_opengl.png",
+          "sha": "e2b26c623918c89a08644af8cc6e34811d91a757"
+        }
+      }
+    },
+    {
+      "id": "hair_dark_umber",
+      "usage": "włosy (materiał pomocniczy, geometrię pasm robi Codex)",
+      "resolution": [
+        512,
+        512
+      ],
+      "maps": {
+        "basecolor": {
+          "path": "assets/textures/characters/hero/hair_dark_umber_basecolor.png",
+          "sha": "6152230d63c7e70d03fba45af8e448b29899a8a0"
+        },
+        "roughness": {
+          "path": "assets/textures/characters/hero/hair_dark_umber_roughness.png",
+          "sha": "543454f604f27abc481e14669d79dd37d36087c6"
+        },
+        "height": {
+          "path": "assets/textures/characters/hero/hair_dark_umber_height.png",
+          "sha": "646a0143925715aa6b0c5867b2832b297d7974e6"
+        },
+        "normal_opengl": {
+          "path": "assets/textures/characters/hero/hair_dark_umber_normal_opengl.png",
+          "sha": "bf403e70819a2b85059ceb610e423f63fab352b5"
+        }
+      }
+    }
+  ],
+  "overlays": [
+    {
+      "name": "edge_wear_breakup_mask.png",
+      "sha": "a6686bc5ae3f1c8a73316c8d5ce97198581abb3a",
+      "resolution": [
+        512,
+        512
+      ],
+      "format": "Grayscale",
+      "purpose": "Stochastyczna maska przerwania zużycia; mnożyć przez maskę krzywizny/UV, NIE wykrywa geometrii krawędzi",
+      "tiling": "tileable",
+      "path": "assets/textures/characters/hero/overlays/edge_wear_breakup_mask.png"
+    },
+    {
+      "name": "wetness_breakup_mask.png",
+      "sha": "170e35a6c0a865a0724c89a6248b6d6efb33432c",
+      "resolution": [
+        512,
+        512
+      ],
+      "format": "Grayscale",
+      "purpose": "Miejscowa wilgoć: lekkie przyciemnienie albedo i niższy roughness z limitem efektu; bez wypieczonego światła",
+      "tiling": "tileable",
+      "path": "assets/textures/characters/hero/overlays/wetness_breakup_mask.png"
+    },
+    {
+      "name": "mud_spatter_decal_rgba.png",
+      "sha": "f72d227b08414a50647a962f8fe332829d8dbfa2",
+      "resolution": [
+        512,
+        512
+      ],
+      "format": "RGBA",
+      "purpose": "Lokalne plamy błota (kolor oraz maska kanału alpha), na buty i dół płaszcza; rozmieścić lokalnie na UV",
+      "tiling": "non-tileable decal",
+      "path": "assets/textures/characters/hero/overlays/mud_spatter_decal_rgba.png"
+    },
+    {
+      "name": "stitching_trim_strip_rgba.png",
+      "sha": "a6d833fe1b999dcfa6d32e2a7cb88b0949b7d5c9",
+      "resolution": [
+        1024,
+        256
+      ],
+      "format": "RGBA",
+      "purpose": "Pas ze szwami w nieregularnym płótnie, jako trim po UV lub nakładka; bez geometrii nie tworzy krawędzi szwu",
+      "tiling": "horizontal strip",
+      "path": "assets/textures/characters/hero/overlays/stitching_trim_strip_rgba.png"
+    }
+  ],
+  "qa_pending": [
+    "UV scale, seams and texture filtering in Blender",
+    "192 px downsample and aliasing in 8 directions",
+    "material comparison under cool forest vs warm torch light",
+    "local mask placement on clothes and accessories",
+    "physical material response: metallic, roughness and skin shader"
+  ]
+}
