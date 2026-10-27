@@ -1,0 +1,179 @@
+{
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+  "renderer_sha256": "e5a24314f691bec881e45afad27eadd47d0479c701168034b4dea5e9d1324341",
+  "mode": "game",
+  "blender": "4.3.2",
+  "samples": 64,
+  "shadow_samples": 16,
+  "frames": {
+    "game_0.png": {
+      "image_sha256": "64d34edfb3b619fb0d9d03cba4222756b2e86d1d2fb523e263c4d520f05f0cc5",
+      "shadow_sha256": "1908278fcfa561991745462939366ffc06c6cf80528acbd55f5005d174ef249e",
+      "direction_index": 0,
+      "anchor_px": [
+        191.99991989135742,
+        316.7076988220215
+      ],
+      "size": 384,
+      "ortho_scale": 3.200000047683716,
+      "camera_location": [
+        6.928203105926514,
+        0.0,
+        5.199999809265137
+      ],
+      "camera_rotation": [
+        1.0471975803375244,
+        -3.085363076138492e-08,
+        1.570796251296997
+      ]
+    },
+    "game_1.png": {
+      "image_sha256": "4373eac933dee95a29fd283c4b6374516cb73e6ca4c2f38ff08d4b20253bd40d",
+      "shadow_sha256": "ee8ba6719b9b42ce875bb8967331b062dffd3bd9a14969396025f060b2d39b62",
+      "direction_index": 1,
+      "anchor_px": [
+        191.99991989135742,
+        316.7076988220215
+      ],
+      "size": 384,
+      "ortho_scale": 3.200000047683716,
+      "camera_location": [
+        6.928203105926514,
+        0.0,
+        5.199999809265137
+      ],
+      "camera_rotation": [
+        1.0471975803375244,
+        -3.085363076138492e-08,
+        1.570796251296997
+      ]
+    },
+    "game_2.png": {
+      "image_sha256": "e9425a61cfae96203405a364b5dd101faa32331030270f197000be7770e5d3f0",
+      "shadow_sha256": "b667ca3d8ac97b7584432a7b0f29a47bf209a76ea51b48a66e31cc8ddf65de3d",
+      "direction_index": 2,
+      "anchor_px": [
+        191.99991989135742,
+        316.7076988220215
+      ],
+      "size": 384,
+      "ortho_scale": 3.200000047683716,
+      "camera_location": [
+        6.928203105926514,
+        0.0,
+        5.199999809265137
+      ],
+      "camera_rotation": [
+        1.0471975803375244,
+        -3.085363076138492e-08,
+        1.570796251296997
+      ]
+    },
+    "game_3.png": {
+      "image_sha256": "1440d2a24d88d46cbd722f9755ea899cad80ad53fa8779e9cfe96a4163ee6f21",
+      "shadow_sha256": "d2227a844a588b4d2b5d31030fbfc5fbb4cb2c8b23c037083ee601bba057360f",
+      "direction_index": 3,
+      "anchor_px": [
+        191.99991989135742,
+        316.7076988220215
+      ],
+      "size": 384,
+      "ortho_scale": 3.200000047683716,
+      "camera_location": [
+        6.928203105926514,
+        0.0,
+        5.199999809265137
+      ],
+      "camera_rotation": [
+        1.0471975803375244,
+        -3.085363076138492e-08,
+        1.570796251296997
+      ]
+    },
+    "game_4.png": {
+      "image_sha256": "88916ff8e7da194f8d56cafcf5d3a878be8d7ff44f6d4fcc7852ab3dfccce3e9",
+      "shadow_sha256": "0374120c423e8323666ef48b5809279d0d549f0f16dd6f25d1a0afc110c7ade7",
+      "direction_index": 4,
+      "anchor_px": [
+        191.99991989135742,
+        316.7076988220215
+      ],
+      "size": 384,
+      "ortho_scale": 3.200000047683716,
+      "camera_location": [
+        6.928203105926514,
+        0.0,
+        5.199999809265137
+      ],
+      "camera_rotation": [
+        1.0471975803375244,
+        -3.085363076138492e-08,
+        1.570796251296997
+      ]
+    },
+    "game_5.png": {
+      "image_sha256": "66fd38bb5701302523474cee29f0f726a2188e7e27c03e37f190860086d53f13",
+      "shadow_sha256": "59e6b7c2d77c99dc7384d090a6298f9477c8fa640d1b26c840c7aaed034ca7ec",
+      "direction_index": 5,
+      "anchor_px": [
+        191.99991989135742,
+        316.7076988220215
+      ],
+      "size": 384,
+      "ortho_scale": 3.200000047683716,
+      "camera_location": [
+        6.928203105926514,
+        0.0,
+        5.199999809265137
+      ],
+      "camera_rotation": [
+        1.0471975803375244,
+        -3.085363076138492e-08,
+        1.570796251296997
+      ]
+    },
+    "game_6.png": {
+      "image_sha256": "55e3266056e99bb82ecbd17d5a5033407199110de531e150a3b0e7fdbdf1bee0",
+      "shadow_sha256": "077ae967b6844b5da515c23219e04ffeea3011da2b4c591890da6719d87ad564",
+      "direction_index": 6,
+      "anchor_px": [
+        191.99991989135742,
+        316.7076988220215
+      ],
+      "size": 384,
+      "ortho_scale": 3.200000047683716,
+      "camera_location": [
+        6.928203105926514,
+        0.0,
+        5.199999809265137
+      ],
+      "camera_rotation": [
+        1.0471975803375244,
+        -3.085363076138492e-08,
+        1.570796251296997
+      ]
+    },
+    "game_7.png": {
+      "image_sha256": "056f6078fe566eb80fdd3bd1d465bb45a1ab6028fcaab97e20a50035abe21685",
+      "shadow_sha256": "08156e6310993925c9b5fea481b240393efded969e8d9d2449785e78436d958a",
+      "direction_index": 7,
+      "anchor_px": [
+        191.99991989135742,
+        316.7076988220215
+      ],
+      "size": 384,
+      "ortho_scale": 3.200000047683716,
+      "camera_location": [
+        6.928203105926514,
+        0.0,
+        5.199999809265137
+      ],
+      "camera_rotation": [
+        1.0471975803375244,
+        -3.085363076138492e-08,
+        1.570796251296997
+      ]
+    }
+  },
+  "note": "Statyczna bramka przed B2; bez animacji i bez atlasu."
+}

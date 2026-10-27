@@ -1,0 +1,263 @@
+{
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+  "body_validation": {
+    "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+    "native_uv_max_float_error": 2.9796600298226394e-08,
+    "vertices": 19158,
+    "body_faces": 13378,
+    "native_loop_count": 53512,
+    "bone_count": 163,
+    "body_weight_sum_range": [
+      0.9999999552965164,
+      1.0000000447034836
+    ],
+    "poses": [
+      {
+        "pose": "barki",
+        "rotations_deg": {
+          "upperarm01.L": [
+            0,
+            0,
+            45
+          ],
+          "upperarm01.R": [
+            0,
+            0,
+            -45
+          ]
+        },
+        "moved_vertices_over_1mm": 5984,
+        "max_displacement_m": 0.4929146577446339,
+        "max_bone_length_error_m": 7.450580596923828e-08,
+        "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
+      },
+      {
+        "pose": "lokcie",
+        "rotations_deg": {
+          "lowerarm01.L": [
+            65,
+            0,
+            0
+          ],
+          "lowerarm01.R": [
+            65,
+            0,
+            0
+          ]
+        },
+        "moved_vertices_over_1mm": 4548,
+        "max_displacement_m": 0.44805600684568386,
+        "max_bone_length_error_m": 7.450580596923828e-08,
+        "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
+      },
+      {
+        "pose": "nadgarstki",
+        "rotations_deg": {
+          "wrist.L": [
+            25,
+            0,
+            15
+          ],
+          "wrist.R": [
+            -25,
+            0,
+            -15
+          ]
+        },
+        "moved_vertices_over_1mm": 3706,
+        "max_displacement_m": 0.09490924101266089,
+        "max_bone_length_error_m": 7.450580596923828e-08,
+        "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
+      },
+      {
+        "pose": "palce",
+        "rotations_deg": {
+          "finger1-1.L": [
+            35,
+            0,
+            0
+          ],
+          "finger1-1.R": [
+            35,
+            0,
+            0
+          ],
+          "finger2-1.L": [
+            35,
+            0,
+            0
+          ],
+          "finger2-1.R": [
+            35,
+            0,
+            0
+          ],
+          "finger3-1.L": [
+            35,
+            0,
+            0
+          ],
+          "finger3-1.R": [
+            35,
+            0,
+            0
+          ],
+          "finger4-1.L": [
+            35,
+            0,
+            0
+          ],
+          "finger4-1.R": [
+            35,
+            0,
+            0
+          ],
+          "finger5-1.L": [
+            35,
+            0,
+            0
+          ],
+          "finger5-1.R": [
+            35,
+            0,
+            0
+          ]
+        },
+        "moved_vertices_over_1mm": 3098,
+        "max_displacement_m": 0.057199590149083414,
+        "max_bone_length_error_m": 7.450580596923828e-08,
+        "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
+      },
+      {
+        "pose": "kolana",
+        "rotations_deg": {
+          "lowerleg01.L": [
+            55,
+            0,
+            0
+          ],
+          "lowerleg01.R": [
+            55,
+            0,
+            0
+          ]
+        },
+        "moved_vertices_over_1mm": 4360,
+        "max_displacement_m": 0.5122004175223552,
+        "max_bone_length_error_m": 6.332993507385254e-08,
+        "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
+      },
+      {
+        "pose": "skret_przedramion",
+        "rotations_deg": {
+          "lowerarm02.L": [
+            0,
+            45,
+            0
+          ],
+          "lowerarm02.R": [
+            0,
+            -45,
+            0
+          ]
+        },
+        "moved_vertices_over_1mm": 4048,
+        "max_displacement_m": 0.09192511625297083,
+        "max_bone_length_error_m": 7.450580596923828e-08,
+        "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
+      }
+    ],
+    "B1": "DO_OCENY_AUTORA; liczby nie dowodzą braku zapadnięć"
+  },
+  "views": {
+    "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+    "renderer_sha256": "e5a24314f691bec881e45afad27eadd47d0479c701168034b4dea5e9d1324341",
+    "mode": "p1",
+    "blender": "4.3.2",
+    "samples": 64,
+    "shadow_samples": 16,
+    "frames": {
+      "p1_0.png": {
+        "image_sha256": "4d5498be4eb5fec125d8468b3486181bc1d68c52240dcdff9afba25cf3fdcabf",
+        "shadow_sha256": "5548e009b73c1b197e9fed650603dc0ddfb9873aedb33eedbac08cd822257287",
+        "direction_index": 0,
+        "anchor_px": [
+          384.0000915527344,
+          723.3489017486572
+        ],
+        "size": 768,
+        "ortho_scale": 2.1500000953674316,
+        "camera_location": [
+          6.0,
+          0.0,
+          0.949999988079071
+        ],
+        "camera_rotation": [
+          1.5707963705062866,
+          -0.0,
+          1.5707963705062866
+        ]
+      },
+      "p1_2.png": {
+        "image_sha256": "0d5d9d956c5b4ae613bc9aa19ce2b22153d4b5cfb70791fabbb668fb7a0422f9",
+        "shadow_sha256": "70507b339ffe49390c270e11a18584580c61e4b6ab2e65aad5b11a26cc66dfab",
+        "direction_index": 2,
+        "anchor_px": [
+          384.0000915527344,
+          723.3489017486572
+        ],
+        "size": 768,
+        "ortho_scale": 2.1500000953674316,
+        "camera_location": [
+          6.0,
+          0.0,
+          0.949999988079071
+        ],
+        "camera_rotation": [
+          1.5707963705062866,
+          -0.0,
+          1.5707963705062866
+        ]
+      },
+      "p1_1.png": {
+        "image_sha256": "949f5b5fa5256d48f7ba1188cc9cc89c07910b1eb3400b551db28374df32a91b",
+        "shadow_sha256": "5cf263bfea39f7c735c462e027129b07e97847a884914b5612e2472637063887",
+        "direction_index": 1,
+        "anchor_px": [
+          384.0000915527344,
+          723.3489017486572
+        ],
+        "size": 768,
+        "ortho_scale": 2.1500000953674316,
+        "camera_location": [
+          6.0,
+          0.0,
+          0.949999988079071
+        ],
+        "camera_rotation": [
+          1.5707963705062866,
+          -0.0,
+          1.5707963705062866
+        ]
+      }
+    },
+    "note": "Statyczna bramka przed B2; bez animacji i bez atlasu."
+  },
+  "poses_manifest_sha256": "cba2cecc6eba3d330c44315067d92ddd6a16787693f89651a7ef13f6b9287678",
+  "files": {
+    "body-validation.json": "7617092d2615a859fe52802d7cc7e70bbb0a18c454e55afd441c596cc0869508",
+    "audit.json": "21783d261d34ef7b3da95ce36bd2734be57cd588a585d9049c410ad85bdce3d9",
+    "p1_0.png": "4d5498be4eb5fec125d8468b3486181bc1d68c52240dcdff9afba25cf3fdcabf",
+    "p1_2.png": "0d5d9d956c5b4ae613bc9aa19ce2b22153d4b5cfb70791fabbb668fb7a0422f9",
+    "p1_1.png": "949f5b5fa5256d48f7ba1188cc9cc89c07910b1eb3400b551db28374df32a91b",
+    "shadows/p1_0.png": "5548e009b73c1b197e9fed650603dc0ddfb9873aedb33eedbac08cd822257287",
+    "shadows/p1_2.png": "70507b339ffe49390c270e11a18584580c61e4b6ab2e65aad5b11a26cc66dfab",
+    "shadows/p1_1.png": "5cf263bfea39f7c735c462e027129b07e97847a884914b5612e2472637063887",
+    "poses/05_kolana.png": "d9c5caa0f252c32dce7e68e028b9516af24075f85743a504ab752cfc1bd5eea5",
+    "poses/01_barki.png": "9a7bbe858ebdc8ab3a4b0c9f2cf15725c07ec315eacc1bd8803e4e5a861f28c3",
+    "poses/03_nadgarstki.png": "0f078c756112f61b39cb9f1184c84384bb81d2f16ded6bbcf2a5345d64bf9478",
+    "poses/04_palce.png": "ed39a52e8d1a98f5c87cf4a5e8ea82c592d5f2eefe815568742a9c526a93335a",
+    "poses/06_skret_przedramienia.png": "6bece2a5181342912c4d159989307409d888ac202862bbcb24c762816ed6e4da",
+    "poses/02_lokcie.png": "db1b1faa170e612018a03160769bcc0a2123153c8924175c590708351238c04e"
+  }
+}

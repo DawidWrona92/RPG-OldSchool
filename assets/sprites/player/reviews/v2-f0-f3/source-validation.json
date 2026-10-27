@@ -1,0 +1,610 @@
+{
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+  "revision": "v2-F3-equipment-review-16",
+  "blender": "4.3.2",
+  "body": {
+    "vertices": 19158,
+    "faces": 13378,
+    "uv_loop_count": 53512,
+    "native_uv_max_float_error": 2.9796600298226394e-08
+  },
+  "bone_count": 163,
+  "active_animation": null,
+  "frame": 1,
+  "camera": {
+    "ortho_m": 3.200000047683716,
+    "location": [
+      6.928203105926514,
+      0.0,
+      5.199999809265137
+    ],
+    "rotation": [
+      1.0471975803375244,
+      -3.085363076138492e-08,
+      1.570796251296997
+    ],
+    "anchor_192_px": [
+      95.99995994567871,
+      158.35384941101074
+    ]
+  },
+  "lights": {
+    "Chłodne niebo / klucz z lewej": {
+      "watts": 520.0,
+      "size_m": 2.299999952316284,
+      "color": [
+        0.9399999976158142,
+        0.9200000166893005,
+        0.8500000238418579
+      ],
+      "location_m": [
+        2.799999952316284,
+        -3.5,
+        6.0
+      ],
+      "rotation_radians": [
+        0.7308433055877686,
+        -5.20708915985324e-08,
+        0.6747409701347351
+      ]
+    },
+    "Chłodne niebo / tył": {
+      "watts": 140.0,
+      "size_m": 3.0,
+      "color": [
+        0.6000000238418579,
+        0.699999988079071,
+        0.8500000238418579
+      ],
+      "location_m": [
+        -3.0,
+        1.0,
+        4.0
+      ],
+      "rotation_radians": [
+        0.8117261528968811,
+        -2.9187710026690183e-08,
+        -1.8925468921661377
+      ]
+    },
+    "Odbite światło ziemi": {
+      "watts": 65.0,
+      "size_m": 4.0,
+      "color": [
+        0.6399999856948853,
+        0.6800000071525574,
+        0.7400000095367432
+      ],
+      "location_m": [
+        3.0,
+        4.0,
+        2.5
+      ],
+      "rotation_radians": [
+        1.2793395519256592,
+        -4.500531147755282e-08,
+        2.498091697692871
+      ]
+    }
+  },
+  "color": {
+    "view": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": -0.20000000298023224
+  },
+  "images": [
+    {
+      "name": "hero_eye_iris_basecolor.png",
+      "file": "//../../../textures/characters/hero/unique/hero_eye_iris_basecolor.png",
+      "packed": true,
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "sRGB",
+      "packed_sha256": "98c9922c0e8498e6c4e5b28cc81e013e95575e4edf7d9ea3a807ca13f0f5aaba"
+    },
+    {
+      "name": "hero_eye_sclera_basecolor.png",
+      "file": "//../../../textures/characters/hero/unique/hero_eye_sclera_basecolor.png",
+      "packed": true,
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "sRGB",
+      "packed_sha256": "b4ec512375ec4521a415262b1234c4b528387e3a1b167519027a44864b935f7f"
+    },
+    {
+      "name": "hero_skin_body_basecolor.png",
+      "file": "//../../../textures/characters/hero/unique/hero_skin_body_basecolor.png",
+      "packed": true,
+      "size": [
+        4096,
+        4096
+      ],
+      "colorspace": "sRGB",
+      "packed_sha256": "8e85d161f8ad47c267ae480655f9a2ebd8578d876fc5ecfec1f7013697e55c63"
+    },
+    {
+      "name": "hero_skin_body_height.png",
+      "file": "//../../../textures/characters/hero/unique/hero_skin_body_height.png",
+      "packed": true,
+      "size": [
+        4096,
+        4096
+      ],
+      "colorspace": "Non-Color",
+      "packed_sha256": "e399b1327efc81e43c401d7d6d16174bd170b74b550201b75a8c653c5a6a44e7"
+    },
+    {
+      "name": "hero_skin_body_normal_opengl.png",
+      "file": "//../../../textures/characters/hero/unique/hero_skin_body_normal_opengl.png",
+      "packed": true,
+      "size": [
+        4096,
+        4096
+      ],
+      "colorspace": "Non-Color",
+      "packed_sha256": "6235fd8bfafd3887f2f9fa9e544030371fe4fb5d636b2cb04a9adbb5df538446"
+    },
+    {
+      "name": "hero_skin_body_roughness.png",
+      "file": "//../../../textures/characters/hero/unique/hero_skin_body_roughness.png",
+      "packed": true,
+      "size": [
+        4096,
+        4096
+      ],
+      "colorspace": "Non-Color",
+      "packed_sha256": "3c402960d4f28a7f2e4f7b40dc64bcc2a644f9045ee4b54004a52ebe70bff0a5"
+    },
+    {
+      "name": "hero_skin_body_sss_mask.png",
+      "file": "//../../../textures/characters/hero/unique/hero_skin_body_sss_mask.png",
+      "packed": true,
+      "size": [
+        4096,
+        4096
+      ],
+      "colorspace": "Non-Color",
+      "packed_sha256": "d153c88da6725376dbca1134e97b41b105a7e1379acf8d2052c22183cf6cdad2"
+    }
+  ],
+  "parts": [
+    {
+      "name": "koszula",
+      "vertices": 1915,
+      "faces": 1842,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1023.9999999999999,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "spodnie",
+      "vertices": 1028,
+      "faces": 984,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "kaftan",
+      "vertices": 3696,
+      "faces": 2840,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "plaszcz",
+      "vertices": 2535,
+      "faces": 2432,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1023.9999999999999,
+      "cloth": {
+        "solver": "Blender 4.3 Cloth",
+        "frames": [
+          1,
+          16
+        ],
+        "quality": 6,
+        "gravity_factor": 0.35,
+        "collision_quality": 6,
+        "distance_min_m": 0.006,
+        "colliders": [
+          "Ciało / MakeHuman / UV natywne",
+          "koszula",
+          "kaftan",
+          "spodnie"
+        ],
+        "pin_vertices": 130,
+        "max_displacement_m": 0.14229246541600693,
+        "cache": "Wynik utrwalony w siatce, bez zewnętrznego cache."
+      },
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "peleryna",
+      "vertices": 4181,
+      "faces": 4032,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1023.9999999999999,
+      "cloth": {
+        "solver": "Blender 4.3 Cloth",
+        "frames": [
+          1,
+          16
+        ],
+        "quality": 6,
+        "gravity_factor": 0.35,
+        "collision_quality": 6,
+        "distance_min_m": 0.006,
+        "colliders": [
+          "Ciało / MakeHuman / UV natywne",
+          "koszula",
+          "kaftan",
+          "plaszcz"
+        ],
+        "pin_vertices": 114,
+        "max_displacement_m": 0.13306770978608562,
+        "cache": "Wynik utrwalony w siatce, bez zewnętrznego cache."
+      },
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "kaptur",
+      "vertices": 855,
+      "faces": 784,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": {
+        "solver": "Blender 4.3 Cloth",
+        "frames": [
+          1,
+          16
+        ],
+        "quality": 6,
+        "gravity_factor": 0.35,
+        "collision_quality": 6,
+        "distance_min_m": 0.006,
+        "colliders": [
+          "Ciało / MakeHuman / UV natywne",
+          "koszula",
+          "kaftan",
+          "plaszcz",
+          "peleryna"
+        ],
+        "pin_vertices": 114,
+        "max_displacement_m": 0.13121324836042367,
+        "cache": "Wynik utrwalony w siatce, bez zewnętrznego cache."
+      },
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "but_lewy",
+      "vertices": 1217,
+      "faces": 1072,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "but_prawy",
+      "vertices": 1217,
+      "faces": 1072,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "pas_gorny",
+      "vertices": 288,
+      "faces": 192,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "pas_dolny",
+      "vertices": 288,
+      "faces": 192,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "rzemien_1",
+      "vertices": 123,
+      "faces": 80,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "rzemien_2",
+      "vertices": 123,
+      "faces": 80,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "plecak",
+      "vertices": 1538,
+      "faces": 1536,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "poslanie",
+      "vertices": 1730,
+      "faces": 1664,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1023.9999999999999,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "manierka",
+      "vertices": 96,
+      "faces": 98,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "sakwa_lewa",
+      "vertices": 96,
+      "faces": 98,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "sakwa_prawa",
+      "vertices": 96,
+      "faces": 98,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "pochwa",
+      "vertices": 801,
+      "faces": 800,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "SUBSURF",
+        "SOLIDIFY",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "rekojesc",
+      "vertices": 192,
+      "faces": 162,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1023.9999999999999,
+      "cloth": null,
+      "modifiers": [
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "jelec",
+      "vertices": 192,
+      "faces": 162,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "glowica",
+      "vertices": 266,
+      "faces": 288,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "sprzaczki",
+      "vertices": 1536,
+      "faces": 1568,
+      "uv_layers": 1,
+      "texture_resolution": 2048,
+      "texel_density_px_m": 1024.0,
+      "cloth": null,
+      "modifiers": [
+        "ARMATURE"
+      ]
+    }
+  ],
+  "hair_curves": [
+    {
+      "name": "Włosy19 / ciemne",
+      "strands": 26803,
+      "parent_bone": "head"
+    },
+    {
+      "name": "Włosy19 / siwe",
+      "strands": 7197,
+      "parent_bone": "head"
+    },
+    {
+      "name": "Broda19 / ciemne",
+      "strands": 13954,
+      "parent_bone": "head"
+    },
+    {
+      "name": "Broda19 / siwe",
+      "strands": 7046,
+      "parent_bone": "head"
+    },
+    {
+      "name": "Wąs19 / ciemne",
+      "strands": 5174,
+      "parent_bone": "head"
+    },
+    {
+      "name": "Wąs19 / siwe",
+      "strands": 1326,
+      "parent_bone": "head"
+    },
+    {
+      "name": "Brwi19 / ciemne",
+      "strands": 2789,
+      "parent_bone": "head"
+    },
+    {
+      "name": "Brwi19 / siwe",
+      "strands": 711,
+      "parent_bone": "head"
+    }
+  ],
+  "archive_hashes_unchanged": true,
+  "note": "Test źródła nie zastępuje B1/B2 ani pełnego testu deformacji/kolizji. Curves nie są siatkami w narzędziu PM.",
+  "actor_meshes": [
+    "Ciało / MakeHuman / UV natywne",
+    "Oko / kula.L",
+    "Oko / tęczówka.L",
+    "Oko / rogówka.L",
+    "Oko / kula.R",
+    "Oko / tęczówka.R",
+    "Oko / rogówka.R",
+    "koszula",
+    "spodnie",
+    "kaftan",
+    "plaszcz",
+    "peleryna",
+    "kaptur",
+    "but_lewy",
+    "but_prawy",
+    "pas_gorny",
+    "pas_dolny",
+    "rzemien_1",
+    "rzemien_2",
+    "plecak",
+    "poslanie",
+    "manierka",
+    "sakwa_lewa",
+    "sakwa_prawa",
+    "pochwa",
+    "rekojesc",
+    "jelec",
+    "glowica",
+    "sprzaczki"
+  ],
+  "part_visibility_verified": true
+}

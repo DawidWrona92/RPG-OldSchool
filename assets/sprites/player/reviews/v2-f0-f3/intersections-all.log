@@ -1,0 +1,10 @@
+Blender 4.3.2
+Read blend: "/workspace/RPG-OldSchool/assets/sprites/player/source/bohater_v2.blend"
+klatki 1–1; par obiektów z przenikaniem: 7, po odjęciu dozwolonych: 7; suma par trójkątów (najgorsza klatka każdej pary): 974
+    310  kl.   1  Ciało / MakeHuman / UV natywne  <->  Oko / kula.L
+    310  kl.   1  Ciało / MakeHuman / UV natywne  <->  Oko / kula.R
+    106  kl.   1  Ciało / MakeHuman / UV natywne  <->  Oko / rogówka.L
+    106  kl.   1  Ciało / MakeHuman / UV natywne  <->  Oko / rogówka.R
+     56  kl.   1  Ciało / MakeHuman / UV natywne  <->  Oko / tęczówka.L
+     56  kl.   1  Ciało / MakeHuman / UV natywne  <->  Oko / tęczówka.R
+     30  kl.   1  glowica  <->  rekojesc

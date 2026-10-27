@@ -1,5 +1,5 @@
 {
-  "source_blend_sha256": "0411628ef7760a9c4c57b6cf0e5dca444f9f8cb3378a4d804bd8729048360f6e",
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
   "native_uv_max_float_error": 2.9796600298226394e-08,
   "vertices": 19158,
   "body_faces": 13378,
@@ -24,9 +24,9 @@
           -45
         ]
       },
-      "moved_vertices_over_1mm": 5982,
-      "max_displacement_m": 0.4733323525341867,
-      "max_bone_length_error_m": 1.1920928955078125e-07,
+      "moved_vertices_over_1mm": 5984,
+      "max_displacement_m": 0.4929146577446339,
+      "max_bone_length_error_m": 7.450580596923828e-08,
       "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
     },
     {
@@ -43,9 +43,9 @@
           0
         ]
       },
-      "moved_vertices_over_1mm": 4542,
-      "max_displacement_m": 0.4533520040353875,
-      "max_bone_length_error_m": 1.1920928955078125e-07,
+      "moved_vertices_over_1mm": 4548,
+      "max_displacement_m": 0.44805600684568386,
+      "max_bone_length_error_m": 7.450580596923828e-08,
       "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
     },
     {
@@ -62,9 +62,9 @@
           -15
         ]
       },
-      "moved_vertices_over_1mm": 3710,
-      "max_displacement_m": 0.0949091559117401,
-      "max_bone_length_error_m": 1.1920928955078125e-07,
+      "moved_vertices_over_1mm": 3706,
+      "max_displacement_m": 0.09490924101266089,
+      "max_bone_length_error_m": 7.450580596923828e-08,
       "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
     },
     {
@@ -121,9 +121,9 @@
           0
         ]
       },
-      "moved_vertices_over_1mm": 3100,
-      "max_displacement_m": 0.057199789912113407,
-      "max_bone_length_error_m": 1.1920928955078125e-07,
+      "moved_vertices_over_1mm": 3098,
+      "max_displacement_m": 0.057199590149083414,
+      "max_bone_length_error_m": 7.450580596923828e-08,
       "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
     },
     {
@@ -141,8 +141,8 @@
         ]
       },
       "moved_vertices_over_1mm": 4360,
-      "max_displacement_m": 0.5122004458949377,
-      "max_bone_length_error_m": 1.1920928955078125e-07,
+      "max_displacement_m": 0.5122004175223552,
+      "max_bone_length_error_m": 6.332993507385254e-08,
       "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
     },
     {
@@ -159,9 +159,9 @@
           0
         ]
       },
-      "moved_vertices_over_1mm": 4050,
-      "max_displacement_m": 0.08118289527625704,
-      "max_bone_length_error_m": 1.1920928955078125e-07,
+      "moved_vertices_over_1mm": 4048,
+      "max_displacement_m": 0.09192511625297083,
+      "max_bone_length_error_m": 7.450580596923828e-08,
       "automatic_scope": "finite coordinates, nonzero deformation, fixed bone lengths; no artistic acceptance"
     }
   ],

@@ -1,0 +1,56 @@
+{
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+  "frame": 1,
+  "action": null,
+  "checker": "tools/art/check_intersections.py",
+  "checker_sha256": "788e30e495ba86457dd85aef0ce7b2e9def2212e0a2cc4c21d5788cdc98d9564",
+  "raw_pairs": 7,
+  "raw_triangle_pairs": 974,
+  "allow": [
+    {
+      "a": "Ciało / MakeHuman / UV natywne",
+      "b": "Oko / kula.L",
+      "triangles": 310,
+      "reason": "Oko celowo osadzone pod powieką."
+    },
+    {
+      "a": "Ciało / MakeHuman / UV natywne",
+      "b": "Oko / kula.R",
+      "triangles": 310,
+      "reason": "Oko celowo osadzone pod powieką."
+    },
+    {
+      "a": "Ciało / MakeHuman / UV natywne",
+      "b": "Oko / rogówka.L",
+      "triangles": 106,
+      "reason": "Oko celowo osadzone pod powieką."
+    },
+    {
+      "a": "Ciało / MakeHuman / UV natywne",
+      "b": "Oko / rogówka.R",
+      "triangles": 106,
+      "reason": "Oko celowo osadzone pod powieką."
+    },
+    {
+      "a": "Ciało / MakeHuman / UV natywne",
+      "b": "Oko / tęczówka.L",
+      "triangles": 56,
+      "reason": "Oko celowo osadzone pod powieką."
+    },
+    {
+      "a": "Ciało / MakeHuman / UV natywne",
+      "b": "Oko / tęczówka.R",
+      "triangles": 56,
+      "reason": "Oko celowo osadzone pod powieką."
+    },
+    {
+      "a": "glowica",
+      "b": "rekojesc",
+      "triangles": 30,
+      "reason": "Metalowa głowica celowo osadzona na końcu rękojeści."
+    }
+  ],
+  "unallowed_pairs": 0,
+  "unallowed_triangle_pairs": 0,
+  "scope": "Wszystkie renderowane MESH po modyfikatorach w statycznej klatce 1. Bez Curves, samoprzenikań jednej siatki, testu zawierania i ruchu."
+}

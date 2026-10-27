@@ -1,0 +1,32 @@
+{
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+  "renderer_sha256": "e5a24314f691bec881e45afad27eadd47d0479c701168034b4dea5e9d1324341",
+  "mode": "portrait",
+  "blender": "4.3.2",
+  "samples": 64,
+  "shadow_samples": 16,
+  "frames": {
+    "portrait_0.png": {
+      "image_sha256": "2b3214fa6d04ee0ec3651068e3cfab487e290ecb00316f603060bf937cc7b9c3",
+      "shadow_sha256": "dd4fec3dd7de828fa6650790e1d56906323ceeb412ed7f9878cc57758674882d",
+      "direction_index": 0,
+      "anchor_px": [
+        381.24666595458984,
+        2954.3432006835938
+      ],
+      "size": 768,
+      "ortho_scale": 0.49000000953674316,
+      "camera_location": [
+        4.0,
+        -0.2800000011920929,
+        1.649999976158142
+      ],
+      "camera_rotation": [
+        1.5682868957519531,
+        8.289369191061269e-08,
+        1.5004721879959106
+      ]
+    }
+  },
+  "note": "Statyczna bramka przed B2; bez animacji i bez atlasu."
+}

@@ -1,0 +1,44 @@
+[
+ {
+  "a": "Ciało / MakeHuman / UV natywne",
+  "b": "Oko / kula.L",
+  "triangles": 310,
+  "frame": 1
+ },
+ {
+  "a": "Ciało / MakeHuman / UV natywne",
+  "b": "Oko / kula.R",
+  "triangles": 310,
+  "frame": 1
+ },
+ {
+  "a": "Ciało / MakeHuman / UV natywne",
+  "b": "Oko / rogówka.L",
+  "triangles": 106,
+  "frame": 1
+ },
+ {
+  "a": "Ciało / MakeHuman / UV natywne",
+  "b": "Oko / rogówka.R",
+  "triangles": 106,
+  "frame": 1
+ },
+ {
+  "a": "Ciało / MakeHuman / UV natywne",
+  "b": "Oko / tęczówka.L",
+  "triangles": 56,
+  "frame": 1
+ },
+ {
+  "a": "Ciało / MakeHuman / UV natywne",
+  "b": "Oko / tęczówka.R",
+  "triangles": 56,
+  "frame": 1
+ },
+ {
+  "a": "glowica",
+  "b": "rekojesc",
+  "triangles": 30,
+  "frame": 1
+ }
+]

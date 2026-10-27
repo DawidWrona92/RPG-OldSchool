@@ -1,0 +1,183 @@
+{
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+  "renderer_sha256": "5eebc3f695ac4cb0162add8dd64811063a5c84ec4f3f01e80c3a1bb5ae3bcd46",
+  "status": "DO_OCENY_B1",
+  "poses": [
+    {
+      "pose": "01_barki",
+      "rotations": [
+        [
+          "upperarm01.L",
+          "X",
+          45
+        ],
+        [
+          "upperarm01.R",
+          "X",
+          -45
+        ]
+      ],
+      "image": "01_barki.png",
+      "image_sha256": "9a7bbe858ebdc8ab3a4b0c9f2cf15725c07ec315eacc1bd8803e4e5a861f28c3",
+      "finite_coordinates": true,
+      "evaluated_vertices": 219828,
+      "max_bone_length_error_m": 7.450580596923828e-08
+    },
+    {
+      "pose": "02_lokcie",
+      "rotations": [
+        [
+          "lowerarm01.L",
+          "Y",
+          -75
+        ],
+        [
+          "lowerarm01.R",
+          "Y",
+          -75
+        ]
+      ],
+      "image": "02_lokcie.png",
+      "image_sha256": "db1b1faa170e612018a03160769bcc0a2123153c8924175c590708351238c04e",
+      "finite_coordinates": true,
+      "evaluated_vertices": 219828,
+      "max_bone_length_error_m": 7.450580596923828e-08
+    },
+    {
+      "pose": "03_nadgarstki",
+      "rotations": [
+        [
+          "wrist.L",
+          "Y",
+          -35
+        ]
+      ],
+      "image": "03_nadgarstki.png",
+      "image_sha256": "0f078c756112f61b39cb9f1184c84384bb81d2f16ded6bbcf2a5345d64bf9478",
+      "finite_coordinates": true,
+      "evaluated_vertices": 219828,
+      "max_bone_length_error_m": 7.450580596923828e-08
+    },
+    {
+      "pose": "04_palce",
+      "rotations": [
+        [
+          "finger1-1.L",
+          "PALM_CURL",
+          30
+        ],
+        [
+          "finger1-2.L",
+          "PALM_CURL",
+          20
+        ],
+        [
+          "finger1-3.L",
+          "PALM_CURL",
+          20
+        ],
+        [
+          "finger2-1.L",
+          "PALM_CURL",
+          30
+        ],
+        [
+          "finger2-2.L",
+          "PALM_CURL",
+          20
+        ],
+        [
+          "finger2-3.L",
+          "PALM_CURL",
+          20
+        ],
+        [
+          "finger3-1.L",
+          "PALM_CURL",
+          30
+        ],
+        [
+          "finger3-2.L",
+          "PALM_CURL",
+          20
+        ],
+        [
+          "finger3-3.L",
+          "PALM_CURL",
+          20
+        ],
+        [
+          "finger4-1.L",
+          "PALM_CURL",
+          30
+        ],
+        [
+          "finger4-2.L",
+          "PALM_CURL",
+          20
+        ],
+        [
+          "finger4-3.L",
+          "PALM_CURL",
+          20
+        ],
+        [
+          "finger5-1.L",
+          "PALM_CURL",
+          30
+        ],
+        [
+          "finger5-2.L",
+          "PALM_CURL",
+          20
+        ],
+        [
+          "finger5-3.L",
+          "PALM_CURL",
+          20
+        ]
+      ],
+      "image": "04_palce.png",
+      "image_sha256": "ed39a52e8d1a98f5c87cf4a5e8ea82c592d5f2eefe815568742a9c526a93335a",
+      "finite_coordinates": true,
+      "evaluated_vertices": 219828,
+      "max_bone_length_error_m": 7.450580596923828e-08
+    },
+    {
+      "pose": "05_kolana",
+      "rotations": [
+        [
+          "lowerleg01.L",
+          "Y",
+          65
+        ],
+        [
+          "lowerleg01.R",
+          "Y",
+          35
+        ]
+      ],
+      "image": "05_kolana.png",
+      "image_sha256": "d9c5caa0f252c32dce7e68e028b9516af24075f85743a504ab752cfc1bd5eea5",
+      "finite_coordinates": true,
+      "evaluated_vertices": 219828,
+      "max_bone_length_error_m": 7.450580596923828e-08
+    },
+    {
+      "pose": "06_skret_przedramienia",
+      "rotations": [
+        [
+          "lowerarm02.L",
+          "LOCAL_Y",
+          60
+        ]
+      ],
+      "image": "06_skret_przedramienia.png",
+      "image_sha256": "6bece2a5181342912c4d159989307409d888ac202862bbcb24c762816ed6e4da",
+      "finite_coordinates": true,
+      "evaluated_vertices": 219828,
+      "max_bone_length_error_m": 7.450580596923828e-08
+    }
+  ],
+  "scope": "Sześć osobnych póz diagnostycznych i obrazy do oceny zapadnięć; nie animacja, nie pełne QA deformacji."
+}

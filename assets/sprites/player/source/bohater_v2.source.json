@@ -1,0 +1,116 @@
+{
+  "schema": 2,
+  "status": "ACTIVE_STATIC_BEFORE_B2",
+  "source": "source/bohater_v2.blend",
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+  "art_revision": "v2-F3-equipment-review-16",
+  "blender": "4.3.2",
+  "source_commit": "ad5f69d0095317310f17f463616904488474b13a",
+  "main_reference_commit": "eb3a2ec6282855e8b659970b10a677b4232d68fe",
+  "references": [
+    "docs/koncepty/17-bohater-i-woz.jpg",
+    "docs/koncepty/19-bohater-twarz.jpg",
+    "docs/art/characters/PLAN-NAPRAWY-BOHATERA.md"
+  ],
+  "precedence": "Pisemne wymagania i decyzje autora przed ilustracjami.",
+  "body_uv_reference_sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c",
+  "rig_reference_sha256": "99f179bce0aa850b45d4191a1d0d234c5851f881c057439470ded3bddf729a24",
+  "weights_reference_sha256": "0f3641d651ae3d00ad6b4ccee43142edb109d3bd909d27d9e4139ef1beed8625",
+  "body": {
+    "vertices": 19158,
+    "faces": 13378,
+    "uv_loop_count": 53512,
+    "native_uv_max_float_error": 2.9796600298226394e-08
+  },
+  "bone_count": 163,
+  "part_count": 22,
+  "skin": {
+    "commit": "bc1da517031a63dabad00380e95566f32f2f3c65",
+    "branch": "vibe/hero-textures-gpt6",
+    "version": 3,
+    "manifest_sha256": "84f6fa4e3c3d72baf7d0308953253799b1bb853022e17f6ba4d7eec1cf34bbac",
+    "files_verified": 51,
+    "mismatches": [],
+    "whole_branch_merged": false
+  },
+  "packed_images": [
+    {
+      "name": "hero_eye_iris_basecolor.png",
+      "file": "//../../../textures/characters/hero/unique/hero_eye_iris_basecolor.png",
+      "packed": true,
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "sRGB",
+      "packed_sha256": "98c9922c0e8498e6c4e5b28cc81e013e95575e4edf7d9ea3a807ca13f0f5aaba"
+    },
+    {
+      "name": "hero_eye_sclera_basecolor.png",
+      "file": "//../../../textures/characters/hero/unique/hero_eye_sclera_basecolor.png",
+      "packed": true,
+      "size": [
+        512,
+        512
+      ],
+      "colorspace": "sRGB",
+      "packed_sha256": "b4ec512375ec4521a415262b1234c4b528387e3a1b167519027a44864b935f7f"
+    },
+    {
+      "name": "hero_skin_body_basecolor.png",
+      "file": "//../../../textures/characters/hero/unique/hero_skin_body_basecolor.png",
+      "packed": true,
+      "size": [
+        4096,
+        4096
+      ],
+      "colorspace": "sRGB",
+      "packed_sha256": "8e85d161f8ad47c267ae480655f9a2ebd8578d876fc5ecfec1f7013697e55c63"
+    },
+    {
+      "name": "hero_skin_body_height.png",
+      "file": "//../../../textures/characters/hero/unique/hero_skin_body_height.png",
+      "packed": true,
+      "size": [
+        4096,
+        4096
+      ],
+      "colorspace": "Non-Color",
+      "packed_sha256": "e399b1327efc81e43c401d7d6d16174bd170b74b550201b75a8c653c5a6a44e7"
+    },
+    {
+      "name": "hero_skin_body_normal_opengl.png",
+      "file": "//../../../textures/characters/hero/unique/hero_skin_body_normal_opengl.png",
+      "packed": true,
+      "size": [
+        4096,
+        4096
+      ],
+      "colorspace": "Non-Color",
+      "packed_sha256": "6235fd8bfafd3887f2f9fa9e544030371fe4fb5d636b2cb04a9adbb5df538446"
+    },
+    {
+      "name": "hero_skin_body_roughness.png",
+      "file": "//../../../textures/characters/hero/unique/hero_skin_body_roughness.png",
+      "packed": true,
+      "size": [
+        4096,
+        4096
+      ],
+      "colorspace": "Non-Color",
+      "packed_sha256": "3c402960d4f28a7f2e4f7b40dc64bcc2a644f9045ee4b54004a52ebe70bff0a5"
+    },
+    {
+      "name": "hero_skin_body_sss_mask.png",
+      "file": "//../../../textures/characters/hero/unique/hero_skin_body_sss_mask.png",
+      "packed": true,
+      "size": [
+        4096,
+        4096
+      ],
+      "colorspace": "Non-Color",
+      "packed_sha256": "d153c88da6725376dbca1134e97b41b105a7e1379acf8d2052c22183cf6cdad2"
+    }
+  ],
+  "source_policy": "Model edytowalny nadrzędny. Renderer i baker nie budują geometrii i nie zapisują .blend. Recepty są historią, nie krokiem renderu."
+}

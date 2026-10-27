@@ -1,0 +1,311 @@
+{
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+  "art_revision": "v2-F3-equipment-review-16",
+  "baker_sha256": "c968cc74f03a3e14ebe23fa4b91819fc99293545a3bee5d0869a3735939aae62",
+  "source": "../../source/bohater_v2.blend",
+  "status": "P2_TEMPORARY_CLOTHING_BEFORE_B2",
+  "parts": {
+    "koszula": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1023.9999999999999,
+      "construction": "Jedna siatka: lniany korpus, rozpięty dekolt, rękawy do łokcia; bez rękawic i obręczy na nadgarstkach.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        },
+        "2": {
+          "rgb": [
+            0,
+            1,
+            0
+          ],
+          "meaning": "dolny brzeg / podeszwa / panel dolny / pas posłania"
+        },
+        "3": {
+          "rgb": [
+            0,
+            0,
+            1
+          ],
+          "meaning": "górny panel / zapięcie / łata"
+        },
+        "4": {
+          "rgb": [
+            1,
+            1,
+            0
+          ],
+          "meaning": "podwinięcie rękawa / skórzane paski buta"
+        }
+      },
+      "files": {
+        "koszula_ao.png": "f00145ff09160713db3ed8e7ec04e76ffc400bafc465fb4fae432433a7f51353",
+        "koszula_curvature.png": "fb864748fd4e3e1d914c1a27038c2ed3b25e5bc5406e35fface3d7d1d807f8e8",
+        "koszula_height_ground.png": "e482a81b3062d5530ba7b3f44c001ea4ff1f5cf40cac4d7dda58eedd9068b376",
+        "koszula_id.png": "214ae55d4a25743af0127e724819e7cee38bcd2775bfe35153365838e9edc20e",
+        "koszula_normal_sculpt.png": "b26a194244ddce48d27aa24d940ba81d266904c86fab601a763ebf45acebc41b",
+        "koszula_preview.png": "e6ebec0eae6042e19bbb761937e0df2eb8fcc1df65cabf9888909f3c539b5aba"
+      },
+      "uv_layout_pending": "koszula_uv.json"
+    },
+    "spodnie": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Pełne spodnie z dwóch nogawek połączonych w kroku; wykluczone wszystkie wagi rąk.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        },
+        "2": {
+          "rgb": [
+            0,
+            1,
+            0
+          ],
+          "meaning": "dolny brzeg / podeszwa / panel dolny / pas posłania"
+        },
+        "3": {
+          "rgb": [
+            0,
+            0,
+            1
+          ],
+          "meaning": "górny panel / zapięcie / łata"
+        }
+      },
+      "files": {
+        "spodnie_ao.png": "669ca2b314a43b2576a9453d07a9fc0adb1a2991330a19d74e2ce4b9ad9bca42",
+        "spodnie_curvature.png": "4cb5a914079d2f26f1635cb93c289419df79e4c61e2fddafc18c1e54839f193d",
+        "spodnie_height_ground.png": "2d3b888a46bb7a28932c5a2ace98d9f0b3d38b60fac6e840fd6c906ed2e4bffb",
+        "spodnie_id.png": "415f84a6ea42843ff238ef6bf01ccb9ffca4369a6b160941f81ab3f5e755d27d",
+        "spodnie_normal_sculpt.png": "35b1b42f461fe2ce664b80b2c343ed0e426896d4968229b086dadbbbb8d27868",
+        "spodnie_preview.png": "dc1ae478ea9531efc0e5a6c1b83a4a6364b7a6ab60cbe3950efbf8b74eccfefc"
+      },
+      "uv_layout_pending": "spodnie_uv.json"
+    },
+    "kaftan": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Cztery połączone panele kaftana; otwarty środek i dekolt V, wycięcia pach, dolne panele zachodzą na spodnie.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        },
+        "2": {
+          "rgb": [
+            0,
+            1,
+            0
+          ],
+          "meaning": "dolny brzeg / podeszwa / panel dolny / pas posłania"
+        },
+        "3": {
+          "rgb": [
+            0,
+            0,
+            1
+          ],
+          "meaning": "górny panel / zapięcie / łata"
+        }
+      },
+      "files": {
+        "kaftan_ao.png": "c0e69ca76bbc55003ce7a2a45bd21b02138bf223f11afb30a01c12658f7a9cb6",
+        "kaftan_curvature.png": "1c558eba77d3b565a54fa06c2e372e08ebc3c94795d800e19a1e5356c44b47d4",
+        "kaftan_height_ground.png": "663f39218223d523d35063e4e9254cc9b4a67c00eb62422f3cbd4433c1948f8f",
+        "kaftan_id.png": "addea229ca2e2e3955ef1c9b29b603c2c24a4f55ccd9ce187ba748deadc62606",
+        "kaftan_normal_sculpt.png": "d40159cc768b1eb2beb636af24fbdb0ae6dc020e82366fe126ad2e4ab30c0705",
+        "kaftan_preview.png": "dfb457c79c27e3d29c766823b03e15b92c14f8017e675feb843d8f7606e03b89"
+      },
+      "uv_layout_pending": "kaftan_uv.json"
+    },
+    "plaszcz": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1023.9999999999999,
+      "construction": "Płaszcz z otwarciem po bokach i z przodu, pionowe fałdy, postrzępiony dół.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        },
+        "2": {
+          "rgb": [
+            0,
+            1,
+            0
+          ],
+          "meaning": "dolny brzeg / podeszwa / panel dolny / pas posłania"
+        }
+      },
+      "files": {
+        "plaszcz_ao.png": "b5cd01fb0536bfbfde44cb01b532362e6c1547f74f55ce6c4bb7dfff8a43fa8a",
+        "plaszcz_curvature.png": "f23fbb7e09ba4f19e0a77c5ff731b693a9982f9fdbf769654e0ca5c8414df1e4",
+        "plaszcz_height_ground.png": "4d8750f9319a5084938c406eeed5832242aad547f1402e3b419dfa6e455136c5",
+        "plaszcz_id.png": "0e51fa9b26c0dc5acf5797f5b3ef63c54a558a62527393aa72d8aa42945ab00c",
+        "plaszcz_normal_sculpt.png": "7f2aa2fcd60debdc13e63875b636b6e25abca41adfc45432b2f3b9d3c2facee3",
+        "plaszcz_preview.png": "fc1eed899d7d9c056438d08fc4c4449fdc2b3016f3fec7df4c4b3445a1d5812e"
+      },
+      "uv_layout_pending": "plaszcz_uv.json"
+    },
+    "peleryna": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1023.9999999999999,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        },
+        "2": {
+          "rgb": [
+            0,
+            1,
+            0
+          ],
+          "meaning": "dolny brzeg / podeszwa / panel dolny / pas posłania"
+        }
+      },
+      "files": {
+        "peleryna_ao.png": "a7d877b5a70ffb3a7af5f22bb917911ce7bdfa41b485e9c8bb197dbb69a035e0",
+        "peleryna_curvature.png": "d699b4bc1ec49ac0d161300bd64677cb7d75e3f68032bd4ccd9812ec9333653c",
+        "peleryna_height_ground.png": "f9ce338b09d6e95d4b06685a9e7c2d54cc749a1c5280b1079252cd693b2226a9",
+        "peleryna_id.png": "f21d66f6f0fa577f4b6c3e826275f0da825146930af9f65cee3d917019678daa",
+        "peleryna_normal_sculpt.png": "b553caee8448b2b0ca2a70b2497b4310d246b9b3f1a8b301418a5e7269a46766",
+        "peleryna_preview.png": "f1ab2d751e96e79b2c23d9051a170e737c7f5340a335801da607c3a96f9b72c5"
+      },
+      "uv_layout_pending": "peleryna_uv.json"
+    },
+    "kaptur": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Osobna edytowalna część stroju.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        }
+      },
+      "files": {
+        "kaptur_ao.png": "b0693a6f470e771fc6c74e93ba9eaa5978897f08ed2c8b04cff74ca6f235f6a9",
+        "kaptur_curvature.png": "c80496fb2ddca28ff4fb946bd670b85e6cbd89f6dfa340b7b011d9424757223d",
+        "kaptur_height_ground.png": "28f64f676aa60d3cc80dc5d02acaee1b52cc6385c13fba2f17cfc6724b47f61e",
+        "kaptur_id.png": "c38503cae80050404d5633220495d2be8c781367c3d53e7c61748f403f0cc2cf",
+        "kaptur_normal_sculpt.png": "b42836511e7496afd427e470b22dec2d1cda7cc89533ad9180f7e17fca72fa3f",
+        "kaptur_preview.png": "6b93dbbf557de430953834042f3c008538347d32717b3a32eb1b2f875da022a3"
+      },
+      "uv_layout_pending": "kaptur_uv.json"
+    },
+    "but_lewy": {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "texel_density_px_m": 1024.0,
+      "construction": "Wysoka cholewa, wywinięcie, zamknięta podeszwa; dwa rzeczywiste paski i metalowe sprzączki w jednej siatce części. Material IDs rozróżniają skórę/pasy/metal.",
+      "id_regions": {
+        "1": {
+          "rgb": [
+            1,
+            0,
+            0
+          ],
+          "meaning": "główna powierzchnia"
+        },
+        "2": {
+          "rgb": [
+            0,
+            1,
+            0
+          ],
+          "meaning": "dolny brzeg / podeszwa / panel dolny / pas posłania"
+        },
+        "3": {
+          "rgb": [
+            0,
+            0,
+            1
+          ],
+          "meaning": "górny panel / zapięcie / łata"
+        },
+        "4": {
+          "rgb": [
+            1,
+            1,
+            0
+          ],
+          "meaning": "podwinięcie rękawa / skórzane paski buta"
+        },
+        "5": {
+          "rgb": [
+            0,
+            1,
+            1
+          ],
+          "meaning": "metal sprzączki"
+        }
+      },
+      "files": {
+        "but_lewy_ao.png": "75415ef13cdd348c88383fb40de351f528fc5aa1f52929211837f2312fad0b39",
+        "but_lewy_curvature.png": "0c0b4ada3db8bdcedee1abbc8ca003b2fa05ccee41df0c76cf0b9f84536f0a5f",
+        "but_lewy_height_ground.png": "b4bd5169d1c26ef5ba565cc93684fff13852de4615b93261dc492b312f096d3f",
+        "but_lewy_id.png": "80d0e0c0f0b3de4b7d403f5a9f4441be66c17bb9754ce1c323d042234d2012ea",
+        "but_lewy_normal_sculpt.png": "60f4cf9708d77ded20e9c72a7755944994575213690c519122db4af26a7a1c29",
+        "but_lewy_preview.png": "7d7ee6332e06775c8f94d0eae1027fbd537b74649bb91655b7427766ab48f71e"
+      },
+      "uv_layout_pending": "but_lewy_uv.json"
+    }
+  },
+  "maps": {
+    "uv": "Unikatowe wyspy, szablon krawędzi bazowej siatki.",
+    "ao": "Cycles Ambient Occlusion, odległość 0.15 m; realna geometria całego stroju/ciała; nie do mnożenia przez skórę.",
+    "curvature": "Lokalny podpisany Laplacian geometrii, 0 wklęsłe / .5 płaskie / 1 wypukłe; brak high-poly ręcznej rzeźby.",
+    "normal_sculpt": "Cycles selected-to-active, ewaluowana geometria z fałdami/Subsurf/Solidify na bazową siatkę UV, tangent OpenGL; nie skan i nie ręczny high-poly.",
+    "height_ground": "Z w metrach / 1.8; 16-bit grayscale, 0 ziemia / 1 wysokość 1.8 m.",
+    "id": "Płaskie kolory regionów opisane przy części, nie końcowy kolor.",
+    "preview": "768 px, szary materiał, izolowany element; kamera diagnostyczna, nie skala gry."
+  }
+}

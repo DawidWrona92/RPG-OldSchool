@@ -1,0 +1,165 @@
+{
+  "source_blend_sha256": "6947b81d85b8b358483bd221e8f196da77a023454fa09d82956e55ff260015e5",
+  "frames": [
+    {
+      "direction": "S",
+      "rgba": "RGBA",
+      "shadow_rgba": "RGBA",
+      "transparent_border_max_alpha": 0,
+      "shadow_border_max_alpha": 67,
+      "body_bounds_384": [
+        148,
+        126,
+        242,
+        330
+      ],
+      "anchor_192": [
+        95.99995994567871,
+        158.35384941101074
+      ],
+      "body_sha256": "64d34edfb3b619fb0d9d03cba4222756b2e86d1d2fb523e263c4d520f05f0cc5",
+      "shadow_sha256": "1908278fcfa561991745462939366ffc06c6cf80528acbd55f5005d174ef249e"
+    },
+    {
+      "direction": "SW",
+      "rgba": "RGBA",
+      "shadow_rgba": "RGBA",
+      "transparent_border_max_alpha": 0,
+      "shadow_border_max_alpha": 83,
+      "body_bounds_384": [
+        148,
+        126,
+        251,
+        334
+      ],
+      "anchor_192": [
+        95.99995994567871,
+        158.35384941101074
+      ],
+      "body_sha256": "4373eac933dee95a29fd283c4b6374516cb73e6ca4c2f38ff08d4b20253bd40d",
+      "shadow_sha256": "ee8ba6719b9b42ce875bb8967331b062dffd3bd9a14969396025f060b2d39b62"
+    },
+    {
+      "direction": "W",
+      "rgba": "RGBA",
+      "shadow_rgba": "RGBA",
+      "transparent_border_max_alpha": 0,
+      "shadow_border_max_alpha": 116,
+      "body_bounds_384": [
+        156,
+        126,
+        256,
+        332
+      ],
+      "anchor_192": [
+        95.99995994567871,
+        158.35384941101074
+      ],
+      "body_sha256": "e9425a61cfae96203405a364b5dd101faa32331030270f197000be7770e5d3f0",
+      "shadow_sha256": "b667ca3d8ac97b7584432a7b0f29a47bf209a76ea51b48a66e31cc8ddf65de3d"
+    },
+    {
+      "direction": "NW",
+      "rgba": "RGBA",
+      "shadow_rgba": "RGBA",
+      "transparent_border_max_alpha": 0,
+      "shadow_border_max_alpha": 92,
+      "body_bounds_384": [
+        149,
+        124,
+        255,
+        328
+      ],
+      "anchor_192": [
+        95.99995994567871,
+        158.35384941101074
+      ],
+      "body_sha256": "1440d2a24d88d46cbd722f9755ea899cad80ad53fa8779e9cfe96a4163ee6f21",
+      "shadow_sha256": "d2227a844a588b4d2b5d31030fbfc5fbb4cb2c8b23c037083ee601bba057360f"
+    },
+    {
+      "direction": "N",
+      "rgba": "RGBA",
+      "shadow_rgba": "RGBA",
+      "transparent_border_max_alpha": 0,
+      "shadow_border_max_alpha": 73,
+      "body_bounds_384": [
+        141,
+        123,
+        235,
+        321
+      ],
+      "anchor_192": [
+        95.99995994567871,
+        158.35384941101074
+      ],
+      "body_sha256": "88916ff8e7da194f8d56cafcf5d3a878be8d7ff44f6d4fcc7852ab3dfccce3e9",
+      "shadow_sha256": "0374120c423e8323666ef48b5809279d0d549f0f16dd6f25d1a0afc110c7ade7"
+    },
+    {
+      "direction": "NE",
+      "rgba": "RGBA",
+      "shadow_rgba": "RGBA",
+      "transparent_border_max_alpha": 0,
+      "shadow_border_max_alpha": 73,
+      "body_bounds_384": [
+        132,
+        124,
+        234,
+        328
+      ],
+      "anchor_192": [
+        95.99995994567871,
+        158.35384941101074
+      ],
+      "body_sha256": "66fd38bb5701302523474cee29f0f726a2188e7e27c03e37f190860086d53f13",
+      "shadow_sha256": "59e6b7c2d77c99dc7384d090a6298f9477c8fa640d1b26c840c7aaed034ca7ec"
+    },
+    {
+      "direction": "E",
+      "rgba": "RGBA",
+      "shadow_rgba": "RGBA",
+      "transparent_border_max_alpha": 0,
+      "shadow_border_max_alpha": 60,
+      "body_bounds_384": [
+        127,
+        126,
+        227,
+        332
+      ],
+      "anchor_192": [
+        95.99995994567871,
+        158.35384941101074
+      ],
+      "body_sha256": "55e3266056e99bb82ecbd17d5a5033407199110de531e150a3b0e7fdbdf1bee0",
+      "shadow_sha256": "077ae967b6844b5da515c23219e04ffeea3011da2b4c591890da6719d87ad564"
+    },
+    {
+      "direction": "SE",
+      "rgba": "RGBA",
+      "shadow_rgba": "RGBA",
+      "transparent_border_max_alpha": 0,
+      "shadow_border_max_alpha": 62,
+      "body_bounds_384": [
+        128,
+        126,
+        234,
+        334
+      ],
+      "anchor_192": [
+        95.99995994567871,
+        158.35384941101074
+      ],
+      "body_sha256": "056f6078fe566eb80fdd3bd1d465bb45a1ab6028fcaab97e20a50035abe21685",
+      "shadow_sha256": "08156e6310993925c9b5fea481b240393efded969e8d9d2449785e78436d958a"
+    }
+  ],
+  "different_directions": 8,
+  "frame_size_preview": [
+    192,
+    192
+  ],
+  "pixels_per_meter": 60,
+  "sprite_scale_changed": false,
+  "forest_background": "Niezmieniony wycinek konceptu 17, bez pewnej skali świata. Przyjęto 60 px/m dla postaci, nie powiększano jej względem wycinka. Ilustracja, nie scena gry."
+}

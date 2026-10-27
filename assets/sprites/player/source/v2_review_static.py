@@ -22,7 +22,8 @@ for d,label in enumerate(DIRS):
     path=OUT/f'game/game_{d}.png';shadow=OUT/f'game/shadows/game_{d}.png';entry=game_audit['frames'][path.name];assert sha(path)==entry['image_sha256'] and sha(shadow)==entry['shadow_sha256'];im=Image.open(path);a=np.array(im)[:,:,3];ys,xs=np.where(a>0);edge=np.concatenate([a[0],a[-1],a[:,0],a[:,-1]]);assert edge.max()==0
     body=native(path);cast=native(shadow);body.save(OUT/f'native/bohater_{label}.png');cast.save(OUT/f'native/shadows/bohater_{label}.png');composite=Image.alpha_composite(Image.alpha_composite(patch.copy(),cast),body);frames.append((composite,label))
     anchor=[v/2 for v in entry['anchor_px']];assert max(abs(a-b) for a,b in zip(anchor,[96,158.353829]))<1e-4
-    checks.append({'direction':label,'rgba':im.mode,'transparent_border_max_alpha':int(edge.max()),'body_bounds_384':[int(xs.min()),int(ys.min()),int(xs.max()),int(ys.max())],'anchor_192':anchor,'body_sha256':sha(path),'shadow_sha256':sha(shadow)})
+    shadow_image=Image.open(shadow);assert shadow_image.mode=='RGBA' and shadow_image.size==(384,384);sa=np.array(shadow_image)[:,:,3];shadow_edge=np.concatenate([sa[0],sa[-1],sa[:,0],sa[:,-1]])
+    checks.append({'direction':label,'rgba':im.mode,'shadow_rgba':shadow_image.mode,'transparent_border_max_alpha':int(edge.max()),'shadow_border_max_alpha':int(shadow_edge.max()),'body_bounds_384':[int(xs.min()),int(ys.min()),int(xs.max()),int(ys.max())],'anchor_192':anchor,'body_sha256':sha(path),'shadow_sha256':sha(shadow)})
 assert len({x['body_sha256'] for x in checks})==8
 grid(frames,4,192,224).save(OUT/'osiem-kierunkow-1x.png')
 grid([(Image.open(OUT/f'native/bohater_{label}.png'),label) for label in DIRS],8,192,224).save(OUT/'osiem-kierunkow-ciemne-1x.png')
