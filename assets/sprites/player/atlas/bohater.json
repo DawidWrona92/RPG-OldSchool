@@ -1,0 +1,67 @@
+{
+  "character": "bohater",
+  "frame_size": [
+    192,
+    192
+  ],
+  "anchor_px": [
+    96.0,
+    158.35382907247958
+  ],
+  "pixels_per_meter": 60.0,
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "direction_note": "Oddzielne rendery obrotu modelu o -45°; bez lustrzanych odbić",
+  "layout": "kolumny = klatki animacji, wiersze = kierunki",
+  "camera_elevation_deg": 30,
+  "animations": {
+    "spoczynek": {
+      "file": "bohater_spoczynek.png",
+      "shadow_file": "bohater_spoczynek_shadow.png",
+      "frames": 8,
+      "durations_ms": [
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180
+      ],
+      "loop": true,
+      "events": {}
+    },
+    "chod": {
+      "file": "bohater_chod.png",
+      "shadow_file": "bohater_chod_shadow.png",
+      "frames": 12,
+      "durations_ms": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "loop": true,
+      "events": {},
+      "root_speed_mps": 0.9027777777777779
+    }
+  },
+  "status": "eksperyment do oceny autora; niezatwierdzony asset produkcyjny"
+}

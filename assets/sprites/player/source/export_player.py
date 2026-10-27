@@ -102,7 +102,7 @@ def make_previews(frames,shadows):
     reference=REPO/'docs/koncepty/12-scena-postac-z-porozem-i-toporem.jpg'
     world=Image.open(reference).convert('RGBA')
     draw=ImageDraw.Draw(world)
-    positions=[((510,502),'base','ziemia / światło bazowe'),
+    positions=[((650,655),'base','ziemia / światło bazowe'),
                ((925,640),'cool','chłodny wariant'),((1210,760),'warm','lokalna pochodnia')]
     variants=[]
     for (x,y),variant,label in positions:
