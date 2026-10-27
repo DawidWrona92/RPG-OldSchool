@@ -2,7 +2,7 @@
 
 Projekt dark fantasy: przypadkowy podróżnik trafia do Niemiru, osady ukrytej w groźnym lesie. PC, single player, kamera i sterowanie inspirowane Diablo 2; wymagająca walka z niewieloma groźnymi przeciwnikami.
 
-Repozytorium jest obecnie w fazie projektowej. Nie wybrano silnika i nie ma jeszcze grywalnej implementacji. Dokumenty rozróżniają zaakceptowane decyzje od propozycji do walidacji. Dane grafów opisują projekty stanów, nie kod AI.
+Repozytorium jest obecnie w fazie projektowej. Silnik: **Godot 4** — [decyzja warunkowa](docs/SILNIK.md); grywalnej implementacji jeszcze nie ma. Dokumenty rozróżniają zaakceptowane decyzje od propozycji do walidacji. Dane grafów opisują projekty stanów, nie kod AI.
 
 ## Kolejność czytania
 
@@ -22,6 +22,7 @@ Repozytorium jest obecnie w fazie projektowej. Nie wybrano silnika i nie ma jesz
 | [Przegląd 04](docs/pakiet-04-przeglad.md) | Spójność, scenariusze graczy i walidacja połączeń mapy | Analiza projektu, nie testy gry |
 | [Przewodnik artystyczny Niemiru](docs/art/niemir/NIEMIR_ART_DIRECTION.md) ([PDF](docs/art/niemir/NIEMIR_ART_DIRECTION.pdf)) | Uzgodniony wygląd osady, przestrzeń, oświetlenie i kryteria oceny | Kierunek zatwierdzony |
 | [Kontrakt renderu sprite'ów](docs/art/KONTRAKT-RENDERU.md) | Blender/Cycles: kamera, skala, kierunki, kotwica, światło, eksport, kontrola jakości | Decyzja autora |
+| [Silnik gry: Godot 4](docs/SILNIK.md) | Wersja 4.7.2, GDScript, gra 2D z atlasów; warunki i wynik pierwszego testu | Decyzja warunkowa |
 | [Biblioteka 18 szkiców koncepcyjnych](docs/koncepty/README.md) | Potwory, mieszkańcy, budynki i makiety izometryczne | Referencje wyglądu, nie gotowe sprite’y |
 | [Indeks dokumentacji](docs/INDEX.md) | Wszystkie dokumenty fabularne, projektowe i grafiki koncepcyjne | Centralny punkt wejścia |
 | [Przed prototypem](docs/przed-prototypem.md) | Dalsza kolejność pracy i decyzje techniczne | Plan roboczy |
@@ -32,7 +33,7 @@ Autor przegląda większe pakiety i wskazuje poprawki; nowe propozycje nie staj�
 
 **`main` jest wspólnym źródłem prawdy dla dokumentacji świata, mechanik, zadań, map i zatwierdzonego kierunku artystycznego.** Opisy zawierające propozycje nie stają się automatycznie kanonem. Zobacz [indeks dokumentacji](docs/INDEX.md), [bibliotekę szkiców](docs/koncepty/README.md), [przewodnik Niemiru](docs/art/niemir/NIEMIR_ART_DIRECTION.md) oraz [instrukcje dla współtwórców](AGENTS.md).
 
-**Metoda tworzenia sprite'ów jest zatwierdzona:** prerender w Blenderze (Cycles) według [kontraktu renderu](docs/art/KONTRAKT-RENDERU.md) — wspólna kamera, skala, kierunki, kotwica, światło i format eksportu. Wzorcem technicznym jest bohater z gałęzi `vibe/sprite-bohater-codex`. Generatory, pliki `.blend`, rendery i atlasy pozostają na gałęziach roboczych; silnik gry nadal nie jest wybrany.
+**Metoda tworzenia sprite'ów jest zatwierdzona:** prerender w Blenderze (Cycles) według [kontraktu renderu](docs/art/KONTRAKT-RENDERU.md) — wspólna kamera, skala, kierunki, kotwica, światło i format eksportu. Wzorcem technicznym jest bohater z gałęzi `vibe/sprite-bohater-codex`. Generatory, pliki `.blend`, rendery i atlasy pozostają na gałęziach roboczych; silnik to [Godot 4](docs/SILNIK.md) (decyzja warunkowa).
 
 `.agents/skills/` zawiera historyczne i projektowe narzędzia zespołu. Starsze skille graficzne (pixel-art, SDF, router RTS) oraz ich porównania nie są kontraktem produkcyjnym — obowiązuje [kontrakt renderu](docs/art/KONTRAKT-RENDERU.md). Dokumenty `docs/skills-graficzne.md` i `docs/zgodnosc-pixel-art.md` mają znaczenie archiwalne.
 

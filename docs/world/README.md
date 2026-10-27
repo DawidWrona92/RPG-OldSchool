@@ -89,7 +89,7 @@ Trzy kamienne słupy w dowolnej kolejności. Nie wymagamy zabicia każdego napot
 ## 8. Otwarte kwestie przed detalowaniem geometrii
 
 1. Czy docelowa kamera pozostaje stała w jednym kierunku (rzut Diablo 2), czy dopuszczamy obrót? Od tego zależy geometria dachu i czytelność bram.
-2. Docelowy silnik, reprezentacja podłoża i fizyki — otwarte. Ten dokument nie rozstrzyga 2D/3D ani rendererów.
+2. Silnik: Godot 4, gra 2D z prerenderowanych sprite'ów ([decyzja warunkowa](../SILNIK.md)). Reprezentacja podłoża i fizyki — otwarte.
 3. Wymiary świata — dopiero po ustaleniu D, B, U, A, V w walce.
 4. Wymagana „niemożliwość” pętli: rysunek zachowuje **wariant A jako makietę**; **wariant B** może zmieniać relacje przestrzenne bez widocznego ekranu ładowania. Ostateczna decyzja autora jest otwarta: [porównanie](VARIANTS.md).
 5. Jak szczegółowe i grywalne mają być wnętrza gospody i strażnicy? Na razie pełne bezładowaniowe wnętrza są obowiązkiem tylko wtedy, gdy gracz faktycznie do nich wchodzi.

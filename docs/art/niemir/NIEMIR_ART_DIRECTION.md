@@ -11,13 +11,13 @@
 
 ## 01. Status decyzji i granice dokumentu
 
-Ten dokument przekłada zaakceptowaną koncepcję fabularną Weleszy i uzgodniony kierunek estetyczny Niemiru na praktyczny brief dla wykonawców. Mówi, **co** ma być widać; **jak** to renderować, ustala [kontrakt renderu](../KONTRAKT-RENDERU.md). **Nie** zatwierdza silnika gry, konkretnych hitboxów, metrycznej skali mapy, ostatecznej geometrii budynków ani historycznego wyjaśnienia tajemnicy strażnic.
+Ten dokument przekłada zaakceptowaną koncepcję fabularną Weleszy i uzgodniony kierunek estetyczny Niemiru na praktyczny brief dla wykonawców. Mówi, **co** ma być widać; **jak** to renderować, ustala [kontrakt renderu](../KONTRAKT-RENDERU.md). Silnik to Godot 4 ([decyzja warunkowa](../../SILNIK.md)). Przewodnik **nie** zatwierdza konkretnych hitboxów, metrycznej skali mapy, ostatecznej geometrii budynków ani historycznego wyjaśnienia tajemnicy strażnic.
 
 - **[KANON]** Fakty z zaakceptowanej fabuły `docs/demo-fabula.md`: funkcje osady, jej izolacja, skała i źródło, palisada, ludzie, zabobony, brak pól i główny przebieg demo.
 - **[KIERUNEK ZATWIERDZONY]** Surowa, ciasna, użytkowa osada; izometryczna kamera gry; stonowana paleta, wilgoć i chłodny las, małe lokalne źródła ciepła. Autor zaakceptował tę wizję do dalszego rozwijania.
 - **[PROPOZYCJA]** Dokładny podział działek, orientacja obiektów, wzorce architektury, położenie rekwizytów i warianty iluminacji. Można je zmienić po ocenie panoramy ART-01.
 - **[DECYZJA AUTORA]** Technologia grafiki: sprite'y i otoczenie to prerender w Blenderze 4.3 (Cycles) według [kontraktu renderu](../KONTRAKT-RENDERU.md) — wspólna kamera ortograficzna 30°, skala 60 px/m, zestaw świateł, kierunki, kotwica i eksport.
-- **[DO TESTU]** Zachowanie kamery w działającej grze, zasłanianie postaci, przechodniość, nawigacja, wymiary obiektów i import atlasów do silnika, którego jeszcze nie wybrano.
+- **[DO TESTU]** Zachowanie kamery w działającej grze, zasłanianie postaci, przechodniość, nawigacja, wymiary obiektów i import atlasów do Godota 4.
 
 Przy konflikcie źródeł obowiązuje najpierw decyzja autora, potem zatwierdzona fabuła; zapisy w `docs/pakiet-04-mapa.md` są propozycją projektu przestrzeni. Nowe obrazy nie mogą samodzielnie ustanawiać faktów fabularnych.
 
@@ -209,7 +209,7 @@ Ziemia, palisada, roślinność, zabudowa wariantowa i rekwizyty. Zbudować bibl
 
 ### Faza V — Test grywalności [P0/P1]
 
-Sprawdzić przechodniość, zasłanianie i relacje wysokości z postacią w naturalnej skali. Warunki: widoczny Żegota, wejście do gospody, możliwość treningu i powrotu z lasu. Import atlasów do silnika zostanie określony po wyborze silnika.
+Sprawdzić przechodniość, zasłanianie i relacje wysokości z postacią w naturalnej skali. Warunki: widoczny Żegota, wejście do gospody, możliwość treningu i powrotu z lasu. Import atlasów do Godota 4 sprawdza prototyp (zob. [SILNIK.md](../../SILNIK.md)).
 
 ## 11. Rejestr prac
 
@@ -257,7 +257,7 @@ Każdy obiekt ma przejść kolejno:
 - **Role:** art director tworzy brief/recenzję; environment artist lub agent tworzy model `.blend` i render według kontraktu; level designer sprawdza układ oraz trasy; programista silnika waliduje formaty, kolizje i zasłanianie; autor zatwierdza nowe fakty fabularne i krytyczne zmiany kierunku.
 - **Git:** osobne gałęzie do eksperymentów graficznych i implementacji; `main` jest źródłem dokumentacji świata, kierunku artystycznego i [kontraktu renderu](../KONTRAKT-RENDERU.md). Pliki `.blend`, skrypty i rendery zostają na gałęziach roboczych.
 - **Źródło prawdy:** edytowalny Markdown na `main`, PDF jako publikacja do czytania. Zmiany zaczynamy od `.md`, po czym regenerujemy PDF. W PR zaznaczamy: kanon, zatwierdzony kierunek, propozycję lub test.
-- **Sprawy otwarte:** finalny silnik i import atlasów, mierzalna skala mapy, ustalenie szczegółowych działek, zakres wnętrz, optymalizacja assetów oraz rozmiar klatek dużych obiektów (budynek wzorcowy wg kontraktu).
+- **Sprawy otwarte:** warunki decyzji o silniku Godot 4 i importer atlasów, mierzalna skala mapy, ustalenie szczegółowych działek, zakres wnętrz, optymalizacja assetów oraz rozmiar klatek dużych obiektów (budynek wzorcowy wg kontraktu).
 
 ## 14. Pierwszy obraz referencyjny: ART-01
 
@@ -274,5 +274,6 @@ Każdy obiekt ma przejść kolejno:
 5. `docs/pakiet-04-przeglad.md` i `docs/graphs/layout-demo.json` — kontrola zależności, nie walidacja geometrii.
 6. `docs/koncepty/README.md` — biblioteka zatwierdzonych referencji wizualnych potworów, mieszkańców i otoczenia.
 7. `docs/art/KONTRAKT-RENDERU.md` — wiążąca specyfikacja kamery, skali, światła, eksportu i kontroli jakości sprite'ów.
+8. `docs/SILNIK.md` — silnik Godot 4: decyzja warunkowa, wersja i warunki.
 
 **Zasada końcowa:** Niemir nie musi wyglądać na wielki, by pozostał w pamięci. Musi być rozpoznawalny, prawdziwy, zamieszkany i na tyle niepokojący, żeby opuszczenie jego bramy było decyzją.
