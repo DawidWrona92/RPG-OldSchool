@@ -67,6 +67,7 @@ anchor=[origin.x*192,(1-origin.y)*192]
 assert abs(anchor[0]-96)<.01 and abs(anchor[1]-158.35382907248)<.01,anchor
 visibility={'spoczynek':{},'chod':{}};orientation={}
 for d,label in enumerate(['S','SW','W','NW','N','NE','E','SE']):
+    if '--quick' in sys.argv and d not in [3,4]:continue
     rig.rotation_euler.z=-d*math.pi/4;bpy.context.view_layer.update()
     point=rig.matrix_world.to_3x3()@Vector((1,0,0))
     screen=world_to_camera_view(scene,scene.camera,point)
@@ -78,6 +79,7 @@ for d,label in enumerate(['S','SW','W','NW','N','NE','E','SE']):
     if label=='E':assert delta[0]>55 and abs(delta[1])<.01
     for anim,frames,step in [('spoczynek',list(range(8)),10),('chod',list(range(12)),2)]:
         for frame in frames:
+            if '--quick' in sys.argv and frame not in ([0] if anim=='spoczynek' else [0,4,8]):continue
             activate(anim)
             position=1+frame*step;scene.frame_set(math.floor(position),subframe=position%1)
             file=maskdir/(f'{anim}_{label}_{frame:02}.png')
@@ -87,7 +89,7 @@ for d,label in enumerate(['S','SW','W','NW','N','NE','E','SE']):
             # Visibility counts are evidence, not a visual acceptance gate.
             visibility[anim][label+'_'+str(frame)]=count
 report={'reproduction':repro,'anchor_projection_px':anchor,'visible_sword_pixels_at_192px':visibility,
-        'orientation':orientation,'tested_poses':'all 8 idle and 12 walk phases in eight directions (160 masks)',
+        'orientation':orientation,'tested_poses':('quick N/NW idle0, walk0/4/8' if '--quick' in sys.argv else 'all 8 idle and 12 walk phases in eight directions (160 masks)'),
         'limits':['weapon masks do not prove absence of all garment collisions',
                   'all walk frames were visually reviewed on contact sheets, not motion-captured']}
 (OUT/'render-validation.json').write_text(json.dumps(report,indent=2)+'\n')

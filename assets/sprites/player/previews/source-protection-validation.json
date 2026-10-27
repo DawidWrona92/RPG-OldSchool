@@ -1,0 +1,6 @@
+{
+  "source_sha256": "e55d5faa044b6e5a36a73f8e0cd6e3f2ee455459698b5256f27b22cd2991d661",
+  "attempted_bootstrap_overwrite_exit_code": 1,
+  "canonical_source_unchanged": true,
+  "reason": "Generator refuses canonical source even with explicit bootstrap path"
+}
