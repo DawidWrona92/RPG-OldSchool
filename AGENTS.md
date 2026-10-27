@@ -1,20 +1,14 @@
-# Instrukcje dla agentów (LLM)
+# Welesza — zasady dla współtwórców i agentów LLM
 
-Projekt: **Welesza** — demo ARPG dark fantasy w duchu Diablo 2. Faza projektowa, silnik niewybrany. Zacznij od [README](README.md); kolejność czytania dokumentów jest tam w tabeli.
+W pierwszej kolejności przeczytaj [README](README.md), [indeks dokumentacji](docs/INDEX.md), [fabułę](docs/demo-fabula.md) i właściwy dokument zakresowy.
 
-## Zasady ogólne
+1. **`main` jest źródłem prawdy dla fabuły, mechanik, topologii świata, zatwierdzonej stylistyki i ilustracji referencyjnych.**
+2. Odróżniaj ustalenia autora od propozycji i testów. Nie dopisuj faktów o świecie ani zasad gry wyłącznie na podstawie grafiki koncepcyjnej.
+3. Aktualny kierunek wizualny Niemiru opisuje [art direction](docs/art/niemir/NIEMIR_ART_DIRECTION.md); postacie i otoczenie mają [bibliotekę referencji](docs/koncepty/README.md).
+4. **Sprite'y renderujemy w Blenderze (Cycles) według [kontraktu renderu](docs/art/KONTRAKT-RENDERU.md)** — ta sama kamera, skala, kierunki, kotwica, światło i format eksportu dla postaci i otoczenia. Wzorzec techniczny: bohater z gałęzi `vibe/sprite-bohater-codex`. Historyczne generatory i skille graficzne (pixel-art, SDF, router RTS) nie są kontraktem produkcyjnym. Silnik gry: Godot 4.7.2 — [decyzja warunkowa](docs/SILNIK.md); projekt Godota powstaje na gałęziach roboczych.
+5. Nie przenoś na `main` plików źródłowych generatorów grafiki, silnika, atlasów, animacji ani renderów testowych w ramach porządkowania dokumentacji.
+6. Pracę implementacyjną prowadź na własnym branchu. Nie nadpisuj aktywnych branchy innych wykonawców; najpierw porównaj zmiany.
+7. Podczas redagowania dokumentacji zachowaj linki względne oraz wersje Markdown i PDF tego samego przewodnika w zgodzie.
+8. Kto prowadzi który zakres i kto go przejmuje — [rejestr wykonawców](docs/WYKONAWCY.md). Na końcu każdej sesji aktualizuj `HANDOFF.md` w swoim katalogu roboczym (ostatni commit, stan, otwarte problemy, następny krok).
 
-- Dokumenty w `docs/` odróżniają decyzje autora od propozycji. Nie przedstawiaj propozycji jako zatwierdzonych i nie dopisuj kanonu za autora; wątpliwości konsultuj z nim.
-- Pisz po polsku, jak reszta repozytorium.
-
-## Grafika postaci i potworów
-
-**Jedyna obowiązująca metoda: [`.agents/skills/welesza-sprites/SKILL.md`](.agents/skills/welesza-sprites/SKILL.md)** — prerender brył SDF w NumPy, kod w `assets/sprites/prerender/`, wzorzec `drwal.py`. Przeczytaj skill w całości przed rysowaniem.
-
-- Nie twórz pixel-artu składanego z figur i nie przywracaj usuniętych skilli graficznych (router RTS, retro/painted/prerender-3d, godot-pipeline, pixel-art). Dawały wyniki nie do przyjęcia.
-- Specyfikacją postaci jest karta w [bestiariuszu](docs/bestiariusz-demo.md).
-- Wiele agentów może rysować równolegle: jedna postać = jeden plik i jeden katalog wyjściowy; wspólnego `sdfkit.py` i kontraktu kadru nie zmieniaj bez zgody autora. Szczegóły w skillu.
-
-## Osada Niemir — wspólne wytyczne graficzne
-
-Przed tworzeniem architektury, terenu, panoramy Niemiru i rekwizytów przeczytaj `docs/art/niemir/NIEMIR_ART_DIRECTION.md` (PDF obok). Kierunek wizualny jest uzgodniony; dokładny plan i integracja są propozycjami/do testu. Utrzymuj wspólną kamerę, światło i skalę ze sprite'ami SDF, ale nie zakładaj, że klatka 192×192 postaci jest rozmiarem budynku. Nie nadpisuj `sdfkit.py` i nie dopisuj kanonu świata bez decyzji autora.
+Ten plik ustala współpracę i hierarchię dokumentów. Specyfikacją obrazu jest kontrakt renderu, a wyboru silnika — [SILNIK.md](docs/SILNIK.md); grywalnej implementacji jeszcze nie ma.
