@@ -1,6 +1,6 @@
 # Bohater Weleszy — biblioteka tekstur pod Blendera
 
-**Paczka v0.1 · Chunk 01/04 · status PROTOTYPE / do zatwierdzenia.**
+**Paczki 01–03 z 04 · status PROTOTYPE / do zatwierdzenia.** Ten opis dotyczy Chunk 01; kolejne paczki: [Chunk 02 — wyposażenie](README.chunk02.md) ([manifest](manifest.chunk02.json)) i [Chunk 03 — uzbrojenie, detal, skóra, maski](README.chunk03.md) ([manifest](manifest.chunk03.json)). Render bohatera: [kontrakt renderu](../../../../docs/art/KONTRAKT-RENDERU.md).
 
 Materiały dopasowano do referencji `docs/koncepty/17-bohater-i-woz.jpg` i aktualnych renderów `vibe/sprite-bohater-codex`. Są to **realne osobne pliki PNG**, nie plansza referencyjna. Każdy zestaw zawiera:
 

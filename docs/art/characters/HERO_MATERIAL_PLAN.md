@@ -18,9 +18,9 @@
 | Chunk | Rezultat | Status |
 |---|---|---|
 | **01 — bazowe tkaniny i skóra** | 3 materiały: len koszuli, ciemnobrązowa wełna płaszcza, skóra kaftana; 4 mapy na materiał + instrukcja | **Paczka do recenzji / zrealizowana** |
-| **02 — wyposażenie podróżnika** | ciemna skóra butów, skóra plecaka, zszarzałe płótno posłania, ciemna wełna spodni | Plan, nie wykonano |
-| **03 — detale i uzbrojenie** | żelazo i stal miecza, rzemienie, maski szwów i przetarć, zabrudzenia błotem; bez wymyślania nowych elementów | Plan, nie wykonano |
-| **04 — weryfikacja Blendera** | próbne renderowanie na kopii modelu 8 kierunków i w skali 192 px, porównanie z referencją, rekomendacja przyjęcia/odrzucenia | Plan, nie wykonano |
+| **02 — wyposażenie podróżnika** | ciemna skóra butów, skóra plecaka, zszarzałe płótno posłania, ciemna wełna spodni | **Dostarczona** (`c6c1a67`), [opis](../../../assets/textures/characters/hero/README.chunk02.md); zintegrowana na `vibe/sprite-bohater-codex` |
+| **03 — detale i uzbrojenie** | rzemienie, żelazo, stal miecza, skóra człowieka, włosy i 4 nakładki zużycia (krawędzie, wilgoć, błoto, szwy) | **Dostarczona** (`aa7ac7a`, `ff74eb7`), [opis](../../../assets/textures/characters/hero/README.chunk03.md); zintegrowana na `vibe/sprite-bohater-codex` |
+| **04 — weryfikacja Blendera** | próbne renderowanie na kopii modelu 8 kierunków i w skali 192 px, porównanie z referencją, rekomendacja przyjęcia/odrzucenia | W toku na `vibe/sprite-bohater-codex` (rendery po integracji są gotowe; atlas i porównania wymagają ponownego eksportu) |
 
 **Handoff po każdym chunku:** ścieżka i SHA commitu, manifest map, czego nie sprawdzono, lista wad, kolejny chunk. Kolejny chunk uruchamiamy po wiadomości autora „kontynuuj”; brak działań w tle.
 
