@@ -323,7 +323,7 @@ def build_character():
     create_rig()
     skin=material('Skóra / zmęczona podróżą',(.24,.155,.103),'skin')
     linen=material('Znoszony len',(.18,.145,.095))
-    wool=material('Mokry płaszcz / szaro-oliwkowa wełna',(.072,.078,.052))
+    wool=material('Mokry płaszcz / ciemnobrązowa wełna',(.066,.043,.025))
     dark=material('Spodnie / brunatna wełna',(.065,.060,.048))
     leather=material('Skóra / kaftan i sakwa',(.079,.049,.027),'leather')
     edge=material('Przetarte brzegi skóry',(.15,.107,.065),'leather')
@@ -333,16 +333,20 @@ def build_character():
     hair=material('Ciemne włosy',(.023,.017,.012),'hair')
     seam=material('Konopna nić',(.19,.165,.11))
     PARTS.update(locals())
-    subset('Anatomiczna głowa, szyja i lewa dłoń',v,faces,weights,skin,
-            lambda p,f:p[2]>1.49 or (p[1]>.22 and p[2]<.98),sub=2)
+    def bare_arm(p,f):
+        fore=np.mean([weights[i].get('forearm.L',0)+weights[i].get('forearm.R',0) for i in f])
+        hand=np.mean([weights[i].get('hand.L',0) for i in f])
+        return (fore>.25 and .97<p[2]<1.18) or hand>.4
+    subset('Anatomiczna głowa, szyja i odkryte przedramiona',v,faces,weights,skin,
+            lambda p,f:p[2]>1.49 or bare_arm(p,f),sub=2)
     def arm_face(f):
         return np.mean([sum(weights[i].get(b+'.'+s,0) for b in ['upper_arm','forearm'] for s in ['L','R']) for i in f])>.3
     subset('Lniana koszula / luźne rękawy',v,faces,weights,linen,
-            lambda p,f:.99<p[2]<1.49 and arm_face(f) and not any(weights[i].get('hand.L',0)+weights[i].get('hand.R',0)>.5 for i in f),
+            lambda p,f:1.165<p[2]<1.49 and arm_face(f) and not any(weights[i].get('hand.L',0)+weights[i].get('hand.R',0)>.5 for i in f),
             offset=.022,sub=2,cloth=True)
     subset('Spodnie / marszczenia kolan',v,faces,weights,dark,
             lambda p,f:.25<p[2]<1.08 and not any(sum(weights[i].get(b+'.'+s,0) for b in ['hand','forearm','upper_arm'] for s in ['L','R'])>.1 for i in f),
-            offset=.019,sub=2,cloth=True)
+            offset=.029,sub=2,cloth=True)
     tunic=loft('Lniana tunika / krój i pionowe fałdy',[
          (.78,.015,0,.157,.207),(.80,.015,0,.155,.204),(.91,.015,0,.144,.193),
          (1.02,.015,0,.128,.174),(1.11,.015,0,.145,.180),(1.26,.015,0,.151,.193),
@@ -374,14 +378,14 @@ def build_character():
     # Short travelling cloak: open front, layered shoulders, geometric folds and uneven hem.
     verts=[]; nr=25; na=65
     profile=[(1.56,.083,.101),(1.51,.13,.23),(1.46,.17,.255),(1.31,.19,.25),
-             (1.10,.19,.26),(.88,.20,.275),(.82,.205,.28)]
+             (1.08,.19,.26),(.82,.215,.28),(.64,.235,.29)]
     for j in range(nr):
         t=j/(nr-1); u=t*(len(profile)-1); k=min(int(u),len(profile)-2); f=u-k
         z,rx,ry=[profile[k][i]*(1-f)+profile[k+1][i]*f for i in range(3)]
         for i in range(na):
             th=math.radians(65+230*i/(na-1))
-            fold=(.009*math.sin(th*11+t*3)+.004*math.sin(th*23-t*5))*math.sin(math.pi*t/2)
-            hem=(.014*math.sin(th*19)+.006*math.sin(th*37))*t**9
+            fold=(.016*math.sin(th*6+t*3)+.007*math.sin(th*13-t*5))*math.sin(math.pi*t/2)
+            hem=(.022*math.sin(th*19)+.011*math.sin(th*37))*t**9
             verts.append((-.025+(rx+fold)*math.cos(th),(ry+fold)*math.sin(th),z+hem))
     fs=[(j*na+i,j*na+i+1,(j+1)*na+i+1,(j+1)*na+i) for j in range(nr-1) for i in range(na-1)]
     CAPE=mesh('Krótki płaszcz / miękkie fałdy',verts,fs,wool,[torso_weight(p) for p in verts],2,.004)
@@ -389,8 +393,8 @@ def build_character():
     for name,axis in [('Opóźnienie przód-tył',0),('Kołysanie boczne',1)]:
         key=CAPE.shape_key_add(name=name)
         for p,base in zip(key.data,verts):
-            t=max(0,min(1,(1.48-base[2])/.66))
-            p.co[axis]+=.035*t*t
+            t=max(0,min(1,(1.48-base[2])/.84))
+            p.co[axis]+=.055*t*t
             p.co.z+=.009*t*math.sin(base[1]*18)
     # Folded hood, behind an exposed head (not a rigid ring).
     verts=[]
@@ -405,7 +409,7 @@ def build_character():
     mesh('Opuszczony kaptur / warstwy tkaniny',verts,fs,wool,[{'chest':1} for _ in verts],2,.004)
     # A second shoulder layer and its actual sewn edge provide a readable
     # garment construction, rather than detail made solely by shader noise.
-    shoulder_cloth=material('Przetarta warstwa naramienna',(.092,.088,.062))
+    shoulder_cloth=material('Przetarta warstwa naramienna',(.082,.052,.029))
     sv=[]; sn=49
     for j in range(7):
         t=j/6; z=1.54-.27*t
@@ -424,7 +428,7 @@ def build_character():
         tube('Płaszcz / boczny szew',pts,.0016,seam,torso_weight)
     # Scalp and stubble follow the anatomical surface, including the real nose and ears.
     subset('Włosy / krótki nieregularny obrys',v,faces,weights,hair,
-            lambda p,f:p[2]>1.755+.008*math.sin(p[1]*65) or (p[2]>1.671 and p[0]<-.015),
+            lambda p,f:p[2]>1.755+.008*math.sin(p[1]*65) or (p[2]>1.659 and p[0]<-.015),
             offset=.005,sub=2)
     stubble=material('Zarost / kilka dni podróży',(.083,.057,.036),'hair')
     subset('Zarost / anatomiczna żuchwa',v,faces,weights,stubble,
@@ -432,10 +436,10 @@ def build_character():
             offset=.0003,sub=1)
     # Tangible locks soften the hairline, avoiding a helmet-shaped scalp.
     rng=np.random.default_rng(73)
-    for i in range(32):
+    for i in range(22):
         y=float(rng.uniform(-.065,.065)); z=1.773-.18*abs(y)
         tube('Pasmo włosów',[(.018,y,z+.013),(.054,y+.005,z+.008),(.075,y+.009,z-.004),(.084,y+.007,z-.031)],
-             [.0035,.004,.003,.0006],hair,bone_weight('head'),5)
+             [.004,.008,.006,.001],hair,bone_weight('head'),7)
     # Eye globes remain subdued; no emissive eye material.
     for sign in [-1,1]:
         pillow('Oko',(.1346,sign*.03325,1.670),(.021,.020,.018),
@@ -454,7 +458,7 @@ def build_character():
     for sign in [-1,1]:
         pillow('Sakwa przy pasie',(.01,sign*.224,1.005),(.122,.095,.148),leather,'pelvis')
         tube('Sakwa / sznur',[(.065,sign*.22,.96),(.075,sign*.23,1.04),(.055,sign*.22,1.077)],.002,seam,bone_weight('pelvis'))
-    pillow('Plecak podróżny',(-.248,0,1.285),(.18,.265,.30),leather,'chest',roundness=.24)
+    pillow('Plecak podróżny',(-.248,0,1.285),(.18,.30,.34),leather,'chest',roundness=.09)
     pillow('Klapa plecaka',(-.33,0,1.36),(.048,.27,.16),edge,'chest',roundness=.24)
     for sign in [-1,1]:
         tube('Plecak / pionowy rzemień',[(-.30,sign*.079,1.43),(-.354,sign*.079,1.34),(-.346,sign*.079,1.2),(-.29,sign*.079,1.15)],.009,boots,bone_weight('chest'))
@@ -468,6 +472,15 @@ def build_character():
         tube('Rzemień posłania',[( -.246+.064*math.cos(t),sign*.128,1.498+.064*math.sin(t)) for t in np.linspace(0,TAU,40)],.008,leather,bone_weight('chest'))
     # Boots: full toe boxes, folded shafts, raised seams, soles and laces.
     for side,sign in [('L',1),('R',-1)]:
+        # Rolled linen cuffs leave the forearms exposed, as in the author's
+        # three-view character reference received during this experiment.
+        elbow,wrist=REST['forearm.'+side]
+        axis=(wrist-elbow).normalized();center=elbow+(wrist-elbow)*.18
+        a=axis.cross(Vector((1,0,0))).normalized();b=axis.cross(a)
+        for layer in range(3):
+            pts=[tuple(center+axis*layer*.009+(.052+.003*math.sin(t*6))*(math.cos(t)*a+math.sin(t)*b))
+                 for t in np.linspace(0,TAU,40)]
+            tube('Podwinięty rękaw '+side,pts,.0085,linen,bone_weight('forearm.'+side))
         cy=sign*.126
         foot='foot.'+side; shin='shin.'+side
         def bw(p,foot=foot,shin=shin):
@@ -489,8 +502,15 @@ def build_character():
     palm=Vector((.10,-.269,.928))
     pillow('Prawa rękawica / dłoń',tuple(palm),(.065,.046,.093),leather,'hand.R')
     grip=Vector((.125,-.279,.906))
-    sword_axis=unit((.21,-.07,-.975))
-    sideways=unit((0,1,-.07))
+    # Outward diagonal carriage avoids the NW view hiding a vertical blade
+    # behind the legs; actual visible Object Index pixels are tested separately.
+    sword_axis=unit((.92,-.01,-.392))
+    sideways=unit(Vector((0,1,0))-sword_axis*sword_axis.dot(Vector((0,1,0))))
+    normal=sword_axis.cross(sideways).normalized()
+    # A rolled blade plane prevents the NW camera seeing only its subpixel
+    # thickness; the blade keeps its real width and the same physical grip.
+    blade_roll=math.radians(-40)
+    sideways=(sideways*math.cos(blade_roll)+normal*math.sin(blade_roll)).normalized()
     normal=sword_axis.cross(sideways).normalized()
     guard=grip+sword_axis*.079
     def swordp(x,y,z):return tuple(guard+normal*x+sideways*y+sword_axis*z)
@@ -509,6 +529,9 @@ def build_character():
         z=-.115+i*.018
         points=[swordp(x,y,z) for x,y in [(-.015,-.015),(.012,-.020),(.023,-.006),(.020,.012),(.007,.017)]]
         tube('Palec zgięty na rękojeści',points,.008,leather,bone_weight('hand.R'))
+    tube('Pusta pochwa przy lewym biodrze',[(.026,.227,1.045),(-.015,.244,.84),(-.064,.26,.61),(-.12,.275,.34)],
+         [.023,.022,.020,.012],boots,bone_weight('pelvis'),12)
+    tube('Okucie pochwy',[(-.105,.271,.39),(-.12,.275,.34)],.014,iron,bone_weight('pelvis'))
     # Wrist wrappings follow the forearm, never a floating ornament.
     for side,sign in [('L',1),('R',-1)]:
         w=REST['forearm.'+side][1]
@@ -557,6 +580,10 @@ def set_pose(phase, walking=True, frame=None):
         hand=Vector((.075-(.105*math.cos(arm_phase) if walking else .002*math.sin(arm_phase)),
                      sign*(.265+( .008*math.sin(arm_phase) if walking else 0)),
                      .985+bob+(.012*math.sin(arm_phase) if walking else 0)))
+        if side=='R':
+            # A sword is carried with a modest elbow bend, not swung exactly
+            # like an empty hand. Keep the blade low and outside the body.
+            hand=Vector((.105-(.055*math.cos(arm_phase) if walking else 0),-.30,1.01+bob))
         up,fore='upper_arm.'+side,'forearm.'+side
         l1=(REST[up][1]-REST[up][0]).length;l2=(REST[fore][1]-REST[fore][0]).length
         # Keep arm targets on their reachable sphere as equipment subtly swings.
@@ -565,6 +592,11 @@ def set_pose(phase, walking=True, frame=None):
         elbow=ik(shoulder,hand,l1,l2,(-1,sign*.7,0))
         maps[up]=transform(*REST[up],shoulder,elbow);maps[fore]=transform(*REST[fore],elbow,hand)
         maps['hand.'+side]=maps[fore]
+        if side=='R':
+            wrist_rotation=(Matrix.Rotation(.055*math.sin(arm_phase) if walking else 0,4,'Y')
+                            @ Matrix.Rotation(bodyyaw,4,'Z'))
+            maps['hand.R']=(Matrix.Translation(hand)@wrist_rotation
+                            @ Matrix.Translation(-REST['hand.R'][0]))
         p=(phase+(0 if side=='L' else .5))%1
         audit['feet'][side]={'ankle_m':list(ankle),'stance':bool(walking and p<.6),'pitch_rad':pitch}
     def depth(b):return 0 if b.parent is None else 1+depth(b.parent)
@@ -682,6 +714,7 @@ def main():
     parser.add_argument('--animations',nargs='+',choices=['spoczynek','chod'])
     parser.add_argument('--save-only',action='store_true')
     parser.add_argument('--lighting',choices=['base','warm','cool'],default='base')
+    parser.add_argument('--resume',action='store_true',help='Reuse only frames with matching source, settings and image hashes')
     args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
     bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
     for file,meta in json.loads((THIRD/'manifest.json').read_text()).items():
@@ -715,6 +748,11 @@ def main():
            'render':{'blender':bpy.app.version_string,'engine':'CYCLES','samples':args.samples,
                      'shadow_samples':16,'size_px':args.size,'seed':1703,'denoising':False,
                      'threads':4,'lighting':args.lighting},'frames':{}}
+    if args.resume and (out/'motion_audit.json').exists():
+        cached=json.loads((out/'motion_audit.json').read_text())
+        if cached.get('generator_sha256')!=audit['generator_sha256'] or cached.get('render')!=audit['render']:
+            raise ValueError('Cache pochodzi z innego generatora/ustawień. Uruchom bez --resume, aby odtworzyć klatki.')
+        audit=cached
     targets=[('spoczynek',1,[0,1,2,4,7])] if args.pilot else [('spoczynek',8,range(8)),('chod',12,range(8))]
     if args.animations:targets=[t for t in targets if t[0] in args.animations]
     if args.save_only:targets=[]
@@ -725,14 +763,26 @@ def main():
             for i in range(count):
                 info=set_pose(i/count,anim=='chod')
                 file=out/f'{anim}_{direction}_{i:02}.png'
+                cast=shadow_dir/file.name
+                old=audit['frames'].get(file.name,{})
+                if (args.resume and file.is_file() and cast.is_file()
+                    and old.get('phase')==i/count
+                    and old.get('image_sha256')==hashlib.sha256(file.read_bytes()).hexdigest()
+                    and old.get('shadow_sha256')==hashlib.sha256(cast.read_bytes()).hexdigest()):
+                    print('WELESZA_REUSE',file.name,flush=True)
+                    continue
                 scene.render.filepath=str(file)
                 shadow_output.file_slots[0].path=file.stem+'_'
                 bpy.ops.render.render(write_still=True)
                 shadow_file=shadow_dir/(file.stem+'_0001.png')
                 shadow_file.replace(shadow_dir/file.name)
+                info.update(phase=i/count,image_sha256=hashlib.sha256(file.read_bytes()).hexdigest(),
+                            shadow_sha256=hashlib.sha256(cast.read_bytes()).hexdigest())
                 audit['frames'][file.name]=info
                 print('WELESZA_FRAME',file.name,flush=True)
-                (out/'motion_audit.json').write_text(json.dumps(audit,indent=2)+'\n')
+                temporary=out/'motion_audit.json.tmp'
+                temporary.write_text(json.dumps(audit,indent=2)+'\n')
+                temporary.replace(out/'motion_audit.json')
     RIG.rotation_euler.z=0
     RIG.animation_data.action=bpy.data.actions['chod']
     CAPE.data.shape_keys.animation_data_create()

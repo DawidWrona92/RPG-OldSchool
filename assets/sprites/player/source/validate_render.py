@@ -6,6 +6,7 @@ blender -b assets/sprites/player/source/bohater.blend --python-exit-code 1 \
 import hashlib
 import json
 import math
+import sys
 from pathlib import Path
 
 import bpy
@@ -25,8 +26,6 @@ for layer in scene.view_layers:layer.use=layer.name=='Bohater'
 nodes,links=scene.node_tree.nodes,scene.node_tree.links;nodes.clear()
 r=nodes.new('CompositorNodeRLayers');r.layer='Bohater'
 c=nodes.new('CompositorNodeComposite');links.new(r.outputs['Image'],c.inputs[0])
-scene.render.filepath=str(TMP/'reproduced.png')
-bpy.ops.render.render(write_still=True)
 
 
 def pixels(path):
@@ -36,14 +35,18 @@ def pixels(path):
     return a,size
 
 
-expected,size=pixels(ROOT/'renders/spoczynek_0_00.png')
-actual,size2=pixels(TMP/'reproduced.png')
-assert size==size2==[384,384],(size,size2)
-diff=np.abs(expected-actual)
-assert diff.max()<.02 and diff.mean()<.0002,('Odtworzenie pikseli',float(diff.max()),float(diff.mean()))
-repro={'source':'source/bohater.blend','frame':'spoczynek_0_00.png',
-       'identical_decoded_pixels':bool(np.array_equal(expected,actual)),
-       'mean_decoded_rgba_error':float(diff.mean()),'max_decoded_rgba_error':float(diff.max())}
+repro={'status':'not_run / weapon-only diagnostic'}
+if '--weapon-only' not in sys.argv:
+    scene.render.filepath=str(TMP/'reproduced.png')
+    bpy.ops.render.render(write_still=True)
+    expected,size=pixels(ROOT/'renders/spoczynek_0_00.png')
+    actual,size2=pixels(TMP/'reproduced.png')
+    assert size==size2==[384,384],(size,size2)
+    diff=np.abs(expected-actual)
+    assert diff.max()<.02 and diff.mean()<.0002,('Odtworzenie pikseli',float(diff.max()),float(diff.mean()))
+    repro={'source':'source/bohater.blend','frame':'spoczynek_0_00.png',
+           'identical_decoded_pixels':bool(np.array_equal(expected,actual)),
+           'mean_decoded_rgba_error':float(diff.mean()),'max_decoded_rgba_error':float(diff.max())}
 
 # Object Index tests actual occlusion by the clothed body, not the existence
 # of the sword somewhere in the source scene.
@@ -60,7 +63,7 @@ maskdir=OUT/'weapon_masks';maskdir.mkdir(exist_ok=True)
 origin=world_to_camera_view(scene,scene.camera,Vector((0,0,0)))
 anchor=[origin.x*192,(1-origin.y)*192]
 assert abs(anchor[0]-96)<.01 and abs(anchor[1]-158.35382907248)<.01,anchor
-visibility={};orientation={}
+visibility={'spoczynek':{},'chod':{}};orientation={}
 for d,label in enumerate(['S','SW','W','NW','N','NE','E','SE']):
     rig.rotation_euler.z=-d*math.pi/4;bpy.context.view_layer.update()
     point=rig.matrix_world.to_3x3()@Vector((1,0,0))
@@ -71,13 +74,19 @@ for d,label in enumerate(['S','SW','W','NW','N','NE','E','SE']):
     if label=='W':assert delta[0]<-55 and abs(delta[1])<.01
     if label=='N':assert delta[1]<-25 and abs(delta[0])<.01
     if label=='E':assert delta[0]>55 and abs(delta[1])<.01
-    scene.render.filepath=str(maskdir/(label+'.png'));bpy.ops.render.render(write_still=True)
-    a,size=pixels(maskdir/(label+'.png'))
-    count=int(np.sum(a.reshape(-1,4)[:,0]>.5))
-    assert count>=4,('Miecz niewidoczny',label,count)
-    visibility[label]=count
+    for anim,frames,step in [('spoczynek',[0],4.5),('chod',[0,4,8],2)]:
+        for frame in frames:
+            rig.animation_data.action=bpy.data.actions[anim]
+            cape.animation_data.action=bpy.data.actions[anim+' / płaszcz']
+            position=1+frame*step;scene.frame_set(math.floor(position),subframe=position%1)
+            file=maskdir/(f'{anim}_{label}_{frame:02}.png')
+            scene.render.filepath=str(file);bpy.ops.render.render(write_still=True)
+            a,size=pixels(file)
+            count=int(np.sum(a.reshape(-1,4)[:,0]>.5))
+            assert count>=4,('Miecz niewidoczny',anim,label,frame,count)
+            visibility[anim][label+'_'+str(frame)]=count
 report={'reproduction':repro,'anchor_projection_px':anchor,'visible_sword_pixels_at_192px':visibility,
-        'orientation':orientation,'tested_pose':'first idle frame in eight directions',
+        'orientation':orientation,'tested_poses':'first idle frame and walk frames 0, 4, 8 in eight directions (32 masks)',
         'limits':['weapon masks do not prove absence of all garment collisions',
                   'all walk frames were visually reviewed on contact sheets, not motion-captured']}
 (OUT/'render-validation.json').write_text(json.dumps(report,indent=2)+'\n')
