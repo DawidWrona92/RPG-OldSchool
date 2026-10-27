@@ -198,8 +198,12 @@ def main():
         for f in range(11):
             a=audit['frames'][f'chod_0_{f:02}.png']['feet'][side]
             b=audit['frames'][f'chod_0_{f+1:02}.png']['feet'][side]
-            if a['stance'] and b['stance'] and b['plant_reference_m']<a['plant_reference_m']:
-                drift.append(abs(b['plant_reference_m']-a['plant_reference_m']+SPEED*.08))
+            if a['stance'] and b['stance']:
+                def reference_x(foot):
+                    points=foot['sole_heel_toe_m'];index=min(range(2),key=lambda i:points[i][2])
+                    # Rest-sole pivot relative to the saved rest ankle x=-0.001.
+                    return points[index][0]-[-.053,.169][index]
+                drift.append(abs(reference_x(b)-reference_x(a)+SPEED*.08))
             if a['stance']:contacts.append(abs(min(p[2] for p in a['sole_heel_toe_m'])))
     assert len(drift)>5 and max(drift)<.00001,('Dryf stopy',drift)
     assert max(contacts)<.00002,('Wysokość podparcia',contacts)
