@@ -76,7 +76,7 @@ Rozdzielczość **4096×4096**, plus wersje 2048 przeskalowane z 4096. Priorytet
 
 | Plik | Opis |
 |---|---|
-| `hero_eye_iris_basecolor.png` | 512×512; tęczówka ciemnobrązowa jako okrąg o średnicy 80% obrazu, wyśrodkowana, z ciemniejszym brzegiem (limbus) i źrenicą o średnicy ok. 30% tęczówki |
+| `hero_eye_iris_basecolor.png` | 512×512; tęczówka **szarozielona (szaroorzechowa)** jak w koncepcie 19, z cieplejszym pierścieniem wokół źrenicy, jako okrąg o średnicy 80% obrazu, wyśrodkowana, z ciemniejszym brzegiem (limbus) i źrenicą o średnicy ok. 30% tęczówki |
 | `hero_eye_sclera_basecolor.png` | 512×512; białko lekko ciepłe, nie czysto białe, z delikatnymi żyłkami przy kącikach |
 
 Sol rzutuje je płasko na kulę oka; nie potrzeba szablonu UV.
