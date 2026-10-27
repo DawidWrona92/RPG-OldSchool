@@ -67,7 +67,7 @@ def make_ground_mat(name, prefix):
     texn = nt.nodes.new("ShaderNodeTexImage"); texn.image = nrm
     nm = nt.nodes.new("ShaderNodeNormalMap"); nm.inputs["Strength"].default_value = 0.6 if prefix=="mud" else 1.0
     disp = nt.nodes.new("ShaderNodeDisplacement")
-    disp.inputs["Scale"].default_value = 0.02
+    disp.inputs["Scale"].default_value = 0.008
     texd = nt.nodes.new("ShaderNodeTexImage"); texd.image = hgt
     rgh = load_img(os.path.join(TEX, f"{texbase}_rough.png"), f"{prefix}_rough", True)
     texr = nt.nodes.new("ShaderNodeTexImage"); texr.image = rgh
@@ -307,7 +307,7 @@ pass
 # use two overlapping planes instead
 bpy.data.objects.remove(terr, do_unlink=True)
 
-bpy.ops.mesh.primitive_plane_add(size=1, location=(0,0,0))
+bpy.ops.mesh.primitive_plane_add(size=1, location=(0,0,0.004))
 road = bpy.context.active_object
 road.name = "Road"
 road.scale = (30, 4.6, 1)
@@ -378,6 +378,8 @@ boulder.rotation_euler[2] = math.radians(10)
 
 # hide leftover transition helper planes? keep both; hide asset-only ground plane
 shadow_plane.hide_render = True
+if shadow_catcher_plane is not None:
+    shadow_catcher_plane.hide_render = True
 
 # hero silhouette reference: simple 1.75m capsule (marked, external comparison later in 2D)
 bpy.ops.mesh.primitive_uv_sphere_add(radius=0.16, location=(-1.2, -0.9, 0.16*0.62))
