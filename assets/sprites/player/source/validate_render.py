@@ -74,7 +74,7 @@ for d,label in enumerate(['S','SW','W','NW','N','NE','E','SE']):
     if label=='W':assert delta[0]<-55 and abs(delta[1])<.01
     if label=='N':assert delta[1]<-25 and abs(delta[0])<.01
     if label=='E':assert delta[0]>55 and abs(delta[1])<.01
-    for anim,frames,step in [('spoczynek',[0],4.5),('chod',[0,4,8],2)]:
+    for anim,frames,step in [('spoczynek',[0],10),('chod',[0,4,8],2)]:
         for frame in frames:
             rig.animation_data.action=bpy.data.actions[anim]
             cape.animation_data.action=bpy.data.actions[anim+' / płaszcz']

@@ -1,0 +1,142 @@
+{
+  "reproduction": {
+    "status": "not_run / weapon-only diagnostic"
+  },
+  "anchor_projection_px": [
+    95.99995994567871,
+    158.35384941101074
+  ],
+  "visible_sword_pixels_at_192px": {
+    "spoczynek": {
+      "S_0": 71,
+      "SW_0": 115,
+      "W_0": 111,
+      "NW_0": 19,
+      "N_0": 11,
+      "NE_0": 41,
+      "E_0": 34,
+      "SE_0": 45
+    },
+    "chod": {
+      "S_0": 77,
+      "S_4": 79,
+      "S_8": 78,
+      "SW_0": 119,
+      "SW_4": 127,
+      "SW_8": 127,
+      "W_0": 112,
+      "W_4": 115,
+      "W_8": 111,
+      "NW_0": 23,
+      "NW_4": 22,
+      "NW_8": 7,
+      "N_0": 11,
+      "N_4": 8,
+      "N_8": 11,
+      "NE_0": 46,
+      "NE_4": 36,
+      "NE_8": 44,
+      "E_0": 33,
+      "E_4": 32,
+      "E_8": 35,
+      "SE_0": 47,
+      "SE_4": 31,
+      "SE_8": 36
+    }
+  },
+  "orientation": {
+    "S": {
+      "model_facing_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "projected_ground_heading_px": [
+        5.7220458984375e-06,
+        29.999998569488525
+      ]
+    },
+    "SW": {
+      "model_facing_world": [
+        0.7071067690849304,
+        -0.7071067690849304,
+        0.0
+      ],
+      "projected_ground_heading_px": [
+        -42.42640686035156,
+        21.21320343017578
+      ]
+    },
+    "W": {
+      "model_facing_world": [
+        -4.371138828673793e-08,
+        -1.0,
+        0.0
+      ],
+      "projected_ground_heading_px": [
+        -60.00000286102295,
+        -0.0
+      ]
+    },
+    "NW": {
+      "model_facing_world": [
+        -0.7071067690849304,
+        -0.7071067690849304,
+        0.0
+      ],
+      "projected_ground_heading_px": [
+        -42.42640686035156,
+        -21.21320343017578
+      ]
+    },
+    "N": {
+      "model_facing_world": [
+        -1.0,
+        8.742277657347586e-08,
+        0.0
+      ],
+      "projected_ground_heading_px": [
+        0.0,
+        -30.0
+      ]
+    },
+    "NE": {
+      "model_facing_world": [
+        -0.7071068286895752,
+        0.7071067094802856,
+        0.0
+      ],
+      "projected_ground_heading_px": [
+        42.426401138305664,
+        -21.21320343017578
+      ]
+    },
+    "E": {
+      "model_facing_world": [
+        1.1924880638503055e-08,
+        1.0,
+        0.0
+      ],
+      "projected_ground_heading_px": [
+        59.9999942779541,
+        -0.0
+      ]
+    },
+    "SE": {
+      "model_facing_world": [
+        0.7071066498756409,
+        0.70710688829422,
+        0.0
+      ],
+      "projected_ground_heading_px": [
+        42.42641258239746,
+        21.213196277618408
+      ]
+    }
+  },
+  "tested_poses": "first idle frame and walk frames 0, 4, 8 in eight directions (32 masks)",
+  "limits": [
+    "weapon masks do not prove absence of all garment collisions",
+    "all walk frames were visually reviewed on contact sheets, not motion-captured"
+  ]
+}

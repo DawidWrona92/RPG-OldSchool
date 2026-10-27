@@ -17,7 +17,7 @@ DIRECTIONS=['S','SW','W','NW','N','NE','E','SE']
 ANCHOR=[96.0,158.35382907247958]
 BACKGROUND=(35,41,31,255)
 COUNTS={'spoczynek':8,'chod':12}
-DURATIONS={'spoczynek':180,'chod':80}
+DURATIONS={'spoczynek':400,'chod':80}
 SPEED=.52/(.6*.96)
 
 
@@ -44,6 +44,13 @@ def shadow(path):
     # 1 - transmittance. Remove that floor, without substituting painted shadows.
     a=np.array(alpha).astype(float)
     a=np.maximum(0,a-12)*255/243
+    # The 192 px contract has only 34 px below the anchor. Keep a contact
+    # shadow patch with a smooth, documented world-space fade; the raw Cycles
+    # shadow renders retain the longer fill-light tails for inspection.
+    yy,xx=np.mgrid[:192,:192]
+    radius=np.sqrt(((xx-ANCHOR[0])/60)**2+((yy-ANCHOR[1])/30)**2)
+    t=np.clip((radius-.75)/.30,0,1)
+    a*=1-(t*t*(3-2*t))
     result=Image.new('RGBA',(192,192),(0,0,0,0))
     result.putalpha(Image.fromarray(np.clip(a,0,255).astype(np.uint8)))
     return result
@@ -145,9 +152,14 @@ def main():
             bodyrow=[];shadowrow=[]
             for f in range(count):
                 file=f'{anim}_{d}_{f:02}.png';source=ROOT/'renders'/file
+                info=audit['frames'][file]
+                assert sha(source)==info['image_sha256'],('Suma renderu',file)
+                assert sha(ROOT/'renders/shadows'/file)==info['shadow_sha256'],('Suma cienia',file)
                 body=native(source);cast=shadow(ROOT/'renders/shadows'/file)
                 alpha=np.array(body)[:,:,3]
                 assert max(alpha[0].max(),alpha[-1].max(),alpha[:,0].max(),alpha[:,-1].max())==0,('Ucięta postać',file)
+                cast_alpha=np.array(cast)[:,:,3]
+                assert max(cast_alpha[0].max(),cast_alpha[-1].max(),cast_alpha[:,0].max(),cast_alpha[:,-1].max())==0,('Granica cienia',file)
                 bbox=body.getchannel('A').point(lambda x:255 if x>=8 else 0).getbbox()
                 assert bbox and bbox[0]>1 and bbox[1]>1 and bbox[2]<191 and bbox[3]<191,('Margines',file,bbox)
                 info=audit['frames'][file]
@@ -188,7 +200,7 @@ def main():
             'max_stance_root_compensation_error_m':max(drift),'stance_samples_checked':len(drift),
             'frame_bounds':'passed / 160 body frames','body_alpha':'RGBA / transparent edges / premultiplied downsampling',
             'distinct_direction_images':len(set(fingerprints)),'anchor_px':ANCHOR,'world_lighting_variants':variants,
-            'shadow_processing':'Cycles shadow catcher, 16 samples, 0.8 px blur and 12/255 noise floor removal',
+            'shadow_processing':'Cycles shadow catcher, 16 samples, 0.8 px blur, 12/255 noise floor removal, smooth contact-patch fade from 0.75 to 1.05 m',
             'unverified':['artistic acceptance','full garment/body/sword collision detection',
                           'target engine import (engine undecided)','all combat animations','fresh cloud task restoration'],
             'frame_bboxes':bboxes}

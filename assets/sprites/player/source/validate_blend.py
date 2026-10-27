@@ -40,7 +40,7 @@ for walking in [False,True]:
 # The animation actions must reproduce the same poses at the actual export
 # times; a .blend containing only an unanimated rig would fail here.
 action_error=0;keys_checked=0
-for anim,count,step in [('spoczynek',8,4.5),('chod',12,2)]:
+for anim,count,step in [('spoczynek',8,10),('chod',12,2)]:
     for i in range(count+1):
         rig.animation_data.action=bpy.data.actions[anim]
         cape.animation_data_create();cape.animation_data.action=bpy.data.actions[anim+' / płaszcz']
@@ -55,6 +55,6 @@ for anim,count,step in [('spoczynek',8,4.5),('chod',12,2)]:
 report={'sampled_poses':poses,'keyed_poses_checked':keys_checked,'bones':len(rig.pose.bones),
         'max_joint_gap_m':max_gap,'max_bone_length_error_m':max_length,
         'max_actual_foot_target_error_m':max_target,'max_action_matrix_error':action_error,
-        'loop_seams':'passed / idle and walk','action_timing':'25 fps / idle 180 ms / walk 80 ms'}
+        'loop_seams':'passed / idle and walk','action_timing':'25 fps / idle 400 ms / walk 80 ms'}
 path=HERE.parent/'previews/blend-validation.json';path.write_text(json.dumps(report,indent=2)+'\n')
 print('WELESZA_BLEND_VALIDATION',json.dumps(report))

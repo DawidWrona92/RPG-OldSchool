@@ -583,7 +583,7 @@ def set_pose(phase, walking=True, frame=None):
         if side=='R':
             # A sword is carried with a modest elbow bend, not swung exactly
             # like an empty hand. Keep the blade low and outside the body.
-            hand=Vector((.105-(.055*math.cos(arm_phase) if walking else 0),-.30,1.01+bob))
+            hand=Vector((.18-(.020*math.cos(arm_phase) if walking else 0),-.30,1.01+bob))
         up,fore='upper_arm.'+side,'forearm.'+side
         l1=(REST[up][1]-REST[up][0]).length;l2=(REST[fore][1]-REST[fore][0]).length
         # Keep arm targets on their reachable sphere as equipment subtly swings.
@@ -728,7 +728,7 @@ def main():
         CAPE.data.shape_keys.animation_data_create()
         CAPE.data.shape_keys.animation_data.action=bpy.data.actions.new(name+' / płaszcz')
         CAPE.data.shape_keys.animation_data.action.use_fake_user=True
-        step=2 if name=='chod' else 4.5  # 80 ms / 180 ms at 25 fps.
+        step=2 if name=='chod' else 10  # 80 ms / 400 ms at 25 fps.
         for i in range(count+1):set_pose(i/count,name=='chod',frame=1+i*step)
         for curve in RIG.animation_data.action.fcurves:
             for key in curve.keyframe_points:key.interpolation='LINEAR'
