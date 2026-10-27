@@ -145,6 +145,27 @@ def make_previews(frames,shadows):
     return variants,preview_checks
 
 
+def validate_auxiliary():
+    source=sha(ROOT/'source/bohater.blend');renderer=sha(ROOT/'source/render_player.py')
+    baseline=read_json(ROOT/'baseline/checkpoint.json')['source_sha256'];checks=[]
+    for folder,expected,size,directions,sheathed in [
+        ('cool',source,384,range(8),False),('warm',source,384,range(8),False),
+        ('sheathed',source,384,range(8),True),
+        ('details/before',baseline,1152,[1,3],False),('details/after',source,1152,[1,3],False)]:
+        path=ROOT/'renders'/folder;audit=read_json(path/'motion_audit.json')
+        assert audit['source_blend_sha256']==expected,('Auxiliary source',folder)
+        assert audit['renderer_sha256']==renderer,('Auxiliary renderer',folder)
+        assert audit['render']['size_px']==size and audit['render']['sheathed']==sheathed
+        for d in directions:
+            file=f'spoczynek_{d}_00.png';record=audit['frames'][file]
+            assert sha(path/file)==record['image_sha256'] and sha(path/'shadows'/file)==record['shadow_sha256']
+            with Image.open(path/file) as im:
+                assert im.mode=='RGBA' and im.size==(size,size)
+                a=np.array(im)[:,:,3];assert max(a[0].max(),a[-1].max(),a[:,0].max(),a[:,-1].max())==0
+            checks.append({'folder':folder,'file':file,'source_blend_sha256':expected})
+    save_json(ROOT/'previews/auxiliary-render-validation.json',{'checked_body_shadow_pairs':len(checks),'source_blend_sha256':source,'frames':checks})
+
+
 def main():
     audit=read_json(ROOT/'renders/motion_audit.json')
     generator=ROOT/'source/render_player.py'
@@ -213,6 +234,7 @@ def main():
     legacy=json.loads(json.dumps(meta))
     for anim in legacy['animations'].values():anim.pop('shadow_file',None)
     save_json(compat/'bohater.json',legacy)
+    validate_auxiliary()
     variants,preview_checks=make_previews(frames,shadows)
     report={'checked_frames':checks,'animations':COUNTS,'renderer_sha256':sha(generator),'source_blend_sha256':audit['source_blend_sha256'],
             'render':audit['render'],'max_joint_gap_m':max(v['max_joint_gap_m'] for v in audit['frames'].values()),
