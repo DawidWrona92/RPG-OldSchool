@@ -51,3 +51,8 @@ Makiety pokazują docelowy nastrój: ciemna, mokra ziemia, ciepłe punktowe świ
 - Obrazy 12–16 pokazują klimat, perspektywę i gęstość świata; nie są potwierdzonym rozmieszczeniem przeszkód ani zdefiniowaną geometrią.
 - Nie kopiuj całego tła ze szkicu jako części sprite'a pojedynczej postaci.
 - Szczegółowe założenia osady: [przewodnik artystyczny Niemiru](../art/niemir/NIEMIR_ART_DIRECTION.md) ([PDF](../art/niemir/NIEMIR_ART_DIRECTION.pdf)).
+
+## Bohater na początku przygody i wóz
+
+- [17 — plansza bohatera i scena przy wozie](17-bohater-i-woz.jpg) — trzy ujęcia podróżnika i koncepcyjny widok lasu z kamerą zbliżoną do gry. [Opis i wskazówki dla twórców](17-bohater-i-woz.md).
+

@@ -32,7 +32,7 @@ Dokumenty wyraźnie odróżniają **decyzje autora**, **uzgodniony kierunek arty
 
 - **[Przewodnik artystyczny Niemiru v1.1](art/niemir/NIEMIR_ART_DIRECTION.md)** — zaakceptowany klimat osady, paleta, kompozycja i standard oceny.
 - [PDF przewodnika](art/niemir/NIEMIR_ART_DIRECTION.pdf) — wersja do czytania.
-- **[16 ilustracji koncepcyjnych](koncepty/README.md)** — potwory, cywile, architektura i kadry z perspektywy gry.
+- **[17 ilustracji koncepcyjnych](koncepty/README.md)** — potwory, cywile, architektura i kadry z perspektywy gry.
 
 ## Granice między dokumentacją a produkcją
 
