@@ -1,44 +1,37 @@
-# Bohater — unikatowa skóra i oko, część A
+# Bohater — skóra i oko, v2: stary, mocno ogorzały podróżnik
 
-**PROTOTYPE_NOT_APPROVED**. Materiał do oceny PM/autora i integracji przez Sola, nie zatwierdzony wzorzec postaci.
+**V1 (`bdc6529`) przyjęta przez autora jako wersja robocza. V2: PROTOTYPE_NOT_APPROVED**, do porównania i integracji przez Sola. Część B nie była wykonywana — czeka na P2.
 
-## Zakres i audyt poprzedniej pracy
+Nowa decyzja autora w rozdz. 3 briefu na `main` @ `0d52d9efc9986db123affdc132290efcf05483e1` zastępuje dawny wiek 35–40 lat: bohater ma wyglądać na starego, mocno ogorzałego podróżnika. Trzy stare blizny i dwa pieprzyki są elementami wyglądu, bez dopisywania historii.
 
-Zachowano bez zmian oba obrazy oczu z gałęzi `vibe/hero-textures-gpt6`, commit `744b42bb0c33fb379715889c7c779b8c68a12764`. Mają prawidłowy format PNG, 512×512, brązową tęczówkę z alfą (średnica 410 px, około 80%) i ciepłe białko z subtelnymi żyłkami. Źrenica ma około 30% średnicy tęczówki. Ich generator i model nie zostały udokumentowane przez poprzedniego wykonawcę; nie przypisujemy im zmyślonego pochodzenia ani licencji zewnętrznej fotografii.
+## Zmiany v2
 
-Poprzednie dwa albedo były nieczytelnymi PNG: strumień zlib i CRC były poprawne, ale zamiast bajtu filtra w każdym wierszu zapisano pierwszy indeks palety, a na końcu dodano zero. Rekonstrukcja do audytu ujawniła beżowy szum, bez wystarczającej pigmentacji twarzy, skóry głowy i dłoni. Poprzednie normalne były paletowe, a pozostałe mapy nie dawały dostatecznych detali anatomicznych. Dziesięć map skóry zastąpiono nową, odtwarzalną syntezą materiału w natywnym UV.
+- Głębszy relief czoła, skończone wachlarze kurzych łapek, bruzdy nosowo-wargowe i fałdy szyi; przyciemniona, chłodniejsza skóra i delikatna wypukłość pod oczami. Pory i przesuszenie ust pozostają mikrodetalem.
+- Najsilniejsza opalenizna na nosie, kościach policzkowych, czole i uszach. Przejście żuchwa–szyja ma szerokość **49,7 mm** w skali postaci 1,8 m. Pola regionalne są ciągłe w 3D; nie ma płaskiego odcięcia koloru na żuchwie.
+- Nieregularna, miękka linia włosów z drobnymi mieszkami przejściowymi. Szaroniebieskawo-brązowy cień zarostu, gęstsze ciemne mieszki i pojedyncze siwe; pokrycie policzków, żuchwy, podbródka, górnej wargi i spodu żuchwy z nieregularną górną granicą.
+- Nierównomierna pigmentacja słoneczna, plamki oraz drobne rozgałęzione czerwone naczynka na nosie i policzkach. Są to zmiany pigmentacji, nie wpieczone oświetlenie.
+- **Trzy asymetryczne wygojone blizny:** przez jedną brew, krótka na przeciwległym policzku i mała przy knykciach jednej dłoni. Jaśniejsze, bez czerwonego obwodu; roughness 0,43 i płytkie zagłębienie height do 0,4965. Przecinają maskę zarostu/brwi, wygładzają mikrorelief. Żadnych świeżych ran.
+- **Dwa niewielkie, asymetryczne pieprzyki:** policzek i przeciwległy bok szyi. Kotwice blizn i pieprzyków są dopasowane do rzeczywistej powierzchni i odsunięte od pasa ochronnego UV.
+- Spracowane dłonie: ścięgna i żyły prowadzone od nadgarstka do stawów palców z pomocniczych punktów szkieletu OBJ, ciemniejsze knykcie, zgrubienia, plamy na grzbiecie, brud w liniach i przy krótkich paznokciach. Paznokcie pozostają keratyną o niższej szorstkości.
 
-Gałąź poprzednika była oparta na starszym `main` (`6d348b2`). Jej dwa commity przeniesiono lokalnie na aktualny `main` `9bf3ff94dfa62aad057594425f4f4bf2b0a44208`. Nie zmieniano innych gałęzi ani plików poza tym katalogiem.
+Nie dodano tatuaży, malunków, biżuterii ani świeżych ran. Oczy zachowano **bajt w bajt** z v1. Nazwy, formaty, rozdzielczości, UV i siatka są niezmienione.
 
-## Co dostarczono
+## Użycie
 
-- Pięć map skóry 4096×4096 oraz pochodne 2048×2048: basecolor, roughness, normal_opengl, height i sss_mask.
-- Oczy 512×512 zachowane od poprzednika.
-- `manifest.json`: SHA-256, rozdzielczości, przestrzenie barw, metoda i źródła wszystkich plików paczki. Manifest nie hashuje sam siebie.
-- `source/build_maps.py`: proceduralny materiał oparty na rzeczywistych współrzędnych powierzchni grupy `body`, bez zmiany siatki/UV. Paleta według konceptu 17 i briefu; ciemna skóra głowy, kilkudniowy brązowy zarost, subtelne brwi i usta, zaczerwienienia, opalenizna, brud dłoni i krótkie paznokcie. Bez blizn, ran, tatuaży, ozdób, AO lub oświetlenia w albedo.
-- `source/render_check.py`: osiem diagnostycznych renderów materiału w Blenderze 4.3.2: przód, profil, tył (całe ciało i zbliżenia głowy), dłonie z dwóch stron.
-- `source/validate.py` i `qa/validation.json`: kontrola dekodowania, formatów, skalowania, normalnych, szwów oraz sum kontrolnych.
+Basecolor i oczy: **sRGB**. Roughness, normal_opengl, height i SSS: **Non-Color**. Kolor i normalna: RGB 8 bit; roughness/SSS: grayscale 8 bit; height: grayscale 16 bit, neutralnie 0,5. Mapy ciała 4096 i pochodne 2048; oczy 512.
 
-Nie wykorzystano cudzych zdjęć ani biblioteki kafelkowych materiałów. Próba malowanego atlasu przez narzędzie `image_gen` nie zapewniła odpowiedniego rozmieszczenia UV i nie weszła do dostarczonych map. Końcowa skóra jest materiałem proceduralnym, nie skanem ani teksturą namalowaną ręcznie.
+**Zalecana normal strength v2: 0,45**, sprawdzana w portretach 768 px w Blenderze 4.3.2. OpenGL +Y, węzeł Normal Map z bazą MikkTSpace. Nie nakładać równocześnie pełnego bump z height i normalnej. Pełny umowny zakres height: 0,002 m, centered 0,5; height opisuje mikrorelief i nie zmienia sylwetki.
 
-## Użycie materiału
+SSS jest względną maską cienkich miejsc (uszy, nos, palce), nie pomiarem grubości. W podglądzie mnoży wagę SSS przez 0,30. Albedo nie korzysta ze świateł, AO ani normalnych powierzchni. Mikrodetal i drobne ślady gasną 32–56 px od brzegu UV; tło jest całkowicie wypełnione przez nearest-surface dilation. Regionalny kolor pozostaje funkcją pozycji 3D również przy szwach.
 
-Basecolor i obie tekstury oczu: sRGB. Roughness, normal, height i SSS: **Non-Color**. Normalna RGB, tangent space OpenGL (+Y), do węzła Normal Map z bazą MikkTSpace Blendera. Wersję 2K normalnej przeskalowano i ponownie znormalizowano.
+## Odtworzenie i sprawdzenie
 
-Height to PNG grayscale **16 bitów**, 0,5 = neutralnie. Zalecany pełny zakres przemieszczenia 0,002 m; nie nakładać jednocześnie pełnego bump z height i normalnej. Relief to mikrodetal/zmarszczki, nie rzeźba twarzy. W diagnostyce normal strength 0,25; height nie zmienia sylwetki.
+Nadal ten sam generator: rasteryzacja natywnego UV, deterministyczny mikrodetal, mapy liniowe i eksport Pillow w `source/build_maps.py`. Rozszerzenie pól wieku/pigmentacji znajduje się w `source/aging_v2.py`. Bez zmiany pliku OBJ, bez dodatkowego worktree.
 
-Roughness ma zróżnicowanie strefy T, policzków, ust, zarostu, skóry głowy i dłoni. SSS jest względną maską grubości: uszy, nos i palce jaśniejsze. W diagnostyce maska mnoży wagę SSS przez 0,30; to propozycja podłączenia, nie pomiar fizyczny.
-
-Mikrodetal wygaszono w pasie 32–56 px od brzegu wysp UV. Pigmentację regionalną obliczono z pozycji 3D, aby odpowiadające sobie brzegi miały ten sam ton. Małe wyspy opisane na planszy UV jako „oczy” obejmują powierzchnię łączącą się z powiekami (wspólne indeksy wierzchołków OBJ), dlatego w atlasie skóry nie zastępujemy ich białkiem A2. Poza wyspami mapy są wypełnione najbliższą skórą (dylatacja całego tła, powyżej wymaganych 16 px). Tło atlasu nie służy do wyświetlania; wielokątne granice w jego podglądzie wynikają z dylatacji.
-
-## Odtworzenie i kontrola
-
-Wymagania: Python 3 z NumPy, SciPy i Pillow; Blender **4.3** do renderów. Generowanie 4K potrzebuje kilku GB RAM. Dwukrotne wykonanie zapisanego generatora na oryginalnym OBJ dało identyczne SHA-256 wszystkich dziesięciu końcowych map skóry. Zweryfikowane narzędzia: Python 3.12, NumPy 2.3.5, SciPy 1.17.0, Pillow 12.3.0 i Blender 4.3.2. Pracujemy w istniejącym checkoutcie, bez zakładania dodatkowych worktree.
-
-Siatkę należy odczytać z gałęzi wzorcowej, nie przełączać na nią checkoutu:
+Wymagania: Blender 4.3 (sprawdzono 4.3.2), Python 3, NumPy 2.3.5, SciPy 1.17.0, Pillow 12.3.0. Generowanie 4K wymaga kilku–kilkunastu GB RAM.
 
 ```bash
-# Z katalogu repozytorium; commit jest przypięty, plik trafia poza checkout.
+# Od katalogu repozytorium:
 git show 421c7e895e6a029181dcb7c63ab277ad7bab4ca0:assets/sprites/player/source/third_party/base.obj > /tmp/hero-base.obj
 cd assets/textures/characters/hero/unique
 OPENBLAS_NUM_THREADS=1 python3 source/build_maps.py --mesh /tmp/hero-base.obj
@@ -46,30 +39,26 @@ blender -b -t 4 -P source/render_check.py -- /tmp/hero-base.obj
 python3 source/validate.py --mesh /tmp/hero-base.obj
 ```
 
-MakeHuman hm08 jest CC0; informacja znajduje się w nagłówku OBJ. Przód modelu to +Z i góra +Y w źródłowym OBJ. Renderer przelicza te osie na kontraktowe +X przód, +Z góra, wysokość 1,8 m. Nie modyfikuje pliku OBJ, dokumentów ani źródłowego `.blend`.
+MakeHuman hm08: grupa `body`, CC0 według nagłówka przypiętego OBJ. Generator nie zmienia geometrii. Po celowej regeneracji plików trzeba odświeżyć raporty i manifest przez `source/write_manifest.py`; zwykły walidator nie nadpisuje danych.
 
-`podglad/skin_*.png` powstały z aktualnych map, a nie ze starego atlasu. Użyto świateł, AgX, ekspozycji, 64 próbek, seeda i 4 wątków z kontraktu. Kadry są ortograficznymi zbliżeniami materiału 768 px; **nie** są eksportem sprite'ów z kamery gry. Walidator sprawdza zapisane wyniki, a nie tylko istnienie plików. W kontroli 1137 par wierzchołków szwów mediana różnicy RGB wyniosła 0, percentyl 95: 1/255, maksimum: około 5/255 (próbkowanie interpolowane). Znak kanału zielonego normalnej zgadza się z gradientem height (korelacja 0,998). Aby odświeżyć raport, użyj `--write-report`, następnie przelicz manifest; normalna walidacja nie nadpisuje raportu.
+## Przed / po
 
-## Czego nie sprawdzono i znane wady
+`podglad/v2/before/` — v1 z `bdc6529`, ponownie wyrenderowana ze snapshotu jej map. `podglad/v2/after/` — v2. `podglad/v2/porownanie.png` zestawia portret, profil i grzbiet dłoni obok siebie bez skalowania i korekcji kolorów (`source/compare_v2.py`). Po pięć identycznych kadrów: przód, profil, dłonie z przodu, z tyłu i od grzbietu. Obie wersje: **normal strength 0,45**, kamera 768×768, te same światła kontraktu, AgX Medium High Contrast, exposure −0,2, Cycles 64 próbki, seed 1703, 4 wątki, bez denoise. Porównanie nie zmienia oświetlenia, modelu ani geometrii.
 
-- Nie sprawdzono docelowego `.blend` Sola, włókien włosów/zarostu, rogówki ani finalnego podłączenia oczu. Podglądy bazowej grupy `body` mają puste oczodoły; nie przedstawiają finalnego oka. Obrazy A2 zweryfikowano osobno jako obrazy, nie na finalnej kuli oka.
-- Nie zatwierdzono wieku 35–40 lat ani zgodności portretu z konceptem: sama neutralna siatka hm08 ma łagodne rysy. Tekstury nie zastąpią męskiej rzeźby żuchwy, kości policzkowych i łuków brwiowych. Skóra głowy jest ciemną bazą pod osobne włókna.
-- Zarost, paznokcie, zmarszczki i brud są proceduralną interpretacją; paznokcie i linie dłoni wymagają oceny artystycznej. Brak ręcznego malowania anatomii i skanowanych porów. Nie deklarujemy jakości fotogrametrii ani akceptacji artystycznej.
-- Kontrola szwów obejmuje osiem renderów i pomiary par wspólnych wierzchołków. Nie jest dowodem braku wszystkich szwów przy każdym mipie, deformacji i kierunku światła.
-- Nie wykonano oceny 1× na tle lasu, animacji, pełnej postaci ze strojem ani portretu z docelowymi oczami i włosami. Weryfikacja tych kryteriów oraz ostateczne światło gry należą do integracji Sola.
-- Height/normal i SSS są artystycznymi mapami mikrodetalu, bez wypalania rzeźby high-poly i bez pomiaru grubości tkanki. Nie używać SSS jako gotowej wartości radius w metrach.
-- Oryginalne oczy nie mają źródła generatora; pochodzenie poza wskazanymi commitami pozostaje niepotwierdzone.
+Bieżące rendery v2 (także pełne ciało przód/profil/tył i tył głowy) są w `podglad/skin_*.png`. To diagnostyka materiału, nie eksport sprite'ów. Przykład ponowienia porównania z zachowanym snapshotem v1:
 
-Część B (ubranie) nie była wykonywana. Ta paczka pozostaje **PROTOTYPE_NOT_APPROVED** do przeglądu PM/autora.
+```bash
+blender -b -t 4 -P source/render_check.py -- /tmp/hero-base.obj --texture-dir /tmp/hero-v1-snapshot --output-dir podglad/v2/before --comparison
+blender -b -t 4 -P source/render_check.py -- /tmp/hero-base.obj --output-dir podglad/v2/after --comparison
+```
 
+Snapshot v1 można odtworzyć przez `git show bdc6529:assets/textures/characters/hero/unique/NAZWA_MAPY` do katalogu poza checkoutem. Przekazywany `--texture-dir` wymaga map basecolor, roughness, normal_opengl i sss_mask.
 
-## Odpowiedź na review 744b42b
+`qa/validation.json`: odczyt PNG, formaty, skalowanie, normalne, pary wierzchołków szwów. `qa/v2_material_checks.json`: rzeczywiste pokrycie UV przez każdą bliznę i pieprzyk, kotwice i parametry materiału. `manifest.json`: SHA-256 wszystkich plików poza nim samym, narzędzia, źródła i wersja każdego podglądu. Archiwum instrukcji v1: `source/README-v1.md`.
 
-1. **Naprawione w 1016449:** albedo zapisane standardowym `Pillow Image.save`; wszystkie 12 PNG dekoduje się przez `Image.open(...).load()`.
-2. **Naprawione w 1016449:** albedo i normalne RGB 8 bit, roughness/SSS L 8 bit, height grayscale 16 bit, w obu rozdzielczościach. Walidator jawnie kontroluje wszystkie te tryby.
-3. **Zastąpione w 1016449:** atlas pigmentacji wyprowadzony z położeń powierzchni OBJ: usta, oczodoły, nos, uszy, zarost i skóra głowy, dłonie/paznokcie/brud, przedramiona/szyja i jaśniejsze ciało pod ubraniem. Materiał powstał proceduralnie; nie jest ręcznie namalowanym ani fotograficznym portretem. Czytelność wieku i charakteru wymaga artystycznej oceny z rzeźbą Sola. Albedo nie korzysta ze świateł, normalnych powierzchni ani AO.
-4. **Zastąpione w 1016449:** height i RGB normalna mają anatomiczne maski zmarszczek czoła, kurzych łapek, bruzd nosowo-wargowych i linii dłoni oraz mikrodetal porów. To mikrorelief, nie rzeźba sylwetki ani skan.
-5. **Zastąpione w 1016449:** szorstkość jest przypisana do anatomii (T, policzki, usta, zarost, dłonie), SSS do uszu/nosa/palców; następnie rasteryzowane w natywne UV grupy body. Brak prostokątnych masek narysowanych niezależnie od wysp.
-6. **Zachowane:** oba pliki oczu są identyczne bajt w bajt z 744b42b.
+## Ograniczenia
 
-Po review rendery przeniesiono do wymaganego `podglad/`, poprawiono tam ścieżkę w rendererze i ponowiono pięć zbliżeń i dodano trzy ujęcia całego ciała na przypiętym OBJ w Blenderze 4.3.2. Odświeżono manifest i raport walidacji. Zachowano też oryginalną historię 744b42b przez merge bez zmiany drzewa plików, aby opublikować wynik zwykłym push, bez wymuszania nadpisania gałęzi zdalnej.
+- Neutralna siatka hm08 nie jest docelową męską rzeźbą Sola. Tekstury nie dodają opadania tkanek do sylwetki ani zmiany kości twarzy. W podglądzie brak włókien włosów/zarostu i docelowych gałek/rogówki; oczodoły są puste.
+- To proceduralna interpretacja starej skóry, nie skan ani ręcznie malowany portret. Zmarszczki i plamy wymagają oceny autora na modelu docelowym. Nie zatwierdzono jeszcze wyglądu v2 ani skali gry 1×, animacji i integracji ze strojem.
+- Kontrola szwów i rendery nie dowodzą ich niewidoczności przy każdym mipie, deformacji i oświetleniu. Normalna/height nie są wypaleniem rzeźby high-poly, SSS nie jest pomiarem tkanki.
+- Oryginalne oczy mają udokumentowane pochodzenie repozytoryjne, ale poprzednik nie zapisał użytego generatora. Nie przypisujemy im zmyślonej fotografii, modelu AI ani licencji.

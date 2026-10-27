@@ -1,11 +1,17 @@
 """Blender 4.3, read-only diagnostic renderer. blender -b -t 4 -P source/render_check.py -- /tmp/base.obj
 Does not save or modify a blend file. Body group only, unchanged native UV.
 """
-import bpy,sys,math
+import bpy,sys,math,argparse
 from pathlib import Path
 from mathutils import Vector
 root=Path(__file__).resolve().parents[1]
-meshpath=sys.argv[sys.argv.index('--')+1]
+ap=argparse.ArgumentParser()
+ap.add_argument('mesh');ap.add_argument('--texture-dir',type=Path,default=root)
+ap.add_argument('--output-dir',type=Path,default=root/'podglad')
+ap.add_argument('--normal-strength',type=float,default=.45)
+ap.add_argument('--view',nargs='+');ap.add_argument('--body-only',action='store_true');ap.add_argument('--comparison',action='store_true')
+args=ap.parse_args(sys.argv[sys.argv.index('--')+1:])
+meshpath=args.mesh;args.output_dir.mkdir(parents=True,exist_ok=True)
 verts=[];uvs=[];faces=[];group=''
 for l in open(meshpath):
  s=l.split()
@@ -28,12 +34,12 @@ out=n.new('ShaderNodeOutputMaterial');bs=n.new('ShaderNodeBsdfPrincipled');links
 bs.inputs['Subsurface Weight'].default_value=.22;bs.inputs['Subsurface Radius'].default_value=(.001,.00045,.00025)
 # Scale is meters; low SSS amount avoids wax. SSS mask modulates weight.
 for key,socket in [('basecolor','Base Color'),('roughness','Roughness')]:
- t=n.new('ShaderNodeTexImage');t.image=bpy.data.images.load(str(root/('hero_skin_body_'+key+'.png')))
+ t=n.new('ShaderNodeTexImage');t.image=bpy.data.images.load(str(args.texture_dir/('hero_skin_body_'+key+'.png')))
  if key!='basecolor':t.image.colorspace_settings.name='Non-Color'
  links.new(t.outputs['Color'],bs.inputs[socket])
-t=n.new('ShaderNodeTexImage');t.image=bpy.data.images.load(str(root/'hero_skin_body_normal_opengl.png'));t.image.colorspace_settings.name='Non-Color'
-nm=n.new('ShaderNodeNormalMap');nm.inputs['Strength'].default_value=.25;links.new(t.outputs['Color'],nm.inputs['Color']);links.new(nm.outputs['Normal'],bs.inputs['Normal'])
-t=n.new('ShaderNodeTexImage');t.image=bpy.data.images.load(str(root/'hero_skin_body_sss_mask.png'));t.image.colorspace_settings.name='Non-Color'
+t=n.new('ShaderNodeTexImage');t.image=bpy.data.images.load(str(args.texture_dir/'hero_skin_body_normal_opengl.png'));t.image.colorspace_settings.name='Non-Color'
+nm=n.new('ShaderNodeNormalMap');nm.inputs['Strength'].default_value=args.normal_strength;links.new(t.outputs['Color'],nm.inputs['Color']);links.new(nm.outputs['Normal'],bs.inputs['Normal'])
+t=n.new('ShaderNodeTexImage');t.image=bpy.data.images.load(str(args.texture_dir/'hero_skin_body_sss_mask.png'));t.image.colorspace_settings.name='Non-Color'
 mul=n.new('ShaderNodeMath');mul.operation='MULTIPLY';mul.inputs[1].default_value=.30;links.new(t.outputs['Color'],mul.inputs[0]);links.new(mul.outputs[0],bs.inputs['Subsurface Weight'])
 ob.data.materials.append(mat)
 sub=ob.modifiers.new('Diagnostic subdivision','SUBSURF');sub.levels=1
@@ -48,9 +54,11 @@ for label,loc,power,size,color in [('key',(2.8,-3.5,6),520,2.3,(.94,.92,.85)),('
 cam=bpy.data.cameras.new('Diagnostic camera');co=bpy.data.objects.new('Diagnostic camera',cam);bpy.context.collection.objects.link(co);sc.camera=co;cam.type='ORTHO'
 # Orthographic material review, not an approved game-sprite export.
 views=[('front',(4,0,1.65),(.09,0,1.65),.48),('profile',(0,4,1.65),(.06,0,1.65),.48),('back',(-4,0,1.65),(0,0,1.65),.48),('hands_front',(4,.43,1.04),(.13,.43,1.04),.40),('hands_back',(-4,.43,1.04),(.13,.43,1.04),.40)]
+views.append(('hands_dorsal',(.23,4,1.10),(.23,.48,1.10),.40))
 body_views=[('body_front',(4,0,.9),(0,0,.9),2.1),('body_profile',(0,4,.9),(0,0,.9),2.1),('body_back',(-4,0,.9),(0,0,.9),2.1)]
-views=body_views if '--body-only' in sys.argv else views+body_views
+views=body_views if args.body_only else [v for v in views if v[0]!='back'] if args.comparison else views+body_views
+if args.view:views=[v for v in views if v[0] in args.view]
 for label,loc,target,ortho in views:
  co.location=loc;co.rotation_euler=(Vector(target)-co.location).to_track_quat('-Z','Y').to_euler();cam.ortho_scale=ortho
- sc.render.resolution_x=768;sc.render.resolution_y=768;sc.render.filepath=str(root/'podglad'/('skin_'+label+'.png'));bpy.ops.render.render(write_still=True)
+ sc.render.resolution_x=768;sc.render.resolution_y=768;sc.render.filepath=str(args.output_dir/('skin_'+label+'.png'));bpy.ops.render.render(write_still=True)
 print('Rendered',len(views),'material checks in Blender',bpy.app.version_string)

@@ -64,17 +64,6 @@ def main():
         return np.exp(-.5*(((ax-cx)/sx)**2+((y-cy)/sy)**2+((z-cz)/sz)**2))
     def smooth(a,b,t):
         t=np.clip((t-a)/(b-a),0,1);return t*t*(3-2*t)
-    head=smooth(5.8,6.25,y)
-    front=smooth(.25,1.1,z)
-    scalp=smooth(7.80,8.10,y)*head
-    # Physical anatomical pigment regions; no luminance-derived roughness or height.
-    lips=gauss(0,6.50,1.50,.30,.080,.20)
-    nose=gauss(0,6.96,1.64,.21,.30,.26)
-    ears=gauss(.79,7.08,.45,.17,.35,.32)
-    cheeks=gauss(.46,6.94,1.31,.25,.25,.27)
-    beard=front*head*(1-smooth(6.85,7.15,y))*(1-lips*.8)
-    hands=smooth(3.55,4.0,ax)*(1-smooth(3.7,4.5,y))
-    fingers=hands*smooth(4.15,4.55,ax)
     # Stable 3-D frequencies avoid identical UV tile repetitions.
     micro=(np.sin(x*167+y*113+np.sin(z*87))*np.sin(z*181-x*89)+.5*np.sin(y*311-z*191+x*137))/1.5
     macro=(np.sin(x*8.7+y*6.1+np.sin(z*9.3))*.5+np.sin(x*19.1-y*17.7+z*13.9)*.25)
@@ -84,104 +73,12 @@ def main():
     noise=rng.normal(0,1,(n,n)).astype(np.float32)
     pores=gaussian_filter(noise,.65)-gaussian_filter(noise,2.2)
     pores/=pores.std()
-    # Creases are depressions, not dark albedo strokes. All restricted to UV interior.
-    forehead=gauss(0,7.61,1.1,.60,.28,.35)
-    wrinkles=np.zeros((n,n),np.float32)
-    for cy in [7.49,7.61,7.72]:
-        line=np.exp(-((y-(cy+.035*np.cos(x*4)))/.010)**2)
-        wrinkles+=line*forehead
-    # Outer-eye fine folds and nasolabial creases, shared in height/roughness.
-    crows=gauss(.57,7.22,1.28,.17,.12,.25)
-    wrinkles+=crows*(.5+.5*np.sin((y+x*.45)*155))**14
-    nasolabial=np.exp(-((ax-(.19+.45*(6.95-y)))/.017)**2)*gauss(.28,6.78,1.42,.18,.22,.3)
-    wrinkles+=nasolabial*.7
-    # Palm/knuckle creases from anatomical region; not deep wounds.
-    handlines=hands*(.5+.5*np.sin((ax*.7+y*.5+z*.6)*63))**20
-    lipcracks=lips*(.5+.5*np.sin(x*175+y*13))**16
-    height=.5+detail*(pores*.0018+micro*.0008-wrinkles*.010-handlines*.0025-lipcracks*.002)
-    rough=.60+.018*macro+.015*micro
-    rough=rough*(1-scalp)+.70*scalp
-    rough=rough*(1-beard*.8)+.70*beard*.8
-    rough=rough*(1-nose)+.45*nose
-    rough=rough*(1-forehead*.75)+.46*forehead*.75
-    rough=rough*(1-lips)+.45*lips
-    rough=rough*(1-hands)+(.65+.02*macro)*hands
-    rough+=detail*(pores*.006+wrinkles*.015)
-    sss=np.clip(.26+.50*ears+.34*nose+.27*fingers+.12*lips-.06*scalp,0,1)
-    # Copy nearest UV-interior samples into all unused space (unbounded dilation).
+    # V2 overrides pigment/relief fields using the author's old-traveler direction.
+    from aging_v2 import apply
+    color,height,rough,sss=apply(xyz,detail,noise,pores,micro,macro,args.mesh,mesh_data,ROOT/'qa'/'v2_material_checks.json')
+    # Preserve v1 padding/export contracts after applying v2 surface fields.
     _,nearest=distance_transform_edt(~valid,return_indices=True)
-    # New unlit pigment material: regional tanning, natural redness, follicles and dirt.
-    # All coordinates are from the real surface; no normals, light, AO or curvature enter albedo.
-    exposure=np.maximum(head*.85,smooth(2.65,3.6,ax)*.85)
-    exposure=np.maximum(exposure,gauss(0,5.7,.4,.8,.7,.8)*.65)
-    color=np.zeros((n,n,3),np.float32)+np.array([181,149,131],np.float32)
-    color+=exposure[...,None]*np.array([-22,-28,-30],np.float32)
-    color+=macro[...,None]*np.array([2.4,1.9,1.6],np.float32)
-    def pigment(mask,rgb,amount=1):
-        nonlocal color
-        w=np.clip(mask*amount,0,1)[...,None]
-        color=color*(1-w)+np.array(rgb,np.float32)*w
-    pigment(nose,[172,111,94],.32)
-    pigment(cheeks,[171,111,96],.28)
-    pigment(ears,[173,109,94],.42)
-    socket=gauss(.34,7.20,1.32,.19,.13,.21)
-    pigment(socket,[131,113,108],.32)
-    # Skin of scalp under future hair fibers, including the back-of-head seam.
-    scalp=np.maximum(scalp,head*(1-smooth(.18,.60,z))*smooth(6.70,7.25,y))
-    scalp=np.maximum(scalp,gauss(.66,7.76,.69,.23,.30,.38)*.8)
-    pigment(scalp,[49,38,31],.95)
-    # Beard coverage follows cheek/jaw anatomy and leaves natural upper-cheek clear space.
-    beardtop=7.04-.21*np.clip(ax,0,1)
-    beard=front*head*(1-smooth(beardtop-.12,beardtop+.10,y))
-    beard*=1-np.clip(nose*.9+lips*.9,0,1)
-    beard=np.maximum(beard,gauss(.15,6.68,1.51,.18,.075,.17)*.8)
-    beard=np.maximum(beard,gauss(.25,6.23,.91,.47,.19,.52)*.75)
-    pigment(beard,[88,70,56],.60)
-    # Multiscale, anisotropic sparse follicles, rather than a painted black beard patch.
-    follicles=gaussian_filter(noise,(.45,1.0));follicles/=follicles.std()
-    stubble=smooth(1.15,2.2,follicles)*beard*detail
-    pigment(stubble,[47,36,28],.95)
-    brow=gauss(.35,7.40,1.22,.25,.045,.25)*front
-    pigment(brow,[63,48,37],.48)
-    pigment(brow*smooth(.0,1.6,follicles)*detail,[45,35,28],.65)
-    # Lips and hand details are pigment changes; height cracks remain separate.
-    pigment(lips,[151,103,95],.8)
-    pigment(lipcracks*detail,[130,93,86],.10)
-    pigment(hands*smooth(1.72,2.06,z),[180,144,123],.65)
-    dirt=hands*(.25+.75*(.5+.5*np.sin((ax*.7+y*.5+z*.6)*63))**20)
-    pigment(dirt*detail,[94,78,57],.23)
-    # Anatomically placed short nail plates, ellipsoids aligned to terminal phalanges.
-    joints={}; group=''; ids=[]
-    vv=[]
-    for line in open(args.mesh):
-        tok=line.split()
-        if not tok:continue
-        if tok[0]=='v':vv.append(tuple(map(float,tok[1:4])))
-        elif tok[0]=='g':group=tok[1]
-        elif tok[0]=='f' and group.startswith('joint-l-finger'):
-            joints.setdefault(group,[]).extend(int(t.split('/')[0])-1 for t in tok[1:])
-    vv=np.array(vv)
-    for finger in range(1,6):
-        tip=vv[np.unique(joints[f'joint-l-finger-{finger}-4'])].mean(0)
-        base=vv[np.unique(joints[f'joint-l-finger-{finger}-3'])].mean(0)
-        axis=tip-base;axis/=np.linalg.norm(axis)
-        center=tip*.7+base*.3
-        # Hands face inward in the neutral mesh; dorsal side is outward along X.
-        center[0]+=.065 if finger!=1 else -.05
-        dx0=ax-center[0];dy0=y-center[1];dz0=z-center[2]
-        along=dx0*axis[0]+dy0*axis[1]+dz0*axis[2]
-        perp2=np.maximum(dx0*dx0+dy0*dy0+dz0*dz0-along*along,0)
-        plate=np.exp(-((along/.095)**4+(perp2/.0045)**2))*hands
-        pigment(plate,[174,145,127],.7)
-        dirtedge=plate*np.exp(-((along-.065)/.022)**2)
-        pigment(dirtedge,[83,71,53],.6)
-        rough=rough*(1-plate*.5)+.48*plate*.5
-    # Keep the technical response aligned with final scalp/beard pigment regions.
-    rough=rough*(1-scalp)+.70*scalp
-    rough=rough*(1-beard*.8)+.70*beard*.8
-    rough=rough*(1-lips)+.45*lips
-    # Fine pores and subtle mottling are tonal pigment variation, not baked lighting.
-    color+=detail[...,None]*(pores[...,None]*.65+micro[...,None]*1.1)
+
     color=np.clip(color,0,255)
     for a in [height,rough,sss]: a[~valid]=a[tuple(nearest[:,~valid])]
     color[~valid]=color[tuple(nearest[:,~valid])]
