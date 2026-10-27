@@ -270,7 +270,7 @@ def load_anatomy():
         if total < .00001:
             weights[i]={'head':1} if p[2]>1.55 else torso_weight(p)
         else: weights[i]={k:w/total for k,w in weights[i].items()}
-        new.append(sum((mats[k]@Vector(p))*w for k,w in weights[i].items()))
+        new.append(sum(((mats[k]@Vector(p))*w for k,w in weights[i].items()), Vector((0,0,0))))
     return new,groups['body'],weights
 
 
@@ -322,8 +322,8 @@ def build_character():
     v, faces, weights=load_anatomy()
     create_rig()
     skin=material('Skóra / zmęczona podróżą',(.24,.155,.103),'skin')
-    linen=material('Znoszony len',(.22,.195,.145))
-    wool=material('Mokry płaszcz / szaro-oliwkowa wełna',(.105,.112,.087))
+    linen=material('Znoszony len',(.18,.145,.095))
+    wool=material('Mokry płaszcz / szaro-oliwkowa wełna',(.072,.078,.052))
     dark=material('Spodnie / brunatna wełna',(.065,.060,.048))
     leather=material('Skóra / kaftan i sakwa',(.079,.049,.027),'leather')
     edge=material('Przetarte brzegi skóry',(.15,.107,.065),'leather')
@@ -335,17 +335,42 @@ def build_character():
     PARTS.update(locals())
     subset('Anatomiczna głowa, szyja i lewa dłoń',v,faces,weights,skin,
             lambda p,f:p[2]>1.49 or (p[1]>.22 and p[2]<.98),sub=2)
-    subset('Lniana koszula / rękawy',v,faces,weights,linen,
-            lambda p,f:.99<p[2]<1.52 and not any(weights[i].get('hand.L',0)+weights[i].get('hand.R',0)>.65 for i in f),
-            offset=.015,sub=2,cloth=True)
+    def arm_face(f):
+        return np.mean([sum(weights[i].get(b+'.'+s,0) for b in ['upper_arm','forearm'] for s in ['L','R']) for i in f])>.3
+    subset('Lniana koszula / luźne rękawy',v,faces,weights,linen,
+            lambda p,f:.99<p[2]<1.49 and arm_face(f) and not any(weights[i].get('hand.L',0)+weights[i].get('hand.R',0)>.5 for i in f),
+            offset=.022,sub=2,cloth=True)
     subset('Spodnie / marszczenia kolan',v,faces,weights,dark,
-            lambda p,f:.25<p[2]<1.08,offset=.018,sub=2,cloth=True)
-    subset('Kaftan / dopasowany korpus',v,faces,weights,leather,
-            lambda p,f:1.045<p[2]<1.48 and abs(p[1])<.185 and all(weights[i].get('upper_arm.L',0)+weights[i].get('upper_arm.R',0)<.35 for i in f),
-            offset=.029,sub=2,cloth=True)
-    loft('Dół lnianej koszuli / rozcięcia',[(.79,.0,0,.148,.204),(.82,0,0,.15,.20),
-         (.94,0,0,.139,.183),(1.02,0,0,.12,.17),(1.07,0,0,.122,.171)],linen,torso_weight,
-         wrinkles=.005,solid=.003)
+            lambda p,f:.25<p[2]<1.08 and not any(sum(weights[i].get(b+'.'+s,0) for b in ['hand','forearm','upper_arm'] for s in ['L','R'])>.1 for i in f),
+            offset=.019,sub=2,cloth=True)
+    tunic=loft('Lniana tunika / krój i pionowe fałdy',[
+         (.78,.015,0,.157,.207),(.80,.015,0,.155,.204),(.91,.015,0,.144,.193),
+         (1.02,.015,0,.128,.174),(1.11,.015,0,.145,.180),(1.26,.015,0,.151,.193),
+         (1.40,.015,0,.126,.214),(1.475,.015,0,.097,.19),(1.525,.015,0,.060,.095)],
+         linen,torso_weight,wrinkles=.0045,solid=.003,count=64,sub=2)
+    # A real vest pattern rather than an inflated copy of the bare chest.
+    vest_profile=[(1.055,.154,.192),(1.12,.159,.189),(1.24,.162,.196),
+                  (1.35,.146,.211),(1.435,.120,.221),(1.493,.079,.144)]
+    vv=[]; steps=49
+    for j,(z,rx,ry) in enumerate(vest_profile):
+        gap=math.radians(10+max(0,(z-1.28)/.213)*50)
+        for i in range(steps):
+            a=gap+(TAU-2*gap)*i/(steps-1)
+            fold=.0025*math.sin(a*7+z*38)
+            vv.append((.016+(rx+fold)*math.cos(a),(ry+fold)*math.sin(a),z))
+    vf=[(j*steps+i,j*steps+i+1,(j+1)*steps+i+1,(j+1)*steps+i) for j in range(len(vest_profile)-1) for i in range(steps-1)]
+    mesh('Kaftan / zszywane otwarte połacie',vv,vf,leather,[torso_weight(p) for p in vv],2,.005)
+    for sign in [-1,1]:
+        pts=[]
+        for z,rx,ry in vest_profile:
+            a=math.radians(10+max(0,(z-1.28)/.213)*50)
+            pts.append((.021+rx*math.cos(a),sign*ry*math.sin(a),z))
+        tube('Kaftan / przetarty brzeg',pts,.003,edge,torso_weight)
+        tube('Kaftan / szew boku',[(.018,sign*(ry+.002),z) for z,rx,ry in vest_profile],.0015,seam,torso_weight)
+    for z in [1.14,1.225,1.30]:
+        tube('Wiązanie kaftana',[(.180,-.031,z),(.184,0,z-.008),(.180,.031,z)],.0025,edge,torso_weight)
+    collar=[(.017+.067*math.cos(a),.094*math.sin(a),1.527-.012*math.cos(a)) for a in np.linspace(0,TAU,50)]
+    tube('Miękki kołnierz lnu',collar,.006,linen,bone_weight('chest'))
     # Short travelling cloak: open front, layered shoulders, geometric folds and uneven hem.
     verts=[]; nr=25; na=65
     profile=[(1.56,.083,.101),(1.51,.13,.23),(1.46,.17,.255),(1.31,.19,.25),
@@ -382,9 +407,16 @@ def build_character():
     subset('Włosy / krótki nieregularny obrys',v,faces,weights,hair,
             lambda p,f:p[2]>1.755+.008*math.sin(p[1]*65) or (p[2]>1.671 and p[0]<-.015),
             offset=.005,sub=2)
-    subset('Zarost / anatomiczna żuchwa',v,faces,weights,hair,
-            lambda p,f:1.585<p[2]<1.666 and p[0]>.07 and abs(p[1])<.075 and not (p[0]>.132 and p[2]>1.641),
-            offset=.0006,sub=1)
+    stubble=material('Zarost / kilka dni podróży',(.083,.057,.036),'hair')
+    subset('Zarost / anatomiczna żuchwa',v,faces,weights,stubble,
+            lambda p,f:1.585<p[2]<1.655 and p[0]>.074 and abs(p[1])<.071 and not (p[0]>.132 and p[2]>1.641),
+            offset=.0003,sub=1)
+    # Tangible locks soften the hairline, avoiding a helmet-shaped scalp.
+    rng=np.random.default_rng(73)
+    for i in range(32):
+        y=float(rng.uniform(-.065,.065)); z=1.773-.18*abs(y)
+        tube('Pasmo włosów',[(.018,y,z+.013),(.054,y+.005,z+.008),(.075,y+.009,z-.004),(.084,y+.007,z-.031)],
+             [.0035,.004,.003,.0006],hair,bone_weight('head'),5)
     # Eye globes remain subdued; no emissive eye material.
     for sign in [-1,1]:
         pillow('Oko',(.1346,sign*.03325,1.670),(.021,.020,.018),
@@ -396,15 +428,18 @@ def build_character():
     buckle=[(.161,-.04,1.019),(.165,.018,1.019),(.165,.018,1.054),(.161,-.04,1.054),(.161,-.04,1.019)]
     tube('Sprzączka pasa',buckle,.004,iron,torso_weight)
     tube('Język sprzączki',[(.166,-.01,1.019),(.17,-.01,1.052)],.002,iron,torso_weight)
-    points=[(.132,.145,1.485),(.158,.115,1.41),(.176,.065,1.31),(.174,0,1.22),
-            (.161,-.075,1.13),(.149,-.137,1.065)]
+    points=[(.132,.145,1.485),(.166,.115,1.41),(.184,.065,1.31),(.185,0,1.22),
+            (.175,-.075,1.13),(.154,-.137,1.065)]
     ribbon('Pas naramienny / nośny',points,.033,leather,torso_weight)
     tube('Szew pasa naramiennego',[(x+.003,y+.012,z) for x,y,z in points],.0012,seam,torso_weight)
     for sign in [-1,1]:
         pillow('Sakwa przy pasie',(.01,sign*.224,1.005),(.122,.095,.148),leather,'pelvis')
         tube('Sakwa / sznur',[(.065,sign*.22,.96),(.075,sign*.23,1.04),(.055,sign*.22,1.077)],.002,seam,bone_weight('pelvis'))
-    pillow('Plecak podróżny',(-.248,0,1.285),(.18,.265,.30),leather,'chest')
-    pillow('Klapa plecaka',(-.33,0,1.36),(.048,.27,.16),edge,'chest')
+    pillow('Plecak podróżny',(-.248,0,1.285),(.18,.265,.30),leather,'chest',roundness=.24)
+    pillow('Klapa plecaka',(-.33,0,1.36),(.048,.27,.16),edge,'chest',roundness=.24)
+    for sign in [-1,1]:
+        tube('Plecak / pionowy rzemień',[(-.30,sign*.079,1.43),(-.354,sign*.079,1.34),(-.346,sign*.079,1.2),(-.29,sign*.079,1.15)],.009,boots,bone_weight('chest'))
+        tube('Plecak / sprzączka',[(-.357,sign*.079-.013,1.275),(-.357,sign*.079+.013,1.275),(-.357,sign*.079+.013,1.30),(-.357,sign*.079-.013,1.30),(-.357,sign*.079-.013,1.275)],.0025,iron,bone_weight('chest'))
     # Bedroll: real ends, seams and straps; its geometry is retained in .blend.
     pts=[(-.246,-.205+i*.41/20,1.498) for i in range(21)]
     tube('Zrolowane posłanie',pts,[.061+.003*math.sin(i*.7) for i in range(21)],linen,bone_weight('chest'),32)
@@ -469,18 +504,18 @@ def foot_target(phase, side, walking=True):
     if not walking:return Vector((.045 if sign==1 else -.045,sign*.126,.0778)),0
     p=(phase+(0 if side=='L' else .5))%1
     if p<.6:
-        x=.29-.58*p/.6; lift=0; pitch=0
+        x=.26-.52*p/.6; lift=0; pitch=0
     else:
         s=(p-.6)/.4
-        x=-.29+.58*(.5-.5*math.cos(math.pi*s)); lift=.11*math.sin(math.pi*s)
+        x=-.26+.52*(.5-.5*math.cos(math.pi*s)); lift=.10*math.sin(math.pi*s)
         pitch=.28*math.sin(TAU*s)
     return Vector((x,sign*.126,.0778+lift)),pitch
 
 
 def set_pose(phase, walking=True, frame=None):
-    bob=.008*math.cos(TAU*phase*2) if walking else .003*math.sin(TAU*phase)
+    bob=.006*math.cos(TAU*phase*2) if walking else .002*math.sin(TAU*phase)
     sway=.012*math.sin(TAU*phase) if walking else .002*math.sin(TAU*phase)
-    pelvis=Vector((.0133,sway,.935+bob))
+    pelvis=Vector((.0133,sway,(.887 if walking else .929)+bob))
     base=Vector((.0133,0,.935))
     bodyyaw=.04*math.sin(TAU*phase) if walking else .008*math.sin(TAU*phase)
     pmat=Matrix.Translation(pelvis)@Matrix.Rotation(bodyyaw,4,'Z')@Matrix.Translation(-base)
@@ -514,8 +549,17 @@ def set_pose(phase, walking=True, frame=None):
         p=(phase+(0 if side=='L' else .5))%1
         audit['feet'][side]={'ankle_m':list(ankle),'stance':bool(walking and p<.6),'pitch_rad':pitch}
     def depth(b):return 0 if b.parent is None else 1+depth(b.parent)
+    desired={name:maps[name]@RIG.data.bones[name].matrix_local for name in maps}
     for b in sorted(RIG.pose.bones,key=depth):
-        b.matrix=maps[b.name]@RIG.data.bones[b.name].matrix_local
+        # Assign the basis from explicit parent/rest matrices. Setting .matrix
+        # successively uses stale evaluated parents and disconnects joints.
+        rest=b.bone.matrix_local
+        if b.parent:
+            b.matrix_basis=(rest.inverted() @ b.parent.bone.matrix_local
+                            @ desired[b.parent.name].inverted() @ desired[b.name])
+        else:
+            b.matrix_basis=rest.inverted()@desired[b.name]
+        b.rotation_mode='QUATERNION'
         if frame is not None:
             b.keyframe_insert('location',frame=frame)
             b.keyframe_insert('rotation_quaternion',frame=frame)
@@ -533,7 +577,9 @@ def setup_scene(samples=32, size=384):
     scene=bpy.context.scene
     scene.render.engine='CYCLES'
     scene.cycles.device='CPU';scene.cycles.samples=samples
-    scene.cycles.use_denoising=True
+    # Debian's Blender build has no OpenImageDenoise. Supersampling and actual
+    # path samples keep this workflow reproducible without an unavailable module.
+    scene.cycles.use_denoising=False
     scene.cycles.seed=1703
     scene.cycles.use_animated_seed=False
     scene.render.resolution_x=size;scene.render.resolution_y=size;scene.render.resolution_percentage=100
