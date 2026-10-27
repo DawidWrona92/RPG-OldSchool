@@ -9,7 +9,7 @@ cache={}
 def data(name):
     if name in cache:return cache[name]
     o=bpy.data.objects[name];ev=o.evaluated_get(bpy.context.evaluated_depsgraph_get());me=ev.to_mesh();me.calc_loop_triangles();v=[ev.matrix_world@p.co for p in me.vertices];f=[tuple(t.vertices) for t in me.loop_triangles];centers=np.array([tuple(sum((v[i] for i in t),Vector())/3) for t in f]);tree=BVHTree.FromPolygons(v,f,all_triangles=True);ev.to_mesh_clear();cache[name]=(tree,centers);return tree,centers
-body='Ciało / MakeHuman / UV natywne';pairs=[(body,x) for x in ['kaftan','koszula','but_lewy','pas_gorny','sakwa_lewa','jelec']]+[('kaftan','koszula'),('peleryna','plaszcz'),('kaftan','rzemien_2')]
+body='Ciało / MakeHuman / UV natywne';pairs=[(body,x) for x in ['kaftan','koszula','but_lewy','pas_gorny','sakwa_lewa','jelec']]+[('kaftan','koszula'),('peleryna','plaszcz'),('kaftan','rzemien_2'),('koszula','peleryna'),('kaftan','pas_dolny'),('pas_gorny','rzemien_1')]
 out=[]
 for a,b in pairs:
     ta,ca=data(a);tb,cb=data(b);over=ta.overlap(tb)
