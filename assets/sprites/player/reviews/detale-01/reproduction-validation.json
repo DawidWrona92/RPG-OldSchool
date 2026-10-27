@@ -1,0 +1,17 @@
+{
+  "source_sha256": "bfa713745c1d57f3004688220af77a36f75aacbdc2fd7f3552306705f753e76f",
+  "frame": "spoczynek_1_00.png",
+  "results": {
+    "body": {
+      "identical_decoded_pixels": true,
+      "max_rgba_error_0_255": 0,
+      "mean_rgba_error_0_255": 0.0
+    },
+    "shadow": {
+      "identical_decoded_pixels": true,
+      "max_rgba_error_0_255": 0,
+      "mean_rgba_error_0_255": 0.0
+    }
+  },
+  "scope": "one repeated body/shadow pair from saved working blend; source unchanged"
+}

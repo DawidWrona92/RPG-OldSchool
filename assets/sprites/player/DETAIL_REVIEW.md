@@ -80,7 +80,7 @@ Wyniki rzeczywiście wykonanych kontroli: [źródło](reviews/detale-01/source-v
 [sumy plików](reviews/detale-01/checksums.json).
 Kontrola obejmuje 12 par obrazu/cienia, format i przezroczyste granice postaci,
 zgodność SHA z zapisanym modelem, zapakowane obrazy, geometrię rozdarć oraz
-przyłączenie włosów do kości głowy. Nie jest to pełny test przenikania nowego
+przyłączenie włosów do kości głowy. Ponowne wyrenderowanie SW dało identyczne dekodowane piksele postaci i cienia ([wynik](reviews/detale-01/reproduction-validation.json)). Nie jest to pełny test przenikania nowego
 płaszcza i łat przez ciało w animacji. Takiej akceptacji nie deklarujemy.
 
 ## Źródła i następny etap
@@ -91,7 +91,13 @@ kolejne korekty; nie są wywoływane przez eksport i nie przywracają starych sh
 Manifest zapisuje rodzica i aktualny SHA źródła. Wszystkie obrazy materiałów
 są zapakowane, a oryginalne pliki i ich pochodzenie pozostają w bibliotece.
 
-Przeliczenie statycznego zestawu, bez regeneracji modelu:
+Pełny statyczny zestaw i porównania można odtworzyć bez regeneracji modelu:
+
+```bash
+bash assets/sprites/player/source/run_detail_review.sh
+```
+
+Szybkie przeliczenie samych ośmiu kierunków:
 
 ```bash
 blender -b assets/sprites/player/source/bohater_detale.blend -t 4 \

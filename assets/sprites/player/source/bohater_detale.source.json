@@ -1,7 +1,7 @@
 {
   "source": "source/bohater_detale.blend",
   "parent_source_sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3",
-  "source_sha256": "5b06051f3417d0ea549aacc63c47eb746b8fef8f5bf498e50607073384c9e840",
+  "source_sha256": "bfa713745c1d57f3004688220af77a36f75aacbdc2fd7f3552306705f753e76f",
   "status": "static review first; existing actions preserved, new cloth motion not accepted",
   "recipe": "detail_clothing.py",
   "changes": [
@@ -11,7 +11,7 @@
     "leather panels overlap trousers",
     "controlled irregular linen hem"
   ],
-  "revision": "detail-render-05-review",
+  "revision": "detail-render-06-review",
   "groom_recipe": "detail_groom.py",
   "native_hair_strands": 14000,
   "native_beard_strands": 4260,
@@ -2089,9 +2089,10 @@
       81.0
     ]
   },
-  "art_revision": "detail-render-05-review",
+  "art_revision": "detail-render-06-review",
   "source_policy": "Canonical artistic blend; render reads saved geometry/actions and never writes blend; recipes are explicit one-time edits only.",
   "fit_groom_recipe": "detail_refine_fit_groom.py",
   "leather_hem_m": 0.825,
-  "linen_center_hem_m": 0.845
+  "linen_center_hem_m": 0.845,
+  "layer_fit_recipe": "detail_layer_fit.py"
 }

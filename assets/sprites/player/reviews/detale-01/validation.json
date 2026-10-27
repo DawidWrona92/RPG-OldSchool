@@ -1,0 +1,113 @@
+{
+  "source_sha256": "bfa713745c1d57f3004688220af77a36f75aacbdc2fd7f3552306705f753e76f",
+  "before_source_sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3",
+  "checked_body_shadow_pairs": 12,
+  "checked_frames": [
+    {
+      "folder": "renders",
+      "file": "spoczynek_0_00.png",
+      "size_px": 384
+    },
+    {
+      "folder": "renders",
+      "file": "spoczynek_1_00.png",
+      "size_px": 384
+    },
+    {
+      "folder": "renders",
+      "file": "spoczynek_2_00.png",
+      "size_px": 384
+    },
+    {
+      "folder": "renders",
+      "file": "spoczynek_3_00.png",
+      "size_px": 384
+    },
+    {
+      "folder": "renders",
+      "file": "spoczynek_4_00.png",
+      "size_px": 384
+    },
+    {
+      "folder": "renders",
+      "file": "spoczynek_5_00.png",
+      "size_px": 384
+    },
+    {
+      "folder": "renders",
+      "file": "spoczynek_6_00.png",
+      "size_px": 384
+    },
+    {
+      "folder": "renders",
+      "file": "spoczynek_7_00.png",
+      "size_px": 384
+    },
+    {
+      "folder": "duze",
+      "file": "spoczynek_1_00.png",
+      "size_px": 1152
+    },
+    {
+      "folder": "duze",
+      "file": "spoczynek_3_00.png",
+      "size_px": 1152
+    },
+    {
+      "folder": "cool",
+      "file": "spoczynek_1_00.png",
+      "size_px": 384
+    },
+    {
+      "folder": "warm",
+      "file": "spoczynek_1_00.png",
+      "size_px": 384
+    }
+  ],
+  "native_frame_size": [
+    192,
+    192
+  ],
+  "anchor_px": [
+    96,
+    158.353829
+  ],
+  "pixels_per_meter": 60,
+  "status": "static detail review; existing animations preserved in working blend, not re-exported or accepted for new cloth",
+  "rgba_bounds": "all 12 body images checked, all transparent edges",
+  "comparison": "same game camera/exposure; full body 1152; diagnostic portraits 768 at 128 samples",
+  "source_validation": {
+    "source_sha256": "bfa713745c1d57f3004688220af77a36f75aacbdc2fd7f3552306705f753e76f",
+    "parent_source_sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3",
+    "revision": "detail-render-06-review",
+    "anchor_px": [
+      95.99995994567871,
+      158.35384941101074
+    ],
+    "camera_ortho_m": 3.200000047683716,
+    "exposure": -0.20000000298023224,
+    "packed_images_verified": 42,
+    "actual_cloak_cut_geometry": {
+      "without_mask_vertices_faces": [
+        49858,
+        49856
+      ],
+      "with_mask_vertices_faces": [
+        49900,
+        49892
+      ],
+      "threshold": 0.44999998807907104
+    },
+    "hair_curves": {
+      "Włosy / naturalny przepływ pasm": 14000,
+      "Zarost / włókna na żuchwie": 4260
+    },
+    "max_head_attachment_matrix_error": 1.1920928955078125e-07,
+    "tested_attachment_directions": [
+      "S",
+      "NW",
+      "N"
+    ],
+    "scope": "static source and geometry cuts; not garment collision clearance or full animation validation"
+  }
+}
