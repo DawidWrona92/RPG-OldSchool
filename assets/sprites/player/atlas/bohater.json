@@ -1,0 +1,44 @@
+{
+  "character": "bohater",
+  "frame_size": [
+    192,
+    192
+  ],
+  "anchor_px": [
+    96.0,
+    158.4
+  ],
+  "pixels_per_meter": 60.0,
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "direction_note": "wiersz atlasu = indeks kierunku; S = przodem do kamery, kolejne co 45° zgodnie z ruchem wskazówek zegara na ekranie",
+  "layout": "kolumny = klatki animacji, wiersze = kierunki",
+  "pipeline": "meshkit (siatki trójkątowe + rasterizer), kontrakt zgodny z sdfkit",
+  "animations": {
+    "chod": {
+      "file": "bohater_chod.png",
+      "frames": 8,
+      "durations_ms": [
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115
+      ],
+      "loop": true,
+      "root_speed_mps": 0.83,
+      "events": {}
+    }
+  }
+}
