@@ -19,9 +19,9 @@ wprost z elementów widocznych na koncepcjach i potrzeb pierwszej lokacji
 
 ### Zgodność `stones-mistral-01` z kontraktem
 
-Stan na `9a2cc82` (27 października 2026 r.): Blender 4.3, kamera i trzy światła 1:1 z bohaterem, AgX i próbki z kontraktu, tekstury spakowane w `.blend`, cień jako sama alfa, `env_01.json`. Render z czystego klonu jest identyczny co do piksela z commitowanym eksportem (sprawdzone przez PM).
+Stan na `e045126` (27 października 2026 r.): Blender 4.3, kamera i światła 1:1 z bohaterem, tekstury spakowane, cień jako sama alfa, `env_01.json` z wymiarami 3D i obrysem kolizji; wszystkie 26 plików eksportu odtwarzają się z czystego klonu co do piksela (sprawdzone przez PM). Trawa, paprocie i chrust przeniesione do wersji 4.3; głaz ma klatkę 320 px.
 
-Otwarte: głaz wychodzi poza klatkę 192 px; kamienie mają zbyt gładkie, jajowate bryły, a tekstura głazu powtarza się wzorem łusek; `width_m`/`height_m` w JSON to rozmiary na ekranie, a promień kolizji jest liczony z szerokości ekranowej zamiast z obrysu w świecie; trawa, paprocie i chrust z wcześniejszej sceny nie zostały jeszcze przeniesione do wersji 4.3.
+Otwarte: kotwica głazu w JSON (263,92) jest błędna — rzut daje 222,354; głaz to wielościan z płaskich trójkątów, a małe kamienie wciąż jajowate; paprocie mają ok. 0,3 m (za małe dla boru); chrust czyta się jak czarne druty; tekstury są w repozytorium podwójnie (`.blend` 50 MB i `textures_src`).
 
 ## Priorytet 1 — lokacja przy wozie (wioska → trakt)
 
