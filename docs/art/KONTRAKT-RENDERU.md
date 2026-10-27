@@ -4,7 +4,7 @@
 
 Dokument ustala **wspólne zasady obrazu**, żeby postacie, potwory i otoczenie z różnych gałęzi pasowały do siebie w jednej scenie. Nie zawiera generatorów ani assetów — te pozostają na gałęziach roboczych (zob. [AGENTS.md](../../AGENTS.md)). Wygląd opisują [przewodnik artystyczny](niemir/NIEMIR_ART_DIRECTION.md) i [biblioteka szkiców](../koncepty/README.md); ten kontrakt mówi, **jak** go renderować.
 
-> Przewodnik artystyczny v1.1 (rozdz. 08 i 13) i jego PDF wciąż piszą, że technologia jest otwarta. Dla sprite'ów obowiązuje już ten kontrakt; przewodnik zostanie zaktualizowany przy następnym wydaniu PDF.
+> [Przewodnik artystyczny](niemir/NIEMIR_ART_DIRECTION.md) od wersji 1.2 (Markdown i PDF) odsyła w sprawach technicznych do tego kontraktu. Przy sprzeczności pierwszeństwo ma kontrakt.
 
 ## Zakres
 

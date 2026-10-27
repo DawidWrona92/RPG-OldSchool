@@ -23,7 +23,7 @@ Dokumenty wyraźnie odróżniają **decyzje autora**, **uzgodniony kierunek arty
 ## Świat, mapa i pierwsza wyprawa
 
 - [Mapa Niemiru i lasu](pakiet-04-mapa.md) — wcześniejszy plan topologiczny.
-- **[Cała dolina — mapa v0.2, sektory, warianty anomalii, QA i greybox](world/README.md)** — zaakceptowana podstawa do greyboxu; nie finalna geometria.
+- **[Cała dolina — mapa v0.2, sektory, warianty anomalii, QA i greybox](world/README.md)** — **zaakceptowana podstawa do greyboxu** (decyzja autora); nie finalna geometria.
 - [Walidator mapy i testy regresyjne](../tools/world/README.md) — skrypt Python, 16 testów i weryfikacja bramek fabularnych.
 - [Początek gry i pierwsza wyprawa](pakiet-04-poczatek.md).
 - [Plac przy wozie — plan i pakiet dla prototypu](plac-przy-wozie.md) — propozycja do oceny i testów.
@@ -33,7 +33,7 @@ Dokumenty wyraźnie odróżniają **decyzje autora**, **uzgodniony kierunek arty
 
 ## Kierunek artystyczny i obrazy
 
-- **[Przewodnik artystyczny Niemiru v1.1](art/niemir/NIEMIR_ART_DIRECTION.md)** — zaakceptowany klimat osady, paleta, kompozycja i standard oceny.
+- **[Przewodnik artystyczny Niemiru v1.2](art/niemir/NIEMIR_ART_DIRECTION.md)** — zaakceptowany klimat osady, paleta, kompozycja i standard oceny; technika renderu: [kontrakt](art/KONTRAKT-RENDERU.md).
 - [PDF przewodnika](art/niemir/NIEMIR_ART_DIRECTION.pdf) — wersja do czytania.
 - **[Kontrakt renderu sprite'ów](art/KONTRAKT-RENDERU.md)** — decyzja autora: prerender w Blenderze; kamera, skala, kierunki, kotwica, światło, eksport i kontrola jakości.
 - **[18 ilustracji koncepcyjnych](koncepty/README.md)** — potwory, cywile, architektura i kadry z perspektywy gry.

@@ -1,7 +1,7 @@
 # WELESZA / NIEMIR
 ## Przewodnik artystyczny i plan produkcji środowiska
 
-**Wersja:** 1.1 · **Data:** 27 października 2026 · **Status:** kierunek artystyczny uzgodniony z autorem; rozmieszczenie szczegółowe i parametry gry do walidacji  
+**Wersja:** 1.2 · **Data:** 27 października 2026 · **Status:** kierunek artystyczny uzgodniony z autorem; technologia grafiki ustalona w [kontrakcie renderu](../KONTRAKT-RENDERU.md); rozmieszczenie szczegółowe i parametry gry do walidacji  
 **Zakres:** osada Niemir, jej bezpośrednie otoczenie, architektura, materiały, oświetlenie, zestaw assetów i kontrola jakości.  
 **Odbiorcy:** art director, concept artist, environment artist, animator, programista silnika, projektant poziomów oraz agenci LLM współpracujący nad Weleszą.
 
@@ -11,12 +11,13 @@
 
 ## 01. Status decyzji i granice dokumentu
 
-Ten dokument przekłada zaakceptowaną koncepcję fabularną Weleszy i uzgodniony kierunek estetyczny Niemiru na praktyczny brief dla wykonawców. **Nie** zatwierdza silnika gry, konkretnych hitboxów, metrycznej skali mapy, ostatecznej geometrii budynków ani historycznego wyjaśnienia tajemnicy strażnic.
+Ten dokument przekłada zaakceptowaną koncepcję fabularną Weleszy i uzgodniony kierunek estetyczny Niemiru na praktyczny brief dla wykonawców. Mówi, **co** ma być widać; **jak** to renderować, ustala [kontrakt renderu](../KONTRAKT-RENDERU.md). **Nie** zatwierdza silnika gry, konkretnych hitboxów, metrycznej skali mapy, ostatecznej geometrii budynków ani historycznego wyjaśnienia tajemnicy strażnic.
 
 - **[KANON]** Fakty z zaakceptowanej fabuły `docs/demo-fabula.md`: funkcje osady, jej izolacja, skała i źródło, palisada, ludzie, zabobony, brak pól i główny przebieg demo.
 - **[KIERUNEK ZATWIERDZONY]** Surowa, ciasna, użytkowa osada; izometryczna kamera gry; stonowana paleta, wilgoć i chłodny las, małe lokalne źródła ciepła. Autor zaakceptował tę wizję do dalszego rozwijania.
 - **[PROPOZYCJA]** Dokładny podział działek, orientacja obiektów, wzorce architektury, położenie rekwizytów i warianty iluminacji. Można je zmienić po ocenie panoramy ART-01.
-- **[DO TESTU]** Wymiary, zachowanie kamery, zasłanianie postaci, przechodniość, nawigacja i sposób wdrożenia grafiki. Nie wybrano docelowej technologii tworzenia i wyświetlania assetów.
+- **[DECYZJA AUTORA]** Technologia grafiki: sprite'y i otoczenie to prerender w Blenderze 4.3 (Cycles) według [kontraktu renderu](../KONTRAKT-RENDERU.md) — wspólna kamera ortograficzna 30°, skala 60 px/m, zestaw świateł, kierunki, kotwica i eksport.
+- **[DO TESTU]** Zachowanie kamery w działającej grze, zasłanianie postaci, przechodniość, nawigacja, wymiary obiektów i import atlasów do silnika, którego jeszcze nie wybrano.
 
 Przy konflikcie źródeł obowiązuje najpierw decyzja autora, potem zatwierdzona fabuła; zapisy w `docs/pakiet-04-mapa.md` są propozycją projektu przestrzeni. Nowe obrazy nie mogą samodzielnie ustanawiać faktów fabularnych.
 
@@ -48,7 +49,7 @@ Przy konflikcie źródeł obowiązuje najpierw decyzja autora, potem zatwierdzon
 | Len i wełna | Zgaszone beże, popiel, brunatne szarości; tkaniny, ubiory, płachty | Skromne i wilgotne, nie jaskrawe stroje świąteczne |
 | Ogień i olej | Małe, ciepłe plamy bursztynu; pochodnie, paleniska, wspólna latarnia | Rzadkie światło jest nagrodą wzrokową, nie wszędobylską dekoracją |
 
-**Próbki barw do konceptów, NIE wymagana paleta techniczna:** drewno `#423D31`, kamień `#62685B`, zieleń `#454A36`, bursztyn `#B47837`, błoto `#3F3931`, mgła `#72766F`. Dokładne odwzorowanie barw zostanie ustalone na etapie produkcji grafiki.
+**Próbki barw do konceptów, NIE wymagana paleta techniczna:** drewno `#423D31`, kamień `#62685B`, zieleń `#454A36`, bursztyn `#B47837`, błoto `#3F3931`, mgła `#72766F`. Bazowe zarządzanie kolorem (AgX, ekspozycja, światła) ustala kontrakt renderu; ostateczny grading kolorów zapadnie po teście w silniku.
 
 ### Reguły iluminacji
 
@@ -158,15 +159,15 @@ Wskazane stany są briefem inscenizacyjnym. Nie przesądzają o real-time weathe
 
 ## 08. Perspektywa, skala i czytelność świata
 
-Ten rozdział określa **wrażenie wizualne i funkcjonalne**, nie narzuca narzędzi, generatora, formatu pliku ani techniki tworzenia grafiki. Eksperymenty z modelami postaci i środowiskiem odbywają się niezależnie na gałęziach roboczych.
+Ten rozdział określa **wrażenie wizualne i funkcjonalne**. Parametry techniczne — kamerę, skalę, światło, eksport i kontrolę jakości — wiążąco opisuje [kontrakt renderu](../KONTRAKT-RENDERU.md); przy sprzeczności pierwszeństwo ma kontrakt.
 
-- **Perspektywa:** widok ukośny / izometryczny kojarzący się z klasycznym action RPG; dokładne ustawienie kamery należy potwierdzić w prototypie.
-- **Skala:** bohater ma naturalne proporcje względem drzwi, domów, drzew i drogi. Dokładne metry i rozdzielczości nie są tu zatwierdzane.
-- **Światło:** wspólna logika kierunku światła, czytelne sylwetki, chłodny las i lokalne bursztynowe źródła ciepła.
+- **Perspektywa:** kamera ortograficzna 30° nad horyzontem, jak w klasycznym action RPG; ta sama dla postaci, budynków i przyrody.
+- **Skala:** 60 px/m dla wszystkich obiektów; człowiek (ok. 1,8 m) ma ok. 105 px. Bohater ma naturalne proporcje względem drzwi, domów, drzew i drogi.
+- **Światło:** jeden zestaw świateł z kontraktu, stały względem świata; chłodny las i lokalne bursztynowe źródła ciepła jako osobne warianty renderu, nigdy wpieczone w bazowy atlas.
 - **Czytelność:** dachy i wysokie obiekty nie mogą trwale zasłaniać gracza, celów interakcji ani drogi.
 - **Grywalność:** graficzny obraz kolizji, wejść i przejść wymaga weryfikacji w działającej scenie, nie tylko na ilustracji.
 
-**Technologia pozostaje otwarta:** dopuszczalne są różne sposoby przygotowania grafiki, jeżeli spełniają powyższe cele. Ten dokument nie stanowi specyfikacji renderera ani instrukcji eksportu sprite'ów.
+**Technologia jest ustalona:** prerender w Blenderze 4.3 (Cycles). Nadrzędnym źródłem każdego assetu jest edytowalny plik `.blend`; wzorcem technicznym jest bohater z gałęzi `vibe/sprite-bohater-codex`. Specyfikację renderu i eksportu zawiera wyłącznie [kontrakt renderu](../KONTRAKT-RENDERU.md) — ten przewodnik jej nie powtarza.
 
 ## 09. Biblioteka assetów i logika wariantów
 
@@ -183,20 +184,20 @@ Ten rozdział określa **wrażenie wizualne i funkcjonalne**, nie narzuca narzę
 | Efekty | dym, żar, ogień, woda, mgła, mokrość | P1/P2 |
 | Wnętrza | tylko obszary konieczne dla rozmów i zadań | P2 |
 
-**Zasada wariantów:** nie mnożymy budynków przez losową zmianę barwy; różnicujemy zużyciem, konstrukcją i rekwizytami. Każda rodzina ma własną kartę: wymiary świata, punkt zakotwiczenia, zasięg kolizji, oświetlenie, warstwy, warianty i źródło generatora.
+**Zasada wariantów:** nie mnożymy budynków przez losową zmianę barwy; różnicujemy zużyciem, konstrukcją i rekwizytami. Każda rodzina ma własną kartę: wymiary świata, punkt zakotwiczenia, zasięg kolizji, warianty oświetlenia, warstwy, warianty i plik źródłowy `.blend`.
 
 ## 10. Plan produkcji i odpowiedzialność
 
 ### Faza I — Makieta i ART-01 [P0]
 
 1. Zrobić plan 2D/topologię i bryłowy blockout 3D wszystkich stref bez dekoracji.
-2. Wykonać `ART-01`: panorama Niemiru z góry pod kątem, zgodna z kamerą gry — nie malowana panorama z przypadkowych perspektyw.
+2. Wykonać `ART-01`: panorama Niemiru z kamery z kontraktu renderu (ortograficzna 30°) — nie malowana panorama z przypadkowych perspektyw.
 3. Sprawdzić obowiązkowe punkty: jedna brama, palisada, skała ze źródłem, mały plac, strażnica, droga do domu gościnnego; bez pól i wielkiego miasta.
 4. Przed zatwierdzeniem nie utrwalać proporcji i rozmieszczenia jedynie na podstawie efektowności obrazu.
 
 ### Faza II — Style frame i karta stylistyki [P0]
 
-Dwa lub trzy warianty **identycznego kadru i układu** o różnej szczegółowości/teksturze. Wybrać poziom czytelności odpowiadający skali gry. Ustalić docelową paletę, tonemapping i sposób przejścia między chłodem lasu a ciepłem osady.
+Dwa lub trzy warianty **identycznego kadru i układu** o różnej szczegółowości/teksturze. Wybrać poziom czytelności odpowiadający skali gry. Kamera, skala i bazowe światło są ustalone w kontrakcie; tu wybieramy paletę materiałów i sposób przejścia między chłodem lasu a ciepłem osady (warianty renderu).
 
 ### Faza III — Budynki wzorcowe [P0/P1]
 
@@ -208,7 +209,7 @@ Ziemia, palisada, roślinność, zabudowa wariantowa i rekwizyty. Zbudować bibl
 
 ### Faza V — Test grywalności [P0/P1]
 
-Sprawdzić przechodniość, zasłanianie i relacje wysokości z postacią w naturalnej skali. Warunki: widoczny Żegota, wejście do gospody, możliwość treningu i powrotu z lasu. Techniczne metody wdrożenia zostaną określone osobno.
+Sprawdzić przechodniość, zasłanianie i relacje wysokości z postacią w naturalnej skali. Warunki: widoczny Żegota, wejście do gospody, możliwość treningu i powrotu z lasu. Import atlasów do silnika zostanie określony po wyborze silnika.
 
 ## 11. Rejestr prac
 
@@ -235,9 +236,9 @@ Każdy obiekt ma przejść kolejno:
 
 1. **Brief i kanon:** porównać z fabułą/mapą. Nie dopisywać samodzielnie historii.
 2. **Sylwetka 1×:** rozpoznawalna funkcja budynku i wejście; także w ciemniejszym wariancie światła.
-3. **Perspektywa i skala:** spójny kąt widoku i czytelne proporcje bohatera względem świata.
-4. **Spójność materiałów:** ten sam kierunek światła, kontrast i poziom zużycia.
-5. **Integracja techniczna:** kotwica, kolizja, przesłanianie, źródło, metadane i brak przycinania.
+3. **Perspektywa i skala:** kamera, 60 px/m i kotwica zgodne z kontraktem renderu; czytelne proporcje bohatera względem świata.
+4. **Spójność materiałów:** ten sam zestaw świateł z kontraktu, kontrast i poziom zużycia.
+5. **Integracja techniczna:** lista kontrolna kontraktu renderu (kotwica, źródło `.blend`, metadane, brak przycinania) oraz kolizja i przesłanianie.
 6. **Test sceny:** gracz wchodzi od bramy do gospody bez pomyłki, trafia na plac, poznaje strażnicę i może wrócić do lasu.
 
 **Otwarte miary do prototypu:** D — średnica kolizji bohatera; B — obrys przeciwnika; U — pełny unik; A — zasięg ataku; V — widoczny obszar podłoża. Nie udawać sprawdzonych metrów, zanim te wartości powstaną w działającej grze.
@@ -253,14 +254,14 @@ Każdy obiekt ma przejść kolejno:
 ## 13. Zarządzanie współpracą i aktualizacją dokumentacji
 
 - **Art direction:** jedna zatwierdzona karta stylu Niemiru; uwagi zapisujemy jako konkretne różnice względem tej karty, nie arbitralne zmiany palety w pojedynczych obiektach.
-- **Role:** art director tworzy brief/recenzję; environment artist lub agent tworzy generator i asset; level designer sprawdza układ oraz trasy; programista silnika waliduje formaty, kolizje i zasłanianie; autor zatwierdza nowe fakty fabularne i krytyczne zmiany kierunku.
-- **Git:** osobne gałęzie do eksperymentów graficznych i implementacji; `main` jest źródłem dokumentacji świata oraz kierunku artystycznego. Nie narzucamy technologii przed walidacją.
+- **Role:** art director tworzy brief/recenzję; environment artist lub agent tworzy model `.blend` i render według kontraktu; level designer sprawdza układ oraz trasy; programista silnika waliduje formaty, kolizje i zasłanianie; autor zatwierdza nowe fakty fabularne i krytyczne zmiany kierunku.
+- **Git:** osobne gałęzie do eksperymentów graficznych i implementacji; `main` jest źródłem dokumentacji świata, kierunku artystycznego i [kontraktu renderu](../KONTRAKT-RENDERU.md). Pliki `.blend`, skrypty i rendery zostają na gałęziach roboczych.
 - **Źródło prawdy:** edytowalny Markdown na `main`, PDF jako publikacja do czytania. Zmiany zaczynamy od `.md`, po czym regenerujemy PDF. W PR zaznaczamy: kanon, zatwierdzony kierunek, propozycję lub test.
-- **Sprawy otwarte:** finalny silnik, mierzalna skala mapy, ustalenie szczegółowych działek, zakres wnętrz, optymalizacja assetów oraz wybrana metoda renderowania architektury.
+- **Sprawy otwarte:** finalny silnik i import atlasów, mierzalna skala mapy, ustalenie szczegółowych działek, zakres wnętrz, optymalizacja assetów oraz rozmiar klatek dużych obiektów (budynek wzorcowy wg kontraktu).
 
 ## 14. Pierwszy obraz referencyjny: ART-01
 
-**Format pracy:** duża panorama izometryczna z kamery gry, pokazująca **całe wnętrze palisady i niewielki obrąbek lasu**. Kompozycja zgodna z planem przestrzennym; żadnych dodanych dla efektu monumentów, nowych bram lub pól. W kadrze muszą być czytelne: wejście, ciepłe światło, droga do gospody, źródło w skale, niewielki plac, strażnica oraz warsztaty.
+**Format pracy:** duża panorama z kamery gry (ortograficzna 30°, jak w kontrakcie renderu), pokazująca **całe wnętrze palisady i niewielki obrąbek lasu**. Kompozycja zgodna z planem przestrzennym; żadnych dodanych dla efektu monumentów, nowych bram lub pól. W kadrze muszą być czytelne: wejście, ciepłe światło, droga do gospody, źródło w skale, niewielki plac, strażnica oraz warsztaty.
 
 **Materiał do oceny:** obraz pełny + ten sam obraz w zbliżeniu odpowiadającym grze + podgląd z nałożoną sylwetką człowieka w naturalnej skali. Osobno zaznaczyć hipotetyczne wejścia, kluczowe przejścia i miejsca zasłaniania. ART-01 jest **następnym etapem**, nie częścią już zatwierdzonego gotowego projektu mapy.
 
@@ -272,5 +273,6 @@ Każdy obiekt ma przejść kolejno:
 4. `docs/pakiet-04-obrazy.md` — brief ART-01–ART-07 oraz ograniczenia języka wizualnego.
 5. `docs/pakiet-04-przeglad.md` i `docs/graphs/layout-demo.json` — kontrola zależności, nie walidacja geometrii.
 6. `docs/koncepty/README.md` — biblioteka zatwierdzonych referencji wizualnych potworów, mieszkańców i otoczenia.
+7. `docs/art/KONTRAKT-RENDERU.md` — wiążąca specyfikacja kamery, skali, światła, eksportu i kontroli jakości sprite'ów.
 
 **Zasada końcowa:** Niemir nie musi wyglądać na wielki, by pozostał w pamięci. Musi być rozpoznawalny, prawdziwy, zamieszkany i na tyle niepokojący, żeby opuszczenie jego bramy było decyzją.

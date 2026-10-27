@@ -1,6 +1,6 @@
 # Welesza — karty 12 sektorów / ownership v0.2
 
-> **Propozycja.** Siatka 24×18 jednostek projektu, sektory po 6×6. To nie metry i nie wymuszony podział silnika na sceny.
+> **Zaakceptowana podstawa do greyboxu** (decyzja autora, 27.10.2026). Siatka 24×18 jednostek projektu, sektory po 6×6. To nie metry i nie wymuszony podział silnika na sceny.
 
 ## Konwencja i zasady odpowiedzialności
 
