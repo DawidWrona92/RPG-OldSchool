@@ -38,10 +38,13 @@ Autor przegląda większe pakiety i wskazuje poprawki; nowe propozycje nie staj�
 
 Grafy `docs/graphs/` są **dokumentacją planowanego układu i zdarzeń**, nie wykonywalną implementacją gry.
 
-## Mapa ciągłego świata
+## Mapa ciągłego świata — v0.2
 
-[**Projekt całej doliny Niemiru — mapa v0.1**](docs/world/README.md): 28 miejsc, 30 tras, 12 sektorów i kontrakt eksploracji bez ekranów ładowania. Układ przestrzenny jest **propozycją do greyboxu**, a nie zatwierdzonymi współrzędnymi świata. [Mapa SVG](docs/world/WORLD_MAP.svg) · [Karty sektorów](docs/world/SECTORS.md) · [Bezszwowy streaming](docs/world/STREAMING.md).
+[**Projekt całej doliny Niemiru**](docs/world/README.md): 28 miejsc, 30 tras, 12 sektorów i kontrakt eksploracji bez ekranów ładowania. Układ jest **propozycją do greyboxu**, a nie zatwierdzonymi współrzędnymi świata; warianty anomalii pozostają do decyzji autora. [Mapa SVG](docs/world/WORLD_MAP.svg) · [karty sektorów](docs/world/SECTORS.md) · [bezszwowy streaming](docs/world/STREAMING.md) · [warianty anomalii i latarni](docs/world/VARIANTS.md) · [testy grafu](docs/world/WORLD_QA.md) · [pierwszy greybox](docs/world/GREYBOX.md).
 
-## Projekt mapy v0.2 — bez widocznych przejść ładowania
+Walidator mapy i 16 testów regresyjnych są na `main`:
 
-Wspólna wersja dokumentacji: [mapa doliny Niemiru](docs/world/README.md), [plansza SVG](docs/world/WORLD_MAP.svg), [warianty anomalii i latarni](docs/world/VARIANTS.md), [testy grafu](docs/world/WORLD_QA.md) oraz [pierwszy greybox](docs/world/GREYBOX.md). Warianty fabularne pozostają do decyzji autora. Kod walidacji statycznej na gałęzi `vibe/world-map-validator-gpt6`.
+```bash
+python3 tools/world/validate_world.py docs/world/world-layout.v0.2.json
+python3 -m unittest discover -s tests -p 'test_world_layout.py'
+```

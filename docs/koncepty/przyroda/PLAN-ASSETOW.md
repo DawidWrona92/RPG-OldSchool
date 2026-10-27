@@ -55,7 +55,7 @@ wprost z elementów widocznych na koncepcjach i potrzeb pierwszej lokacji
 
 ## Priorytet 3 — osada (materiały, nie modele)
 21. **Tekstury kory**: sosna, dąb, brzoza, świerk — pod przyszłe modele drzew
-    i palisadę (koncepcja CbVGPT8V wymienia je wprost).
+    i palisadę (plansza [03_drewno_kora_korzenie](tekstury-referencje/03_drewno_kora_korzenie.png) wymienia je wprost).
 22. **Tekstury mchu i porostów** — przejściowe mapy do nakładania na kamienie
     i pniaki.
 

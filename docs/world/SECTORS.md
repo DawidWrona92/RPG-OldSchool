@@ -210,4 +210,4 @@ Ponadto walidator znalazł **11 tras przecinających sektory**; np. skrót `camp
 
 ## Kontrola przypisań
 
-Wyniki automatyczne oraz ograniczenia: [WORLD_QA.md](WORLD_QA.md). Skrypt: `tools/world/validate_world.py` na branchu `vibe/world-map-validator-gpt6`. Dane: [`world-layout.v0.2.json`](world-layout.v0.2.json).
+Wyniki automatyczne oraz ograniczenia: [WORLD_QA.md](WORLD_QA.md). Skrypt: [`tools/world/validate_world.py`](../../tools/world/README.md) na `main`. Dane: [`world-layout.v0.2.json`](world-layout.v0.2.json).
