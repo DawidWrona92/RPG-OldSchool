@@ -53,8 +53,10 @@ def build_stones(only=None):
         "stone_dry": E.stone_material("Kamien_Suchy_Mchowy", wet=False, moss=True),
     }
     results = []
+    # only=None -> wszystkie kamienie; set nazw -> tylko wybrane
+    selected = only if isinstance(only, set) else None
     for spec in STONES:
-        if only and spec["name"] not in only:
+        if selected and spec["name"] not in selected:
             continue
         # czysta scena per asset (bez innych kamieni)
         for obj in list(col.objects):
@@ -292,15 +294,21 @@ def build_scene():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="all",
-                    help="stones|grounds|scene|all (lub lista po przecinku)")
+                    help="all|stones|grounds|scene lub lista nazw assetów po przecinku "
+                         "(np. kamien_01_okrągły,glaz_01)")
     args = ap.parse_args()
     only = None if args.only == "all" else set(args.only.split(","))
-    if only is None or "stones" in only:
-        build_stones(only=only)
-    if only is None or "grounds" in only:
+    # Rozpoznaj sekcje: all wykonuje wszystko; pojedyncze nazwy trafiają do kamieni
+    names = only
+    if names is None or names == {"stones"}:
+        build_stones(only=None)
+    elif names == {"grounds"}:
         build_grounds()
-    if only is None or "scene" in only:
+    elif names == {"scene"}:
         build_scene()
+    else:
+        # lista nazw assetów (mogą być kamienie) — przekaż tylko do build_stones
+        build_stones(only=names)
     print("GOTOWE")
 
 
