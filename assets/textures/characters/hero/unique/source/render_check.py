@@ -48,7 +48,9 @@ for label,loc,power,size,color in [('key',(2.8,-3.5,6),520,2.3,(.94,.92,.85)),('
 cam=bpy.data.cameras.new('Diagnostic camera');co=bpy.data.objects.new('Diagnostic camera',cam);bpy.context.collection.objects.link(co);sc.camera=co;cam.type='ORTHO'
 # Orthographic material review, not an approved game-sprite export.
 views=[('front',(4,0,1.65),(.09,0,1.65),.48),('profile',(0,4,1.65),(.06,0,1.65),.48),('back',(-4,0,1.65),(0,0,1.65),.48),('hands_front',(4,.43,1.04),(.13,.43,1.04),.40),('hands_back',(-4,.43,1.04),(.13,.43,1.04),.40)]
+body_views=[('body_front',(4,0,.9),(0,0,.9),2.1),('body_profile',(0,4,.9),(0,0,.9),2.1),('body_back',(-4,0,.9),(0,0,.9),2.1)]
+views=body_views if '--body-only' in sys.argv else views+body_views
 for label,loc,target,ortho in views:
  co.location=loc;co.rotation_euler=(Vector(target)-co.location).to_track_quat('-Z','Y').to_euler();cam.ortho_scale=ortho
- sc.render.resolution_x=768;sc.render.resolution_y=768;sc.render.filepath=str(root/'qa'/('skin_'+label+'.png'));bpy.ops.render.render(write_still=True)
-print('Rendered five material checks in Blender',bpy.app.version_string)
+ sc.render.resolution_x=768;sc.render.resolution_y=768;sc.render.filepath=str(root/'podglad'/('skin_'+label+'.png'));bpy.ops.render.render(write_still=True)
+print('Rendered',len(views),'material checks in Blender',bpy.app.version_string)

@@ -25,7 +25,7 @@
   "files": [
     {
       "file": "README.md",
-      "sha256": "3fff9129ecbcaf4541c6f7fcb15cf29fac848a1e80b50aa34305df321d796d13",
+      "sha256": "04176116474922cefa6a1f759036adc77226a230319077522c1693cd3f1623b1",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
@@ -362,8 +362,8 @@
       ]
     },
     {
-      "file": "qa/skin_back.png",
-      "sha256": "6ff476e51d3f6f08c5f0444558c002fc88f7eb3fbbce30ff5b09490c759fe1ca",
+      "file": "podglad/skin_back.png",
+      "sha256": "238520598d656ef535789916a3b96d67f42f27147593de530ba84c02d08b43ef",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -387,8 +387,8 @@
       ]
     },
     {
-      "file": "qa/skin_front.png",
-      "sha256": "09c53d3693ebf02fb73524c1b1ad37a501d4d88477a33e9a0c3277c568a5eb56",
+      "file": "podglad/skin_body_back.png",
+      "sha256": "df3f11efdb692a9dd6a4a7cbc78ebae7b183b47106c70899bdb3e8e1f8d24173",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -412,8 +412,8 @@
       ]
     },
     {
-      "file": "qa/skin_hands_back.png",
-      "sha256": "a451477b2abaf63fb61ac2b812e669cc4da3f1f00fdf98c3eb76b284a77b9d0c",
+      "file": "podglad/skin_body_front.png",
+      "sha256": "885ca3843b0895bd65e7ca7b8536fafc89b3d37b6936b67bfa57cb682e773932",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -437,8 +437,8 @@
       ]
     },
     {
-      "file": "qa/skin_hands_front.png",
-      "sha256": "fe95deb87ebc5acf5e9841e3d0d92fb474c6a750cacb303069657810775b0199",
+      "file": "podglad/skin_body_profile.png",
+      "sha256": "68689723b5b61d5e2b06b2ea06bb58f185424dc449ae21030327758f6034dd6c",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -462,8 +462,83 @@
       ]
     },
     {
-      "file": "qa/skin_profile.png",
-      "sha256": "8056c0bb8da8ae229b6d4b44460f0fcd2ffe8a3690cadd9e5fdea8d33880a607",
+      "file": "podglad/skin_front.png",
+      "sha256": "b38b6eaa161184adfe1431df43358515932ebe0da8314164115b6af2de4ad288",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current hero_skin_body_*.png",
+        "pinned mesh below"
+      ]
+    },
+    {
+      "file": "podglad/skin_hands_back.png",
+      "sha256": "a2602240fb514db66a82091233fab535648f2956fc4c23ff4c37ee5589baae9c",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current hero_skin_body_*.png",
+        "pinned mesh below"
+      ]
+    },
+    {
+      "file": "podglad/skin_hands_front.png",
+      "sha256": "361530d134fea4470f927e690584bd8feaaf804879592c97064cb9d6be132876",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "tools": [
+        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 body"
+      ],
+      "sources": [
+        "source/render_check.py",
+        "current hero_skin_body_*.png",
+        "pinned mesh below"
+      ]
+    },
+    {
+      "file": "podglad/skin_profile.png",
+      "sha256": "487d81cc512ece8357370aa5fe7f74e8a03d89ad961aa60fcf76a5e9381b6127",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -488,7 +563,7 @@
     },
     {
       "file": "qa/validation.json",
-      "sha256": "3c13338d9bd213382cf4b2c5fa384618a73e552b5997460deb7b4bfa8f61c001",
+      "sha256": "40c857175ba8fe9d8a904520fbaaf97618de881da11f2ff3c06d09e0e39c4365",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
@@ -524,7 +599,7 @@
     },
     {
       "file": "source/render_check.py",
-      "sha256": "22324cfefd3a81b0263918b15a615b1b350b05801377da07baa9cd41bb0e1207",
+      "sha256": "4e995014dd720d4bc828f1a8ab8a18e8f47836b028ac5bc81fe9584b10f9e3a5",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
@@ -542,7 +617,7 @@
     },
     {
       "file": "source/validate.py",
-      "sha256": "1d7dfb8fd4abc59a8675c2a6b3c90464dde44b9ec633e0553c0dd85a72c9c17e",
+      "sha256": "d9c95ef81efb25768f46bcdb26676b82d74808f64d8d56be0dfd7f7c91b92830",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
@@ -560,7 +635,7 @@
     },
     {
       "file": "source/write_manifest.py",
-      "sha256": "3eff1eba543d2296608e5bdd2f0bc82d075e36cb5703c6ebaacdf7510969ee2c",
+      "sha256": "4919884647c0bf8f3e11749703c70ffa12723aac4840d89c2806fdea0a3dfa35",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,

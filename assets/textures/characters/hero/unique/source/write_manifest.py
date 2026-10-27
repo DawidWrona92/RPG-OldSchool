@@ -29,7 +29,7 @@ for path in sorted(root.rglob('*')):
         method=methods[name]
         if '_2048' in path.stem:method+=' 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.'
         e.update(map=name,color_space='sRGB' if name=='basecolor' else 'linear / Non-Color',method=method,tools=['CPython '+platform.python_version(),'NumPy '+numpy.__version__,'SciPy '+scipy.__version__,'Pillow '+PIL.__version__],models=None,sources=['source/build_maps.py','MakeHuman hm08 CC0, group body, native UV; pinned mesh below','docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)','docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md'])
-    elif rel.startswith('qa/skin_'):
+    elif rel.startswith('podglad/skin_'):
         e.update(map='diagnostic_render',color_space='sRGB / AgX',method='Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.',tools=['Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads'],models=['MakeHuman hm08 body'],sources=['source/render_check.py','current hero_skin_body_*.png','pinned mesh below'])
     else:
         e.update(map='validation_report' if rel.startswith('qa/') else 'documentation' if path.suffix=='.md' else 'source_script',color_space='not applicable',method='Authored package documentation, reproducible technical generation or validation.',tools=['Codex'],models=None,sources=['repository brief and references'])

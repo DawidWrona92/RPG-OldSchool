@@ -23,7 +23,8 @@ for name in expected:
   err=np.abs(np.linalg.norm(nn,axis=2)-1)
   assert err.max()<.012,(name,float(err.max()))
   assert nn[:,:,2].min()>0
- if 'height' in name:assert a.min()<32768<a.max()
+ if 'roughness' in name or 'sss_mask' in name:assert im.mode=='L',name
+ if 'height' in name:assert im.mode in ('I;16','I;16B','I') and a.min()<32768<a.max(),name
  if 'body_basecolor' in name:assert a.min()>0 and im.mode=='RGB'
  results['png'].append({'file':name,'resolution':list(im.size),'mode':im.mode,'bits':path.read_bytes()[24],'min':int(a.min()),'max':int(a.max())})
 # Green must agree with positive image-row height derivative for OpenGL (+v up).
@@ -35,10 +36,10 @@ results['opengl_green_height_correlation']=corr
 # True 2K scalar maps must derive from the 4K values, not nearest-neighbor duplicates.
 for name in ['basecolor','roughness','height','sss_mask']:
  big=Image.open(root/f'hero_skin_body_{name}.png')
- if name=='height':big=Image.fromarray(np.array(big).astype(np.float32)/65535)
+ if name!='basecolor':big=Image.fromarray(np.array(big).astype(np.float32)/(65535 if name=='height' else 255))
  small=big.resize((2048,2048),Image.Resampling.LANCZOS)
  ref=np.array(small)
- if name=='height':ref=np.rint(np.clip(ref,0,1)*65535)
+ if name!='basecolor':ref=np.rint(np.clip(ref,0,1)*(65535 if name=='height' else 255))
  actual=np.array(Image.open(root/f'hero_skin_body_{name}_2048.png'))
  assert np.abs(ref.astype(np.int32)-actual.astype(np.int32)).max()<=1,name
 # UV seam vertex pairs: useful numerical evidence, not a substitute for a final render.
