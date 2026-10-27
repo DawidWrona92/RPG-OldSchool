@@ -19,9 +19,7 @@ wprost z elementów widocznych na koncepcjach i potrzeb pierwszej lokacji
 
 ### Zgodność `stones-mistral-01` z kontraktem
 
-Stan na `e045126` (27 października 2026 r.): Blender 4.3, kamera i światła 1:1 z bohaterem, tekstury spakowane, cień jako sama alfa, `env_01.json` z wymiarami 3D i obrysem kolizji; wszystkie 26 plików eksportu odtwarzają się z czystego klonu co do piksela (sprawdzone przez PM). Trawa, paprocie i chrust przeniesione do wersji 4.3; głaz ma klatkę 320 px.
-
-Otwarte: kotwica głazu w JSON (263,92) jest błędna — rzut daje 222,354; głaz to wielościan z płaskich trójkątów, a małe kamienie wciąż jajowate; paprocie mają ok. 0,3 m (za małe dla boru); chrust czyta się jak czarne druty; tekstury są w repozytorium podwójnie (`.blend` 50 MB i `textures_src`).
+Stan na `6882bad` (27 października 2026 r.): grupa A (kamienie, głazy, żwir, płyty) i pierwsze krzewy grupy B. Technicznie zgodne z kontraktem i odtwarzalne ze skryptu co do piksela; wygląd krzewów, skał, paproci i chrustu do poprawy. Wykonawca wstrzymany — stan, polecenia i otwarte uwagi: [pakiet przejęcia](PRZEJECIE-PRZYRODY.md).
 
 ## Priorytet 1 — lokacja przy wozie (wioska → trakt)
 
