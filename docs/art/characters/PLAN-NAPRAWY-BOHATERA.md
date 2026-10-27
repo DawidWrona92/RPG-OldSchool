@@ -45,7 +45,7 @@ D2 jest warunkiem równoległej pracy: tekstura skóry GPT 6 powstaje na natywny
 - **Wydanie dla GPT 6 (przekazanie P1):** render siatki ciała w pozie spoczynkowej (przód, profil, ¾) z nałożonym szablonem UV, aby potwierdzić, że UV jest natywne.
 
 ### F2 — Głowa (Sol, równolegle z F3; tekstury GPT 6 równolegle)
-- Rzeźba twarzy według konceptu, postarzona zgodnie z decyzją autora (głębsze bruzdy i zmarszczki, zapadnięte policzki, wyraźne łuki brwiowe i żuchwa; blizny i pieprzyki z tekstury GPT 6) — jako kształt na tej samej topologii.
+- Rzeźba twarzy według [konceptu twarzy 19](../../koncepty/19-bohater-twarz.md) (strój nadal według 17), postarzona zgodnie z decyzją autora (głębsze bruzdy i zmarszczki, zapadnięte policzki, wyraźne łuki brwiowe i żuchwa; blizny i pieprzyki z tekstury GPT 6) — jako kształt na tej samej topologii.
 - Oczy: kula oka z rogówką i osobną teksturą tęczówki od GPT 6; powieki nachodzą na oko bez przenikania na zewnątrz.
 - Włosy krótkie, ciemne i **przyprószone siwizną** (decyzja autora 27.10.2026), potargane, zaczesane do tyłu i na bok (krzywe); brwi i zarost z krótkich włókien z domieszką siwych **oraz** w teksturze skóry (cień zarostu).
 - Skóra: Principled BSDF z teksturami GPT 6, SSS 0,2–0,3, promienie czerwień > zieleń > niebieski.

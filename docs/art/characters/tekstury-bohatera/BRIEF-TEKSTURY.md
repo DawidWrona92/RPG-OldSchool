@@ -18,6 +18,7 @@ Obecny model wygląda jak plastikowy manekin, bo skóra ma jednolitą, kafelkowa
 
 | Co | Gdzie (gałąź `main`) | Jak używać |
 |---|---|---|
+| **Koncept twarzy** | [`docs/koncepty/19-bohater-twarz.jpg`](../../../koncepty/19-bohater-twarz.jpg) ([opis](../../../koncepty/19-bohater-twarz.md)) | **główne odniesienie skóry twarzy**: zmarszczki, piegi i plamki, blizny, zarost |
 | Koncept bohatera | [`docs/koncepty/17-bohater-i-woz.jpg`](../../../koncepty/17-bohater-i-woz.jpg) — górny rząd: przód, tył, bok | **główne odniesienie** wyglądu: wiek, karnacja, zarost, brud, kolory stroju |
 | Opis konceptu | [`docs/koncepty/17-bohater-i-woz.md`](../../../koncepty/17-bohater-i-woz.md) | czego koncept nie przesądza |
 | Kierunek artystyczny | [`docs/art/niemir/NIEMIR_ART_DIRECTION.md`](../../niemir/NIEMIR_ART_DIRECTION.md), rozdz. 03 | paleta: zgaszone, ziemiste, wilgotne; bez nasyconych barw |
@@ -43,7 +44,7 @@ Kolory widoczne na koncepcie (mediana próbek, **ze światłem ilustracji** — 
 - **Kilkudniowy, ciemnobrązowy zarost** na policzkach, żuchwie, podbródku, nad wargą i pod żuchwą; włosy ciemne (model dostanie włókna — Twoja tekstura daje pod nimi ciemniejszą skórę głowy i cień zarostu).
 - Brud i zmęczenie drogą: brud w zagłębieniach dłoni, przy paznokciach i na kostkach; lekkie zaczerwienienia nosa, policzków i uszu od chłodu.
 - **[DECYZJA AUTORA, 27.10.2026] Siwizna:** włosy i zarost ciemne, wyraźnie przyprószone siwizną — klimat ma pierwszeństwo przed dosłownym odwzorowaniem konceptu. W teksturze: jaśniejsze, szarawe mieszki w zaroście i na skórze głowy.
-- **[DECYZJA AUTORA, 27.10.2026] Ślady życia w drodze są dozwolone:** kilka starych, wygojonych blizn (np. przecięcie brwi lub policzka, drobne blizny na dłoniach i knykciach) i jeden–dwa pieprzyki na twarzy lub szyi. Blizny są jaśniejsze i gładsze od skóry, bez świeżych ran i zaczerwienień. To wygląd postaci, nie nowe fakty fabularne — nie wymyślaj ich historii.
+- **[DECYZJA AUTORA, 27.10.2026] Blizny i pieprzyki są dozwolone** — według [konceptu twarzy 19](../../../koncepty/19-bohater-twarz.md): blizny **różowoczerwone, nierówne, z lekko wypukłymi brzegami** (skośna przez czoło nad lewą brwią postaci z krótszym krzyżującym cięciem, skośna na lewym policzku pod okiem, drobne zadrapania na prawym policzku); nie wgłębienia w skórze. Plus piegi i plamki słoneczne, jeden–dwa pieprzyki. To wygląd postaci, nie nowe fakty fabularne — nie wymyślaj ich historii.
 - **Nadal nie dodawaj** tatuaży, malunków, biżuterii ani świeżych ran.
 - **Bez wpieczonego światła:** albedo nie ma cieni, połysków, okluzji ani kierunku światła. Model oświetla Blender według [kontraktu renderu](../../KONTRAKT-RENDERU.md).
 - Nie kopiuj fotografii ani tekstur o niejasnej licencji. Narzędzia i modele, których użyłeś, zapisz w manifeście. Tekstury tworzone przez AI są dopuszczone decyzją autora.
