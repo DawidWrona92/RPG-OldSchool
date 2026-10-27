@@ -1,0 +1,120 @@
+{
+  "project": "Welesza",
+  "version": "v1",
+  "status": "reference albedo images for Blender",
+  "resolution": [
+    1024,
+    1024
+  ],
+  "format": "PNG indexed 256 colors",
+  "provenance": "AI-generated images from author conversation; full originals delivered separately",
+  "seamless_verified": false,
+  "pbr_complete": false,
+  "materials": [
+    {
+      "path": "ground/forest_litter_mixed.png",
+      "description": "Ciemne leśne runo i ściółka",
+      "source_filename": "tekstura_leśnego_runa.png",
+      "bytes": 736554,
+      "git_blob_sha1": "42fc6478068d1f49b5b2e37f1d7b28bd4a74199d"
+    },
+    {
+      "path": "ground/forest_path_compacted_earth.png",
+      "description": "Ubity trakt z ziemi i kamieni",
+      "source_filename": "nadrzędna_tekstura_leśnej_ścieżki.png",
+      "bytes": 689520,
+      "git_blob_sha1": "c4bb0b17ab8a820a2396d9a3fc1a830e0462ed0e"
+    },
+    {
+      "path": "ground/wet_mud_with_puddles.png",
+      "description": "Mokre błoto i kałuże",
+      "source_filename": "mokra_błotnista_ziemia_z_kałużami.png",
+      "bytes": 662418,
+      "git_blob_sha1": "8da78573f859091094a375e4fb403957520f1028"
+    },
+    {
+      "path": "ground/forest_soil_sparse_grass.png",
+      "description": "Gleba z rzadką trawą i mchem",
+      "source_filename": "zbliżenie_leśnego_poszycia_z_mchem_i_trawą.png",
+      "bytes": 776620,
+      "git_blob_sha1": "9968ea1ccec07e1044e683cce4c9493359677919"
+    },
+    {
+      "path": "ground/wet_grass_earth.png",
+      "description": "Mokra zieleń traw i ziemia",
+      "source_filename": "wilgotna_trawa_i_leśna_gleba.png",
+      "bytes": 753584,
+      "git_blob_sha1": "8383ff09e8866c3165bcf3cf6158f2de685accaa"
+    },
+    {
+      "path": "ground/wet_fallen_leaves.png",
+      "description": "Mokre jesienne liście",
+      "source_filename": "tekstura_wilgotnych_jesiennych_liści_leśnych.png",
+      "bytes": 724807,
+      "git_blob_sha1": "7ed0f250193f11ea3f71ab5059e1d62670153382"
+    },
+    {
+      "path": "ground/pine_needles_and_twigs.png",
+      "description": "Igliwie, szyszki i gałązki",
+      "source_filename": "tekstura_leśnego_poszycia_z_igliwiem.png",
+      "bytes": 834231,
+      "git_blob_sha1": "90af8839e616676de33f93c58811352f0e6a0fba"
+    },
+    {
+      "path": "ground/exposed_roots_wet_soil.png",
+      "description": "Mokre korzenie w ściółce",
+      "source_filename": "wilgotne_korzenie_leśnego_poszycia.png",
+      "bytes": 765989,
+      "git_blob_sha1": "8144c66474f3cd440ba8d76bec4d6d719176f909"
+    },
+    {
+      "path": "ground/dense_forest_moss.png",
+      "description": "Gęsty leśny mech",
+      "source_filename": "wilgotny_dywan_leśnego_mchu.png",
+      "bytes": 824744,
+      "git_blob_sha1": "29b6fb38b178a7d381979956f4183ffefb52c025"
+    },
+    {
+      "path": "rock/rock_cracked_with_moss.png",
+      "description": "Spękana skała z mchem",
+      "source_filename": "bezszwowa_tekstura_skalistej_omszonej_skały.png",
+      "bytes": 722409,
+      "git_blob_sha1": "f67ebaf49360eed6ad9950aac31051a4d046d817"
+    },
+    {
+      "path": "rock/rock_stones_mossy.png",
+      "description": "Omszałe skalne fragmenty",
+      "source_filename": "bezszwowa_tekstura_omszałych_skał.png",
+      "bytes": 776070,
+      "git_blob_sha1": "4dd011eac775141bf6368477d85a2dc6b691ab48"
+    },
+    {
+      "path": "rock/rock_lichen_moss_ground.png",
+      "description": "Mchy i porosty na skale",
+      "source_filename": "mch_skalistego_leśnego_podłoża.png",
+      "bytes": 887096,
+      "git_blob_sha1": "85ef53d11fda9ca32dfef1c9d0310f0ffe4af7bb"
+    },
+    {
+      "path": "bark/old_bark_weathered.png",
+      "description": "Spękana kora starego drzewa",
+      "source_filename": "realistyczna_tekstura_starej_kory_drzewa.png",
+      "bytes": 799611,
+      "git_blob_sha1": "3aa15b0af035cf2bf89c40c6e5bec9d761920013"
+    },
+    {
+      "path": "bark/pine_bark_reddish_flaky.png",
+      "description": "Rudobrązowa łuszcząca się kora sosny",
+      "source_filename": "zbliżenie_na_chropowatą_korę_sosny.png",
+      "bytes": 711770,
+      "git_blob_sha1": "8cc49ca3d03af25cc188e6a8bbbd4169a295c9d6"
+    },
+    {
+      "path": "bark/birch_bark_white.png",
+      "description": "Biała kora brzozy",
+      "source_filename": "naturalna_tekstura_kory_brzozy.png",
+      "bytes": 687345,
+      "git_blob_sha1": "20424b62c34118f719b3017d0c0cf1d7ff79471d"
+    }
+  ]
+}
