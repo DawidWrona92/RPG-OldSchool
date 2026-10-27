@@ -2,7 +2,7 @@
 
 **Status:** obowiązujące referencje kierunku wizualnego postaci, potworów, osady i makiet scen (26 października 2026 r.). Są to obrazy koncepcyjne, nie gotowe assety gry i nie specyfikacja technologii renderowania.
 
-Obrazy zapisano jako JPG (jakość 90), aby zachować rozmiar repozytorium. Wymagania skali, oświetlenia i perspektywy będą weryfikowane w działającym prototypie. Technika tworzenia postaci i środowiska pozostaje otwarta.
+Obrazy zapisano jako JPG (jakość 90), aby zachować rozmiar repozytorium. Wymagania skali, oświetlenia i perspektywy będą weryfikowane w działającym prototypie. Sprite'y postaci i otoczenia renderujemy zgodnie z [kontraktem renderu](../art/KONTRAKT-RENDERU.md).
 
 ## Ustalenia naczelnego (do kart w bestiariuszu)
 

@@ -12,7 +12,7 @@ Podstawa: [mapa](pakiet-04-mapa.md), [początek](pakiet-04-poczatek.md), [bestia
 - Magia nie ma stale świecących run na każdej powierzchni. Zapalona latarnia i odsłonięty trakt powinny być wyjątkowym wydarzeniem.
 - Nazewnictwo słowiańskie nie wymaga dekorowania wszystkiego takim samym zestawem symboli. Rekwizyty wynikają z funkcji domu, pracy lub konkretnego obyczaju.
 - Materiał i epoka są umowne: drewno, stary kamień, żelazo, wełna, len, skóra. Unikamy nieuzgodnionej broni palnej i architektury monumentalnego miasta.
-- Obowiązujący kierunek barw: ziemia, zgaszona zieleń, mokry kamień i oszczędne ciepłe światło. Technika wykonania oraz stopień szczegółowości materiałów pozostają otwarte.
+- Obowiązujący kierunek barw: ziemia, zgaszona zieleń, mokry kamień i oszczędne ciepłe światło. Technikę wykonania sprite'ów ustala [kontrakt renderu](art/KONTRAKT-RENDERU.md); stopień szczegółowości materiałów pozostaje otwarty.
 
 ## Pierwsza seria obrazów
 
