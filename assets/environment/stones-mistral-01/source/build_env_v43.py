@@ -1,13 +1,16 @@
 # Welesza environment 01 — budowa sceny .blend (Blender 4.3, bpy).
 # TEN PLIK TYLKO BUDUJE I ZAPISUJE .blend — jest źródłem.
-# Render osobno: render_env.py (czyta .blend, nie modyfikuje go).
+# Render osobno: render_env_v43.py (czyta .blend, nie modyfikuje go).
 #
 # Kontrakt: docs/art/KONTRAKT-RENDERU.md
 # Kamera/światła skopiowane z source/bohater.blend (vibe/sprite-bohater-codex).
 import bpy, math, random, os
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-TEX = os.environ.get("WELESZA_TEX", "/workspace/envwork/textures_pbr")
+REPO = "/workspace/github__DawidWrona92__RPG-OldSchool"
+_envwork = "/workspace/envwork/textures_pbr"
+_repo_tex = os.path.join(REPO, "assets", "environment", "stones-mistral-01", "textures_src")
+TEX = os.environ.get("WELESZA_TEX", _repo_tex if os.path.isdir(_repo_tex) else _envwork)
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc = bpy.context.scene
@@ -23,22 +26,21 @@ cam.data.ortho_scale = 3.2
 sc.camera = cam
 
 # ============================== ŚWIATŁA (kontrakt, 1:1 z bohater.blend) ==============================
-def add_area_light(name, energy, size, color, location):
+def add_area_light(name, energy, size, color, location, rotation_deg):
     bpy.ops.object.light_add(type="AREA", location=location)
     l = bpy.context.active_object
     l.name = name
     l.data.energy = energy
     l.data.size = size
     l.data.color = color
-    # światła celują w (0,0,~1) jak u bohatera
-    import mathutils
-    d = mathutils.Vector((0, 0, 1.0)) - mathutils.Vector(location)
-    l.rotation_euler = d.to_track_quat("-Z", "Y").to_euler()
+    l.data.shape = "DISK"
+    l.rotation_euler = (math.radians(rotation_deg[0]), math.radians(rotation_deg[1]), math.radians(rotation_deg[2]))
     return l
 
-add_area_light("Klucz", 520.0, 2.3, (0.94, 0.92, 0.85), (2.8, -3.5, 6.0))
-add_area_light("Wypelnienie_tyl", 140.0, 3.0, (0.60, 0.70, 0.85), (-3.0, 1.0, 4.0))
-add_area_light("Odbicie_ziemi", 65.0, 4.0, (0.64, 0.68, 0.74), (3.0, 4.0, 2.5))
+# rotacje odczytane z bohater.blend (4.3): DISK, track-to na (0,0,~1)
+add_area_light("Klucz", 520.0, 2.3, (0.94, 0.92, 0.85), (2.8, -3.5, 6.0), (41.87, 0.0, 38.66))
+add_area_light("Wypelnienie_tyl", 140.0, 3.0, (0.60, 0.70, 0.85), (-3.0, 1.0, 4.0), (46.51, 0.0, -108.43))
+add_area_light("Odbicie_ziemi", 65.0, 4.0, (0.64, 0.68, 0.74), (3.0, 4.0, 2.5), (73.30, 0.0, 143.13))
 
 # ============================== ŚWIAT (kontrakt) ==============================
 w = bpy.data.worlds.new("Swiat")
@@ -203,5 +205,9 @@ for o in list(sc.collection.objects):
 
 # ============================== ZAPIS .BLEND ==============================
 out_blend = os.environ.get("WELESZA_BLEND", os.path.join(os.path.dirname(BASE), "welesza_env_01.blend"))
+bpy.ops.file.pack_all()
+unpacked = [im.name for im in bpy.data.images if im.source == "FILE" and not im.packed_file]
+if unpacked:
+    raise SystemExit("BLOKER: tekstury niezapakowane: %s" % unpacked)
 bpy.ops.wm.save_as_mainfile(filepath=out_blend)
 print("SAVED", out_blend)

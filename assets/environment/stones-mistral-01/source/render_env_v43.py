@@ -26,9 +26,11 @@ def read_settings():
     for o in bpy.data.objects:
         if o.type == "LIGHT":
             lights.append({
-                "name": o.name, "type": o.data.type, "energy": round(o.data.energy, 1),
+                "name": o.name, "type": o.data.type, "shape": getattr(o.data, "shape", None),
+                "energy": round(o.data.energy, 1),
                 "size": round(o.data.size, 2), "color": tuple(round(c, 3) for c in o.data.color),
                 "location": tuple(round(c, 3) for c in o.location),
+                "rotation_deg": tuple(round(math.degrees(a), 2) for a in o.rotation_euler),
             })
     return {
         "blender_version": bpy.app.version_string,
@@ -99,13 +101,27 @@ def render_object(obj_name, out_prefix, variants=((0.0, ""), )):
             o.hide_render = (o is not ob)
         sc.render.filepath = os.path.join(OUTDIR, f"{out_prefix}{suffix}.png")
         bpy.ops.render.render(write_still=True)
-        # --- shadow pass: asset + catcher ---
+        # --- shadow pass: obiekt niewidoczny dla kamery, rzuca cień na catcher ---
         for o in meshes:
             o.hide_render = not (o is ob or o is catcher)
         if preview is not None:
             preview.hide_render = True
-        sc.render.filepath = os.path.join(OUTDIR, f"{out_prefix}{suffix}_shadow.png")
+        ob.visible_camera = False
+        sc.render.filepath = os.path.join(OUTDIR, f"{out_prefix}{suffix}_shadow_raw.png")
         bpy.ops.render.render(write_still=True)
+        ob.visible_camera = True
+        # normalizacja cienia: RGB=0, alpha=nasilenie (jak bohater_*_shadow.png)
+        import numpy as _np
+        from PIL import Image as _Img
+        _im = _Img.open(os.path.join(OUTDIR, f"{out_prefix}{suffix}_shadow_raw.png")).convert("RGBA")
+        _a = _np.asarray(_im, dtype=_np.float64)
+        _alpha = _a[..., 3] / 255.0
+        _lum = _a[..., :3].mean(axis=2) / 255.0
+        # shadow catcher daje ciemny piksel tam, gdzie cień; alfa = pokrycie
+        _out = _np.zeros_like(_a)
+        _out[..., 3] = (_alpha * 255 * (1.0 - _lum * 0.85)).clip(0, 255)
+        _Img.fromarray(_out.astype("uint8"), "RGBA").save(os.path.join(OUTDIR, f"{out_prefix}{suffix}_shadow.png"))
+        os.remove(os.path.join(OUTDIR, f"{out_prefix}{suffix}_shadow_raw.png"))
         results.append(f"{out_prefix}{suffix}.png")
         results.append(f"{out_prefix}{suffix}_shadow.png")
     ob.rotation_euler[2] = 0.0
