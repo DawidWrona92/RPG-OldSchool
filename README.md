@@ -23,7 +23,7 @@ Repozytorium jest obecnie w fazie projektowej. Silnik: **Godot 4** — [decyzja 
 | [Przewodnik artystyczny Niemiru](docs/art/niemir/NIEMIR_ART_DIRECTION.md) ([PDF](docs/art/niemir/NIEMIR_ART_DIRECTION.pdf)) | Uzgodniony wygląd osady, przestrzeń, oświetlenie i kryteria oceny | Kierunek zatwierdzony |
 | [Kontrakt renderu sprite'ów](docs/art/KONTRAKT-RENDERU.md) | Blender/Cycles: kamera, skala, kierunki, kotwica, światło, eksport, kontrola jakości | Decyzja autora |
 | [Silnik gry: Godot 4](docs/SILNIK.md) | Wersja 4.7.2, GDScript, gra 2D z atlasów; warunki i wynik pierwszego testu | Decyzja warunkowa |
-| [Biblioteka 18 szkiców koncepcyjnych](docs/koncepty/README.md) | Potwory, mieszkańcy, budynki i makiety izometryczne | Referencje wyglądu, nie gotowe sprite’y |
+| [Biblioteka 19 szkiców koncepcyjnych](docs/koncepty/README.md) | Potwory, mieszkańcy, budynki i makiety izometryczne | Referencje wyglądu, nie gotowe sprite’y |
 | [Indeks dokumentacji](docs/INDEX.md) | Wszystkie dokumenty fabularne, projektowe i grafiki koncepcyjne | Centralny punkt wejścia |
 | [Przed prototypem](docs/przed-prototypem.md) | Dalsza kolejność pracy i decyzje techniczne | Plan roboczy |
 
