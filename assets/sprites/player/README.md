@@ -76,6 +76,11 @@ robocze, nie pomiarowe PBR. Nie przypisujemy im nowej licencji CC0.
 | `leather_boots_dark_mud` | noski, cholewki, pochwa i ciemne rzemienie |
 | `leather_backpack_aged` | główna bryła plecaka, klapa, kieszenie |
 | `canvas_bedroll_ashen` | zrolowane posłanie |
+| `leather_straps_worn` | pasy, szelki, rzemienie i pochwa |
+| `iron_hardware_blackened` | sprzączki, jelec, głowica, okucia |
+| `steel_sword_weathered` | głownia i szlif |
+| `skin_traveler_weathered` | skóra głowy, szyi, przedramion i dłoni |
+| `hair_dark_umber` | fryzura, brwi, krótki zarost i wąs |
 
 UV w przestrzeni spoczynkowej: V 0,32 m, U całkowita liczba powtórzeń, cylindry ze szwem
 z tyłu dla tkanin/butów, projekcja YZ plecaka, cylinder wzdłuż Y posłania.
@@ -132,3 +137,12 @@ porównywarka weryfikuje 160 komórek zgodności atlasu kompatybilnego.
 Blender 4.3.2, Python 3.12, NumPy i Pillow są dostępne w obrazie środowiska.
 Nie potrzeba usług, sekretów, portów ani instalacji globalnych. Dokładne wyniki,
 słabe kierunki/fazy i zakres oceny wizualnej zapisuje [REPORT.md](REPORT.md).
+
+Opcjonalna kontrola odtwarzacza w dostępnym Chromium/Playwright:
+
+```bash
+python3 -B assets/sprites/player/source/validate_viewer.py
+```
+
+Uruchamia tymczasowy serwer wyłącznie na loopback na czas testu, potem go
+zamyka. Odtwarzacz i GIF-y nie wymagają stałej usługi ani serwera gry.

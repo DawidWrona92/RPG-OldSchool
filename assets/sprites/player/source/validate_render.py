@@ -88,7 +88,7 @@ for d,label in enumerate(['S','SW','W','NW','N','NE','E','SE']):
             count=int(np.sum(a.reshape(-1,4)[:,0]>.5))
             # Visibility counts are evidence, not a visual acceptance gate.
             visibility[anim][label+'_'+str(frame)]=count
-report={'reproduction':repro,'anchor_projection_px':anchor,'visible_sword_pixels_at_192px':visibility,
+report={'source_blend_sha256':hashlib.sha256(Path(bpy.data.filepath).read_bytes()).hexdigest(),'reproduction':repro,'anchor_projection_px':anchor,'visible_sword_pixels_at_192px':visibility,
         'orientation':orientation,'tested_poses':('quick N/NW idle0, walk0/4/8' if '--quick' in sys.argv else 'all 8 idle and 12 walk phases in eight directions (160 masks)'),
         'limits':['weapon masks do not prove absence of all garment collisions',
                   'all walk frames were visually reviewed on contact sheets, not motion-captured']}
