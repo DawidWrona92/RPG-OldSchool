@@ -61,6 +61,30 @@ eye=Image.open(root/'hero_eye_iris_basecolor.png');bbox=eye.getchannel('A').getb
 assert 405<=bbox[2]-bbox[0]<=414
 results['iris_alpha_bbox']=list(bbox)
 manifest_path=root/'manifest.json'
+if manifest_path.exists() and json.loads(manifest_path.read_text()).get('material_version',0)>=4:
+ from face_v4 import baseline
+ region=np.array(Image.open(root.parents[4]/'docs/art/characters/tekstury-bohatera/uv-cialo-obszary-2048.png').convert('RGB'))
+ protected=((region[:,:,0]==232)&(region[:,:,1]==150))|((region[:,:,0]==60)&(region[:,:,1]==120))
+ for suffix,mult in [('',2),('_2048',1)]:
+  pm=np.repeat(np.repeat(protected,mult,0),mult,1)
+  for m in ['basecolor','roughness','height','normal_opengl','sss_mask']:
+   name=f'hero_skin_body_{m}{suffix}.png';a=np.array(Image.open(root/name));b,_=baseline(root.parents[4],name)
+   assert np.array_equal(a[pm],b[pm]),'Protected neck/hands changed: '+name
+ results['v4_neck_hands_all_10_maps']='byte-identical to 35df59f'
+ for name in ['hero_skin_body_sss_mask.png','hero_skin_body_sss_mask_2048.png','hero_eye_sclera_basecolor.png']:
+  _,data=baseline(root.parents[4],name)
+  assert (root/name).read_bytes()==data,'Preserved whole file changed: '+name
+ results['v4_sss_sclera_complete_files']='byte-identical to 35df59f'
+ eye=np.array(Image.open(root/'hero_eye_iris_basecolor.png')).astype(float)
+ yy,xx=np.mgrid[:512,:512];rad=np.sqrt((xx-255.5)**2+(yy-255.5)**2)/204.8
+ outer=eye[:,:,:3][(rad>.65)&(rad<.82)].mean(0);inner=eye[:,:,:3][(rad>.33)&(rad<.40)].mean(0)
+ assert outer[1]>outer[0]+3 and outer[1]>outer[2]+3,outer
+ assert inner[0]>inner[1]+2 and inner[1]>inner[2]+10,inner
+ results['v4_iris_ring_rgb']={'gray_green_outer':outer.tolist(),'olive_brown_inner':inner.tolist()}
+ feature=json.loads((root/'qa/v4_material_checks.json').read_text());assert feature['raised_scar_core_min']>.5
+ assert [f['side'] for f in feature['scars'][:3]]==['left']*3
+ results['v4_scar_core_min_height']=feature['raised_scar_core_min']
+
 if manifest_path.exists():
  manifest=json.loads(manifest_path.read_text())
  actual={f.relative_to(root).as_posix() for f in root.rglob('*') if f.is_file() and f.name!='manifest.json' and '__pycache__' not in f.parts}

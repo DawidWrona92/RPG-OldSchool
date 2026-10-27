@@ -9,7 +9,7 @@
       ],
       "mode": "RGB",
       "bits": 8,
-      "min": 38,
+      "min": 34,
       "max": 189
     },
     {
@@ -20,7 +20,7 @@
       ],
       "mode": "RGB",
       "bits": 8,
-      "min": 31,
+      "min": 26,
       "max": 197
     },
     {
@@ -31,7 +31,7 @@
       ],
       "mode": "L",
       "bits": 8,
-      "min": 110,
+      "min": 113,
       "max": 187
     },
     {
@@ -42,7 +42,7 @@
       ],
       "mode": "L",
       "bits": 8,
-      "min": 110,
+      "min": 114,
       "max": 185
     },
     {
@@ -53,7 +53,7 @@
       ],
       "mode": "RGB",
       "bits": 8,
-      "min": 29,
+      "min": 18,
       "max": 255
     },
     {
@@ -64,7 +64,7 @@
       ],
       "mode": "RGB",
       "bits": 8,
-      "min": 51,
+      "min": 34,
       "max": 255
     },
     {
@@ -75,8 +75,8 @@
       ],
       "mode": "I;16",
       "bits": 16,
-      "min": 31012,
-      "max": 33595
+      "min": 29263,
+      "max": 33815
     },
     {
       "file": "hero_skin_body_height_2048.png",
@@ -86,8 +86,8 @@
       ],
       "mode": "I;16",
       "bits": 16,
-      "min": 31145,
-      "max": 33414
+      "min": 29417,
+      "max": 33587
     },
     {
       "file": "hero_skin_body_sss_mask.png",
@@ -134,7 +134,7 @@
       "max": 225
     }
   ],
-  "opengl_green_height_correlation": 0.9984604117538326,
+  "opengl_green_height_correlation": 0.9982217622501336,
   "seam_vertex_samples": {
     "count": 1137,
     "median_rgb_8bit": 0.0,
@@ -151,5 +151,20 @@
     461,
     461
   ],
+  "v4_neck_hands_all_10_maps": "byte-identical to 35df59f",
+  "v4_sss_sclera_complete_files": "byte-identical to 35df59f",
+  "v4_iris_ring_rgb": {
+    "gray_green_outer": [
+      112.00489004981169,
+      123.00437370914834,
+      113.0029765520593
+    ],
+    "olive_brown_inner": [
+      123.14970238095238,
+      116.49077380952382,
+      88.82886904761905
+    ]
+  },
+  "v4_scar_core_min_height": 0.5027349307015538,
   "manifest_hashes": "passed"
 }

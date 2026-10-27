@@ -6,7 +6,7 @@ import json
 import numpy as np
 from scipy.ndimage import gaussian_filter
 
-def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_path):
+def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_path, v4=False):
     x,y,z=np.moveaxis(xyz,-1,0);ax=np.abs(x)
     def smooth(a,b,t):
         q=np.clip((t-a)/(b-a),0,1);return q*q*(3-2*q)
@@ -84,14 +84,14 @@ def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_p
         branch=path+.06*(y-6.96)
         vessels+=.4*np.exp(-((x-branch)/.0035)**2)*np.exp(-((y-6.96)/.11)**2)
     vessels=np.clip(vessels,0,1)*np.clip(nose+cheeks,0,1)*detail
-    paint(vessels,[143,91,78],.23)
+    paint(vessels,[143,91,78],0 if v4 else .23)
     # Three separate, non-periodic central forehead creases with unequal length,
     # curvature, skew, taper and depth. The temple field is exactly zero.
     wrinkles=np.zeros_like(x)
     forehead_specs=[(7.47,-.025,.36,.020,-.010,.48),
                     (7.59,.030,.43,.032,.006,.57),
                     (7.71,-.050,.31,.014,-.008,.35)]
-    for cy,cx,halfwidth,bend,skew,depth in forehead_specs:
+    for cy,cx,halfwidth,bend,skew,depth in ([] if v4 else forehead_specs):
         q=(x-cx)/halfwidth
         taper=1-smooth(.57,1,np.abs(q))
         curve=cy+bend*q*q+skew*q+.005*q*q*q
@@ -99,7 +99,7 @@ def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_p
         wrinkles+=np.exp(-((y-curve)/width)**2)*forehead*taper*depth
     # Two short shallow crow's feet at each outer eye corner, asymmetrically weighted.
     corner=g(.555,7.22,1.28,.10,.075,.30)*smooth(.47,.52,ax)*(1-smooth(.59,.68,ax))
-    for slope,offset,depth in [(-.35,-.002,.25),(.30,.007,.30)]:
+    for slope,offset,depth in ([] if v4 else [(-.35,-.002,.25),(.30,.007,.30)]):
         curve=7.215+offset+slope*(ax-.49)+.025*(ax-.53)**2
         wrinkles+=np.exp(-((y-curve)/.009)**2)*corner*depth*(1+.10*x)
     crease=np.exp(-((ax-(.19+.51*(6.98-y)+.014*np.sin(y*13)))/.022)**2)*g(.3,6.79,1.4,.26,.34,.45)
@@ -131,7 +131,7 @@ def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_p
     scar_segments=[((.32,7.32,1.34),(.29,7.49,1.25),.010),
                    ((-.50,6.86,1.29),(-.59,6.76,1.17),.011)]
     scars=np.zeros_like(x); scar_checks=[]
-    for a,b,w in scar_segments:
+    for a,b,w in ([] if v4 else scar_segments):
         a=snap(a);b=snap(b)
         if np.linalg.norm(a-b)<.025:b=snap(np.array(b)+[0,.06,0])
         mark=stroke(a,b,w)*detail
@@ -193,5 +193,5 @@ def apply(xyz, detail, noise, pores, micro, macro, meshpath, mesh_data, report_p
             'scar_roughness':.43,'scar_height':.4965,'scar_tissue_rgb':[188,158,135],
             'tattoos':False,'fresh_wounds':False,'lighting_baked':False,
             'note':'Masks use native 3D coordinates. Counts confirm marks intersect the UV interior; artistic acceptance requires render review.'}
-    report_path.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    if report_path is not None:report_path.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     return color,height,rough,sss

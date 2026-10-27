@@ -1,62 +1,62 @@
-# Bohater — skóra i oko, v3: dojrzała, ogorzała twarz
+# Bohater — skóra v4 według konceptu twarzy 19 v2
 
-**V2 (`2701714`) przyjęta przez autora jako wersja robocza. V3: PROTOTYPE_NOT_APPROVED**, do oceny i integracji przez Sola. Część B czeka na P2.
+**PROTOTYPE_NOT_APPROVED**, część A do przeglądu autora i integracji Sola. Baza: `35df59f4c19b473530fd3fe316b35fc7b1739327`. Część B czeka na przekazanie P2.
 
-## Zmiany po review v2
+Wymagania autora i brief mają pierwszeństwo; koncept 19 v2 ma pierwszeństwo przed twarzą z planszy 17. Użyto briefu rozdz. 2–4 i konceptu 19 z `main` @ `eb3a2ec6282855e8b659970b10a677b4232d68fe`. Oryginalny koncept, bez przemalowania, zachowano do porównania w `podglad/v4/reference/concept19.jpg`.
 
-**Drobna korekta po review v3:** usunięto wszystkie rysowane poziome bruzdy szyi z height, pochodnej normalnej i modulacji szorstkości. Opalenizna i rozmyta granica zarostu pozostają bez zmian. Podglądy v3 i manifest odświeżono przy normal 0,45.
+## Zmiany
 
-- **Czoło:** trzy poziome bruzdy wyłącznie nad brwiami w środkowej części. Mają różne długości, przesunięcia, krzywizny, szerokości i głębokości oraz łagodne, nierówne zakończenia. Brak sinusoidalnego rytmu i bruzd biegnących przez skronie; maska tych bruzd jest na skroniach zerowa.
-- **Kurze łapki:** po dwie krótkie, płytkie linie przy zewnętrznym kąciku oka, z lekką asymetrią. Bruzdy nosowo-wargowe pozostają bez zmian.
-- **Dłonie i przedramiona:** całkowicie usunięto sinusoidalne kreski z pigmentu i height, więc także z pochodnej normalnej; usunięto pola żył i ścięgien oraz ich kolor. Zostały delikatnie ciemniejsze, zaokrąglone knykcie, miękkie zgrubienia i subtelny, rozproszony brud w zagłębieniach oraz przy paznokciach. Nie rysujemy linii zagłębień. Usunięto też cienką bliznę dłoni wraz z pozostałymi kreskami; pozostają **dwie wygojone blizny twarzy i dwa pieprzyki**.
-- **Zarost na szyi:** usunięto poziome bramkowanie według wysokości głowy. Wspólna maska cienia zarostu, mieszków, siwizny i szorstkości kończy się teraz nieregularnym, asymetrycznym łukiem pod żuchwą, rozmytym ku grdyce. Szerokość rozmycia wynosi około 4,4 cm w skali postaci 1,8 m.
+- Różowoczerwone, wygojone blizny z ciemniejszym środkiem, nierówną szerokością, lekko wypukłymi brzegami i drobnymi śladami szycia. **Lewa strona postaci:** skośna przez czoło nad brwią i krótsze krzyżujące cięcie oraz skośna blizna pod okiem. **Prawa strona:** trzy drobne zadrapania. +X natywnego OBJ to lewa strona postaci (+Y po transformacji renderera). Nie przypisujemy bliznom fabuły.
+- Usunięto poprzednie jasne, wklęsłe blizny i długie czerwone kreski naczynek przy nosie. Nowa tkanka blizn ma dodatni relief względem 0,5, gładszą odpowiedź materiału (roughness dąży do 0,43), bez otwartych ran i krwi.
+- Nieregularne, przerywane bruzdy czoła, najgłębsze nisko nad brwiami; pionowy relief gniewny między brwiami, kurze łapki, worki i chłodniejsze cienie pod oczami. Bruzdy nosowo-wargowe zachowano.
+- Drobne piegi/plamki na czole, nosie i policzkach; cieplejszy, czerwieniejący nos i policzki, widoczne pory. Dotychczasowe pieprzyki pozostają.
+- Gęstsza baza krótkiej brody i wąsa, nieregularne policzki. Siwe mieszki są losowo rozłożone, nie tworzą sinusoidalnych pasów; najwięcej na podbródku, pojedyncze na policzkach. Skóra głowy ma ciemną bazę z siwymi mieszkami. Włosy średniej długości do żuchwy i geometria brody pozostają zadaniem Sola.
+- Tęczówka A2: **szarozielona / szaroorzechowa**, z cieplejszym oliwkowo-brązowym pierścieniem przy źrenicy, ciemnym limbusem i radialnymi włóknami. Bez namalowanego refleksu. Białko jest niezmienione.
 
-Zachowano płynną opaleniznę v2, linię włosów, dyskretną pigmentację, zarost z siwizną, blizny i pieprzyki twarzy. Są elementami wyglądu, bez dopisywania historii. Bez tatuaży, malunków, biżuterii i świeżych ran. Oczy pozostają identyczne bajt w bajt z v2. Nazwy, rozdzielczości, formaty, UV i siatka są niezmienione.
+## Zachowanie dłoni i szyi
 
-## Materiał i generator
+Dłonie i szyja są chronione danymi z `35df59f`: po eksporcie przywracane są dokładne próbki bazowe poza edytowanym wnętrzem czerwonej wyspy głowy. Walidator porównuje **każdy piksel pomarańczowego obszaru szyi i niebieskiego obszaru dłoni** we wszystkich pięciu mapach 4K i pięciu mapach 2K. SSS i sclera są identyczne w całości.
 
-**Normal strength: 0,45** — w tej wartości oceniono zarówno v2, jak i v3 na portretach 768 px. Basecolor i oczy: sRGB. Roughness, normal_opengl, height i SSS: Non-Color. Kolor i normalna RGB 8 bit; roughness/SSS grayscale 8 bit; height grayscale 16 bit, neutralnie 0,5. Ciało 4096 i pochodne 2048, oczy 512.
+Polecenie „bez zmian szyja” potraktowano dosłownie: zachowano także jej dotychczasową pigmentację, zamiast dodawać na niej nowe piegi. Nie przywrócono poziomych bruzd szyi ani kresek/żył dłoni. Zapisane nazwy, rozdzielczości, formaty i UV ciała są niezmienione.
 
-Normalna OpenGL +Y do węzła Normal Map z bazą MikkTSpace. Umowny pełny zakres height 0,002 m, centered 0,5; nie nakładać równocześnie pełnego bump i normalnej. SSS jest maską względną, nie pomiarem tkanki; w podglądzie mnoży wagę SSS przez 0,30.
+## Podłączenie
 
-Ten sam `source/build_maps.py`: natywne UV grupy `body`, interpolowane pozycje 3D, deterministyczne pory i eksport Pillow. Pola materiału v2 rozwinięte do v3 pozostają w `source/aging_v2.py` (historyczna nazwa modułu). Światła, AO i normalne powierzchni nie uczestniczą w obliczaniu albedo. Drobne cechy gasną 32–56 px od krawędzi UV, tło jest całkowicie wypełnione nearest-surface dilation. Kolor regionalny pozostaje ciągłym polem pozycji 3D.
+**Normal strength: 0,45** we wszystkich porównaniach. Basecolor/iris/sclera: sRGB. Roughness, normal_opengl, height, sss_mask: Non-Color. Basecolor i normalna RGB 8 bit, roughness/SSS grayscale 8 bit, height grayscale 16 bit. Ciało 4096 i pochodne 2048, oczy 512; iris zachowuje dotychczasowy RGBA 8 bit i alfę poza okręgiem 80% obrazu. Źrenica ma około 30% średnicy tęczówki.
 
-## Przed / po
+Normalna OpenGL +Y, węzeł Normal Map z bazą MikkTSpace. Neutralny height 0,5; umowny pełny zakres 0,002 m, bez zmiany sylwetki. Nie nakładać jednocześnie pełnego bump i normalnej. SSS jest względną maską, nie pomiarem tkanki; w diagnostyce mnoży wagę SSS przez 0,30.
 
-`podglad/v3/before/`: v2 z commita `27017148d13eb9c422ff54da760775f7eb16a331`, ponownie wyrenderowana ze snapshotu jej map. `podglad/v3/after/`: v3. Po trzy kadry: **przód, profil i grzbiet dłoni**. `podglad/v3/porownanie.png` zestawia je bez skalowania i korekcji kolorów.
+Albedo jest pigmentem proceduralnym bez świateł, AO i okluzji. Mikrodetal korzysta z pasa ochronnego UV 32–56 px; nowe regionalne kolory łagodnie mieszają się z bazą przy brzegu obszaru edycji. Niezmienione piksele tła i brzegów zachowują istniejącą dylatację, bez czarnych krawędzi. Oryginalna geometria i UV grupy `body` nie są modyfikowane.
 
-Obie wersje mają identyczną kamerę 768×768, niezmieniony OBJ, **normal 0,45**, światła kontraktu, AgX Medium High Contrast, exposure −0,2, Cycles 64 próbki, seed 1703, 4 wątki i brak denoise. To diagnostyka materiału, nie eksport sprite'ów.
+## Podglądy i ograniczenia
 
-Bieżące rendery v3 (także tył głowy, pełne ciało i inne strony dłoni) są w `podglad/skin_*.png`. Starsze porównania w `podglad/v2/` zachowano jako archiwum; nie przedstawiają aktualnych map v3.
+`podglad/v4/before/`: mapy v3 z `35df59f`; `podglad/v4/after/`: v4. Po cztery kadry: przód, profil, zbliżenie twarzy, oko. `porownanie.png` zestawia je bez skalowania i korekcji kolorów, a `koncept19-v4.png` pokazuje koncept obok zbliżenia v4. **Koncept ma własne światło ilustracji**; nie jest pomiarowym albedo ani renderem tej samej rzeźby.
 
-## Odtworzenie
+Obie wersje: identyczny OBJ, kamera 768×768, normal 0,45, światła kontraktu, AgX Medium High Contrast, exposure −0,2, Cycles 64 próbki, seed 1703, 4 wątki, brak denoise. Dla oceny tęczówki w obu wersjach włączono **te same pomocnicze siatki oczu z OBJ**, z płaskim rzutem A2. To dodatkowa diagnostyka: nie są docelowymi gałkami z rogówką ani zmienionym UV ciała. Bieżące pełne podglądy v4 są w `podglad/skin_*.png`.
 
-Wymagania: Blender 4.3 (sprawdzono 4.3.2), Python 3, NumPy 2.3.5, SciPy 1.17.0, Pillow 12.3.0. Generowanie 4K wymaga kilku–kilkunastu GB RAM. Korzystamy z istniejącego checkoutu, bez dodatkowego worktree.
+Neutralna baza hm08 nie ma ciężkich łuków brwiowych, żuchwy, rzeźby wieku ani włosów z konceptu. Tekstury nie zastępują tej pracy Sola; nie deklarujemy identycznych rysów ani sylwetki. Nie sprawdzono docelowego `.blend`, włókien, rogówki, skali gry 1×, animacji i integracji ze strojem. Podglądy są diagnostyką materiału, nie eksportem sprite'ów. Height/normal nie są wypaleniem high-poly, a SSS nie jest pomiarem fizycznym. Proceduralna interpretacja wymaga oceny autora na modelu docelowym.
+
+## Odtwarzanie
+
+Python 3 + NumPy 2.3.5, SciPy 1.17.0, Pillow 12.3.0; Blender 4.3.2. Kilka–kilkanaście GB RAM. Korzystamy z istniejącego checkoutu, bez dodatkowego worktree. Generator wymaga dostępnego w historii Git commita bazowego `35df59f`, ponieważ z niego odtwarza chronione dane.
 
 ```bash
-# Z katalogu repozytorium; odczyt przypiętego MakeHuman hm08 CC0:
+# Z katalogu repozytorium:
 git show 421c7e895e6a029181dcb7c63ab277ad7bab4ca0:assets/sprites/player/source/third_party/base.obj > /tmp/hero-base.obj
 cd assets/textures/characters/hero/unique
 OPENBLAS_NUM_THREADS=1 python3 source/build_maps.py --mesh /tmp/hero-base.obj
-blender -b -t 4 -P source/render_check.py -- /tmp/hero-base.obj
+python3 source/build_eye.py
+blender -b -t 4 -P source/render_check.py -- /tmp/hero-base.obj --eyes
 python3 source/validate.py --mesh /tmp/hero-base.obj
 ```
 
-Przykład powtórzenia porównania (snapshot v2 można odtworzyć przez `git show 2701714:assets/textures/characters/hero/unique/NAZWA_MAPY` do katalogu poza checkoutem):
+Rdzeń eksportu: `source/build_maps.py`; baza chronionych pól v3: `aging_v2.py`; nowa twarz: `face_v4.py`; tęczówka: `build_eye.py`. MakeHuman hm08, przypięty OBJ, grupa body, CC0 według nagłówka. Nie kopiowano koloru ani światła z konceptu do albedo, nie używano zewnętrznych fotografii.
+
+Porównania można odtworzyć, odczytując stare mapy przez `git show 35df59f:assets/textures/characters/hero/unique/NAZWA_MAPY` do `/tmp/hero-v3-final-snapshot`, następnie:
 
 ```bash
-blender -b -t 4 -P source/render_check.py -- /tmp/hero-base.obj --texture-dir /tmp/hero-v2-review-snapshot --output-dir podglad/v3/before --view front profile hands_dorsal
-blender -b -t 4 -P source/render_check.py -- /tmp/hero-base.obj --output-dir podglad/v3/after --view front profile hands_dorsal
-python3 source/compare_v2.py --version 3
+blender -b -t 4 -P source/render_check.py -- /tmp/hero-base.obj --texture-dir /tmp/hero-v3-final-snapshot --output-dir podglad/v4/before --eyes --view front profile face_close eye
+blender -b -t 4 -P source/render_check.py -- /tmp/hero-base.obj --output-dir podglad/v4/after --eyes --view front profile face_close eye
+python3 source/compare_v4.py
 ```
 
-`--texture-dir` wymaga basecolor, roughness, normal_opengl i sss_mask. Świadoma regeneracja wymaga następnie odświeżenia manifestu przez `source/write_manifest.py` oraz raportu walidacji. Zwykły walidator nie nadpisuje danych.
-
-`qa/validation.json`: odczyt PNG, formaty, skalowanie, normalne, pary wierzchołków szwów i SHA-256. `qa/v3_material_checks.json`: parametry v3, pokrycie UV przez dwie blizny i dwa pieprzyki, jawne wyłączenie pól żył/ścięgien/linii dłoni. Manifest zawiera SHA-256 wszystkich plików poza nim samym, narzędzia, źródła oraz poprawną wersję materiału każdego podglądu. Instrukcje v1/v2 zachowano w `source/README-v1.md` i `source/README-v2.md`.
-
-## Ograniczenia
-
-- Neutralna siatka hm08 nie jest docelową rzeźbą Sola. Materiał nie zmienia kości twarzy ani sylwetki. Brak włókien włosów/zarostu i docelowych gałek/rogówki; oczodoły są puste.
-- Proceduralna interpretacja skóry, nie skan ani ręcznie malowany portret. V3 wymaga oceny autora na modelu docelowym. Nie wykonano oceny w skali gry 1×, animacji i integracji ze strojem.
-- Render i pomiar par szwów nie dowodzą ich niewidoczności przy każdym mipie i deformacji. Height/normal nie są wypaleniem rzeźby high-poly; SSS nie jest pomiarem fizycznym.
-- Oczy mają udokumentowane pochodzenie repozytoryjne; poprzednik nie zapisał generatora. Nie przypisujemy im zmyślonego modelu AI ani fotografii.
+Po świadomej regeneracji odświeżyć manifest (`source/write_manifest.py`) i raport (`source/validate.py --write-report`), a potem ponownie manifest oraz zwykłą walidację SHA. Manifest nie hashuje sam siebie. `qa/validation.json` obejmuje formaty, skalowanie, normalne, szwy, pierścienie tęczówki, chronione regiony. `qa/v4_material_checks.json` zapisuje kotwice i stronę blizn oraz dodatni relief ich rdzeni. Starsze `podglad/v2/`, `v3/` oraz `source/README-v*.md` są archiwum. Podsumowanie dla następnego wykonawcy: `HANDOFF.md`.

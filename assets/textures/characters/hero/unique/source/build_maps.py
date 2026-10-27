@@ -73,10 +73,17 @@ def main():
     noise=rng.normal(0,1,(n,n)).astype(np.float32)
     pores=gaussian_filter(noise,.65)-gaussian_filter(noise,2.2)
     pores/=pores.std()
-    # V3 refines pigment/relief fields using the author's old-traveler direction.
+    # V4 refines the v3 surface fields using concept 19 and the author's direction.
     from aging_v2 import apply
-    color,height,rough,sss=apply(xyz,detail,noise,pores,micro,macro,args.mesh,mesh_data,ROOT/'qa'/'v3_material_checks.json')
-    # Preserve v1 padding/export contracts after applying v3 surface fields.
+    color,height,rough,sss=apply(xyz,detail,noise,pores,micro,macro,args.mesh,mesh_data,None,v4=True)
+    from face_v4 import apply as face_apply,head_weight,baseline,restore_outside_head
+    weight=head_weight(xyz,detail,ROOT.parents[4]/'docs/art/characters/tekstury-bohatera/uv-cialo-obszary-2048.png')
+    color,height,rough=face_apply(xyz,detail,noise,pores,color,height,rough,weight,args.mesh,mesh_data,ROOT/'qa'/'v4_material_checks.json')
+    for field,m,scale in [(color,'basecolor',1),(height,'height',65535),(rough,'roughness',255)]:
+        old,_=baseline(ROOT.parents[4],'hero_skin_body_'+m+'.png');old=old.astype(np.float32)/scale
+        w=weight[...,None] if field.ndim==3 else weight
+        field[:]=old+w*(field-old)
+    # Preserve the established padding/export contracts after the v4 head edit.
     _,nearest=distance_transform_edt(~valid,return_indices=True)
 
     color=np.clip(color,0,255)
@@ -101,6 +108,7 @@ def main():
             a/=np.maximum(np.linalg.norm(a,axis=2,keepdims=True),1e-10)
         else:a=normal
         Image.fromarray(np.rint((a*.5+.5)*255).clip(0,255).astype(np.uint8)).save(ROOT/('hero_skin_body_normal_opengl'+suffix+'.png'))
+    restore_outside_head(ROOT,weight)
     print('Wrote 10 body PNGs; height 16-bit; body faces mapped to native UV.')
 
 if __name__=='__main__':main()

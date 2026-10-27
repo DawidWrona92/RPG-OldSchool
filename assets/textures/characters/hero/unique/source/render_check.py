@@ -8,11 +8,11 @@ root=Path(__file__).resolve().parents[1]
 ap=argparse.ArgumentParser()
 ap.add_argument('mesh');ap.add_argument('--texture-dir',type=Path,default=root)
 ap.add_argument('--output-dir',type=Path,default=root/'podglad')
-ap.add_argument('--normal-strength',type=float,default=.45)
+ap.add_argument('--eyes',action='store_true');ap.add_argument('--normal-strength',type=float,default=.45)
 ap.add_argument('--view',nargs='+');ap.add_argument('--body-only',action='store_true');ap.add_argument('--comparison',action='store_true')
 args=ap.parse_args(sys.argv[sys.argv.index('--')+1:])
 meshpath=args.mesh;args.output_dir.mkdir(parents=True,exist_ok=True)
-verts=[];uvs=[];faces=[];group=''
+verts=[];uvs=[];faces=[];eye_faces={};group=''
 for l in open(meshpath):
  s=l.split()
  if not s:continue
@@ -20,6 +20,7 @@ for l in open(meshpath):
  elif s[0]=='vt':uvs.append(tuple(map(float,s[1:3])))
  elif s[0]=='g':group=s[1]
  elif s[0]=='f' and group=='body':faces.append([tuple(int(t)-1 for t in x.split('/')[:2]) for x in s[1:]])
+ elif s[0]=='f' and group in ['helper-l-eye','helper-r-eye']:eye_faces.setdefault(group,[]).append([int(q.split('/')[0])-1 for q in s[1:]])
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 scale=1.8/16.6589
 me=bpy.data.meshes.new('MakeHuman_body_native_UV')
@@ -43,6 +44,26 @@ t=n.new('ShaderNodeTexImage');t.image=bpy.data.images.load(str(args.texture_dir/
 mul=n.new('ShaderNodeMath');mul.operation='MULTIPLY';mul.inputs[1].default_value=.30;links.new(t.outputs['Color'],mul.inputs[0]);links.new(mul.outputs[0],bs.inputs['Subsurface Weight'])
 ob.data.materials.append(mat)
 sub=ob.modifiers.new('Diagnostic subdivision','SUBSURF');sub.levels=1
+# Optional diagnostic eyes reuse the untouched OBJ eye helpers, not a remodeled head.
+if args.eyes:
+ for label,ef in eye_faces.items():
+  ids=sorted({i for f in ef for i in f});vv=[verts[i] for i in ids]
+  cx=sum(v[0] for v in vv)/len(vv);cy=sum(v[1] for v in vv)/len(vv)
+  em=bpy.data.meshes.new(label);remap={i:j for j,i in enumerate(ids)}
+  em.from_pydata([(z*scale,x*scale,(y+8.1676)*scale) for x,y,z in vv],[],[[remap[i] for i in f] for f in ef]);em.update()
+  euv=em.uv_layers.new(name='PlanarEyeUV')
+  for poly in em.polygons:
+   poly.use_smooth=True
+   for li in poly.loop_indices:
+    v=vv[em.loops[li].vertex_index];euv.data[li].uv=(.5+(v[0]-cx)/.135,.5+(v[1]-cy)/.135)
+  eo=bpy.data.objects.new(label,em);bpy.context.collection.objects.link(eo)
+  sub=eo.modifiers.new('Eye subdivision','SUBSURF');sub.levels=2
+  et=bpy.data.materials.new(label+' diagnostic material');et.use_nodes=True;en=et.node_tree.nodes;el=et.node_tree.links
+  eb=en.get('Principled BSDF');eb.inputs['Roughness'].default_value=.26
+  iris=en.new('ShaderNodeTexImage');iris.image=bpy.data.images.load(str(args.texture_dir/'hero_eye_iris_basecolor.png'));iris.extension='EXTEND'
+  sclera=en.new('ShaderNodeTexImage');sclera.image=bpy.data.images.load(str(args.texture_dir/'hero_eye_sclera_basecolor.png'));sclera.extension='EXTEND'
+  mix=en.new('ShaderNodeMixRGB');el.new(iris.outputs['Alpha'],mix.inputs[0]);el.new(sclera.outputs['Color'],mix.inputs[1]);el.new(iris.outputs['Color'],mix.inputs[2]);el.new(mix.outputs[0],eb.inputs['Base Color'])
+  eo.data.materials.append(et)
 sc=bpy.context.scene;sc.render.engine='CYCLES';sc.cycles.samples=64;sc.cycles.use_denoising=False;sc.cycles.seed=1703
 sc.render.threads_mode='FIXED';sc.render.threads=4
 sc.render.image_settings.file_format='PNG';sc.render.image_settings.color_mode='RGB';sc.render.resolution_percentage=100
@@ -54,6 +75,8 @@ for label,loc,power,size,color in [('key',(2.8,-3.5,6),520,2.3,(.94,.92,.85)),('
 cam=bpy.data.cameras.new('Diagnostic camera');co=bpy.data.objects.new('Diagnostic camera',cam);bpy.context.collection.objects.link(co);sc.camera=co;cam.type='ORTHO'
 # Orthographic material review, not an approved game-sprite export.
 views=[('front',(4,0,1.65),(.09,0,1.65),.48),('profile',(0,4,1.65),(.06,0,1.65),.48),('back',(-4,0,1.65),(0,0,1.65),.48),('hands_front',(4,.43,1.04),(.13,.43,1.04),.40),('hands_back',(-4,.43,1.04),(.13,.43,1.04),.40)]
+if args.eyes:
+ views.extend([('face_close',(4,0,1.67),(.12,0,1.67),.31),('eye',(4,.0333,1.67),(.145,.0333,1.67),.065)])
 views.append(('hands_dorsal',(.23,4,1.10),(.23,.48,1.10),.40))
 body_views=[('body_front',(4,0,.9),(0,0,.9),2.1),('body_profile',(0,4,.9),(0,0,.9),2.1),('body_back',(-4,0,.9),(0,0,.9),2.1)]
 views=body_views if args.body_only else [v for v in views if v[0]!='back'] if args.comparison else views+body_views

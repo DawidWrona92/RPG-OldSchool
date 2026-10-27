@@ -1,52 +1,69 @@
 {
   "schema_version": 1,
+  "material_version": 4,
   "status": "PROTOTYPE_NOT_APPROVED",
-  "scope": "Part A v3 restrained mature traveler; two facial healed scars, two moles; no clothing.  ten skin maps plus two retained eye maps and diagnostic/support files",
+  "scope": "Part A v4 per concept19 v2. Body formats/UV unchanged; v3 neck/hands restored exactly; no Part B.",
   "repository": "DawidWrona92/RPG-OldSchool",
   "branch": "vibe/hero-textures-gpt6",
   "main_base_commit": "9bf3ff94dfa62aad057594425f4f4bf2b0a44208",
-  "previous_work_commit": "27017148d13eb9c422ff54da760775f7eb16a331",
-  "material_version": 3,
-  "revision": "neck crease removal after bc1da51",
-  "author_direction_main_commit": "0d52d9efc9986db123affdc132290efcf05483e1",
+  "previous_work_commit": "35df59f4c19b473530fd3fe316b35fc7b1739327",
+  "author_direction_main_commit": "eb3a2ec6282855e8b659970b10a677b4232d68fe",
   "mesh": {
     "repository": "DawidWrona92/RPG-OldSchool",
     "commit": "421c7e895e6a029181dcb7c63ab277ad7bab4ca0",
     "path": "assets/sprites/player/source/third_party/base.obj",
     "group": "body",
-    "license": "CC0 (MakeHuman hm08 header)",
+    "license": "CC0 per OBJ header",
     "sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c"
   },
-  "normal_convention": "Tangent OpenGL +Y; Blender MikkTSpace basis; no high-poly bake",
+  "normal_convention": "OpenGL +Y, Blender MikkTSpace; normal strength .45",
   "height_convention": {
     "neutral": 0.5,
-    "suggested_full_range_meters": 0.002
+    "suggested_full_range_meters": 0.002,
+    "scar_relief": "positive, raised"
   },
-  "padding": "Nearest-surface full-background dilation; microdetail fades 32–56 px from UV boundary",
-  "ai_image_attempt": "image_gen face-UV painting trial was rejected for production alignment; none of its pixels are used in the delivered maps. No external photographs used. Eye generator remains undocumented.",
-  "manifest_self_hash": "Excluded to avoid circular hashing. Every other delivered file is listed.",
+  "preservation": "Pinned baseline 35df59f4c19b473530fd3fe316b35fc7b1739327 outside eroded red head edit mask; neck/hands compared in all ten maps. SSS and sclera completely unchanged.",
+  "manifest_self_hash": "Excluded to avoid circular hashing; all other delivered files listed.",
   "files": [
     {
-      "file": "README.md",
-      "sha256": "387332c7d62aad67735d9b4ab2200b53428aff8f4b777c6eee8a63d6c3c50f79",
+      "file": "HANDOFF.md",
+      "sha256": "6a054e636b2cf96dae9b7ec0feaf87c86371f9c96f6c56990cf5968136c22ffa",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
       "bit_depth": null,
       "map": "documentation",
       "color_space": "not applicable",
-      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "method": "Authored source, documentation or recorded validation.",
       "tools": [
-        "Codex"
+        "Codex / Python"
       ],
       "models": null,
       "sources": [
-        "repository brief and references"
+        "repository requirements and author review"
+      ]
+    },
+    {
+      "file": "README.md",
+      "sha256": "e1eaf9ae5053f474def6c3d01cf52462a40a398a0a646c65ceca66226bb53f7e",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "documentation",
+      "color_space": "not applicable",
+      "method": "Authored source, documentation or recorded validation.",
+      "tools": [
+        "Codex / Python"
+      ],
+      "models": null,
+      "sources": [
+        "repository requirements and author review"
       ]
     },
     {
       "file": "hero_eye_iris_basecolor.png",
-      "sha256": "98c9922c0e8498e6c4e5b28cc81e013e95575e4edf7d9ea3a807ca13f0f5aaba",
+      "sha256": "8685fc146b5b828ee1f74f47b327c8fec7cb72b85562300bf70aa2f99a6772d9",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         512,
@@ -56,17 +73,18 @@
       "bit_depth": 8,
       "map": "iris_basecolor",
       "color_space": "sRGB",
-      "method": "Reused byte-for-byte from existing repository branch after decoding, dimension and visual checks; generator/model undocumented.",
+      "method": "Procedural gray-green/gray-hazel radial iris fibers, warm olive-brown inner ring, dark limbus, no catchlight; RGBA 512, 80% iris diameter, 30% relative pupil.",
       "tools": [
-        "Unknown original tool; audited with Pillow 12.3.0 and NumPy 2.3.5"
+        "Python 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
       ],
       "models": null,
+      "material_version": 4,
       "sources": [
-        {
-          "repository": "DawidWrona92/RPG-OldSchool",
-          "commit": "59966fbb59ef87f685dd6ef67bed5b8d0e540144",
-          "path": "assets/textures/characters/hero/unique/hero_eye_iris_basecolor.png"
-        }
+        "source/build_eye.py",
+        "concept19 v2 and A2 brief @ eb3a2ec6282855e8b659970b10a677b4232d68fe"
       ]
     },
     {
@@ -81,22 +99,20 @@
       "bit_depth": 8,
       "map": "sclera_basecolor",
       "color_space": "sRGB",
-      "method": "Reused byte-for-byte from existing repository branch after decoding, dimension and visual checks; generator/model undocumented.",
+      "method": "Unchanged from v3; original generator not documented by predecessor.",
       "tools": [
-        "Unknown original tool; audited with Pillow 12.3.0 and NumPy 2.3.5"
+        "Unknown original generator; validated with Pillow"
       ],
       "models": null,
+      "material_version": 3,
       "sources": [
-        {
-          "repository": "DawidWrona92/RPG-OldSchool",
-          "commit": "59966fbb59ef87f685dd6ef67bed5b8d0e540144",
-          "path": "assets/textures/characters/hero/unique/hero_eye_sclera_basecolor.png"
-        }
+        "59966fbb59ef87f685dd6ef67bed5b8d0e540144 original sclera",
+        "35df59f4c19b473530fd3fe316b35fc7b1739327"
       ]
     },
     {
       "file": "hero_skin_body_basecolor.png",
-      "sha256": "8e85d161f8ad47c267ae480655f9a2ebd8578d876fc5ecfec1f7013697e55c63",
+      "sha256": "9a4db09ec17c310d078db3fccb7e4482e757fc2c2506766fe09ed11b0f5b4057",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         4096,
@@ -106,26 +122,27 @@
       "bit_depth": 8,
       "map": "basecolor",
       "color_space": "sRGB",
-      "method": "Procedural unlit pigment material at native UV-interpolated surface positions: smooth regional tanning, age spots, broken capillaries, two healed facial scars and moles, eye bags, irregular scalp transition, curved soft beard underside, salt-and-pepper stubble, subtle knuckle/recess/nail dirt without drawn hand lines; no illumination/AO input.",
+      "method": "Unlit 3D surface pigment: concept19 pink irregular healed scars with darker centers and suture traces, freckles, red nose/cheeks, dense beard/moustache with random gray follicles concentrated on chin; scalp gray follicles. No light/AO input. 4K with Lanczos 2K derivatives; v3 restored outside the protected head-edit mask.",
       "tools": [
-        "CPython 3.12.14",
+        "Python 3.12.14",
         "NumPy 2.3.5",
         "SciPy 1.17.0",
         "Pillow 12.3.0"
       ],
       "models": null,
+      "material_version": 4,
       "sources": [
         "source/build_maps.py",
         "source/aging_v2.py",
-        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
-        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
-        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
-        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+        "source/face_v4.py",
+        "baseline 35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "concept19 v2 / brief main @ eb3a2ec6282855e8b659970b10a677b4232d68fe",
+        "pinned CC0 body mesh"
       ]
     },
     {
       "file": "hero_skin_body_basecolor_2048.png",
-      "sha256": "79485cb28ea8458eb3adb36bbb563308984f7e7bbf3533d692d712d546285ad8",
+      "sha256": "4d5eddc830cc40d74c05ce04efd28e3f221ff53f7fe58419ccfa97ac9ccc4fc0",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         2048,
@@ -135,26 +152,27 @@
       "bit_depth": 8,
       "map": "basecolor",
       "color_space": "sRGB",
-      "method": "Procedural unlit pigment material at native UV-interpolated surface positions: smooth regional tanning, age spots, broken capillaries, two healed facial scars and moles, eye bags, irregular scalp transition, curved soft beard underside, salt-and-pepper stubble, subtle knuckle/recess/nail dirt without drawn hand lines; no illumination/AO input. 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.",
+      "method": "Unlit 3D surface pigment: concept19 pink irregular healed scars with darker centers and suture traces, freckles, red nose/cheeks, dense beard/moustache with random gray follicles concentrated on chin; scalp gray follicles. No light/AO input. 4K with Lanczos 2K derivatives; v3 restored outside the protected head-edit mask.",
       "tools": [
-        "CPython 3.12.14",
+        "Python 3.12.14",
         "NumPy 2.3.5",
         "SciPy 1.17.0",
         "Pillow 12.3.0"
       ],
       "models": null,
+      "material_version": 4,
       "sources": [
         "source/build_maps.py",
         "source/aging_v2.py",
-        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
-        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
-        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
-        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+        "source/face_v4.py",
+        "baseline 35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "concept19 v2 / brief main @ eb3a2ec6282855e8b659970b10a677b4232d68fe",
+        "pinned CC0 body mesh"
       ]
     },
     {
       "file": "hero_skin_body_height.png",
-      "sha256": "9e455425c93b1a99ed2b57c1356501083a649d8aad3e2ab42ebdab507790218e",
+      "sha256": "fc10d875474833bd082986a213b3750e6bcd442118d2345ab4326d5a5ec3b36e",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         4096,
@@ -164,26 +182,27 @@
       "bit_depth": 16,
       "map": "height",
       "color_space": "linear / Non-Color",
-      "method": "16-bit linear scalar microrelief: pores, forehead/crowfeet/nasolabial creases, eye bags, subtle rounded knuckle calluses, shallow healed facial scars and lip cracks; no hand lines, veins or tendons. Neutral 0.5; proposed full range 0.002 m; no high-poly sculpt.",
+      "method": "16-bit microrelief: interrupted forehead creases, glabellar frown, crowfeet, under-eye bags; positive raised scar rims/cores and tiny suture traces. No neck seam strokes or hand lines/veins. 4K with Lanczos 2K derivatives; v3 restored outside the protected head-edit mask.",
       "tools": [
-        "CPython 3.12.14",
+        "Python 3.12.14",
         "NumPy 2.3.5",
         "SciPy 1.17.0",
         "Pillow 12.3.0"
       ],
       "models": null,
+      "material_version": 4,
       "sources": [
         "source/build_maps.py",
         "source/aging_v2.py",
-        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
-        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
-        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
-        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+        "source/face_v4.py",
+        "baseline 35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "concept19 v2 / brief main @ eb3a2ec6282855e8b659970b10a677b4232d68fe",
+        "pinned CC0 body mesh"
       ]
     },
     {
       "file": "hero_skin_body_height_2048.png",
-      "sha256": "47fc6313d577ca21640c80f80339e952fc3020641874efe1fda375d81c18ee16",
+      "sha256": "df29bdb08d5804cdba476d92f3fc21466cc93d61f5f6d6811852b1891d47d5c0",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         2048,
@@ -193,26 +212,27 @@
       "bit_depth": 16,
       "map": "height",
       "color_space": "linear / Non-Color",
-      "method": "16-bit linear scalar microrelief: pores, forehead/crowfeet/nasolabial creases, eye bags, subtle rounded knuckle calluses, shallow healed facial scars and lip cracks; no hand lines, veins or tendons. Neutral 0.5; proposed full range 0.002 m; no high-poly sculpt. 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.",
+      "method": "16-bit microrelief: interrupted forehead creases, glabellar frown, crowfeet, under-eye bags; positive raised scar rims/cores and tiny suture traces. No neck seam strokes or hand lines/veins. 4K with Lanczos 2K derivatives; v3 restored outside the protected head-edit mask.",
       "tools": [
-        "CPython 3.12.14",
+        "Python 3.12.14",
         "NumPy 2.3.5",
         "SciPy 1.17.0",
         "Pillow 12.3.0"
       ],
       "models": null,
+      "material_version": 4,
       "sources": [
         "source/build_maps.py",
         "source/aging_v2.py",
-        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
-        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
-        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
-        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+        "source/face_v4.py",
+        "baseline 35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "concept19 v2 / brief main @ eb3a2ec6282855e8b659970b10a677b4232d68fe",
+        "pinned CC0 body mesh"
       ]
     },
     {
       "file": "hero_skin_body_normal_opengl.png",
-      "sha256": "8a95d43a6a98c442e8dcfc5b2bcc233e76e0c1dbfd462ea9c02c35f09396851d",
+      "sha256": "60d7d051cc416337fdb2f3e6bd34c18b440c2f24c79efffc2cc596dbfc29d512",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         4096,
@@ -222,26 +242,27 @@
       "bit_depth": 8,
       "map": "normal_opengl",
       "color_space": "linear / Non-Color",
-      "method": "Normalized tangent-space RGB vectors from height gradient; +Y OpenGL (UV V increases upward). Used with Blender MikkTSpace normal mapping. Not a sculpt bake.",
+      "method": "Normalized tangent OpenGL +Y height-gradient vectors; Blender MikkTSpace normal mapping, no high-poly bake. Protected v3 normal pixels restored exactly. 4K with Lanczos 2K derivatives; v3 restored outside the protected head-edit mask.",
       "tools": [
-        "CPython 3.12.14",
+        "Python 3.12.14",
         "NumPy 2.3.5",
         "SciPy 1.17.0",
         "Pillow 12.3.0"
       ],
       "models": null,
+      "material_version": 4,
       "sources": [
         "source/build_maps.py",
         "source/aging_v2.py",
-        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
-        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
-        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
-        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+        "source/face_v4.py",
+        "baseline 35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "concept19 v2 / brief main @ eb3a2ec6282855e8b659970b10a677b4232d68fe",
+        "pinned CC0 body mesh"
       ]
     },
     {
       "file": "hero_skin_body_normal_opengl_2048.png",
-      "sha256": "1da0114952efd6510c81f712649faa8db3a0fb73c831a7535ba6a381637abe05",
+      "sha256": "e30ed524c017b5edc2bc8abcc78f1656162487c87814945a58efce1100779a13",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         2048,
@@ -251,26 +272,27 @@
       "bit_depth": 8,
       "map": "normal_opengl",
       "color_space": "linear / Non-Color",
-      "method": "Normalized tangent-space RGB vectors from height gradient; +Y OpenGL (UV V increases upward). Used with Blender MikkTSpace normal mapping. Not a sculpt bake. 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.",
+      "method": "Normalized tangent OpenGL +Y height-gradient vectors; Blender MikkTSpace normal mapping, no high-poly bake. Protected v3 normal pixels restored exactly. 4K with Lanczos 2K derivatives; v3 restored outside the protected head-edit mask.",
       "tools": [
-        "CPython 3.12.14",
+        "Python 3.12.14",
         "NumPy 2.3.5",
         "SciPy 1.17.0",
         "Pillow 12.3.0"
       ],
       "models": null,
+      "material_version": 4,
       "sources": [
         "source/build_maps.py",
         "source/aging_v2.py",
-        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
-        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
-        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
-        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+        "source/face_v4.py",
+        "baseline 35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "concept19 v2 / brief main @ eb3a2ec6282855e8b659970b10a677b4232d68fe",
+        "pinned CC0 body mesh"
       ]
     },
     {
       "file": "hero_skin_body_roughness.png",
-      "sha256": "ccfbfa2f648facd4f132741ded60621bfa668c71e7fa4036d2c06440a44a4c7f",
+      "sha256": "bdd637d0a7330ca5b167054777470a96e50bb33af51d8864811799049cb756e9",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         4096,
@@ -280,26 +302,27 @@
       "bit_depth": 8,
       "map": "roughness",
       "color_space": "linear / Non-Color",
-      "method": "Anatomical scalar material response with T-zone, cheeks, lips, scalp, stubble, hands, keratin and pore variation; not inferred from albedo luminance.",
+      "method": "Anatomical scalar response; smoother healed scar tissue. V3 hands/neck protected. 4K with Lanczos 2K derivatives; v3 restored outside the protected head-edit mask.",
       "tools": [
-        "CPython 3.12.14",
+        "Python 3.12.14",
         "NumPy 2.3.5",
         "SciPy 1.17.0",
         "Pillow 12.3.0"
       ],
       "models": null,
+      "material_version": 4,
       "sources": [
         "source/build_maps.py",
         "source/aging_v2.py",
-        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
-        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
-        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
-        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+        "source/face_v4.py",
+        "baseline 35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "concept19 v2 / brief main @ eb3a2ec6282855e8b659970b10a677b4232d68fe",
+        "pinned CC0 body mesh"
       ]
     },
     {
       "file": "hero_skin_body_roughness_2048.png",
-      "sha256": "828e0b7b1228011e7c9c48f9269ab77921326c52837cc658cb5e334ea67087d4",
+      "sha256": "0cf575580c2b82bfcd5bb7dc85f9136b1d13a738a21618206a74bb6cd492cdc6",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         2048,
@@ -309,21 +332,22 @@
       "bit_depth": 8,
       "map": "roughness",
       "color_space": "linear / Non-Color",
-      "method": "Anatomical scalar material response with T-zone, cheeks, lips, scalp, stubble, hands, keratin and pore variation; not inferred from albedo luminance. 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.",
+      "method": "Anatomical scalar response; smoother healed scar tissue. V3 hands/neck protected. 4K with Lanczos 2K derivatives; v3 restored outside the protected head-edit mask.",
       "tools": [
-        "CPython 3.12.14",
+        "Python 3.12.14",
         "NumPy 2.3.5",
         "SciPy 1.17.0",
         "Pillow 12.3.0"
       ],
       "models": null,
+      "material_version": 4,
       "sources": [
         "source/build_maps.py",
         "source/aging_v2.py",
-        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
-        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
-        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
-        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+        "source/face_v4.py",
+        "baseline 35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "concept19 v2 / brief main @ eb3a2ec6282855e8b659970b10a677b4232d68fe",
+        "pinned CC0 body mesh"
       ]
     },
     {
@@ -338,21 +362,22 @@
       "bit_depth": 8,
       "map": "sss_mask",
       "color_space": "linear / Non-Color",
-      "method": "Relative anatomical thinness proxy: brighter ears, nose and fingers. Not a measured thickness/radius map.",
+      "method": "Unchanged byte-for-byte from v3, relative ears/nose/fingers thinness proxy, not physical thickness. 4K with Lanczos 2K derivatives; v3 restored outside the protected head-edit mask.",
       "tools": [
-        "CPython 3.12.14",
+        "Python 3.12.14",
         "NumPy 2.3.5",
         "SciPy 1.17.0",
         "Pillow 12.3.0"
       ],
       "models": null,
+      "material_version": 4,
       "sources": [
         "source/build_maps.py",
         "source/aging_v2.py",
-        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
-        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
-        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
-        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+        "source/face_v4.py",
+        "baseline 35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "concept19 v2 / brief main @ eb3a2ec6282855e8b659970b10a677b4232d68fe",
+        "pinned CC0 body mesh"
       ]
     },
     {
@@ -367,26 +392,27 @@
       "bit_depth": 8,
       "map": "sss_mask",
       "color_space": "linear / Non-Color",
-      "method": "Relative anatomical thinness proxy: brighter ears, nose and fingers. Not a measured thickness/radius map. 2K derived from 4K by Lanczos; tangent vectors renormalized after filtering.",
+      "method": "Unchanged byte-for-byte from v3, relative ears/nose/fingers thinness proxy, not physical thickness. 4K with Lanczos 2K derivatives; v3 restored outside the protected head-edit mask.",
       "tools": [
-        "CPython 3.12.14",
+        "Python 3.12.14",
         "NumPy 2.3.5",
         "SciPy 1.17.0",
         "Pillow 12.3.0"
       ],
       "models": null,
+      "material_version": 4,
       "sources": [
         "source/build_maps.py",
         "source/aging_v2.py",
-        "author decision main @ 0d52d9efc9986db123affdc132290efcf05483e1",
-        "MakeHuman hm08 CC0, group body, native UV; pinned mesh below",
-        "docs/koncepty/17-bohater-i-woz.jpg (palette/character reference only)",
-        "docs/art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md"
+        "source/face_v4.py",
+        "baseline 35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "concept19 v2 / brief main @ eb3a2ec6282855e8b659970b10a677b4232d68fe",
+        "pinned CC0 body mesh"
       ]
     },
     {
       "file": "podglad/skin_back.png",
-      "sha256": "f711cc6410c9f1ac15706cc1d815a3796acfdd938003298cd25d29aabf6ff5a1",
+      "sha256": "2a1b2f88b8745ee7d872b87fbc1a27b0cfb0fe4b20e95bd0d3489639d7605047",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -396,24 +422,25 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
       "sources": [
         "source/render_check.py",
-        "current v3 hero_skin_body_*.png",
-        "pinned mesh below"
-      ],
-      "material_version": 3,
-      "normal_strength": 0.45
+        "current v4 files",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/skin_body_back.png",
-      "sha256": "79c63727647b3e8b90494b04d190033b6c76b0032f45b1f441612afab6654e43",
+      "sha256": "df7f0cf57f0bed157b85619d69d2c3fc8236023aede910aa9ab5d297babfbc41",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -423,24 +450,25 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
       "sources": [
         "source/render_check.py",
-        "current v3 hero_skin_body_*.png",
-        "pinned mesh below"
-      ],
-      "material_version": 3,
-      "normal_strength": 0.45
+        "current v4 files",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/skin_body_front.png",
-      "sha256": "3c099be775ff969cfa9e4159abda7511d5fe22aef4accc8cbac17bca80946e08",
+      "sha256": "7eb7afab1f71520d1592005aae3135a74a4d939f927ad5ea55aac88aaf0b6353",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -450,24 +478,25 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
       "sources": [
         "source/render_check.py",
-        "current v3 hero_skin_body_*.png",
-        "pinned mesh below"
-      ],
-      "material_version": 3,
-      "normal_strength": 0.45
+        "current v4 files",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/skin_body_profile.png",
-      "sha256": "69d63ed9abd358cb61f81d9051ae5b42c8c06296e7ea87165527ec800f5c9458",
+      "sha256": "36224dff2b911c0b1349cd159d7d5cc6744ded7183655646e9a367a556c3d280",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -477,24 +506,81 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
       "sources": [
         "source/render_check.py",
-        "current v3 hero_skin_body_*.png",
-        "pinned mesh below"
+        "current v4 files",
+        "pinned OBJ"
+      ]
+    },
+    {
+      "file": "podglad/skin_eye.png",
+      "sha256": "3c211cd258d25e5524f4487f913cd91285abffec3cbdd5396b81aa088833f86a",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
       ],
-      "material_version": 3,
-      "normal_strength": 0.45
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
+      "tools": [
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
+      ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
+      "sources": [
+        "source/render_check.py",
+        "current v4 files",
+        "pinned OBJ"
+      ]
+    },
+    {
+      "file": "podglad/skin_face_close.png",
+      "sha256": "25858a3022bcc9b9bbe101a02617840e83822ee02092e7a7a09d38fb57ce0d79",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
+      "tools": [
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
+      ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
+      "sources": [
+        "source/render_check.py",
+        "current v4 files",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/skin_front.png",
-      "sha256": "9b99c5f864cf8211ebaa2107e2823192e51fe06ecb0a0f553568e288c8ee37d5",
+      "sha256": "d0a1779036a19c9784708635c9221d5628a10f4dfbd5ec65666b660131727350",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -504,24 +590,25 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
       "sources": [
         "source/render_check.py",
-        "current v3 hero_skin_body_*.png",
-        "pinned mesh below"
-      ],
-      "material_version": 3,
-      "normal_strength": 0.45
+        "current v4 files",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/skin_hands_back.png",
-      "sha256": "f3639291099b235ed8ba03c771d47ba0a2228d19d27193e9f79394db0216aedd",
+      "sha256": "0e1a29c366c686654b47a3bf9dddca7bf3a59766d62109639bb5842799a4fe30",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -531,24 +618,25 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
       "sources": [
         "source/render_check.py",
-        "current v3 hero_skin_body_*.png",
-        "pinned mesh below"
-      ],
-      "material_version": 3,
-      "normal_strength": 0.45
+        "current v4 files",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/skin_hands_dorsal.png",
-      "sha256": "da3fb88a69e6f337c267f6878af6c431b92e32b660ee44aedaeb2f31c613299b",
+      "sha256": "e27f746eb3dba0d453b5f4226fb4d700b4783616629869f6de89e3bf437f9bc1",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -558,24 +646,25 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
       "sources": [
         "source/render_check.py",
-        "current v3 hero_skin_body_*.png",
-        "pinned mesh below"
-      ],
-      "material_version": 3,
-      "normal_strength": 0.45
+        "current v4 files",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/skin_hands_front.png",
-      "sha256": "5cb0761b6b18b200839cd8f306e775ded6e41094e09afc03d5e7efceafd32d0a",
+      "sha256": "d1a06e6fa2ae71f59288d1810d7582b5da6aabf6c60e3b8b5dc6b5673c46bc4b",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -585,24 +674,25 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
       "sources": [
         "source/render_check.py",
-        "current v3 hero_skin_body_*.png",
-        "pinned mesh below"
-      ],
-      "material_version": 3,
-      "normal_strength": 0.45
+        "current v4 files",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/skin_profile.png",
-      "sha256": "c5fc6682fe2e28a2ef2b994e388b8ed3eb15cf115d7120e09d0ed709c0656b17",
+      "sha256": "cb0231e9f5f8b2a803eeb65509eb1c32a06fe9e7cfcef99008cae73e0ddda85a",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": [
         768,
@@ -612,20 +702,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
       "sources": [
         "source/render_check.py",
-        "current v3 hero_skin_body_*.png",
-        "pinned mesh below"
-      ],
-      "material_version": 3,
-      "normal_strength": 0.45
+        "current v4 files",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v2/after/skin_front.png",
@@ -639,20 +730,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "2701714 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 2,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "27017148d13eb9c422ff54da760775f7eb16a331",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v2/after/skin_hands_back.png",
@@ -666,20 +758,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "2701714 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 2,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "27017148d13eb9c422ff54da760775f7eb16a331",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v2/after/skin_hands_dorsal.png",
@@ -693,20 +786,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "2701714 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 2,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "27017148d13eb9c422ff54da760775f7eb16a331",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v2/after/skin_hands_front.png",
@@ -720,20 +814,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "2701714 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 2,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "27017148d13eb9c422ff54da760775f7eb16a331",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v2/after/skin_profile.png",
@@ -747,20 +842,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "2701714 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 2,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "27017148d13eb9c422ff54da760775f7eb16a331",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v2/before/skin_front.png",
@@ -774,20 +870,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "bdc6529 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 1,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "bdc6529908389f3422aca66945cd0b7c1ebcb8ec",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v2/before/skin_hands_back.png",
@@ -801,20 +898,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "bdc6529 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 1,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "bdc6529908389f3422aca66945cd0b7c1ebcb8ec",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v2/before/skin_hands_dorsal.png",
@@ -828,20 +926,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "bdc6529 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 1,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "bdc6529908389f3422aca66945cd0b7c1ebcb8ec",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v2/before/skin_hands_front.png",
@@ -855,20 +954,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "bdc6529 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 1,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "bdc6529908389f3422aca66945cd0b7c1ebcb8ec",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v2/before/skin_profile.png",
@@ -882,20 +982,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "bdc6529 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 1,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "bdc6529908389f3422aca66945cd0b7c1ebcb8ec",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v2/porownanie.png",
@@ -908,24 +1009,23 @@
       "channels": "RGB",
       "bit_depth": 8,
       "map": "comparison_sheet",
-      "color_space": "sRGB / AgX",
-      "method": "Side-by-side unaltered Cycles renders; no rescaling or color edits.",
+      "color_space": "sRGB / AgX for renders",
+      "method": "Labeled deterministic review layout; render pixels unchanged. Concept is resized only for display and has its own illustration lighting.",
       "tools": [
+        "Python 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
         "Pillow 12.3.0"
       ],
-      "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/compare_v2.py",
-        "podglad/v2/before",
-        "podglad/v2/after"
-      ],
+      "models": null,
       "material_version": [
         1,
         2
       ],
-      "normal_strength": 0.45
+      "sources": [
+        "source/compare_v2.py",
+        "podglad/v2"
+      ]
     },
     {
       "file": "podglad/v3/after/skin_front.png",
@@ -939,20 +1039,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "current v3 hero_skin_body_*.png",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 3,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v3/after/skin_hands_dorsal.png",
@@ -966,20 +1067,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "current v3 hero_skin_body_*.png",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 3,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v3/after/skin_profile.png",
@@ -993,20 +1095,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "current v3 hero_skin_body_*.png",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 3,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v3/before/skin_front.png",
@@ -1020,20 +1123,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "2701714 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 2,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "27017148d13eb9c422ff54da760775f7eb16a331",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v3/before/skin_hands_dorsal.png",
@@ -1047,20 +1151,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "2701714 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 2,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "27017148d13eb9c422ff54da760775f7eb16a331",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v3/before/skin_profile.png",
@@ -1074,20 +1179,21 @@
       "bit_depth": 8,
       "map": "diagnostic_render",
       "color_space": "sRGB / AgX",
-      "method": "Blender Cycles render from current body maps, unchanged CC0 body group, diagnostic orthographic closeup; no final hair, eyeballs or clothes.",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
       "tools": [
-        "Blender 4.3.2 / Cycles / 64 samples / seed 1703 / 4 threads"
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
       ],
       "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/render_check.py",
-        "2701714 skin maps",
-        "pinned mesh below"
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
       ],
       "material_version": 2,
-      "normal_strength": 0.45
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": false,
+      "sources": [
+        "source/render_check.py",
+        "27017148d13eb9c422ff54da760775f7eb16a331",
+        "pinned OBJ"
+      ]
     },
     {
       "file": "podglad/v3/porownanie.png",
@@ -1100,24 +1206,330 @@
       "channels": "RGB",
       "bit_depth": 8,
       "map": "comparison_sheet",
-      "color_space": "sRGB / AgX",
-      "method": "Side-by-side unaltered Cycles renders; no rescaling or color edits.",
+      "color_space": "sRGB / AgX for renders",
+      "method": "Labeled deterministic review layout; render pixels unchanged. Concept is resized only for display and has its own illustration lighting.",
       "tools": [
+        "Python 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
         "Pillow 12.3.0"
       ],
-      "models": [
-        "MakeHuman hm08 body"
-      ],
-      "sources": [
-        "source/compare_v2.py",
-        "podglad/v3/before",
-        "podglad/v3/after"
-      ],
+      "models": null,
       "material_version": [
         2,
         3
       ],
-      "normal_strength": 0.45
+      "sources": [
+        "source/compare_v2.py",
+        "podglad/v3"
+      ]
+    },
+    {
+      "file": "podglad/v4/after/skin_eye.png",
+      "sha256": "3c211cd258d25e5524f4487f913cd91285abffec3cbdd5396b81aa088833f86a",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
+      "tools": [
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
+      ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
+      "sources": [
+        "source/render_check.py",
+        "current v4 files",
+        "pinned OBJ"
+      ]
+    },
+    {
+      "file": "podglad/v4/after/skin_face_close.png",
+      "sha256": "25858a3022bcc9b9bbe101a02617840e83822ee02092e7a7a09d38fb57ce0d79",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
+      "tools": [
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
+      ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
+      "sources": [
+        "source/render_check.py",
+        "current v4 files",
+        "pinned OBJ"
+      ]
+    },
+    {
+      "file": "podglad/v4/after/skin_front.png",
+      "sha256": "d0a1779036a19c9784708635c9221d5628a10f4dfbd5ec65666b660131727350",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
+      "tools": [
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
+      ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
+      "sources": [
+        "source/render_check.py",
+        "current v4 files",
+        "pinned OBJ"
+      ]
+    },
+    {
+      "file": "podglad/v4/after/skin_profile.png",
+      "sha256": "cb0231e9f5f8b2a803eeb65509eb1c32a06fe9e7cfcef99008cae73e0ddda85a",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
+      "tools": [
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
+      ],
+      "material_version": 4,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
+      "sources": [
+        "source/render_check.py",
+        "current v4 files",
+        "pinned OBJ"
+      ]
+    },
+    {
+      "file": "podglad/v4/before/skin_eye.png",
+      "sha256": "cc2303a3cc79d57289102f959b5404bc89daf807bd6ad49eb6630d8d6bf1ab6a",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
+      "tools": [
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
+      ],
+      "material_version": 3,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
+      "sources": [
+        "source/render_check.py",
+        "35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "pinned OBJ"
+      ]
+    },
+    {
+      "file": "podglad/v4/before/skin_face_close.png",
+      "sha256": "64951f5b319760baeeb1e9ba8a265b1ad293671aa6a20ecd64b5314852346e90",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
+      "tools": [
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
+      ],
+      "material_version": 3,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
+      "sources": [
+        "source/render_check.py",
+        "35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "pinned OBJ"
+      ]
+    },
+    {
+      "file": "podglad/v4/before/skin_front.png",
+      "sha256": "6b8283e259bf64dc13ef0bf293aaf2c4669370918976911ec9e6a258f427eb58",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
+      "tools": [
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
+      ],
+      "material_version": 3,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
+      "sources": [
+        "source/render_check.py",
+        "35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "pinned OBJ"
+      ]
+    },
+    {
+      "file": "podglad/v4/before/skin_profile.png",
+      "sha256": "f777b824ba2aed4d0c30d6d954bbac535698c31428da0caf47fb4309a9cb1b42",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        768,
+        768
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "diagnostic_render",
+      "color_space": "sRGB / AgX",
+      "method": "Cycles rendering of unchanged native body UV/geometry; optional OBJ eye helpers with flat projected iris. Not final hair, sculpt or production cornea.",
+      "tools": [
+        "Blender 4.3.2 / 64 samples / seed1703 / 4 threads"
+      ],
+      "models": [
+        "MakeHuman hm08 CC0 body and, when marked, helper eyes"
+      ],
+      "material_version": 3,
+      "normal_strength": 0.45,
+      "diagnostic_eye_helpers": true,
+      "sources": [
+        "source/render_check.py",
+        "35df59f4c19b473530fd3fe316b35fc7b1739327",
+        "pinned OBJ"
+      ]
+    },
+    {
+      "file": "podglad/v4/koncept19-v4.png",
+      "sha256": "d090be74617c678674d59fb51417a64a5a87571d2e4d209a25311b009d8701b1",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        1536,
+        812
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "comparison_sheet",
+      "color_space": "sRGB / AgX for renders",
+      "method": "Labeled deterministic review layout; render pixels unchanged. Concept is resized only for display and has its own illustration lighting.",
+      "tools": [
+        "Python 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
+      ],
+      "models": null,
+      "material_version": [
+        3,
+        4
+      ],
+      "sources": [
+        "source/compare_v4.py",
+        "podglad/v4"
+      ]
+    },
+    {
+      "file": "podglad/v4/porownanie.png",
+      "sha256": "c77373ca3b2aa23d696e68187cefb6de3f80a47ac7b89a3c9e31776cef337d0a",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        1536,
+        3248
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "comparison_sheet",
+      "color_space": "sRGB / AgX for renders",
+      "method": "Labeled deterministic review layout; render pixels unchanged. Concept is resized only for display and has its own illustration lighting.",
+      "tools": [
+        "Python 3.12.14",
+        "NumPy 2.3.5",
+        "SciPy 1.17.0",
+        "Pillow 12.3.0"
+      ],
+      "models": null,
+      "material_version": [
+        3,
+        4
+      ],
+      "sources": [
+        "source/compare_v4.py",
+        "podglad/v4"
+      ]
+    },
+    {
+      "file": "podglad/v4/reference/concept19.jpg",
+      "sha256": "0be8241133ebc00ef269ca33acd241c1c8751564f6c2384881172f5a9bdd8849",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": [
+        1254,
+        1254
+      ],
+      "channels": "RGB",
+      "bit_depth": 8,
+      "map": "reference",
+      "color_space": "sRGB",
+      "method": "Unaltered repository concept19 version2; comparison reference, not copied into albedo.",
+      "tools": [
+        "Git read-only extraction"
+      ],
+      "models": null,
+      "sources": [
+        {
+          "repository": "DawidWrona92/RPG-OldSchool",
+          "commit": "eb3a2ec6282855e8b659970b10a677b4232d68fe",
+          "path": "docs/koncepty/19-bohater-twarz.jpg"
+        }
+      ]
     },
     {
       "file": "qa/v2_material_checks.json",
@@ -1128,13 +1540,13 @@
       "bit_depth": null,
       "map": "validation_report",
       "color_space": "not applicable",
-      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "method": "Authored source, documentation or recorded validation.",
       "tools": [
-        "Codex"
+        "Codex / Python"
       ],
       "models": null,
       "sources": [
-        "repository brief and references"
+        "repository requirements and author review"
       ]
     },
     {
@@ -1146,31 +1558,49 @@
       "bit_depth": null,
       "map": "validation_report",
       "color_space": "not applicable",
-      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "method": "Authored source, documentation or recorded validation.",
       "tools": [
-        "Codex"
+        "Codex / Python"
       ],
       "models": null,
       "sources": [
-        "repository brief and references"
+        "repository requirements and author review"
       ]
     },
     {
-      "file": "qa/validation.json",
-      "sha256": "99e1e8269ced6df1172a18cdf28224ce1b167809c012163053dddfa96181408f",
+      "file": "qa/v4_material_checks.json",
+      "sha256": "6213e85569638959e87c3067ad3aaace79e4154e57b639c5333ed58e9a626766",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
       "bit_depth": null,
       "map": "validation_report",
       "color_space": "not applicable",
-      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "method": "Authored source, documentation or recorded validation.",
       "tools": [
-        "Codex"
+        "Codex / Python"
       ],
       "models": null,
       "sources": [
-        "repository brief and references"
+        "repository requirements and author review"
+      ]
+    },
+    {
+      "file": "qa/validation.json",
+      "sha256": "d2ed6e69f3348e49c511ed957d8ebf68bea78d7811157c5c5843f16a4bf5d26e",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "validation_report",
+      "color_space": "not applicable",
+      "method": "Authored source, documentation or recorded validation.",
+      "tools": [
+        "Codex / Python"
+      ],
+      "models": null,
+      "sources": [
+        "repository requirements and author review"
       ]
     },
     {
@@ -1182,13 +1612,13 @@
       "bit_depth": null,
       "map": "documentation",
       "color_space": "not applicable",
-      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "method": "Authored source, documentation or recorded validation.",
       "tools": [
-        "Codex"
+        "Codex / Python"
       ],
       "models": null,
       "sources": [
-        "repository brief and references"
+        "repository requirements and author review"
       ]
     },
     {
@@ -1200,49 +1630,85 @@
       "bit_depth": null,
       "map": "documentation",
       "color_space": "not applicable",
-      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "method": "Authored source, documentation or recorded validation.",
       "tools": [
-        "Codex"
+        "Codex / Python"
       ],
       "models": null,
       "sources": [
-        "repository brief and references"
+        "repository requirements and author review"
+      ]
+    },
+    {
+      "file": "source/README-v3.md",
+      "sha256": "387332c7d62aad67735d9b4ab2200b53428aff8f4b777c6eee8a63d6c3c50f79",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "documentation",
+      "color_space": "not applicable",
+      "method": "Authored source, documentation or recorded validation.",
+      "tools": [
+        "Codex / Python"
+      ],
+      "models": null,
+      "sources": [
+        "repository requirements and author review"
       ]
     },
     {
       "file": "source/aging_v2.py",
-      "sha256": "dab6b12646ac3492dd84a46a8973b9dfc81d54c6d6ca5d86438fe5f73a2be21a",
+      "sha256": "23957a394df3fd0db152d37d16003c4561c3ec8e36bd2709f3c26a1c0b8b6187",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
       "bit_depth": null,
       "map": "source_script",
       "color_space": "not applicable",
-      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "method": "Authored source, documentation or recorded validation.",
       "tools": [
-        "Codex"
+        "Codex / Python"
       ],
       "models": null,
       "sources": [
-        "repository brief and references"
+        "repository requirements and author review"
+      ]
+    },
+    {
+      "file": "source/build_eye.py",
+      "sha256": "d388e13c5aef23d9f6084cb7c167fe31b94e725bae31c2d602da953b76d142ef",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "source_script",
+      "color_space": "not applicable",
+      "method": "Authored source, documentation or recorded validation.",
+      "tools": [
+        "Codex / Python"
+      ],
+      "models": null,
+      "sources": [
+        "repository requirements and author review"
       ]
     },
     {
       "file": "source/build_maps.py",
-      "sha256": "2bf1b7ca9fc6e3ee7d96056119dab74086a1e1a2e066ef73a440c6d100eca396",
+      "sha256": "90722acf2efccadb21d58d0dee8633bcde9f14a9f88e179a3d8489cff6f07445",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
       "bit_depth": null,
       "map": "source_script",
       "color_space": "not applicable",
-      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "method": "Authored source, documentation or recorded validation.",
       "tools": [
-        "Codex"
+        "Codex / Python"
       ],
       "models": null,
       "sources": [
-        "repository brief and references"
+        "repository requirements and author review"
       ]
     },
     {
@@ -1254,67 +1720,103 @@
       "bit_depth": null,
       "map": "source_script",
       "color_space": "not applicable",
-      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "method": "Authored source, documentation or recorded validation.",
       "tools": [
-        "Codex"
+        "Codex / Python"
       ],
       "models": null,
       "sources": [
-        "repository brief and references"
+        "repository requirements and author review"
+      ]
+    },
+    {
+      "file": "source/compare_v4.py",
+      "sha256": "712e7aa9dfa70df570433544ac05602a78e5d56905e7531db2d88311e20e6518",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "source_script",
+      "color_space": "not applicable",
+      "method": "Authored source, documentation or recorded validation.",
+      "tools": [
+        "Codex / Python"
+      ],
+      "models": null,
+      "sources": [
+        "repository requirements and author review"
+      ]
+    },
+    {
+      "file": "source/face_v4.py",
+      "sha256": "814b3119f54ec154d7dd61deb22823f52e2e3c4853bd60940b1169aa35b019c0",
+      "status": "PROTOTYPE_NOT_APPROVED",
+      "resolution": null,
+      "channels": null,
+      "bit_depth": null,
+      "map": "source_script",
+      "color_space": "not applicable",
+      "method": "Authored source, documentation or recorded validation.",
+      "tools": [
+        "Codex / Python"
+      ],
+      "models": null,
+      "sources": [
+        "repository requirements and author review"
       ]
     },
     {
       "file": "source/render_check.py",
-      "sha256": "b9f4fe600b08a40be30932cf14a6d03c0d80b7ac2dea1a2ca9b400e4381c5a46",
+      "sha256": "a4b0832ee36f642e651cd6276a8c0b68b1f388432b4f136081bb8970058e595f",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
       "bit_depth": null,
       "map": "source_script",
       "color_space": "not applicable",
-      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "method": "Authored source, documentation or recorded validation.",
       "tools": [
-        "Codex"
+        "Codex / Python"
       ],
       "models": null,
       "sources": [
-        "repository brief and references"
+        "repository requirements and author review"
       ]
     },
     {
       "file": "source/validate.py",
-      "sha256": "d9c95ef81efb25768f46bcdb26676b82d74808f64d8d56be0dfd7f7c91b92830",
+      "sha256": "c10b119f6a412ffdc682ee544f4a42e09ecab16f017c7940db31e7efe728c87d",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
       "bit_depth": null,
       "map": "source_script",
       "color_space": "not applicable",
-      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "method": "Authored source, documentation or recorded validation.",
       "tools": [
-        "Codex"
+        "Codex / Python"
       ],
       "models": null,
       "sources": [
-        "repository brief and references"
+        "repository requirements and author review"
       ]
     },
     {
       "file": "source/write_manifest.py",
-      "sha256": "7688c309be3de8870af63468543fdff3c3e03151de95f7291b40f96043bf0ced",
+      "sha256": "3c18920d7ad1398d117c34fc4d1590f4947339e4cae6bba3f2e12eed6218f8f0",
       "status": "PROTOTYPE_NOT_APPROVED",
       "resolution": null,
       "channels": null,
       "bit_depth": null,
       "map": "source_script",
       "color_space": "not applicable",
-      "method": "Authored package documentation, reproducible technical generation or validation.",
+      "method": "Authored source, documentation or recorded validation.",
       "tools": [
-        "Codex"
+        "Codex / Python"
       ],
       "models": null,
       "sources": [
-        "repository brief and references"
+        "repository requirements and author review"
       ]
     }
   ]
