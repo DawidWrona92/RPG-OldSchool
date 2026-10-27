@@ -11,7 +11,7 @@ Autorstwo commitów nie identyfikuje wykonawcy (część pracuje z konta autora)
 | **Claude** (Anthropic) | PM: dokumentacja na `main`, review, decyzje do autora, narzędzia kontroli | `main` przez krótkie gałęzie `porzadki/*` | review i koordynacja; [test silnika](SILNIK.md) na `vibe/godot-test-silnika` | ten plik, [INDEX](INDEX.md), ostatnie review w `docs/art/` | akceptuje bramki razem z autorem |
 | **GPT Sol** (OpenAI) | bohater — wzór postaci ludzkiej: model, szkielet, strój, render, animacje | `vibe/sprite-bohater-codex` | fazy F0–F3 [planu naprawy](art/characters/PLAN-NAPRAWY-BOHATERA.md) | [plan naprawy](art/characters/PLAN-NAPRAWY-BOHATERA.md), [review](art/characters/REVIEW-BOHATER-01.md), [kontrakt](art/KONTRAKT-RENDERU.md) | bierze tekstury od GPT 6; oddaje P1/P2 dla GPT 6 |
 | **GPT 6** (OpenAI) | unikatowe tekstury bohatera | `vibe/hero-textures-gpt6` | skóra i oko — v3 (`bc1da51`); część B (strój) czeka na P2 od Sola | [brief tekstur](art/characters/tekstury-bohatera/BRIEF-TEKSTURY.md) | oddaje tekstury Solowi (T1, T2) |
-| **GLM 5.3** (Z.ai) | przyroda i teren: kamienie, runo, pniaki, drzewa | `vibe/environment-stones-mistral` | grupa A (kamienie) — poprawki; potem grupy B–D | [plan przyrody](koncepty/przyroda/PLAN-ASSETOW.md), [kontrakt](art/KONTRAKT-RENDERU.md) | niezależny; test skali z klatką bohatera |
+| *wakat* | przyroda i teren: kamienie, runo, pniaki, drzewa | następca: nowa gałąź od `6882bad` | **do przejęcia** — [pakiet przejęcia](koncepty/przyroda/PRZEJECIE-PRZYRODY.md) | [pakiet przejęcia](koncepty/przyroda/PRZEJECIE-PRZYRODY.md), [plan przyrody](koncepty/przyroda/PLAN-ASSETOW.md) | niezależny; test skali z klatką bohatera |
 
 ## Zamknięte i archiwalne
 
@@ -21,6 +21,7 @@ Autorstwo commitów nie identyfikuje wykonawcy (część pracuje z konta autora)
 | Walidator mapy świata i 16 testów | GPT 6 | scalone z `main` (`tools/world/`) |
 | Przewodnik artystyczny Niemiru | GPT 6, potem aktualizacje PM | na `main`, v1.2 |
 | Plan przyrody i arkusze konceptów | GLM 5.3 | scalone z `main` |
+| `vibe/environment-stones-mistral` — przyroda: kamienie, głazy, żwir, płyty, runo, krzewy | GLM 5.3 | **wstrzymany 27.10.2026** (decyzja autora); stan `6882bad`, przejęcie: [pakiet](koncepty/przyroda/PRZEJECIE-PRZYRODY.md) |
 | `obsolete-sprites` — sprite'y dawną metodą (pixel-art, SDF) | Claude i inni | archiwum, bez dalszej pracy |
 | `vibe/environment-forest-prototype-gpt6` — prototyp skraju lasu | GPT 6 | archiwum przed kontraktem renderu |
 | `vibe/environment-wagon-blockout` — bryła wozu | *do uzupełnienia przez autora* | prototyp; wóz wymaga nowej realizacji według kontraktu |
