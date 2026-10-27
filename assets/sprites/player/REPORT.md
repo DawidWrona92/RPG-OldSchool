@@ -1,117 +1,152 @@
-# Wynik eksperymentu bohatera Weleszy
+# Bohater Weleszy — dopracowanie zatwierdzonego prototypu
 
-27 października 2026. **Nie osiągnięto jakości dostarczonego concept artu.**
-Powstał odtwarzalny model i zestaw animowanych sprite'ów, ale materiały,
-twarz, włosy i konstrukcja ubioru nadal wyglądają zbyt prosto. Sprawność
-eksportu nie jest uznana za odbiór artystyczny ani gotowość produkcyjną.
+**Status: wersja do ponownej oceny autora. Kierunek zatwierdzony, bieżący asset
+nie ma zatwierdzenia produkcyjnego.** Gałąź `vibe/sprite-bohater-codex`.
+Punkt „przed”: `a0a6c27e33b5d634e1ccad59e7634e4ab4d7ccde`, zachowany razem
+z modelem w [baseline](baseline/checkpoint.json). To ta sama postać i szkielet;
+nie rozpoczęto ataków, uników, śmierci ani innych postaci.
 
-## 1. Technologia
+## Materiał do przeglądu
 
-Blender 4.3.2 / Cycles CPU, organiczna baza człowieka MakeHuman CC0, osobne
-wykroje ubrań, 17-kościowy szkielet, IK i deformacja wtórna płaszcza.
-Wybrano siatkę, żeby zapewnić anatomię twarzy, ciągłą powierzchnię człowieka
-i standardowy plik do dalszej pracy. Nie modyfikowano SDF ani innych postaci.
+- [Odtwarzacz przed/po, osiem kierunków 1:1](previews/review.html).
+- [Osiem kierunków przed/po 1:1](previews/porownanie-kierunki-1x.png).
+- [Chód przed/po](previews/porownanie-chod-1x.gif), [spoczynek przed/po](previews/porownanie-spoczynek-1x.gif).
+- [Chód na ruchomym podłożu — osiem kierunków](previews/chod-podloze-8-kierunkow-1x.gif).
+- [Większe rzeczywiste rendery modelu przed/po](previews/model-zrodlowy-przed-po.png).
+- [Włosy, zarost i oczy — zbliżenie przed/po korekcie autora](previews/wlosy-zarost-przed-po.png).
+- [Broń N/NW w fazach chodu, dwa podłoża](previews/bron-N-NW-1x.gif).
+- [Miecz dobyty / w pochwie — opcja do wyboru](previews/bron-dobyta-pochwa-1x.png).
+- [Bazowe, chłodne i ciepłe światło — osiem kierunków](previews/materialy-swiatlo-8-kierunkow-1x.png).
+- [Ilustracja koncepcyjna 17 z osobnym sprite'em](previews/koncept17-porownanie-1x.png).
+- [Edytowalny model nadrzędny](source/bohater.blend), [pochodzenie i materiały](source/art-source.json), [eksport](atlas/bohater.json).
 
-Nie wykonano porównania wydajności tego samego modelu w dwóch rendererach,
-więc nie deklarujemy wykazanej przewagi jakościowej Blendera nad SDF.
-Obejrzano istniejące rendery i klatki GIF Drwala. Psa nie ma na gałęzi bazowej.
+Zbliżenie włosów „przed” jest stanem sprzed korekty fryzury (`c064e98`),
+po integracji materiałów, a nie pierwotnym checkpointem `a0a6c27`.
+Porównania całej postaci używają oryginalnego checkpointu. Portrety diagnostyczne
+mają bliższą kamerę; nie są podglądem skali gry. Większe rendery całej postaci
+powstały w 1152 px przy tej samej kamerze i skali świata co sprite 192 px.
 
-## 2. Obrazy i eksport
+## Co zmieniono
 
-- [Osiem kierunków 1:1](previews/osiem-kierunkow-1x.png).
-- [Źródłowe rendery 384 px](previews/osiem-kierunkow-render-384.png), bez powiększania obrazu 192 px.
-- [Próba w świecie, bez zmiany skali tła](previews/bohater-w-swiecie-1x.png).
-- [Atlasy i JSON](atlas/bohater.json), [wariant poprzedniego formatu](atlas/compat/bohater.json).
-- [Model `.blend`](source/bohater.blend), [generator](source/build_player.py), [odtworzenie](README.md).
+**Ubranie i materiały.** Zachowano topologię płaszcza i jego istniejące klucze,
+zmieniając rozkład fałd, ukośne napięcie tkaniny i nierówny dół. Zmniejszono
+objętość lnu pod kaftanem, dopasowano otwarcie skórzanych połaci i ich brzegi,
+dodano miejscowe zagniecenia rękawów i kolan. Grubość tkaniny nadal jest
+geometrią. Naprawiono wskazany przez autora jasny fragment przy kroczu:
+to był zbyt długi, źle zakryty dół tuniki. Teraz dolne pierścienie koszuli są
+wpuszczone pod pas i spodnie; nie wystają między nogawkami.
 
-Klatka 192×192 RGBA, 60 px/m, kamera ortograficzna 30°, kotwica
-(96, 158.353829). Kierunki S, SW, W, NW, N, NE, E, SE są oddzielnymi
-obrotami tego samego modelu. Postać i fizyczny cień są osobnymi atlasami;
-kontaktowy cień ma jawne ograniczenie zasięgu opisane w README.
+Zintegrowano trzy paczki z biblioteki autora: len, wełnę, skórę kaftana,
+spodnie, buty, plecak, płótno posłania, rzemienie, żelazo, stal, skórę człowieka
+i włosy. Dostarczone normal mapy pozostają w repozytorium; w shaderach użyto
+alternatywnie subtelnego **height → Bump**, bez podwójnego reliefu.
+Basecolor sRGB, pozostałe dane Non-Color, metale mają mapy Metallic.
 
-## 3. Zgodność z referencją
+Pierwszy pilot wełny dawał zbyt plamisty efekt — [zachowany przykład](previews/iterations/materialy-pilot01-zbyt-plamiste.png).
+Udział tej bazy w kolorze obniżono do 22%, skóry do 48%. Pozostałe kanały nadal
+wpływają na reakcję materiału. Nie rozjaśniono globalnie sceny ani ekspozycji.
+Maska zużycia z biblioteki jest mnożona przez odległość od rzeczywistych krawędzi
+siatki; wilgoć i lokalny decal błota ograniczono do niskich partii stroju.
+Trim szwów przypisano wyłącznie istniejącym krawędziom kaftana i klinom plecaka.
 
-Obejrzano nowy arkusz autora w rozmowie: przód, tył i profil podróżnika oraz
-scenę z rozbitym wozem. Zmieniono płaszcz na dłuższy i brązowy, rękawy na
-podwinięte, odsłonięto przedramiona, poszerzono spodnie, dodano wyraźniejsze
-pasma włosów i pochwę. Miecz pozostaje dobyty na potrzeby próby animacji;
-w koncepcie znajduje się w pochwie. To interpretacja do oceny, nie nowy kanon.
+UV są stabilne względem pozy spoczynkowej: V ma okres 0,32 m, U całkowitą liczbę
+powtórzeń wokół wykroju (dla płaszcza cztery). Plecak używa projekcji YZ,
+posłanie cylindra wzdłuż Y; stal mapowania wzdłuż rzeczywistej głowni.
+To kontrolowane mapowanie robocze, nie pełny produkcyjny unwrap każdego wykroju.
 
-**Brakuje** nieregularnego układu tkanin, wiarygodnych śladów zużycia,
-charakterystycznej twarzy i włosów, szycia oraz przestrzennego detalu skóry
-wyprawionej. W 1:1 część elementów zlewa się w jednolite powierzchnie.
-Przyczyną jest niedostateczne dopracowanie modelu i tekstur, a nie brak
-Blendera czy konieczność powiększenia bohatera. Więcej próbek renderowania
-nie naprawi tych wad.
+**Plecak i posłanie.** Dodano klinowe szwy, kieszenie, szelki prowadzone przez
+barki do korpusu, miękkie zagniecenie klapy i obrzeże płótna. Rozróżniono
+skórę plecaka i płótno posłania. Drobna bezwładność jest zapisana w kluczach
+kształtu; nie ma symulacji fizyki luźnego ładunku.
 
-Kompozyty wykorzystują rzeczywistą scenę 12 z repozytorium. Nowy arkusz
-z rozmowy nie jest dostępny jako lokalny plik, więc nie deklarujemy montażu
-na jego dokładnych pikselach. Warianty chłodu i pochodni wyrenderowano
-oddzielnie; pochodnia nie została wypieczona w atlasach bazowych.
+**Głowa.** Po uwadze autora zmieniono gładką krótką powłokę na nieregularne
+pasma grzywki, przy uszach i karku, z drobnymi włóknami przy nasadzie. Zarost
+przeniesiono z błędnie wybranej wysokości nosa na policzki, żuchwę i podbródek;
+dodano wąs i przejście gęstości. Poprawiono osadzenie gałek i tęczówek
+wewnątrz oczodołów oraz łuki brwi. To interpretacja fryzury z planszy 17,
+nie identyczna twarz z ilustracji. Palce zachowują istniejący model i chwyt;
+nie dodano osobnego rigu palców ani animacji twarzy.
 
-## 4. Animacje
+**Ruch.** Zachowano `spoczynek` i `chod`. Zmieniono bob i kołysanie miednicy,
+przeciwskręt klatki, stabilizację głowy i opóźnienie swobodnego ramienia.
+Stopa przechodzi z podparcia piętą do wybicia palcem. Płaszcz i ładunek mają
+niewielkie, opóźnione klucze wtórne. Podłoże w podglądzie przesuwa się z
+prędkością zgodną z cyklem; siatka ma okres pozwalający zapętlić ruch bez skoku.
+To animacja kluczowana, bez mocapu i symulacji tkaniny.
 
-- [Spoczynek GIF](previews/bohater_spoczynek.gif): 8 klatek, cykl 3,2 s.
-- [Chód GIF](previews/bohater_chod.gif): 12 klatek, cykl 0,96 s.
-- [Chód bez stratnego indeksowania GIF](previews/bohater_chod.webp).
-- [Próba podparcia na ruchomym podłożu](previews/chod-kontakt-stop.gif).
-- [Wszystkie klatki W](previews/chod-klatki-W-1x.png), [wszystkie klatki NW](previews/chod-klatki-NW-1x.png).
+## Broń — propozycja i otwarta decyzja
 
-Prędkość przesuwania w grze: 0,9027777778 m/s. Kontakt stopy jest obliczony
-dla tej prędkości. Ruch górnej części ciała pozostaje zbyt sztywny; nie ma
-pełnego rolowania stopy pięta–palce ani symulacji tkaniny. Jest to wstępny
-cykl chodu, nie zaakceptowana animacja o jakości zlecenia premium.
+Głownia nadal ma 0,70 m długości i 0,044 m szerokości. Nie powiększono jej do
+licznika pikseli. Dodano fizyczną fazę szlifu 0,8 mm i osobny materiał stali.
+Wypróbowano niższe niesienie na zewnątrz, a następnie bardziej zrównoważone
+niesienie przy biodrze: dłoń około (0,01; −0,40; 1,07) m, kierunek ostrza
+(0,40; −0,40; −0,82), znormalizowany. Broń i palce obracano wspólnie wokół
+nadgarstka. Wymiana pozy ma poprawić odcięcie od ciała, nie tylko maskę.
 
-## 5. Ocena wzrokowa i kontrole
+Decyzja, czy podczas eksploracji miecz jest stale dobyty, **pozostaje otwarta**.
+Osobny podgląd odkłada tę samą geometrię do istniejącej pochwy. Nie jest to
+ukończona akcja chowania miecza ani gotowy wariant swobodnego ruchu dłoni.
+Nie włączono go do atlasów bazowych i nie zapisano na stałe w modelu.
 
-Oceny są samokrytyczną oceną przedstawionych obrazów, nie benchmarkiem:
+## Kontrakt i kompozycja
 
-| Obszar | Ocena | Uzasadnienie |
-|---|---:|---|
-| Anatomia | 6/10 | Spójna baza i długości kończyn; twarz i dłonie wymagają indywidualnego dopracowania. |
-| Materiały | 4/10 | Osobne właściwości odbicia, lecz zbyt gładkie powierzchnie i za mało przekonującego zużycia. |
-| Animacja | 5/10 | Pętle i podparcie działają; barki, dłonie i przenoszenie ciężaru są nadal mechaniczne. |
-| Czytelność | 6/10 | Ubiór i wyposażenie są rozpoznawalne; broń w NW/N pozostaje słaba wizualnie. |
-| Zgodność z referencją | 4/10 | Zbliżony zestaw ubioru i paleta, wyraźnie niższa jakość geometrii i materiałów. |
-| Gotowość do gry | 4/10 | Poprawny pakiet techniczny; brak odbioru artystycznego, integracji w silniku i animacji walki. |
+| Parametr | Wynik |
+|---|---|
+| Klatka / alfa | 192×192 RGBA, premultiplikowane zmniejszenie z 384×384 |
+| Kotwica | (96, 158.353829), bez przesuwania klatek |
+| Kierunki | S, SW, W, NW, N, NE, E, SE; osiem obrotów, bez odbić |
+| Kamera / skala | ortograficzna 30°, kadr 3,2 m, 60 px/m; anatomia 1,8 m |
+| Spoczynek | 8×400 ms, cykl 3,2 s |
+| Chód | 12×80 ms, cykl 0,96 s; 0,9027777778 m/s |
+| Atlas spoczynku / chodu | 1536×1536 / 2304×1536; kolumny = fazy, wiersze = kierunki |
+| Cień | oddzielny shadow catcher; kompatybilny eksport z cieniem w klatce zachowany |
 
-Rzeczywiście wykonane kontrole:
+Żaden parametr globalnego kontraktu gry nie został zmieniony. Objętość włosów
+jest geometrią fryzury, nie zmianą skali całego bohatera. Ciepła pochodnia jest
+osobnym renderem, nie elementem wszystkich klatek bazowych.
 
-- **160 klatek**: odczyt PNG, SHA-256 źródła i obrazów, alfa, granice postaci/cienia, atlas/JSON, osiem różnych kierunków.
-- **242 pozy** szkieletu, **22 klucze** zapisanych akcji i zamknięcie obu cykli; błędy stawów/długości poniżej 0,000001 m.
-- **13 próbek podparcia**: maksymalny błąd kompensacji ruchu ok. 0,0000000043 m. To kontrola matematyczna, nie dowód naturalności ruchu.
-- **32 renderowane maski broni**: spoczynek oraz chód 0/4/8 w każdym kierunku, minimum 7 widocznych pikseli przy niezmienionym progu 4. Pierwotne niepowodzenia opisuje `source/REFERENCE.md`.
-- **Ponowny render z `.blend`**: obraz pierwszej klatki S identyczny piksel po pikselu z dostarczonym PNG.
-- **5 grafów** dokumentacji projektu: poprawne.
+Planszę 17 pobrano z `main` (`7ce5c4b`), materiały z `c6c1a67` i `ff74eb7`
+na wskazanej gałęzi, bez zmiany `main` i cudzych gałęzi. Kompozyty sceny przy
+wozie są **ilustracją koncepcyjną, nie działającą sceną gry**. Tła nie skalowano;
+przyjęto lokalnie 60 px/m przy kotwicy (590,810), ponieważ ilustracja nie ma
+pewnej skali świata. Sprite zachowuje natywne wymiary, również w wycinkach.
 
-Szczegóły: `previews/technical-report.json`, `blend-validation.json`,
-`render-validation.json`; test wznowienia: `resume-validation.json`.
-Nie wykonano pełnej detekcji kolizji ubrania, importu w docelowym silniku,
-walki ani walidacji odtworzenia w nowym zadaniu chmurowym.
+## Źródła, pochodzenie, ochrona
 
-## 6. Repozytorium i licencje
+`source/bohater.blend` jest nadrzędnym edytowalnym źródłem, z zapakowanymi PNG
+i akcjami. Eksport nie wywołuje generatora modelu ani recept dopracowania,
+nie zapisuje `.blend`. Walidacja ruchu czyta rzeczywiste zapisane akcje zamiast
+przywracać pozy proceduralne. Ręcznie poprawione klucze nie są nadpisywane.
+Archiwalny bootstrap wymaga nowego pliku i odmawia nadpisania źródła artystycznego.
+Historia i manifesty odróżniają kolejne jawne pasy edycji od wygenerowanych wyników.
 
-Gałąź: `vibe/sprite-bohater-codex`. Pełny punkt kontrolny wyników po nowej
-referencji: `49742e1`. Kolejne drobne commity zawierają raport i kontrole;
-aktualny pełny SHA pokazuje `git log -1`. Praca jest wysyłana na GitHub;
-nie utworzono PR i nie zmieniono cudzych gałęzi.
+Anatomia i dane rigu MakeHuman są przypięte do
+`a8bc2d54ff0ac92e78ff71431b1023eda42bf482`, CC0-1.0; licencja i SHA zachowane.
+54 dostarczone PNG sprawdzono względem manifestów Git blob. Biblioteka opisuje
+je jako autorskie obrazy proceduralne bez stocku; nie są pomiarowymi materiałami
+PBR i nie przypisujemy im licencji CC0 danych MakeHuman. Nie dodano zasobów
+zewnętrznych o niejasnym pochodzeniu.
 
-Całość mieści się w `assets/sprites/player/`. Baza MakeHuman jest CC0-1.0;
-zachowano licencję, przypiętą wersję i sumy źródeł. Nie korzystano
-z assetów o niejasnej licencji ani z kodu aplikacji MakeHuman.
+## Ograniczenia wymagające dalszej oceny
 
-## 7. Decyzja produkcyjna
+Wygląd nadal jest bardziej stylizowany i prostszy niż ilustracja. Nasada włosów
+i drobne pasma mogą wymagać kolejnego groomingu; głowa jest neutralną bazą,
+a nie wyrzeźbionym portretem mężczyzny z planszy. Nie deklarujemy poziomu
+fotorealistycznego konceptu. Większość mikrofaktury i szczegółów twarzy zanika
+w skali gry, dlatego do oceny są również widoki 1:1.
 
-**Nie rekomenduję jeszcze migracji pozostałych postaci.** Przydatny wynik
-to powtarzalny eksport, standardowy model, kontrola szkieletu i oddzielne
-obrazy/cienie. Nie wykazano osiągnięcia zakładanego poziomu artystycznego.
+Plecak ma roboczą projekcję UV, która może rozciągać detal na bocznych ściankach.
+Nie wykonano pomiarowej kontroli każdego szwu UV ani testu we wszystkich filtrach
+nieustalonego silnika. Nie ma dynamicznej tkaniny, pełnej animacji palców,
+ciągłej kontroli kolizji ani sprawdzenia wszystkich samoprzecięć. Gęste próbki
+szkieletu nie stanowią dowodu naturalności animacji.
 
-Dalsza próba powinna dopracować twarz, włosy, modelowanie fałd i tekstury
-ubioru, po czym ponownie przejść ocenę 1:1 w ośmiu kierunkach. Przed pracą
-ręczną warto oddzielić autorstwo modelu od generatora, żeby regeneracja
-nie nadpisywała poprawek artysty. Dopiero po akceptacji wyglądu ma sens
-rozbudowa o ataki, uniki i kolejne postacie.
+Wcześniejszy test powierzchni podeszwy wykazał do około 3,7 mm zagłębienia przy
+wybiciu (około 0,22 px w rzucie poziomym); końcowy raport zachowuje rzeczywisty
+pomiar, oddzielnie od idealnego kontaktu pivotu. To ograniczenie obecnej siatki
+buta, nie „pełna poprawność kontaktu” na podstawie samego wzoru.
 
-Raportowany czas renderowania 160 par postać/cień wyniósł łącznie około
-573 s na czterech wątkach CPU, bez etapu modelowania i walidacji. Nie
-przeprowadzono pomiaru GPU ani automatycznej produkcji dużej obsady.
+Wyniki końcowych kontroli i konkretne słabe fazy zostaną dopisane poniżej po
+zakończeniu renderowania bieżącej rewizji. Bieżące dane maszynowe są w
+`previews/*validation.json` i `previews/technical-report.json`; sprawdzaj zgodność
+ich SHA źródła z `source/art-source.json`.

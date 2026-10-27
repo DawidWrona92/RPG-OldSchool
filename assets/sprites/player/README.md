@@ -52,7 +52,7 @@ Przed ręczną edycją zapisuj commit, a po niej aktualizuj opis źródła w
 | `source/motion_player.py` | Recepta dopracowania kluczy; renderer korzysta z kluczy zapisanych w `.blend`, więc zachowuje późniejsze ręczne poprawki |
 | `source/third_party/` | Przypięte źródła MakeHuman CC0 i licencja |
 | `renders/`, `atlas/`, `previews/` | Wyniki generowane; można odtworzyć z zapisanego `.blend` i skryptów |
-| `baseline/` | Chroniony punkt porównawczy; pełny oryginał odzyskiwalny z commitu w `checkpoint.json` |
+| `baseline/` | Chroniony punkt porównawczy; model i atlasy zachowane lokalnie; pełny oryginał również w commicie z `checkpoint.json` |
 
 Nie uruchamiaj bootstrapu jako sposobu eksportowania poprawek. Dostarczony
 `.blend` wystarcza do odtworzenia obrazu bez ponownego budowania postaci,
@@ -62,8 +62,8 @@ render od ścieżki roboczej; oryginalne PNG pozostają osobno w bibliotece.
 ## Materiały
 
 Pobrano planszę 17 z aktualnego `main` (`7ce5c4b`) i wyłącznie zasoby materiałowe
-z `vibe/hero-materials-chunk02-gpt6` (`c6c1a67`). Nie zmieniono tych gałęzi.
-28 PNG zweryfikowano względem SHA Git blob z dwóch dostarczonych manifestów.
+z `vibe/hero-materials-chunk02-gpt6` (`c6c1a67`, następnie `ff74eb7`). Nie zmieniono tych gałęzi.
+54 PNG zweryfikowano względem SHA Git blob z trzech dostarczonych manifestów.
 Ich opis: autorskie obrazy proceduralne, bez zewnętrznych fotografii; materiały
 robocze, nie pomiarowe PBR. Nie przypisujemy im nowej licencji CC0.
 
@@ -77,7 +77,7 @@ robocze, nie pomiarowe PBR. Nie przypisujemy im nowej licencji CC0.
 | `leather_backpack_aged` | główna bryła plecaka, klapa, kieszenie |
 | `canvas_bedroll_ashen` | zrolowane posłanie |
 
-UV w przestrzeni spoczynkowej: powtarzanie metryczne 0,32 m, cylindry ze szwem
+UV w przestrzeni spoczynkowej: V 0,32 m, U całkowita liczba powtórzeń, cylindry ze szwem
 z tyłu dla tkanin/butów, projekcja YZ plecaka, cylinder wzdłuż Y posłania.
 Basecolor sRGB; roughness i height Non-Color. Użyto **height → subtelny Bump**;
 normal OpenGL zachowano w dostarczonej paczce, ale nie podłączono, aby nie
@@ -88,7 +88,7 @@ ograniczono do 22%, skóry do 48%. Len zachowuje większy udział mapy. Różnic
 materiałów wspiera forma, kolor, roughness i geometria fałd, nie sam mikrosplot.
 Atrybut `wear_mask` dodaje miejscowe błoto do butów, dolnych nogawek i płaszcza.
 To maska wykonana na tym modelu, nie oczekujący jeszcze zewnętrzny zestaw masek.
-Metali, rzemieni i masek kolejnej paczki nie deklarujemy jako zintegrowanych.
+Później dołączono także Chunk03: metale, rzemienie, skórę człowieka, włosy i cztery nakładki. Maska krawędzi pochodzi z geometrii; dostarczony breakup ją moduluje. Błoto działa jako lokalny decal RGBA, a szwy wyłącznie na istniejących obszyciach.
 
 ## Kontrakt i ruch
 

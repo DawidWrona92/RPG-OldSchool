@@ -13,9 +13,9 @@
     96,
     158.35382907247958
   ],
-  "source_blend_sha256": "e55d5faa044b6e5a36a73f8e0cd6e3f2ee455459698b5256f27b22cd2991d661",
-  "renderer_sha256": "4bb150cbf849b77da8bce60bf06da959d75b1e40cf6fdceb07169d531b094ee3",
-  "art_revision": "refinement-03",
+  "source_blend_sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3",
+  "renderer_sha256": "ed6aa69e4095aaf3541686af0ab21fddd6644b867fb6288bacf6e8145ec819a1",
+  "art_revision": "refinement-08-review",
   "render": {
     "blender": "4.3.2",
     "engine": "CYCLES",
@@ -30,7 +30,7 @@
   },
   "frames": {
     "spoczynek_0_00.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -77,11 +77,11 @@
         }
       },
       "phase": 0.0,
-      "image_sha256": "36d4c6448cd8a18dfbe5aab17a63a527f7cba7de8096081547611f75cfa36bf7",
-      "shadow_sha256": "f8f3269ce5bd9e423e5cc94048eda5873bdfa349d810791e53ffdb413ecfdc11"
+      "image_sha256": "8f73ea35c04e7468feaf2c018d1d2717ff2269204704fe6ba2317225cecab2e9",
+      "shadow_sha256": "dc529f2e15324a36d2eab72bbfe05ca57d24a5b50787ddc1f758e861f80a1887"
     },
     "spoczynek_0_01.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -128,11 +128,11 @@
         }
       },
       "phase": 0.125,
-      "image_sha256": "81671ee9d06ab98070c665c703ee8086e422a68abfcd5c32d53ddec89591271d",
-      "shadow_sha256": "6a62b146686cd3eb78b4aa96eab0ddc5be27ab2be1e1e0e4007a82748a2f0f66"
+      "image_sha256": "593baa5f57d5e0c021738d9d307c8b530162609d0fcefb6df51c7fd06ffcf7f9",
+      "shadow_sha256": "511ed66c2bc04d7546456d49c70b4811377febb7f594d0a5120f3c0fa23761cf"
     },
     "spoczynek_0_02.png": {
-      "max_joint_gap_m": 5.308244565295242e-07,
+      "max_joint_gap_m": 2.086162567138672e-07,
       "max_bone_length_error_m": 1.3237904700202918e-07,
       "feet": {
         "L": {
@@ -179,11 +179,11 @@
         }
       },
       "phase": 0.25,
-      "image_sha256": "bde41275861e1ee8eeadace905d019dfe2f7a430970c029d035189fa963d5aa6",
-      "shadow_sha256": "8392c5267296bffef23d5e2c2ee547b1d2dc91351a8f9e5f8db4ca02c5af47af"
+      "image_sha256": "c7a5ecfc49bde0ad8f8064dc01bdafa4127ba08d581d7395d208d71e4e01dffe",
+      "shadow_sha256": "44f08e6f4c86f2ca36c86efe9f213d42ff096b6c3dd00ecc841474620c05fbeb"
     },
     "spoczynek_0_03.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -230,11 +230,11 @@
         }
       },
       "phase": 0.375,
-      "image_sha256": "cae4894096fb1c79c043478a9a4db9ac991c19e1d265ce476afd5f0f5f3ff8b0",
-      "shadow_sha256": "46d2b41f459abae0d0e20196d46e8a20ddabb7fd8c34cdb433226e31e060eeaa"
+      "image_sha256": "e76f0f6a8bbaf399a318693f18ed06552281b2a663d26594d7dcdacdf05a95fb",
+      "shadow_sha256": "bab5dbb55b56cb4e21e15672c4805297515d80f20f5023955e7c855c1c922f69"
     },
     "spoczynek_0_04.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -281,11 +281,11 @@
         }
       },
       "phase": 0.5,
-      "image_sha256": "303cee0d6e5e5402f5c4a526ae9f91a744b0a64faf929e2dacc47d5b4bbbe00e",
-      "shadow_sha256": "40f6ee1b172a7d8189d7cc7c266fb61e7c141046391884bb0965c70a33b7d40b"
+      "image_sha256": "adf588ad4e7e76140971f6e84b4d853d787f8e4af075922e6cc9546ebc4afa37",
+      "shadow_sha256": "7f8962bfcca5b2611f81d5514f1f3bd0e1ce3c9ec20799a0d53643d48a85609e"
     },
     "spoczynek_0_05.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -332,11 +332,11 @@
         }
       },
       "phase": 0.625,
-      "image_sha256": "64abaf31e01517cd0ef8e1b0b5f7cec6c40cf1b16d2ec371487332ad99280404",
-      "shadow_sha256": "6a9e4adc4de2dfb84a8fc910078d4466402cd7529558570d60f59ff7ae6ac264"
+      "image_sha256": "cc5c03823f26e59c780e2018c20fa465652f9b1ad67fa58de50ebbf5bd1abaf7",
+      "shadow_sha256": "98eebbca79e8f25d9fa7d91f232263f449130e10a6ea3cf9adb1395e1f994af5"
     },
     "spoczynek_0_06.png": {
-      "max_joint_gap_m": 2.5378497437016815e-07,
+      "max_joint_gap_m": 2.666641796853137e-07,
       "max_bone_length_error_m": 1.1797494656184959e-07,
       "feet": {
         "L": {
@@ -383,11 +383,11 @@
         }
       },
       "phase": 0.75,
-      "image_sha256": "471dab005d9dfce721abc496d38a31df1362370be78143186cd80c8448d61ee3",
-      "shadow_sha256": "2caeba0143de98903befa42c5e15774a8324a6e5c382a30693388635cb374e63"
+      "image_sha256": "9439a511ab0d79516279362aafc4920e06aea0538beec0d7b74eab0078ed2fe4",
+      "shadow_sha256": "cd75c630891a80b49892680f868580457a36983c2d6cd2b2cf262597e857ab49"
     },
     "spoczynek_0_07.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -434,11 +434,11 @@
         }
       },
       "phase": 0.875,
-      "image_sha256": "8c40a8f379b6dc07ceb9192ff4a3f7978b1bee20f8b122701b73417a2d65a342",
-      "shadow_sha256": "62d7426e1bc2373005cf455635f0fbec2132dd5bfa8c572422bbf10cb3579fd7"
+      "image_sha256": "6b1dea50705180c99cdaf93a9627d1153376d672f42e198f313443d238aad4a4",
+      "shadow_sha256": "a260e5f880e784f3c37485ae2f6aec7be175393e69cf20737551d0b0a80e5bc7"
     },
     "spoczynek_1_00.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -485,11 +485,11 @@
         }
       },
       "phase": 0.0,
-      "image_sha256": "9254fa2b9c9f37006afe7481aa2c9d33cbf6803c70f8e9578153d343f8ba9e71",
-      "shadow_sha256": "d14101af9bd0c8cece56d40e5eb6f2519a7df6a984abf2bcfdc4a6ccf8a059fd"
+      "image_sha256": "f35e1291e6cd1d3dc5445d0fa1de95ce734501e343d503d9ec108505a600669e",
+      "shadow_sha256": "ea921ab55f0ca065126e9b6cd3addb58f88d715df8c601c9c19fce50896bf54f"
     },
     "spoczynek_1_01.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -536,11 +536,11 @@
         }
       },
       "phase": 0.125,
-      "image_sha256": "63d9b93f85b139cf69a4bf50d9230e603b3f60c04c04f0c60705008e3da42f8e",
-      "shadow_sha256": "578ab105a9ac95bb1766a8829e3507fbd514283394ba3eab0fedea9b4f156804"
+      "image_sha256": "db62deedfd78049b108ce61128c5befa49d9c6b83e9076f99531179e59bae0c9",
+      "shadow_sha256": "88bc654f49a7a70b8e7f5406965bc5fd5d0b81304ea725ecf05b3c1a86c2f610"
     },
     "spoczynek_1_02.png": {
-      "max_joint_gap_m": 5.308244565295242e-07,
+      "max_joint_gap_m": 2.086162567138672e-07,
       "max_bone_length_error_m": 1.3237904700202918e-07,
       "feet": {
         "L": {
@@ -587,11 +587,11 @@
         }
       },
       "phase": 0.25,
-      "image_sha256": "054f24f2068e281ca3669ca88b123c7726487a264090b8fc64971cb3cba48f80",
-      "shadow_sha256": "77b10f04a61dd67dbaaf965c9f9a4325fb4ca0ef6bb39d6391c899136e990486"
+      "image_sha256": "1de0d70291e752cd1bf7eca58db27973e0efdeb584afc974804b4d6ab3aaf172",
+      "shadow_sha256": "41e7d50bf1bd5dd9a3036147836bbf2ccbc9bd584c1f0a9c3ffb8843487ff4f1"
     },
     "spoczynek_1_03.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -638,11 +638,11 @@
         }
       },
       "phase": 0.375,
-      "image_sha256": "74276492ba962df734683e7bb5fc798e37821d2550001f1ca7cb93dcde0af0cb",
-      "shadow_sha256": "1a8158aacd5cff994654074edceb1f16ef3d7124b3e66926d10d8eeb8809cd76"
+      "image_sha256": "01483c450301133746f8e7586aaa160d2554e5cb5386c53bee1b3bc6b0c0975c",
+      "shadow_sha256": "8bff4327b4d067eaa25e1171053b0a65a8ce1a29c9e45757e923be214734c206"
     },
     "spoczynek_1_04.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -689,11 +689,11 @@
         }
       },
       "phase": 0.5,
-      "image_sha256": "3adb84edaee80959dc01280a84e7343d54cbd079c5da5e791ff304ac57b84286",
-      "shadow_sha256": "7f1a7c8d66c935f05e15e7e671b039355d7db327d25c8a81bc0dae9a94d113c2"
+      "image_sha256": "fe504451312d4fb8258a39e61c42e0039f0da00c387f78c90f8314c8c2d2404a",
+      "shadow_sha256": "cb37ee0ac939a112820d289226d743ca41de5f4705d3c05acc2cbcfa26e73e26"
     },
     "spoczynek_1_05.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -740,11 +740,11 @@
         }
       },
       "phase": 0.625,
-      "image_sha256": "6ecf494d1c5723f87100176f7494194816835143d1f2fc355246ec7a61ca34c5",
-      "shadow_sha256": "0163c684e4df029e5c547376b71e5b7191a272816f83dc1979d11af54f5d8d74"
+      "image_sha256": "e4b488d0013293773dfd68bab7c2c24883100e2dd2f2127b79297f515ca89dcc",
+      "shadow_sha256": "a96c7daead6c99a8f19dcbece60afac400830494dbb29d5ecb55e3aee525fdd1"
     },
     "spoczynek_1_06.png": {
-      "max_joint_gap_m": 2.5378497437016815e-07,
+      "max_joint_gap_m": 2.666641796853137e-07,
       "max_bone_length_error_m": 1.1797494656184959e-07,
       "feet": {
         "L": {
@@ -791,11 +791,11 @@
         }
       },
       "phase": 0.75,
-      "image_sha256": "8a04c3d14fd483244f79396f1128ac628889c82b14896a058bbe42ca960ff5af",
-      "shadow_sha256": "891d9cd8bc4f520a531d13ab10adad51b5d5355442ed79e52d2a0a164481fef5"
+      "image_sha256": "4e1d89c63cf5f664b8f77e8f6d77dbaa7732f662a52567aebc07d687f24fffb3",
+      "shadow_sha256": "4bfeb69732c27ca8cf22b32496734ade958a9476939e4396156b6c94d69ea160"
     },
     "spoczynek_1_07.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -842,11 +842,11 @@
         }
       },
       "phase": 0.875,
-      "image_sha256": "2781338c9c5a9cba2af481465eb4ea941c97acf7db5de2b207296e5172e811ae",
-      "shadow_sha256": "5e833db8fdacb370f3257e3627f99a46c314cbcc87ed17402d83df16648e671d"
+      "image_sha256": "1d445b5d77a9e7fe2b2acb32fc9462ae0ebf84e15bdee15bff7286de4986853d",
+      "shadow_sha256": "9c5bcaf6a8915e4c6f1ae00c608bb9904f438c58685b304079b8b2266a9f8753"
     },
     "spoczynek_2_00.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -893,11 +893,11 @@
         }
       },
       "phase": 0.0,
-      "image_sha256": "971e7115ab306767574b5d593d4e340ebe4354ef0c9d3486254e379c65af9771",
-      "shadow_sha256": "e12f27a980b199799315369b93860515afd61ccbed182dcbcc56ccdb1bb497e7"
+      "image_sha256": "ea42a758ab428ea3e4dfa5abf30313a6b6d7004f56c430b450b4fbac89587a21",
+      "shadow_sha256": "540602e50246ac4560f59df9b1b05734f56c58f6f891385126ce8237dbefefc0"
     },
     "spoczynek_2_01.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -944,11 +944,11 @@
         }
       },
       "phase": 0.125,
-      "image_sha256": "8a2870fe1d777495469e65f7ca7dab859b90c21bf014d104489a5204d4dd6a4f",
-      "shadow_sha256": "8e774d51b31b69caddfa9d3ce6a4a40a27b0ba5921213faec358ce8a34af5819"
+      "image_sha256": "e6dc8b253f728414ae560e43d94f44895b4ad95f254a37b91df8a6ea20cf6a7d",
+      "shadow_sha256": "b314fe66fa67e849553c69794b30552af7f597489d67c875ce987a783636da2c"
     },
     "spoczynek_2_02.png": {
-      "max_joint_gap_m": 5.308244565295242e-07,
+      "max_joint_gap_m": 2.086162567138672e-07,
       "max_bone_length_error_m": 1.3237904700202918e-07,
       "feet": {
         "L": {
@@ -995,11 +995,11 @@
         }
       },
       "phase": 0.25,
-      "image_sha256": "111285e5e372ec35b344b0106ca465cd04d9283e47ff8d84679adc41dc8304ef",
-      "shadow_sha256": "87d5ad2d21dcf3688c84ebf4fe674ca4ee3d64f072e65b56288f112e3179b3bb"
+      "image_sha256": "b7ece5da12ec6d9a1032bd0d7b926fa594e5aa8c5c45e43e2767fc228e821147",
+      "shadow_sha256": "e7515ce63a38cc14d0ab063c6717817be1dda6041feada2c58cf83e188ba8ca2"
     },
     "spoczynek_2_03.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -1046,11 +1046,11 @@
         }
       },
       "phase": 0.375,
-      "image_sha256": "19096d3602b704011075dcfb5e511f2716f4ef3e993503fb89cd53f23fc2cc20",
-      "shadow_sha256": "baf2f79ba80f460e05289c1a825a00fa478b6e83ea9b3d3a27addae7d8054f1c"
+      "image_sha256": "15423b54bbab7dc2855fc5ba86cafa41208ffe61d40b78fa4094660b21238a48",
+      "shadow_sha256": "8815bc23e7a41d3ba0ed6de244c1f056393644e84fa99f0ede76f0cac06791b3"
     },
     "spoczynek_2_04.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -1097,11 +1097,11 @@
         }
       },
       "phase": 0.5,
-      "image_sha256": "692bb16a7f1f04cd158806df08542ece944c1ab548e14bf5016cbbfd132848cc",
-      "shadow_sha256": "a2beeb78074e949afd02272b81d68f20e7157358e3db8721a680893969407c3c"
+      "image_sha256": "fe8f761ca2d3c7d382a667eacdbc5651c91ecae9669ad55f665fd6f919d369c5",
+      "shadow_sha256": "3e764cf99162d77b7381e8b934e75aa1d9eb212fd4d0a9812caf09272a47847c"
     },
     "spoczynek_2_05.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -1148,11 +1148,11 @@
         }
       },
       "phase": 0.625,
-      "image_sha256": "a4d53dc0ff81ffe72137b5e27dda88e115861da1becb2b610ac0f71c9f2b0998",
-      "shadow_sha256": "627d91681cbcaa27f4f71cbe7d2dae60ec1b7e779cdff6a437dc81d9fa494d88"
+      "image_sha256": "da117c91ba0f04c547afb743d6f997840ab4e1ee900e9a375227727a14a25952",
+      "shadow_sha256": "c6edd6f05105a4ac16758c963e5a9ed5ae78dd531a93aae9ae2f609c29959773"
     },
     "spoczynek_2_06.png": {
-      "max_joint_gap_m": 2.5378497437016815e-07,
+      "max_joint_gap_m": 2.666641796853137e-07,
       "max_bone_length_error_m": 1.1797494656184959e-07,
       "feet": {
         "L": {
@@ -1199,11 +1199,11 @@
         }
       },
       "phase": 0.75,
-      "image_sha256": "839fbf0ed052bccbdacd81f0deb82622fe57bede0ea802013b7fcf8d84829e5a",
-      "shadow_sha256": "0a59c07a80c66cfcdc67739291ece5434e8f831f4504bf06c9dd7baac2cc609d"
+      "image_sha256": "9c6b428990a5e9dae29f089a9c418b513301149bebff7a50a484f5aaac05d697",
+      "shadow_sha256": "3f5e2cd45c41fe9006e40f3963a8d39232c65130c89a0c93df0d048d5f81b829"
     },
     "spoczynek_2_07.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -1250,11 +1250,11 @@
         }
       },
       "phase": 0.875,
-      "image_sha256": "3f8898156ce7378728cfbb15c9efb4350a1d6be5ffc8396e06c66ea4ef6da549",
-      "shadow_sha256": "57349b89d1481cc9ce836658c1b12bf5e15ada0d988eb987cf4bf26b5498a69c"
+      "image_sha256": "1872f97702c815d0dffa0086cca8ebe41e5c0c0498a24e75001f3f7fc0a0b06b",
+      "shadow_sha256": "093f243646dd3c2f7cdbda45660c45617c56d9aa1d1e44c8b58e4578e5520268"
     },
     "spoczynek_3_00.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -1301,11 +1301,11 @@
         }
       },
       "phase": 0.0,
-      "image_sha256": "f534fda59fa23fd9213b8941cbca396aa80bbca356617c25aa234bbc012c6f65",
-      "shadow_sha256": "13908fc285b7afe1ab8ce163fc4f3599ba5899e9e16aa847bd2bfb5ef3c15e79"
+      "image_sha256": "53f672fc7ebb0f7ee91651b5ae97d74d85d8e0ec00287157420e1a57c21ed691",
+      "shadow_sha256": "ce16af5646e128ba323fde573d63d14b453e974770ebdfe68077f23e21fbd5f5"
     },
     "spoczynek_3_01.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -1352,11 +1352,11 @@
         }
       },
       "phase": 0.125,
-      "image_sha256": "7d217da026329cb69363f7aff1d3222e321a326e5db50731c8c5a769b12cc884",
-      "shadow_sha256": "b1c2e6f96102b2b46d7e80da3924db20d682c2c5ab693f4f78d5f3689b0b5bd8"
+      "image_sha256": "e6ae57e2eb8de9daa51e8c5b87963ba70ae55f57c3de6ef381236d395dec063e",
+      "shadow_sha256": "526c46037b65c1532f326b7c3297d5120fe693060830a2b360dc518cffa2eec0"
     },
     "spoczynek_3_02.png": {
-      "max_joint_gap_m": 5.308244565295242e-07,
+      "max_joint_gap_m": 2.086162567138672e-07,
       "max_bone_length_error_m": 1.3237904700202918e-07,
       "feet": {
         "L": {
@@ -1403,11 +1403,11 @@
         }
       },
       "phase": 0.25,
-      "image_sha256": "e4a35f396afb9d1f65d933fe44a024c0122be0160e74676547256a52532237e6",
-      "shadow_sha256": "65fb8f86f517355b45b208546afdb60d28f11b482fa7a5bb8358098973649a80"
+      "image_sha256": "ff44e54bcbd575b39db084df7d0df7f477d54c0f047bde73f00feb3b44613f02",
+      "shadow_sha256": "6a00170a947c8cb9eefc7addbabe1401a2069d4d73e7d524bb2f3761c454599e"
     },
     "spoczynek_3_03.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -1454,11 +1454,11 @@
         }
       },
       "phase": 0.375,
-      "image_sha256": "df2ced092a7f9a3574273de9ff54772381e3e268960e859e2f6839398339f13e",
-      "shadow_sha256": "53abc5da5235cb8b1e59cd6f3ff0ddbc228109034faed24034369896251aaf73"
+      "image_sha256": "249792aec5653e7c23c39667c7e9ccef6e7bf5ded651ae018c3902290d65f769",
+      "shadow_sha256": "888fcb307d46ebae835e64900ff1deaa7ca6602fa5992f3df4292cc254862848"
     },
     "spoczynek_3_04.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -1505,11 +1505,11 @@
         }
       },
       "phase": 0.5,
-      "image_sha256": "ba7ad9b63e6ab3d9f90d77bc286734af0fc933cd289631868bfea2d85c24f532",
-      "shadow_sha256": "df8046065939a75cf14e3eb0de729f9d319d034b3836a2fa65f8a8dca0a4fec5"
+      "image_sha256": "9772f5ea65467468e068be234f460984682ab429e4163e00e498b4ccbd96e831",
+      "shadow_sha256": "b9457e950bc480bad737e580778a1a51b552b116e0f37c1bfa8ab1fa000ac96c"
     },
     "spoczynek_3_05.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -1556,11 +1556,11 @@
         }
       },
       "phase": 0.625,
-      "image_sha256": "adc151ec4d40fc7dd9f1c9d0b8186de8d628eacedf2aa65113598b6d339d15c8",
-      "shadow_sha256": "cfe41368cfcd0ab4f6e681a34309d9548d14c03610e1b917b9e4582cfbfdce48"
+      "image_sha256": "d2ec0f3d8b6580cf5afe8463e6679407408fe4c54d8e033b6e00ad2771233c97",
+      "shadow_sha256": "d72594485bc92d83203a31793b1087b56cf184bbd6179b0a5ddde1ae1cb3431d"
     },
     "spoczynek_3_06.png": {
-      "max_joint_gap_m": 2.5378497437016815e-07,
+      "max_joint_gap_m": 2.666641796853137e-07,
       "max_bone_length_error_m": 1.1797494656184959e-07,
       "feet": {
         "L": {
@@ -1607,11 +1607,11 @@
         }
       },
       "phase": 0.75,
-      "image_sha256": "cc5aaaa765c0b862be9318d34e47f74ec8792d2bb79ad7339f9a435ed34e2504",
-      "shadow_sha256": "f45d781ed54e40b561b86ac3b6775f01e26cba0bf6cb7b7549345afbfe408df3"
+      "image_sha256": "dc0a4df8921c0922b6dbcec4822bd57e082e05f1c9e085da243fa070127fa026",
+      "shadow_sha256": "4e9361298217dadda442764269b9d07c88babaa257b5851f2f745d7500b8e023"
     },
     "spoczynek_3_07.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -1658,11 +1658,11 @@
         }
       },
       "phase": 0.875,
-      "image_sha256": "81f52bfa1e2b5391338d8545bc1e359e1ace861105d50b3d682ad581b3d6e658",
-      "shadow_sha256": "93ca649ca184259de9f659439c024fa7a81fbb57c8d8833eb708f9de35038304"
+      "image_sha256": "54ca929302c6394aafc6a2a30d1e7b535b441a3e38273618ea1c4e3331990967",
+      "shadow_sha256": "0ea9ffd95b5a1cee2c2ac59a8f475a4df5314f293d3fe56f7340d1ab526f7d99"
     },
     "spoczynek_4_00.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -1709,11 +1709,11 @@
         }
       },
       "phase": 0.0,
-      "image_sha256": "8049822537ef1ab52b95f83a2481fb3ea81ba64fd7eb726f71d3818335566c22",
-      "shadow_sha256": "999a4cba39877997ea1747816111d758280604cd4f0eb684c7f865b2a5aa253b"
+      "image_sha256": "dd87fce0c2455e651de1a7c31d9bd66964d21fabb1cfeae2e8ccc9bd3e183ea4",
+      "shadow_sha256": "f9df5a88edeabf1e824af9e1fe23fe9eb66427aef7597a0bf0624a74a68eb5ed"
     },
     "spoczynek_4_01.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -1760,11 +1760,11 @@
         }
       },
       "phase": 0.125,
-      "image_sha256": "abab57b998a844f9f8cb5f7191f4b5b75208b497a75811813079857ee12968dd",
-      "shadow_sha256": "38c93d15013e2c10f97b7facb36784ec3ef7a30a977618b78b0e1f3d21e17c61"
+      "image_sha256": "a74342970c3020f93790e9a0eeac22445667e12f8e8d3d382aa80dfd3d927ede",
+      "shadow_sha256": "7c5f9bf2b974fba1a2377ceedaf6ae71a49041b224028dceffc84c4e4888a399"
     },
     "spoczynek_4_02.png": {
-      "max_joint_gap_m": 5.308244565295242e-07,
+      "max_joint_gap_m": 2.086162567138672e-07,
       "max_bone_length_error_m": 1.3237904700202918e-07,
       "feet": {
         "L": {
@@ -1811,11 +1811,11 @@
         }
       },
       "phase": 0.25,
-      "image_sha256": "686eb2c577cc1bd17e1a88915c3d947fce6c651d802379dee0b68aaa4a685246",
-      "shadow_sha256": "5ec2b5e2be3ab09b2a099aacc91cf776f2ca797028f916d0606a41cd60bba7bc"
+      "image_sha256": "0bb0d556efa96afe921ba80684b0ee4cc9b054ee7d4d1292e2efe7d7de1b9bb9",
+      "shadow_sha256": "347713bebf82cf8e7849510030c5033a24fad740bed16cb014c12d7f21a46977"
     },
     "spoczynek_4_03.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -1862,11 +1862,11 @@
         }
       },
       "phase": 0.375,
-      "image_sha256": "6da31d32c2bf0e7937c251d5b4abfb11829f91798058679bc1e754b25560658d",
-      "shadow_sha256": "367593e3b8757efbeec62f8442868dd8f899ed876e93e88d959081187d2b4078"
+      "image_sha256": "e198a2503e7349da063b420d86d140f9776c9ed31333d831a4cff99ae1ceceb5",
+      "shadow_sha256": "610993ac3cc6774c37291a18aa9c3ff61ad169b95036277503f1dc0bf0671c1c"
     },
     "spoczynek_4_04.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -1913,11 +1913,11 @@
         }
       },
       "phase": 0.5,
-      "image_sha256": "5bb7a3cf5cdb846edfaf224fbfd4cae0cecff977697c79a42535969223e81801",
-      "shadow_sha256": "baff12c007a9d7b08e07cbbc5cb5e3f6339bcb894e36b1a4c52e3d9c731547cb"
+      "image_sha256": "626b47a662eb3ef72a0b438525ac7bd9ffbb0d503b65fca58c1bf6e532beccb6",
+      "shadow_sha256": "29c8edb6151a17e01e5d54f7034b6b2e2258d2db2df513d9bb47765d82eb2b07"
     },
     "spoczynek_4_05.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -1964,11 +1964,11 @@
         }
       },
       "phase": 0.625,
-      "image_sha256": "d80594e2f466910aa7af5790bf12f59a436a7c21f6756ea18f88d74d7d8f5e27",
-      "shadow_sha256": "4687e46ca206e6c0572ace85f9b7df880f432858f738919c916a4e10d7ea3c7e"
+      "image_sha256": "46d6c437097dfc5e8f7b1cd899a9b0acc04d239547447493b7968b041653bd21",
+      "shadow_sha256": "f6742d74b8348e7484c963d85bd1f491802da455fab8f2617cee583ba4f56512"
     },
     "spoczynek_4_06.png": {
-      "max_joint_gap_m": 2.5378497437016815e-07,
+      "max_joint_gap_m": 2.666641796853137e-07,
       "max_bone_length_error_m": 1.1797494656184959e-07,
       "feet": {
         "L": {
@@ -2015,11 +2015,11 @@
         }
       },
       "phase": 0.75,
-      "image_sha256": "b07d1a7adbe272b92e2ad66d46058951a5c1f22d3053a732837cb63b2bf0d500",
-      "shadow_sha256": "19698ed94b95b85d42b47b7bf590c8ddb8ce738cc638b4e66082794b3b163e3b"
+      "image_sha256": "e947850ff10cbf713452088a81aa88b3db91e1eb4cbef4e667df74b520144cc1",
+      "shadow_sha256": "8ac4b3cc06f93ce38c94d39da3ba0f6118d05ac88a5814ef3e5b026cf7aea2f2"
     },
     "spoczynek_4_07.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -2066,11 +2066,11 @@
         }
       },
       "phase": 0.875,
-      "image_sha256": "017a5cf2bf48c9b9e1bbe7e1d0d86964071e6b7464dbdb0eafc2bd19c3598b67",
-      "shadow_sha256": "35c80db48bb5fd45236091403110d2bba81ed84433f88ca33acc86654352ce92"
+      "image_sha256": "fe7f7e2bf20ba55a89ff0dfb65af69455bdb4c802bebd2a14ff7cc249333b1c3",
+      "shadow_sha256": "1fb3468b8371ae190c0e4c768ff3d770bcfafe5f7a7d8a1b045c2b93b235dbee"
     },
     "spoczynek_5_00.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -2117,11 +2117,11 @@
         }
       },
       "phase": 0.0,
-      "image_sha256": "bb96c20fd6e0c209e843a719042b1fcd046a7658c47787bf371ddc316abeb076",
-      "shadow_sha256": "a9036fc76315c42394cef037d0f723ed89a4576325dddfb1de8fa70ef15684eb"
+      "image_sha256": "954255963d57645710d5579c1c43ec3d928a3eeef71f23269869beba3bf11d79",
+      "shadow_sha256": "005ce709f5de2013f7b8e56a1cc22fa992e4f47ec859f2c1c1745dcd7bfcf96d"
     },
     "spoczynek_5_01.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -2168,11 +2168,11 @@
         }
       },
       "phase": 0.125,
-      "image_sha256": "f50ed997bc588166bce9fd5d6ab48e7e1bd96b5274bba3505212a71671106e8d",
-      "shadow_sha256": "81c3e8c668311f808ff16821d81387ac131b2f9d0eebd4b6e32202c9bddafa14"
+      "image_sha256": "f6efafb2ac622ab9f150919ba21414fb14fe063ff6f23c5c5ef35c8151806f48",
+      "shadow_sha256": "f689dcae1320c6e3184f8d9eaab630729711c0eac0dc0473a2a26bb822e72f6b"
     },
     "spoczynek_5_02.png": {
-      "max_joint_gap_m": 5.308244565295242e-07,
+      "max_joint_gap_m": 2.086162567138672e-07,
       "max_bone_length_error_m": 1.3237904700202918e-07,
       "feet": {
         "L": {
@@ -2219,11 +2219,11 @@
         }
       },
       "phase": 0.25,
-      "image_sha256": "648539b87f0aedcc1a02f06e26e7767a4939fb36ba580bb8f0dcc0213e11700f",
-      "shadow_sha256": "d43a648cd9243be11bc8620edae21827878dc27ad3003b5a9c4bd5603316dca4"
+      "image_sha256": "43a7b4dec52cab922b289bd3996c0683a129a7a4c3f919622cba2b21ad01703d",
+      "shadow_sha256": "640cf10c87e793345810b1935a3e148095536169834115bb4b5c54af70ac5c83"
     },
     "spoczynek_5_03.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -2270,11 +2270,11 @@
         }
       },
       "phase": 0.375,
-      "image_sha256": "99a1b757442bb4467f629e29f9fb5db971a4e0e7dd4770c72166eb40a8bbfcc0",
-      "shadow_sha256": "0c05c0a56a20d17893e0136527a2b210a59edae74914d9bd09c0227a0841cdb0"
+      "image_sha256": "c5d73bc24bb66e641fafa62eed9cfe388df518b3ad49f5cfcd04c65f16902e3f",
+      "shadow_sha256": "3039143a0c3c2a3d775abb7d1b1b9e5cdec9a930b762840693585710ef443cbf"
     },
     "spoczynek_5_04.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -2321,11 +2321,11 @@
         }
       },
       "phase": 0.5,
-      "image_sha256": "cd98e59fabaf9c8b8ccf43f341ae5cd265585516c7f39409a476dabe95807705",
-      "shadow_sha256": "c447828f009808fc7262ba1c7ece5bc0699ec52aaa70c4ed9098e326ca43f2b2"
+      "image_sha256": "d5dfb9a73387b661357746a6f78587dbaa4e1657de3d7e9041cb66048f5b99a5",
+      "shadow_sha256": "4cc7249941ce08325200b87cabbe905ca6ad14cb3492e2c61ee19099165023f5"
     },
     "spoczynek_5_05.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -2372,11 +2372,11 @@
         }
       },
       "phase": 0.625,
-      "image_sha256": "ab86f7ac90936d3bf3096f5d5c229212d802b5eb6526395ef278fd406dfd2b0b",
-      "shadow_sha256": "f02eea5797642deb5448ded2a9b7697bb642d71441061349219816e324e4295a"
+      "image_sha256": "e9e7d1b9b9813e59852daa8e56b395352ac05e637d771b47e17b91d60400f5f0",
+      "shadow_sha256": "303876ccd110e22b75e6c40f2bb89891cd24e1e82a5c2f8ce4eb8c6efef34d35"
     },
     "spoczynek_5_06.png": {
-      "max_joint_gap_m": 2.5378497437016815e-07,
+      "max_joint_gap_m": 2.666641796853137e-07,
       "max_bone_length_error_m": 1.1797494656184959e-07,
       "feet": {
         "L": {
@@ -2423,11 +2423,11 @@
         }
       },
       "phase": 0.75,
-      "image_sha256": "ac84839f858ea63a9cbac998dd4a896464a7bd259476fafb99e92ba2de5eb3b5",
-      "shadow_sha256": "f7ff09bf3896f1dbc78bfa2747cf4d0c5a66eb48acd09c3ebaad7590a9ef7d16"
+      "image_sha256": "8fd9cfbbf78a971efad411091dc593c0b6ecc16b6c6df413e8a0f17569a7e8e8",
+      "shadow_sha256": "5cc0b4a4104c6f7b28ac54fbe14adca888ff362377244ecf4c8edb18c7d16e7d"
     },
     "spoczynek_5_07.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -2474,11 +2474,11 @@
         }
       },
       "phase": 0.875,
-      "image_sha256": "78b4feaefc28468765234b5241abe22f2c726e6fa3c815fcc0228dfaafe23ad8",
-      "shadow_sha256": "c440c38c5bc81dd96589a8758ce2473996594948aadf657e1280d494e5c4c700"
+      "image_sha256": "3802df8e1e9a666d490b03208af9f42a815f6a5530075de5149574888449f032",
+      "shadow_sha256": "4ef611fbc2541825f6eaf28cf27bc42ce2201661ac4d04d57aa62ed52d647bf6"
     },
     "spoczynek_6_00.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -2525,11 +2525,11 @@
         }
       },
       "phase": 0.0,
-      "image_sha256": "c792ece3565a7a3fe8d31b1315ef3e7235941690857341ded4022323c1906a03",
-      "shadow_sha256": "ae209f2f0104c01ffa384e75a970d45553cbeca9b7a11e5e50e0ea0e0413d6d5"
+      "image_sha256": "6d7d35c16717575363c1fb431f07435e1165a145a30af1f57895ccb3c58bd5e4",
+      "shadow_sha256": "dedb94e20194ec9c2739c0680baa457a7cbc33bdbbae3ecd853d48b7d01eeb0f"
     },
     "spoczynek_6_01.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -2576,11 +2576,11 @@
         }
       },
       "phase": 0.125,
-      "image_sha256": "b890a653037b868580c819e3ef441d26decf7f63dd9aabf6d881f462f0d4b1f6",
-      "shadow_sha256": "2993b0e131b99baf27f31a033d09ad60165aa076a38f4bb4c3120a622ae3f60c"
+      "image_sha256": "742da579a5521169e300bf0544af37a379839774475ae8f4a6b3845cd7020947",
+      "shadow_sha256": "5aa122da756a4bebc84f9a35e88f73b502d48df9f1ae57040c7496cac0c579fc"
     },
     "spoczynek_6_02.png": {
-      "max_joint_gap_m": 5.308244565295242e-07,
+      "max_joint_gap_m": 2.086162567138672e-07,
       "max_bone_length_error_m": 1.3237904700202918e-07,
       "feet": {
         "L": {
@@ -2627,11 +2627,11 @@
         }
       },
       "phase": 0.25,
-      "image_sha256": "5948809e2b6ca10a346772bf32f89dc8b9f05aca6fbcef9f56cf816d381065b7",
-      "shadow_sha256": "ab6ab635ee5e38662aa42e402d9fda7c266ab3c3a51fe8d0e3a438802643825a"
+      "image_sha256": "7b05589fba82625cd979d2e2420a552d42caa4cdc733428072f5b817c96173b3",
+      "shadow_sha256": "570755661f918c1795215f835a2742ed8aba823f146a402578f118391dd8d08a"
     },
     "spoczynek_6_03.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -2678,11 +2678,11 @@
         }
       },
       "phase": 0.375,
-      "image_sha256": "2f13c0eeb2ab6096764d9635fccf08d9395621d0489f1f881c246c0668000ee9",
-      "shadow_sha256": "d6972f0c0e8e332644dc0580f75e650e8690fe5d015a5831f51ea16fd07650c2"
+      "image_sha256": "3578adec8c43e66ce751e44d92dc3adada3715b31c5fd581c5720806b6cce138",
+      "shadow_sha256": "a83d72563dcf23d18ea352256bc1320868d79aff21937e045ae9fcf97e2fdc09"
     },
     "spoczynek_6_04.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -2729,11 +2729,11 @@
         }
       },
       "phase": 0.5,
-      "image_sha256": "5d960d7cce0ce59a05c4703e35e5975c73507df7c18f302e61885e75e29831ce",
-      "shadow_sha256": "177cd504cb7e2227a7316e1939d77b9746ad405a0924df59fb1d7b02cb303ec4"
+      "image_sha256": "553e5e8e01bb90a27368ef3f87fe76099da90e11c622075a860ef33e96d3ce52",
+      "shadow_sha256": "b482aa782ed40b2da520126c06a81566c6eb9656cdb23cd2bfae870be8a08ad9"
     },
     "spoczynek_6_05.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -2780,11 +2780,11 @@
         }
       },
       "phase": 0.625,
-      "image_sha256": "576186b8e519be4e183b1b6878c3ae46eed8860ed55d2fa954bcc3c71c316c20",
-      "shadow_sha256": "07dc36856ef2cd16a4e149d425b70f6234e56d75350c021030f287ce65caa3ce"
+      "image_sha256": "835fe6bd7e65b0d04c7e7141d126f6fe311cd2fab5024767834629c968221496",
+      "shadow_sha256": "3137069ecd6531b95bee9f181604911ef00fdfcf9679435d68d5a38d72968003"
     },
     "spoczynek_6_06.png": {
-      "max_joint_gap_m": 2.5378497437016815e-07,
+      "max_joint_gap_m": 2.666641796853137e-07,
       "max_bone_length_error_m": 1.1797494656184959e-07,
       "feet": {
         "L": {
@@ -2831,11 +2831,11 @@
         }
       },
       "phase": 0.75,
-      "image_sha256": "29eb999edda8371640b502cb3bd6ecd2721eb46712c93d5c7d097e0b2d2443e8",
-      "shadow_sha256": "f121be04466a52607c9105fb5e821827a55416e696eb85aaccd4de5ad8727799"
+      "image_sha256": "a3d46434bba09a2468598b3cae97fa6603aadd7209e00c373213cfa04e9f1169",
+      "shadow_sha256": "a109394b4003857d1685ff0706b8ff1cfd5f9466a9a4add7071f0e5e5fb169f1"
     },
     "spoczynek_6_07.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -2882,11 +2882,11 @@
         }
       },
       "phase": 0.875,
-      "image_sha256": "abea269f337c53581b190bfb3f49496fdfe043397aa2f4ca6dae589e2cffa21a",
-      "shadow_sha256": "a7b72c5d5533135fb5dadd2d8275153715a70ac112460eaee157b8ce891862e4"
+      "image_sha256": "fee42c38b34db6bf6c474ea3509ed40fd68abfca653786c690b0b20be51bff74",
+      "shadow_sha256": "3eb67d35c6e40a3ef7803d435e4bdba367ca7ab3d721e091af9289811edc791c"
     },
     "spoczynek_7_00.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -2933,11 +2933,11 @@
         }
       },
       "phase": 0.0,
-      "image_sha256": "a25fd95dd97c6e147e2eba01dbeba6fdf56e9e3195881091bebeb6f4de9b0051",
-      "shadow_sha256": "7f9c9a54355adea5479d89a5e6728cb6941d6288e389a8cece2b270376f24c0b"
+      "image_sha256": "a5d5f37092b8a348be0000bf53b52387d496879e8a53d895fcb95cf548ad42d9",
+      "shadow_sha256": "b7ee13e7f40bf990dc4ae3dccdf328f9f996634bcf558ec43816dd5bd3613497"
     },
     "spoczynek_7_01.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -2984,11 +2984,11 @@
         }
       },
       "phase": 0.125,
-      "image_sha256": "d05c6faafd6f2ba77219858a5d184eb311f0f348c079c8c8a3a73dcccd23ccc9",
-      "shadow_sha256": "67e4a03062010caae4cac48ef72b153237e5c009a56883aa688a1de0ce4f9ebd"
+      "image_sha256": "bcc0d5212a6e7bd2227172f945d9106353a8d1a04fb998347c94964c02228562",
+      "shadow_sha256": "09b58c966f4f8e23fd86f039c25b6e4d881075cac6b68f8c6e771db1d7864dd2"
     },
     "spoczynek_7_02.png": {
-      "max_joint_gap_m": 5.308244565295242e-07,
+      "max_joint_gap_m": 2.086162567138672e-07,
       "max_bone_length_error_m": 1.3237904700202918e-07,
       "feet": {
         "L": {
@@ -3035,11 +3035,11 @@
         }
       },
       "phase": 0.25,
-      "image_sha256": "3b56160a9ab081a459a8e320b79ebf29e3d5a135c5c2dced00a24ac9a32428e8",
-      "shadow_sha256": "d5aaf24b48e491b97940a46a2bddd6c0785251c7b7083b8abc1ced42af0e16f1"
+      "image_sha256": "851b951bb2bb2e71ab40d506e69ce46b9a4f63482be39a338529fa80e6694395",
+      "shadow_sha256": "7d399440c9b80c272de046e41da5e667c89bddc4427a1fe068cfbe6ce5d38b4d"
     },
     "spoczynek_7_03.png": {
-      "max_joint_gap_m": 3.911377414586153e-07,
+      "max_joint_gap_m": 3.29177409922697e-07,
       "max_bone_length_error_m": 1.2228997520180585e-07,
       "feet": {
         "L": {
@@ -3086,11 +3086,11 @@
         }
       },
       "phase": 0.375,
-      "image_sha256": "46b377b5f439a7ce1bc8fa00b6767db42205ccd7b4a5afa983901d2d42e3fab7",
-      "shadow_sha256": "c7a9a7161f1fa64028542006429529c66bd993e56c1803eda8d1a528e1483bde"
+      "image_sha256": "a267059f10423044526eaa734f08e914ee21e75bb62a2dc594a868c6c3170914",
+      "shadow_sha256": "b5019b3a1e0adefe87abb8d9aae20b9d2cd30b9d2d8f937a7d12df0b9a154777"
     },
     "spoczynek_7_04.png": {
-      "max_joint_gap_m": 2.735489569706592e-07,
+      "max_joint_gap_m": 2.4027400458748785e-07,
       "max_bone_length_error_m": 9.092127206677958e-08,
       "feet": {
         "L": {
@@ -3137,11 +3137,11 @@
         }
       },
       "phase": 0.5,
-      "image_sha256": "572ab89bfaadc275d059c8906c39c9f88481e9bfa486a0ab7ef652441a886837",
-      "shadow_sha256": "cf376b562f1c56bf30562f5ad10502820b02a4dc2acacef4cfddf99d0b55b603"
+      "image_sha256": "12251bf42a74ae3d333b3d1c0988017f9d080b159bbea3c533e7cab84ea7bffc",
+      "shadow_sha256": "024ef83cec84e7527edfdaea15b3abf531df49a2c0851ce9b21b8374bb6f32eb"
     },
     "spoczynek_7_05.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -3188,11 +3188,11 @@
         }
       },
       "phase": 0.625,
-      "image_sha256": "870552c59babc493646a3e3050152ec2b0bdd1412263771ec49d756ffa926758",
-      "shadow_sha256": "12dfda21198fe2178729a90845960508a4ca02253c1dac414550096a708f32c6"
+      "image_sha256": "841e3ab8e2bf56c97c18085c27dd62d909bcceb7eb641614ce00b8f84b6f09c2",
+      "shadow_sha256": "c4cbcc03689efb314bc6e8f5aee4bdafe7916afe420618a3779fbdab96937ffb"
     },
     "spoczynek_7_06.png": {
-      "max_joint_gap_m": 2.5378497437016815e-07,
+      "max_joint_gap_m": 2.666641796853137e-07,
       "max_bone_length_error_m": 1.1797494656184959e-07,
       "feet": {
         "L": {
@@ -3239,11 +3239,11 @@
         }
       },
       "phase": 0.75,
-      "image_sha256": "a8735342a1b4ef9f0ffd73140b670d2a2f44abfd0c2f5bb659e7d59798ff361d",
-      "shadow_sha256": "4637dd2c972415022c72ed9104b95062bd065449a685b424c928a85b633dbe68"
+      "image_sha256": "0edb9c2d258c5a38c94c6310bcd635d052bf9f9197cfd4de5f34f0fbec93d2fe",
+      "shadow_sha256": "cff793305cbeb3532bc5832f4b078d37e075d8add2000dcfdb5833bbb3a1d1f9"
     },
     "spoczynek_7_07.png": {
-      "max_joint_gap_m": 1.931770468125369e-07,
+      "max_joint_gap_m": 1.431209796093296e-07,
       "max_bone_length_error_m": 1.2454829373398368e-07,
       "feet": {
         "L": {
@@ -3290,11 +3290,11 @@
         }
       },
       "phase": 0.875,
-      "image_sha256": "b1adce6f3b9284d01fb45ab357bbcd3ac2db1f8278b55ad03804f35102cca63f",
-      "shadow_sha256": "e41c240efc550777d5acabf84f2110d758efd13cee2ef3a91696387fa7f72fc7"
+      "image_sha256": "f9dffefc4d969b469fd4f66d55ce2f60367d3b09351262b0c919b03ac3595900",
+      "shadow_sha256": "621f04c844de97894afa70e9048e8b0d707a977d6ecca7cce6e4b707ffd3145a"
     },
     "chod_0_00.png": {
-      "max_joint_gap_m": 2.682209014892578e-07,
+      "max_joint_gap_m": 3.998401124775034e-07,
       "max_bone_length_error_m": 2.273486577331063e-07,
       "feet": {
         "L": {
@@ -3341,11 +3341,11 @@
         }
       },
       "phase": 0.0,
-      "image_sha256": "a3e315121d71db8bdf66a136760f9a24931e47e590a163d4eab90671aa7f1c1a",
-      "shadow_sha256": "45ff7624e73ba1849ba213a9037550c67f0dcf54fa1d8a13c1ed5f0e3f10395f"
+      "image_sha256": "16bb57d948d62ce15ff95f65cfef59f4f4a4020fb67193a99bafa1d29be78c79",
+      "shadow_sha256": "1577406bf14049aadb5d27bb5b3a7c9052ed7769d467a10bf1a4c14683707bd0"
     },
     "chod_0_01.png": {
-      "max_joint_gap_m": 2.086495155832238e-07,
+      "max_joint_gap_m": 2.4586915969848633e-07,
       "max_bone_length_error_m": 3.416389391386332e-07,
       "feet": {
         "L": {
@@ -3392,11 +3392,11 @@
         }
       },
       "phase": 0.08333333333333333,
-      "image_sha256": "ef5ca1a5b6165420a27a30407c7348f37c42e2104b4293f0f34d270d8a9373ba",
-      "shadow_sha256": "c9788ebba4bae2e064c1518f21e58023681475cc116d00a8b354a72d43a0aa39"
+      "image_sha256": "6b155d2a56fecbb890f1f292766bc21c8a45c91fb22c865a365b32f5f51273d1",
+      "shadow_sha256": "892802b0e8865c81e8e62d3432c4c04df482a8bdcdec93a7f0a27304726619e5"
     },
     "chod_0_02.png": {
-      "max_joint_gap_m": 2.8529497978904533e-07,
+      "max_joint_gap_m": 2.590617336439149e-07,
       "max_bone_length_error_m": 1.516158718573024e-07,
       "feet": {
         "L": {
@@ -3443,11 +3443,11 @@
         }
       },
       "phase": 0.16666666666666666,
-      "image_sha256": "0b2b3f03aa808f6a91b126eac2b012dc21e8a1d1dcea6445a082191adc5fc136",
-      "shadow_sha256": "71e93e314ceef4aee4ebc1e09e929d2c8bbe3238e717a5875a6b7493f7555e43"
+      "image_sha256": "f4834cad6a890f57c662792bde4bdeb5baab33568fdf3f5afc960d17b38fdbff",
+      "shadow_sha256": "8df8fb3952e2b7f3a431c246dc36004d0ff5fabf96bbe065d1dbced80bc204b3"
     },
     "chod_0_03.png": {
-      "max_joint_gap_m": 1.8189185285171422e-07,
+      "max_joint_gap_m": 2.669762502188819e-07,
       "max_bone_length_error_m": 1.527630024700244e-07,
       "feet": {
         "L": {
@@ -3494,11 +3494,11 @@
         }
       },
       "phase": 0.25,
-      "image_sha256": "a4f2d983ce35f7197b7a8892452f737143e4a09825d9385f3eb7c0734da91d63",
-      "shadow_sha256": "dd509b92d56ac8b5fe065102b0c1fa76d4ca1b037f9cbc85268039fa64a46ddd"
+      "image_sha256": "a3c41814adabc73735ce2b3038027aa8afc5473309578ecf77fff91ac9d357de",
+      "shadow_sha256": "75bf3c533eabd4803ab6c9b237c13685a5a0ffb9aed4cea1f6c5903e0ba958ec"
     },
     "chod_0_04.png": {
-      "max_joint_gap_m": 2.5790741936372184e-07,
+      "max_joint_gap_m": 2.7161428531346e-07,
       "max_bone_length_error_m": 1.1873441328746903e-07,
       "feet": {
         "L": {
@@ -3545,8 +3545,8 @@
         }
       },
       "phase": 0.3333333333333333,
-      "image_sha256": "bc610c8a8e93d4b3b6e682ade49bd2781378f76fcf8a80c3d94845d1957459d0",
-      "shadow_sha256": "1eab3b2679c17343b62e460c4e770c9afb22fa199e4b96ba83d0fcbb1ee0274e"
+      "image_sha256": "80db044214f4263816fdac83bb780288e17c126c8e43c9fa8dfa423eafb79823",
+      "shadow_sha256": "46967bdc2d378fb5dd54da10b98ef018c932ce22d5c8f11903e7038a761ea460"
     },
     "chod_0_05.png": {
       "max_joint_gap_m": 1.8907453925087333e-07,
@@ -3596,11 +3596,11 @@
         }
       },
       "phase": 0.4166666666666667,
-      "image_sha256": "9a637815d5d8b55b01877b6a78761421e7d23efe53597471ad5b0428b1c45c0c",
-      "shadow_sha256": "2bbae0eb2f590a04811cd151475baee2149cb103f7ffe34131c4c784d3d78886"
+      "image_sha256": "c48a34f4685dd4c8228444a5a677fc5b59c54d073b608ed6f5efbab4371bb0d4",
+      "shadow_sha256": "d54f5c7dab4ecff1f259fc84ef185ab3d496c04a8c42f2d884162c5df8e26bf4"
     },
     "chod_0_06.png": {
-      "max_joint_gap_m": 2.819214311855159e-07,
+      "max_joint_gap_m": 3.003425057343598e-07,
       "max_bone_length_error_m": 1.1356813062191051e-07,
       "feet": {
         "L": {
@@ -3647,11 +3647,11 @@
         }
       },
       "phase": 0.5,
-      "image_sha256": "4aacf206ec4c9f43433363e27fe83e3bcf77bacbdf529071a50873d4da06581a",
-      "shadow_sha256": "7fab21f03f1362887124559a034e896f2be91195e1ddafc67ec4de43bb671588"
+      "image_sha256": "ebbff65102432f0601b1d2e3f0ad82ad50f260d82e3525bbcbdad2402e980cf1",
+      "shadow_sha256": "997dc8a0ba34ffb5252ae1a858e1fbdae7c26e04b96d7c9f35f8505f6d613aad"
     },
     "chod_0_07.png": {
-      "max_joint_gap_m": 1.8612490973903913e-07,
+      "max_joint_gap_m": 1.6049041769309353e-07,
       "max_bone_length_error_m": 1.8850636462897086e-07,
       "feet": {
         "L": {
@@ -3698,11 +3698,11 @@
         }
       },
       "phase": 0.5833333333333334,
-      "image_sha256": "125ca9b554ac9e6afd06b1bcc86a368a2983f96638babc72269da50aa613b2ad",
-      "shadow_sha256": "4ab8bf49a6b49ad26dd4d0a0d8ccca1916f2dfd256ff825c87e328e38609498f"
+      "image_sha256": "0fe6046b3ac26dc01f5ae5223ea43a9eb056ce2cd5189112e86a30649af9fd17",
+      "shadow_sha256": "e0a98d7d786abd34f191c105d883fc33dd7e6219c7ddff2f78e39d958bcc5d7e"
     },
     "chod_0_08.png": {
-      "max_joint_gap_m": 1.8671101460071903e-07,
+      "max_joint_gap_m": 2.573418027038953e-07,
       "max_bone_length_error_m": 1.26954352808184e-07,
       "feet": {
         "L": {
@@ -3749,11 +3749,11 @@
         }
       },
       "phase": 0.6666666666666666,
-      "image_sha256": "5d7883205ebf50d2aaf9eef9bda9341ec89e9c545eae0fd7a11f03a2c4c1f5fc",
-      "shadow_sha256": "9742fd5a6b7e873e550a5cde2385c4aa57c15d8e1c4e4a48c74e0807862bdd0a"
+      "image_sha256": "197bc76880ac434744db52a6f60b89d6ca71cd035ac821c978536af1e1bf6ab4",
+      "shadow_sha256": "c413931eb53e64267d9e9fdab821d53828d8dc69f7e1feb83889f3577040ebc7"
     },
     "chod_0_09.png": {
-      "max_joint_gap_m": 1.3075715880680267e-07,
+      "max_joint_gap_m": 2.8672637648722316e-07,
       "max_bone_length_error_m": 1.5031942490750794e-07,
       "feet": {
         "L": {
@@ -3800,11 +3800,11 @@
         }
       },
       "phase": 0.75,
-      "image_sha256": "a243652e765028d4ce9588fc11052b494f43da1248dd3104d7caf5d452358853",
-      "shadow_sha256": "d3774b9b0378b6b5cfc4c4921f7d3dc9a547dfd8d3d8115d49d1ec37e733460a"
+      "image_sha256": "40173089917b780e601130a813ca31e909aff1e940cc37d664d870b225efa753",
+      "shadow_sha256": "d9546ce82c52c64fadf35ae112bb4843bcd3cba762b70fe3278d82389efe7de4"
     },
     "chod_0_10.png": {
-      "max_joint_gap_m": 3.03925246810483e-07,
+      "max_joint_gap_m": 3.5832567979130295e-07,
       "max_bone_length_error_m": 1.9381331695100812e-07,
       "feet": {
         "L": {
@@ -3851,11 +3851,11 @@
         }
       },
       "phase": 0.8333333333333334,
-      "image_sha256": "7b93a798a94a08b300c04fe6e643f193679375965aa7ab1050f0936f1976a222",
-      "shadow_sha256": "95ac6ec6ef314bbfb7225d2ae2437ba57af3ad16428666010bd2a3a76b2d8545"
+      "image_sha256": "0a6164dbee05378c539743654610b8ccb6c9997d97f289dd5264bb4a6280c9a3",
+      "shadow_sha256": "56ef22128dc8090ada28703b436725b0caef7bfa122d0ea8b8296265c5bfdc92"
     },
     "chod_0_11.png": {
-      "max_joint_gap_m": 2.4586915969848633e-07,
+      "max_joint_gap_m": 2.5769209273936245e-07,
       "max_bone_length_error_m": 4.1235044495602224e-07,
       "feet": {
         "L": {
@@ -3902,11 +3902,11 @@
         }
       },
       "phase": 0.9166666666666666,
-      "image_sha256": "de0a27f540121977727ab74a1cd3dbc6eabcca6ad19e9348729b11068aee6ae7",
-      "shadow_sha256": "a338b9b6091a1dc584989fe19cb74f6b7a55f6fa7e5bf1eacd94e5472e171f57"
+      "image_sha256": "1fcf3ae73e6778fb23521984df5d039a7644ba9a8fe7f1d9b0152c63179ed8d0",
+      "shadow_sha256": "e5f1849df0691d5aca075fe0df6a58ab428668bafb58419d2a14d06e425b050e"
     },
     "chod_1_00.png": {
-      "max_joint_gap_m": 2.682209014892578e-07,
+      "max_joint_gap_m": 3.998401124775034e-07,
       "max_bone_length_error_m": 2.273486577331063e-07,
       "feet": {
         "L": {
@@ -3953,11 +3953,11 @@
         }
       },
       "phase": 0.0,
-      "image_sha256": "298fc6ff35e1d1b14796a7c9ba0cb10def3da108ae71b50b62761b9d6f0f3600",
-      "shadow_sha256": "cd114261f0a6a67678c63cf5a6ff09b6f6047e66458df68209530263f0d8b2b9"
+      "image_sha256": "fb3a9e3c102872eabd8c17cf48bb2568019e7017c15e3f3de6143ee4288335aa",
+      "shadow_sha256": "2ad936e77f6b45808012ec9af852bd6b1df01b6100e9d1ac2062cce963df5c97"
     },
     "chod_1_01.png": {
-      "max_joint_gap_m": 2.086495155832238e-07,
+      "max_joint_gap_m": 2.4586915969848633e-07,
       "max_bone_length_error_m": 3.416389391386332e-07,
       "feet": {
         "L": {
@@ -4004,11 +4004,11 @@
         }
       },
       "phase": 0.08333333333333333,
-      "image_sha256": "ee88a074b1a10c69db4132f8e6bbb62b4361f94601fc09088ee4065b7f791c14",
-      "shadow_sha256": "1217bdfb226f5e4b80e8e0143ec8b8418c42fb4bfd67796a979d199114d9e2f6"
+      "image_sha256": "9192ba5a428d87ff3f26813802151c92f14f49a0527b7c09980b45452b0c1856",
+      "shadow_sha256": "59c9b91617881c640bc4cf01b1a9557f21faacdf3200f5b66e44a2d1503a635b"
     },
     "chod_1_02.png": {
-      "max_joint_gap_m": 2.8529497978904533e-07,
+      "max_joint_gap_m": 2.590617336439149e-07,
       "max_bone_length_error_m": 1.516158718573024e-07,
       "feet": {
         "L": {
@@ -4055,11 +4055,11 @@
         }
       },
       "phase": 0.16666666666666666,
-      "image_sha256": "4ac1ce9081e67e1a374ce68c9f62c8099795fc68edfcd255bece7e592a2d26e4",
-      "shadow_sha256": "dee98d25242931cc673df9c05ad1405f1f59a79ee37a4c10d4377e13fd59cca3"
+      "image_sha256": "df9bee235ec5640fca98e92ae4498b73364e091429f4e8fd8b79085b4a1787f0",
+      "shadow_sha256": "f4661c45710879661d3bb047304e772c835e4093d5e4b3453da7b19983b25b7a"
     },
     "chod_1_03.png": {
-      "max_joint_gap_m": 1.8189185285171422e-07,
+      "max_joint_gap_m": 2.669762502188819e-07,
       "max_bone_length_error_m": 1.527630024700244e-07,
       "feet": {
         "L": {
@@ -4106,11 +4106,11 @@
         }
       },
       "phase": 0.25,
-      "image_sha256": "771eef6439d8a85baa49b9222ca8e4ecb34230dde381e6773e132a7ca6185313",
-      "shadow_sha256": "7313d0ad64ec06e18827468ec097a94576fe399752c8eb05dcf50dd1361c7e97"
+      "image_sha256": "f98c21ed0ac8b444190889da099562be37fcc524cf66bf09d4fd1d22c8ad0526",
+      "shadow_sha256": "1c0a3fc1e1d2b484dd652771e75845c86bf5814ae4fe5b325b395dd1caf21238"
     },
     "chod_1_04.png": {
-      "max_joint_gap_m": 2.5790741936372184e-07,
+      "max_joint_gap_m": 2.7161428531346e-07,
       "max_bone_length_error_m": 1.1873441328746903e-07,
       "feet": {
         "L": {
@@ -4157,8 +4157,8 @@
         }
       },
       "phase": 0.3333333333333333,
-      "image_sha256": "450173972fbd4bf7026d19a51403b40131070214d50167cd43597f825c023416",
-      "shadow_sha256": "5d7d20762daf24bdd0cc4997f1906a617c572d74bcf2ee3bcffff5619e771aa4"
+      "image_sha256": "36b5edd124c5f6962204193d207b9691fea448f3d93d9a1d8c4695c23b891de9",
+      "shadow_sha256": "df32f0a308cb3f97348123da4066a790ae045f6302e51f2fc26e7eb4ea126900"
     },
     "chod_1_05.png": {
       "max_joint_gap_m": 1.8907453925087333e-07,
@@ -4208,11 +4208,11 @@
         }
       },
       "phase": 0.4166666666666667,
-      "image_sha256": "1693f05e445bf00df0d041084075bb530af1b58ebe2fd2d6413182941f8e5076",
-      "shadow_sha256": "4aaaa592b8f84d2c44d9cf51ea1c6539aae6ab53618abbf39524fcb9ccf31365"
+      "image_sha256": "e7753198ec43a636808122870b7be61d4be9e9d47167051ce5c4e8d5e124b536",
+      "shadow_sha256": "3a3f0fba71822bd1e691bb2c4545ac8303f9ebdbc46d22adeffdf28d9e7861e3"
     },
     "chod_1_06.png": {
-      "max_joint_gap_m": 2.819214311855159e-07,
+      "max_joint_gap_m": 3.003425057343598e-07,
       "max_bone_length_error_m": 1.1356813062191051e-07,
       "feet": {
         "L": {
@@ -4259,11 +4259,11 @@
         }
       },
       "phase": 0.5,
-      "image_sha256": "eaa40c2485f2dbaeaa3ba43ce7256dadcfdccd2a92117dd777ffea16f781cdeb",
-      "shadow_sha256": "d1bfb27f62eef33e211be998ded8286864c51bf62485a6b463c41826fd9ee307"
+      "image_sha256": "cfcd95dc1808cc764d721df6bf5c5d08c69f4bb1c4dcf837a0df12a89e9e37f0",
+      "shadow_sha256": "ce53084eb2aa274038ce528a3f1daa6e1d28955a7ba1aa9894dc6350a7723578"
     },
     "chod_1_07.png": {
-      "max_joint_gap_m": 1.8612490973903913e-07,
+      "max_joint_gap_m": 1.6049041769309353e-07,
       "max_bone_length_error_m": 1.8850636462897086e-07,
       "feet": {
         "L": {
@@ -4310,11 +4310,11 @@
         }
       },
       "phase": 0.5833333333333334,
-      "image_sha256": "99a8a6b3c475739ab3b7469541d0ec1010aa514e02bf1151bd1e1cea557dc0de",
-      "shadow_sha256": "3d38b7d2cb5a0334f5b7b685f4bfefadcf6046db7ae62ff104cab89137ffadc1"
+      "image_sha256": "b95a0aca20a2ba22e66cfe99318f9ccfa7a031475f32a46730cbfa6fb59f320d",
+      "shadow_sha256": "a3d112460f565f2e8320dee7864f883e476812f7c7f923a7842e4df1d83b927f"
     },
     "chod_1_08.png": {
-      "max_joint_gap_m": 1.8671101460071903e-07,
+      "max_joint_gap_m": 2.573418027038953e-07,
       "max_bone_length_error_m": 1.26954352808184e-07,
       "feet": {
         "L": {
@@ -4361,11 +4361,11 @@
         }
       },
       "phase": 0.6666666666666666,
-      "image_sha256": "84e884637f348ff0ac383a2872e7e9923d7fca16de0633cc87d003df5a5ea96a",
-      "shadow_sha256": "4610d3bb351a2f4e532672074b4e408fa8e032e01f7fc63941d0a4957cfef659"
+      "image_sha256": "5cfeded5f93498a6f222fdfe0c17dfd267ead944fbd9ab11877b239d209bd1c2",
+      "shadow_sha256": "a20261c1f91893295841eca184fa73f0dcacba1ca63527d7b6f62672b1ef2da2"
     },
     "chod_1_09.png": {
-      "max_joint_gap_m": 1.3075715880680267e-07,
+      "max_joint_gap_m": 2.8672637648722316e-07,
       "max_bone_length_error_m": 1.5031942490750794e-07,
       "feet": {
         "L": {
@@ -4412,11 +4412,11 @@
         }
       },
       "phase": 0.75,
-      "image_sha256": "7e6a0d202f3858de31317e857a9a1da82c6bb9530ceebfedf1397fc1f786fb54",
-      "shadow_sha256": "c395c53660757e4fa689e7089bc607a2271453115bbd14761a71dc45ea533784"
+      "image_sha256": "c5334497348fbbfd69430d254e6e4447cba3345463c29d607b0352aabfa432a3",
+      "shadow_sha256": "a2dea1aaeed07460e43d1b8f6b05f75c6c8e78d735fa9f6d79c81e1ee903e56b"
     },
     "chod_1_10.png": {
-      "max_joint_gap_m": 3.03925246810483e-07,
+      "max_joint_gap_m": 3.5832567979130295e-07,
       "max_bone_length_error_m": 1.9381331695100812e-07,
       "feet": {
         "L": {
@@ -4463,11 +4463,11 @@
         }
       },
       "phase": 0.8333333333333334,
-      "image_sha256": "da5e0e675f8642b72e9b31cf2da4f962f543aefdf01fec49d65a3f607aea0c60",
-      "shadow_sha256": "af7ec35c5a7bf361938df4682c584427ebc8c696ff8c169b11fd42328594a2cf"
+      "image_sha256": "983d1a4b097978b9f0321d15fbdab0dd458e8d969ff0c7168ff8181251c3cde3",
+      "shadow_sha256": "4569e50b3ab801ae51b2fa5bf166671040805218d3a3a77cf52921b23b39ef59"
     },
     "chod_1_11.png": {
-      "max_joint_gap_m": 2.4586915969848633e-07,
+      "max_joint_gap_m": 2.5769209273936245e-07,
       "max_bone_length_error_m": 4.1235044495602224e-07,
       "feet": {
         "L": {
@@ -4514,11 +4514,11 @@
         }
       },
       "phase": 0.9166666666666666,
-      "image_sha256": "704cda6b0df9326e705ef061ea6e5f8d2ce644aab776e2d828ca4ce00cab195a",
-      "shadow_sha256": "007762baac579e919cb3b52ae1d7b467885c48035e87072f5fe628e26be903c1"
+      "image_sha256": "c85439f856a339b985775ed10cd010543843c688225247a1b4bdf3673580041c",
+      "shadow_sha256": "30fa7d927bebf6e439dbaa58ea69c3d5854d4dd32afcd1f5289f5e05a63c8aca"
     },
     "chod_2_00.png": {
-      "max_joint_gap_m": 2.682209014892578e-07,
+      "max_joint_gap_m": 3.998401124775034e-07,
       "max_bone_length_error_m": 2.273486577331063e-07,
       "feet": {
         "L": {
@@ -4565,11 +4565,11 @@
         }
       },
       "phase": 0.0,
-      "image_sha256": "123bc3aa1e2e6f978c8074fe99c66c57b46a0d897bf8ab1dbe9c00ddb7d44cbf",
-      "shadow_sha256": "8ffca529380011f140d54671e8a06be3e1771a39256f1655f9abe6d6610aef4f"
+      "image_sha256": "6ce1ea7b51e7b6b0bbc3ceaa83edbf148748613bce704214eee033600612fd29",
+      "shadow_sha256": "2f6f16107ad82ad14825b3ba7cf8844ea05ee31f750a6032f5af634d9e64fbc9"
     },
     "chod_2_01.png": {
-      "max_joint_gap_m": 2.086495155832238e-07,
+      "max_joint_gap_m": 2.4586915969848633e-07,
       "max_bone_length_error_m": 3.416389391386332e-07,
       "feet": {
         "L": {
@@ -4616,11 +4616,11 @@
         }
       },
       "phase": 0.08333333333333333,
-      "image_sha256": "04076d1e394f5b6d9c63b55c4f6aff8dedb8d4eb4b346292ec3d50563036d2a5",
-      "shadow_sha256": "5ea44861433774a0368d95dd4961665850192c01d7c347ff8da2cb101678c181"
+      "image_sha256": "fac720da320ff84eac8236a5b270cab5edab8387d65de0da6b5e71071c2c7ffd",
+      "shadow_sha256": "9b92aa2b385ee7d9cb97b488deaa9563308d3cec43207a802374a74bd7f420d5"
     },
     "chod_2_02.png": {
-      "max_joint_gap_m": 2.8529497978904533e-07,
+      "max_joint_gap_m": 2.590617336439149e-07,
       "max_bone_length_error_m": 1.516158718573024e-07,
       "feet": {
         "L": {
@@ -4667,11 +4667,11 @@
         }
       },
       "phase": 0.16666666666666666,
-      "image_sha256": "eff50ea2fec0c644fd083c43be578fe8b133ff541d74c4b18c7d547791f5af8d",
-      "shadow_sha256": "d9f2a3930d35b4ed61a3cdf9dc89661915eab28f9f8cd61060081c6ab0fc1a35"
+      "image_sha256": "2f71e001f0e33ff4c0b6e4e6b5caf210732474b8457637b497538b41b8d4c0e7",
+      "shadow_sha256": "a448cf31dcf52ec12c6086150331849965d613348151b667f40805f5d8b53c76"
     },
     "chod_2_03.png": {
-      "max_joint_gap_m": 1.8189185285171422e-07,
+      "max_joint_gap_m": 2.669762502188819e-07,
       "max_bone_length_error_m": 1.527630024700244e-07,
       "feet": {
         "L": {
@@ -4718,11 +4718,11 @@
         }
       },
       "phase": 0.25,
-      "image_sha256": "7671ccd144af86e99e50308481ae8e7703af90fde0f93c348a649787ba78bef3",
-      "shadow_sha256": "6065db5e1d46d00bf6882a97fb2a7301aadc5bf489fd0a98ddf194339b6ba2d6"
+      "image_sha256": "1d882d2098b44a43a5b726af2d84755ad8ed7e36d959875885b75a2866139760",
+      "shadow_sha256": "0e8293a76d7b3bbc464633daf02b8d89530d4b0872a0c444811b1ff51c21699c"
     },
     "chod_2_04.png": {
-      "max_joint_gap_m": 2.5790741936372184e-07,
+      "max_joint_gap_m": 2.7161428531346e-07,
       "max_bone_length_error_m": 1.1873441328746903e-07,
       "feet": {
         "L": {
@@ -4769,8 +4769,8 @@
         }
       },
       "phase": 0.3333333333333333,
-      "image_sha256": "a2531cfd8055ac799a70ef93803fa8cfe709fd9c5effd13bdc2cd85769b3008a",
-      "shadow_sha256": "db9108e72e69faed7cb4a3bc5e546736ef95560bbdc2cf6e69c4004a02e07f57"
+      "image_sha256": "15bfa17422ba8b92420bb6bc00c34e8b95903b8e5e4216baf9627b310f4190d6",
+      "shadow_sha256": "7452c6065ddbae35d3b7f0327e2cc4a439c0302c18dd06950811fc6d51bbcb4c"
     },
     "chod_2_05.png": {
       "max_joint_gap_m": 1.8907453925087333e-07,
@@ -4820,11 +4820,11 @@
         }
       },
       "phase": 0.4166666666666667,
-      "image_sha256": "b2e73e5d373ae75b4f2bbce4b1680362e5e5c90931e23ccf3da43af90a257191",
-      "shadow_sha256": "cd63ed38fdc312d1137d7739e5029a7e120cc3e373860ddafc8e21205ffce3e9"
+      "image_sha256": "17bc5fd872b7046dc2befd23a65febba0eed632a6da0ff9e71722b1cead436ae",
+      "shadow_sha256": "f4954ad5183897ae77aeae017c2606e31bc68c31aa0844b316cd847ccde03296"
     },
     "chod_2_06.png": {
-      "max_joint_gap_m": 2.819214311855159e-07,
+      "max_joint_gap_m": 3.003425057343598e-07,
       "max_bone_length_error_m": 1.1356813062191051e-07,
       "feet": {
         "L": {
@@ -4871,11 +4871,11 @@
         }
       },
       "phase": 0.5,
-      "image_sha256": "f3cbf83599e8d8bba95dc87b10cb0300934adfb900a046919c63f3e5f00a267b",
-      "shadow_sha256": "c47ac63d5440307d41ca2db37ffda79f73cca14c657bc7210c6779c2c14d9651"
+      "image_sha256": "b92a08f2fa4308bfa20a2a4e99430e249b9a6a0fc7f63e1fc06fc98053f4d451",
+      "shadow_sha256": "b7ddfd6351a8100006c9a90e6b1befc802e62e338747de26a7bdc4a6f00c3628"
     },
     "chod_2_07.png": {
-      "max_joint_gap_m": 1.8612490973903913e-07,
+      "max_joint_gap_m": 1.6049041769309353e-07,
       "max_bone_length_error_m": 1.8850636462897086e-07,
       "feet": {
         "L": {
@@ -4922,11 +4922,11 @@
         }
       },
       "phase": 0.5833333333333334,
-      "image_sha256": "78d6b4073ae8a2055879c04ef5a5ee08b208f24e0e1878cba65c3cfd9995714c",
-      "shadow_sha256": "8b84e4a6016e7b3b3e19400885283578bdb87ee7acdec12df119ca5a5493ec15"
+      "image_sha256": "a970b75d01dfedbfa6c96fa62d3ca0717423bce9a1c49a3e91d1c563eec1d90f",
+      "shadow_sha256": "79bc97a99bb258c872bb4e467f41cea32a24082dbc23b8aa7ff5e1ed7d4009bf"
     },
     "chod_2_08.png": {
-      "max_joint_gap_m": 1.8671101460071903e-07,
+      "max_joint_gap_m": 2.573418027038953e-07,
       "max_bone_length_error_m": 1.26954352808184e-07,
       "feet": {
         "L": {
@@ -4973,11 +4973,11 @@
         }
       },
       "phase": 0.6666666666666666,
-      "image_sha256": "c406b50a4315bebd4c11c8af78a4aa6a47b0c16e25305d8555eaa8f80a6a484c",
-      "shadow_sha256": "52c7ccab30580fdbbf1df842d0b476b744192a63b8342dff80bf8759bc38e14a"
+      "image_sha256": "31a1ec232f48b0cd9f60759a190b6d9d98c89cb95fd826832b06dbe8a0e63436",
+      "shadow_sha256": "935ad758c6d737ca7a05291a97957c0e9bcf6370410fe897039f23960132a63a"
     },
     "chod_2_09.png": {
-      "max_joint_gap_m": 1.3075715880680267e-07,
+      "max_joint_gap_m": 2.8672637648722316e-07,
       "max_bone_length_error_m": 1.5031942490750794e-07,
       "feet": {
         "L": {
@@ -5024,11 +5024,11 @@
         }
       },
       "phase": 0.75,
-      "image_sha256": "5816d585c165eb256ef492914ee23f3a92cfa8928ca26d8748e061b38140f24b",
-      "shadow_sha256": "47628091ab6bc205adfc69e1b9c9b67afd801056367e7772aee0e0cba4b86ec7"
+      "image_sha256": "292356876e003e12aa58aef14553d68ffec6cf9539041aabddf3ee6cfe8633d9",
+      "shadow_sha256": "fd8a0aa3a0027a1f6aff30326fbace3e5ca827195e0d13aa0eee47d8ab4eb236"
     },
     "chod_2_10.png": {
-      "max_joint_gap_m": 3.03925246810483e-07,
+      "max_joint_gap_m": 3.5832567979130295e-07,
       "max_bone_length_error_m": 1.9381331695100812e-07,
       "feet": {
         "L": {
@@ -5075,11 +5075,11 @@
         }
       },
       "phase": 0.8333333333333334,
-      "image_sha256": "7e50ab6b9b0a881a2f2112db1c317067b2904b39bb0fd8f3f7ca4c3d838c0f5c",
-      "shadow_sha256": "6fc12c796aff0b87e2506cc6be6587b1fdbe40a83cfb84726999089ecf185785"
+      "image_sha256": "5fb27b8c3921038874cce4b867be1eb0e66743e30514b84abeed71e77620d05b",
+      "shadow_sha256": "3cd04f916034fabbf0cf9a34164b7b131217e27b06f4036f29bb53f10adab88a"
     },
     "chod_2_11.png": {
-      "max_joint_gap_m": 2.4586915969848633e-07,
+      "max_joint_gap_m": 2.5769209273936245e-07,
       "max_bone_length_error_m": 4.1235044495602224e-07,
       "feet": {
         "L": {
@@ -5126,11 +5126,11 @@
         }
       },
       "phase": 0.9166666666666666,
-      "image_sha256": "92d3f058d70b5f3accc9f12cb7eb54d36b1e9186b1753dfb78f8ccaa228701d5",
-      "shadow_sha256": "c6b21571e44b2d3843e41a5a2f46e5288d3447919c0e3fb698c10cd8a32cc51f"
+      "image_sha256": "2725bc6e6abef5bdc4f1d4205487251d96b6accdc11ab8e552b8bfb0fb592abe",
+      "shadow_sha256": "b2a066758092fb13715c6232944013afc682c9abea8f5380f35d065aaaacb1c5"
     },
     "chod_3_00.png": {
-      "max_joint_gap_m": 2.682209014892578e-07,
+      "max_joint_gap_m": 3.998401124775034e-07,
       "max_bone_length_error_m": 2.273486577331063e-07,
       "feet": {
         "L": {
@@ -5177,11 +5177,11 @@
         }
       },
       "phase": 0.0,
-      "image_sha256": "1e3e11f48ee79e07a3cdf7de34c4a6a18474b2e1feae4d69adfe59c9c8bbee74",
-      "shadow_sha256": "2a62b7423488344afd1207c5ca6f0ae5cd691c2e626e93894eb7d853cb388cbf"
+      "image_sha256": "45e2847905112477dff74465d863a75dcd4722aaf0c3364d9aa7d388a8dad49e",
+      "shadow_sha256": "00d3cb7b70aa79f53a85b66df8986b28b228275e1663f093d7dcf8fb91e1fd27"
     },
     "chod_3_01.png": {
-      "max_joint_gap_m": 2.086495155832238e-07,
+      "max_joint_gap_m": 2.4586915969848633e-07,
       "max_bone_length_error_m": 3.416389391386332e-07,
       "feet": {
         "L": {
@@ -5228,11 +5228,11 @@
         }
       },
       "phase": 0.08333333333333333,
-      "image_sha256": "aa61dea51f296b49f8bb9f6349252fd00bdc1ef64427fcfda51aacf0ef3376b6",
-      "shadow_sha256": "9a36f9e8ad4d7292bfc2e9a6b6fbfaf09210a912ec3aa9f7a9b78b540ded3a49"
+      "image_sha256": "599e33c636dbe34acb43fa8db68b0f422b90b9faadcd89527f532f7eab0d7f4e",
+      "shadow_sha256": "867d82b65dad3b655019fd286846c5d450d1800050f778f0dbeed849b7e8fa8f"
     },
     "chod_3_02.png": {
-      "max_joint_gap_m": 2.8529497978904533e-07,
+      "max_joint_gap_m": 2.590617336439149e-07,
       "max_bone_length_error_m": 1.516158718573024e-07,
       "feet": {
         "L": {
@@ -5279,11 +5279,11 @@
         }
       },
       "phase": 0.16666666666666666,
-      "image_sha256": "6a02eceab46e21855ebfd2e17183a4c926ab279757e4f4ab5730a30e2b747b91",
-      "shadow_sha256": "6d18e6e32df328a56aa0ca32e61deb15515201753c384f90967ca7b85a161291"
+      "image_sha256": "0ba1b7f7a1e9debe3dad77eb3cb457b08c0082a287e1d2b46e8622d349b15c34",
+      "shadow_sha256": "3d95eb526feb4b41091c9e214661a3e13d7429c6e0d0a7e3cc62f74ee30c71b1"
     },
     "chod_3_03.png": {
-      "max_joint_gap_m": 1.8189185285171422e-07,
+      "max_joint_gap_m": 2.669762502188819e-07,
       "max_bone_length_error_m": 1.527630024700244e-07,
       "feet": {
         "L": {
@@ -5330,11 +5330,11 @@
         }
       },
       "phase": 0.25,
-      "image_sha256": "ae5f0b6b58aa3b16e43367b8ff6d83e3f365a5d36f3c81860becd82d859f1484",
-      "shadow_sha256": "6df575bd62b4b5db58762fa110cecab8b79218cbb4194071cd83698a21f294c0"
+      "image_sha256": "b63273584ec2815948857b86cbe9c48e1b11ce3b7ffde0638edf46c524e2ff85",
+      "shadow_sha256": "f6ca239920ff02f0e1a06d45333403ea667e4d44943f55bf92e1e46eea38591c"
     },
     "chod_3_04.png": {
-      "max_joint_gap_m": 2.5790741936372184e-07,
+      "max_joint_gap_m": 2.7161428531346e-07,
       "max_bone_length_error_m": 1.1873441328746903e-07,
       "feet": {
         "L": {
@@ -5381,8 +5381,8 @@
         }
       },
       "phase": 0.3333333333333333,
-      "image_sha256": "2a0bea48de9d2a23db6e1a599aee0643fd00e92de43f86988d129418c3f0f52e",
-      "shadow_sha256": "cb78abf9b79ef61f95eb5b6dc8c083f2cc9fb5908e40adef6f6f0965c73e573c"
+      "image_sha256": "4c6a91b749bcad5bd70731a55ee89e8f1f3103a564763e93bf0ad5b1a8be1d21",
+      "shadow_sha256": "76773540a3374a8980cf3118bfc4ab5bbe840d8d31bb797cda1907a4a513b986"
     },
     "chod_3_05.png": {
       "max_joint_gap_m": 1.8907453925087333e-07,
@@ -5432,11 +5432,11 @@
         }
       },
       "phase": 0.4166666666666667,
-      "image_sha256": "4b37fb01d18429f16b166d50cb64e9aa480aeb39eeb7a2634c03a83aec8f9edb",
-      "shadow_sha256": "5df9bf599715dfce01bf6cb3c55ea7a767fbf3e5fcceaeb36aeb2f9a2047da45"
+      "image_sha256": "e23511c84ec5d8e7b6f2495c23d28d16e2ba74d7ee30417d5bd7c2da041402af",
+      "shadow_sha256": "73c9cacff11db5fcab505772f8ebddd8f970bffb5badddc2533042eb12592bf4"
     },
     "chod_3_06.png": {
-      "max_joint_gap_m": 2.819214311855159e-07,
+      "max_joint_gap_m": 3.003425057343598e-07,
       "max_bone_length_error_m": 1.1356813062191051e-07,
       "feet": {
         "L": {
@@ -5483,2711 +5483,8 @@
         }
       },
       "phase": 0.5,
-      "image_sha256": "94b689f2aad1ed3158a0f0aca017c955e3a366e5c699a6a31b9a366152faed2c",
-      "shadow_sha256": "b17d6502629350b99ad07b931f6cc0f06ad334a182ad969a0b528e269e84f65b"
-    },
-    "chod_3_07.png": {
-      "max_joint_gap_m": 1.8612490973903913e-07,
-      "max_bone_length_error_m": 1.8850636462897086e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.2221311330795288,
-            0.12600018084049225,
-            0.11585225909948349
-          ],
-          "stance": true,
-          "plant_reference_m": -0.24555555555555564,
-          "sole_heel_toe_m": [
-            [
-              -0.2921528220176697,
-              0.12600016593933105,
-              0.05293343588709831
-            ],
-            [
-              -0.07655573636293411,
-              0.12600013613700867,
-              5.866710353075177e-07
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.18638958036899567,
-            -0.12599998712539673,
-            0.07872821390628815
-          ],
-          "stance": true,
-          "plant_reference_m": 0.18777777777777765,
-          "sole_heel_toe_m": [
-            [
-              0.13477793335914612,
-              -0.12599997222423553,
-              6.062043667043326e-07
-            ],
-            [
-              0.35674306750297546,
-              -0.12599998712539673,
-              0.003938554786145687
-            ]
-          ]
-        }
-      },
-      "phase": 0.5833333333333334,
-      "image_sha256": "58851bd97d2b58cd9361ce0966119343177f2240511967270e3a595d75c44a41",
-      "shadow_sha256": "67e930097f31a3d3aaf6ddbe666daece8b80567a9d0adfd746fae2accaada012"
-    },
-    "chod_3_08.png": {
-      "max_joint_gap_m": 1.8671101460071903e-07,
-      "max_bone_length_error_m": 1.26954352808184e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.1923256665468216,
-            0.12600018084049225,
-            0.1742856204509735
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.26701298356056213,
-              0.12600019574165344,
-              0.11698272079229355
-            ],
-            [
-              -0.05616659298539162,
-              0.12600015103816986,
-              0.04750017076730728
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.11555567383766174,
-            -0.12600009143352509,
-            0.07780008018016815
-          ],
-          "stance": true,
-          "plant_reference_m": 0.11555555555555569,
-          "sole_heel_toe_m": [
-            [
-              0.06255565583705902,
-              -0.1260000765323639,
-              3.5981238966087403e-07
-            ],
-            [
-              0.28455570340156555,
-              -0.1260000765323639,
-              3.151536134282651e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.6666666666666666,
-      "image_sha256": "2ff655a53bb86e7d4fe067e849082b2b55a43176edc9a886b7ddb0c857f746c0",
-      "shadow_sha256": "530425c99af87981989eaddf08eaf10c9e657c610dab8da67de6b9421de5361d"
-    },
-    "chod_3_09.png": {
-      "max_joint_gap_m": 1.3075715880680267e-07,
-      "max_bone_length_error_m": 1.5031942490750794e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.0688304454088211,
-            0.12600018084049225,
-            0.21217890083789825
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.14251482486724854,
-              0.12600019574165344,
-              0.15359199047088623
-            ],
-            [
-              0.06950248032808304,
-              0.12600013613700867,
-              0.08776892721652985
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.043333377689123154,
-            -0.1260000616312027,
-            0.07779992371797562
-          ],
-          "stance": true,
-          "plant_reference_m": 0.043333333333333335,
-          "sole_heel_toe_m": [
-            [
-              -0.009666633792221546,
-              -0.1260000765323639,
-              1.7824477538397332e-07
-            ],
-            [
-              0.21233342587947845,
-              -0.1260000467300415,
-              1.5178031276263937e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.75,
-      "image_sha256": "430bba957a60da7e0038446c728987c24dd2ce862c8169b8f74bb5c8ea40d3e6",
-      "shadow_sha256": "db74f3b07ceff1661d0d3333224552f84ab601da78248f628c9f47900dd8282f"
-    },
-    "chod_3_10.png": {
-      "max_joint_gap_m": 3.03925246810483e-07,
-      "max_bone_length_error_m": 1.9381331695100812e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.08692969381809235,
-            0.12600009143352509,
-            0.20268858969211578
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.01904832385480404,
-              0.12600010633468628,
-              0.13746634125709534
-            ],
-            [
-              0.23629318177700043,
-              0.1260000467300415,
-              0.09176332503557205
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.02888890728354454,
-            -0.12600012123584747,
-            0.07779987156391144
-          ],
-          "stance": true,
-          "plant_reference_m": -0.02888888888888902,
-          "sole_heel_toe_m": [
-            [
-              -0.08188889920711517,
-              -0.12600013613700867,
-              1.181632995894688e-07
-            ],
-            [
-              0.14011111855506897,
-              -0.12600010633468628,
-              1.3966567280476738e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.8333333333333334,
-      "image_sha256": "dea54d3225744d4d853439cd9871173a96aa85fd403675bc6e4b8574cf6d2712",
-      "shadow_sha256": "75c81d83c10dfcaffdbaa8e902e1f9b94b84179ebbe040cc778a9c4ff26da409"
-    },
-    "chod_3_11.png": {
-      "max_joint_gap_m": 2.4586915969848633e-07,
-      "max_bone_length_error_m": 4.1235044495602224e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.20900069177150726,
-            0.12599991261959076,
-            0.14130577445030212
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.15339906513690948,
-              0.12599991261959076,
-              0.06534343957901001
-            ],
-            [
-              0.3752721846103668,
-              0.12599989771842957,
-              0.05783342942595482
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.10111118853092194,
-            -0.1260000616312027,
-            0.07780022919178009
-          ],
-          "stance": true,
-          "plant_reference_m": -0.10111111111111099,
-          "sole_heel_toe_m": [
-            [
-              -0.15411117672920227,
-              -0.1260000765323639,
-              4.929033821099438e-07
-            ],
-            [
-              0.0678887814283371,
-              -0.1260000318288803,
-              4.747090827095235e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.9166666666666666,
-      "image_sha256": "274a2f24804f2171596e455b14fad2f2214d1235cfe45c4bfcf035ecb8588e8c",
-      "shadow_sha256": "def26463f7e53fed53434469045467d30772dd13606a9774cf82f3a523be29f3"
-    },
-    "chod_4_00.png": {
-      "max_joint_gap_m": 2.682209014892578e-07,
-      "max_bone_length_error_m": 2.273486577331063e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.24435335397720337,
-            0.12599992752075195,
-            0.08640969544649124
-          ],
-          "stance": true,
-          "plant_reference_m": 0.26,
-          "sole_heel_toe_m": [
-            [
-              0.20700030028820038,
-              0.12599991261959076,
-              4.0190829508901516e-07
-            ],
-            [
-              0.42500534653663635,
-              0.12599991261959076,
-              0.04192708060145378
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.16990187764167786,
-            -0.12600016593933105,
-            0.084858238697052
-          ],
-          "stance": true,
-          "plant_reference_m": -0.17333333333333334,
-          "sole_heel_toe_m": [
-            [
-              -0.22613589465618134,
-              -0.12600018084049225,
-              0.00936298631131649
-            ],
-            [
-              -0.004333456978201866,
-              -0.12600013613700867,
-              1.4109525636740727e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.0,
-      "image_sha256": "7edf2befdb8cd5e153a71f3cb63c5160955d97793cbd1e7b2a598417f4a19324",
-      "shadow_sha256": "70efebcdb3adef32b199a4731cc5dce402f3d72be238db3fd229acad8b1e9739"
-    },
-    "chod_4_01.png": {
-      "max_joint_gap_m": 2.086495155832238e-07,
-      "max_bone_length_error_m": 3.416389391386332e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.18638956546783447,
-            0.12599997222423553,
-            0.07872848212718964
-          ],
-          "stance": true,
-          "plant_reference_m": 0.18777777777777777,
-          "sole_heel_toe_m": [
-            [
-              0.13477791845798492,
-              0.12599995732307434,
-              7.530492780460918e-07
-            ],
-            [
-              0.35674312710762024,
-              0.12599995732307434,
-              0.003938696347177029
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.22213110327720642,
-            -0.12600012123584747,
-            0.11585215479135513
-          ],
-          "stance": true,
-          "plant_reference_m": -0.24555555555555564,
-          "sole_heel_toe_m": [
-            [
-              -0.2921527624130249,
-              -0.12600013613700867,
-              0.05293344333767891
-            ],
-            [
-              -0.07655571401119232,
-              -0.12600009143352509,
-              6.30171712145966e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.08333333333333333,
-      "image_sha256": "46b6172be6ca3a4bd54784b77d040ae39f1a834a2ae8022b3a8baa9fb07b68cd",
-      "shadow_sha256": "0851036a02ad2efbdd658a2186c86ab6dd4f5a99b6dfb50c35cdb2e577531c89"
-    },
-    "chod_4_02.png": {
-      "max_joint_gap_m": 2.8529497978904533e-07,
-      "max_bone_length_error_m": 1.516158718573024e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.11555583775043488,
-            0.12600000202655792,
-            0.077799953520298
-          ],
-          "stance": true,
-          "plant_reference_m": 0.11555555555555555,
-          "sole_heel_toe_m": [
-            [
-              0.06255580484867096,
-              0.12599998712539673,
-              9.394320699129821e-08
-            ],
-            [
-              0.28455594182014465,
-              0.12599998712539673,
-              7.740291607660765e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.1923256814479828,
-            -0.12600018084049225,
-            0.1742853820323944
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.26701295375823975,
-              -0.12600021064281464,
-              0.11698257178068161
-            ],
-            [
-              -0.05616657808423042,
-              -0.12600016593933105,
-              0.04750002920627594
-            ]
-          ]
-        }
-      },
-      "phase": 0.16666666666666666,
-      "image_sha256": "5bd910dc346e84eeb341ef001542d57b84110ac8a1fa43ef213b096e3c9d1e3d",
-      "shadow_sha256": "bd937b2dd145fd0be020b1f456c220e3de9dc3c08b07938837174e515ea7fb8d"
-    },
-    "chod_4_03.png": {
-      "max_joint_gap_m": 1.8189185285171422e-07,
-      "max_bone_length_error_m": 1.527630024700244e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.043333396315574646,
-            0.1260000467300415,
-            0.07779994606971741
-          ],
-          "stance": true,
-          "plant_reference_m": 0.043333333333333335,
-          "sole_heel_toe_m": [
-            [
-              -0.00966663844883442,
-              0.1260000318288803,
-              9.216286400715035e-08
-            ],
-            [
-              0.21233350038528442,
-              0.12600001692771912,
-              5.24661736278631e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.06883064657449722,
-            -0.12600012123584747,
-            0.2121787816286087
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.14251503348350525,
-              -0.12600013613700867,
-              0.15359200537204742
-            ],
-            [
-              0.06950230896472931,
-              -0.1260000616312027,
-              0.08776885271072388
-            ]
-          ]
-        }
-      },
-      "phase": 0.25,
-      "image_sha256": "a75d07cf5ddcceb3dc9773e02b1247f1c415626cb7c42232996ed0bfe7790538",
-      "shadow_sha256": "f07b9c757b53ff515ff0e94dd444beaa5fcee4403ed0c7529272dbfc0c7dc4a3"
-    },
-    "chod_4_04.png": {
-      "max_joint_gap_m": 2.5790741936372184e-07,
-      "max_bone_length_error_m": 1.1873441328746903e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.028888890519738197,
-            0.1260000616312027,
-            0.0777999684214592
-          ],
-          "stance": true,
-          "plant_reference_m": -0.02888888888888891,
-          "sole_heel_toe_m": [
-            [
-              -0.08188889175653458,
-              0.1260000616312027,
-              1.1217559148235523e-07
-            ],
-            [
-              0.14011117815971375,
-              0.1260000318288803,
-              5.097652433505573e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.08692950010299683,
-            -0.12600009143352509,
-            0.20268869400024414
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.019048135727643967,
-              -0.12600010633468628,
-              0.13746656477451324
-            ],
-            [
-              0.23629295825958252,
-              -0.1260000318288803,
-              0.09176356345415115
-            ]
-          ]
-        }
-      },
-      "phase": 0.3333333333333333,
-      "image_sha256": "390d6304d62b137ef640ae1aea7e47ad87f9959866afa7304ea48cfe55eac5d6",
-      "shadow_sha256": "42ea57d3fccfbc176b7499afc2db1a6bc522fb1e3baf59046508307618164d83"
-    },
-    "chod_4_05.png": {
-      "max_joint_gap_m": 1.8907453925087333e-07,
-      "max_bone_length_error_m": 2.51256601746519e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.10111118853092194,
-            0.12600010633468628,
-            0.0778001993894577
-          ],
-          "stance": true,
-          "plant_reference_m": -0.10111111111111115,
-          "sole_heel_toe_m": [
-            [
-              -0.15411119163036346,
-              0.12600010633468628,
-              3.3898615470207005e-07
-            ],
-            [
-              0.06788888573646545,
-              0.1260000765323639,
-              2.794411386730644e-07
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.20900054275989532,
-            -0.12600000202655792,
-            0.14130541682243347
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.15339890122413635,
-              -0.12600001692771912,
-              0.06534320116043091
-            ],
-            [
-              0.3752720057964325,
-              -0.12599998712539673,
-              0.05783315375447273
-            ]
-          ]
-        }
-      },
-      "phase": 0.4166666666666667,
-      "image_sha256": "93a11ed15af2f6642779415337dfaaec4cc38307d4d98fa2d9647e4bab95e0d6",
-      "shadow_sha256": "ce8e3b68b05c6054a250d6378f448c68f032ff8a8030bb507ab31fcf42764b3a"
-    },
-    "chod_4_06.png": {
-      "max_joint_gap_m": 2.819214311855159e-07,
-      "max_bone_length_error_m": 1.1356813062191051e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.16990186274051666,
-            0.12600015103816986,
-            0.08485817909240723
-          ],
-          "stance": true,
-          "plant_reference_m": -0.17333333333333334,
-          "sole_heel_toe_m": [
-            [
-              -0.22613589465618134,
-              0.12600013613700867,
-              0.009362801909446716
-            ],
-            [
-              -0.004333407152444124,
-              0.12600010633468628,
-              -5.998718677346915e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.2443532645702362,
-            -0.12600000202655792,
-            0.08640960603952408
-          ],
-          "stance": true,
-          "plant_reference_m": 0.26,
-          "sole_heel_toe_m": [
-            [
-              0.20700019598007202,
-              -0.12599998712539673,
-              4.102499246982916e-07
-            ],
-            [
-              0.4250051975250244,
-              -0.12600000202655792,
-              0.041927117854356766
-            ]
-          ]
-        }
-      },
-      "phase": 0.5,
-      "image_sha256": "00b8c50bf93336b284cef98f199e1417b0f5689aa750b8a76a11abc4686e6d2e",
-      "shadow_sha256": "195402e5ed09af42535f2b12d4d962dd1db1d1bbdf6ab87079d3c81bc01a6c2f"
-    },
-    "chod_4_07.png": {
-      "max_joint_gap_m": 1.8612490973903913e-07,
-      "max_bone_length_error_m": 1.8850636462897086e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.2221311330795288,
-            0.12600018084049225,
-            0.11585225909948349
-          ],
-          "stance": true,
-          "plant_reference_m": -0.24555555555555564,
-          "sole_heel_toe_m": [
-            [
-              -0.2921528220176697,
-              0.12600016593933105,
-              0.05293343588709831
-            ],
-            [
-              -0.07655573636293411,
-              0.12600013613700867,
-              5.866710353075177e-07
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.18638958036899567,
-            -0.12599998712539673,
-            0.07872821390628815
-          ],
-          "stance": true,
-          "plant_reference_m": 0.18777777777777765,
-          "sole_heel_toe_m": [
-            [
-              0.13477793335914612,
-              -0.12599997222423553,
-              6.062043667043326e-07
-            ],
-            [
-              0.35674306750297546,
-              -0.12599998712539673,
-              0.003938554786145687
-            ]
-          ]
-        }
-      },
-      "phase": 0.5833333333333334,
-      "image_sha256": "4dfb358be2cc3cfec03894b01ec86ffd13f6e501040535594453e08396ac795f",
-      "shadow_sha256": "f726fc26656ebbe05b697e069ced69628e820a93e32089f1d707babf67f9e7f3"
-    },
-    "chod_4_08.png": {
-      "max_joint_gap_m": 1.8671101460071903e-07,
-      "max_bone_length_error_m": 1.26954352808184e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.1923256665468216,
-            0.12600018084049225,
-            0.1742856204509735
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.26701298356056213,
-              0.12600019574165344,
-              0.11698272079229355
-            ],
-            [
-              -0.05616659298539162,
-              0.12600015103816986,
-              0.04750017076730728
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.11555567383766174,
-            -0.12600009143352509,
-            0.07780008018016815
-          ],
-          "stance": true,
-          "plant_reference_m": 0.11555555555555569,
-          "sole_heel_toe_m": [
-            [
-              0.06255565583705902,
-              -0.1260000765323639,
-              3.5981238966087403e-07
-            ],
-            [
-              0.28455570340156555,
-              -0.1260000765323639,
-              3.151536134282651e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.6666666666666666,
-      "image_sha256": "a1b98667d90f0e00c750582de6368ea1dca548f97ef3366763df84aeb8cbf405",
-      "shadow_sha256": "2ad069a410b8301f5608905a63e97aaf61d4453c0a11e49194b7bc5f936ef13f"
-    },
-    "chod_4_09.png": {
-      "max_joint_gap_m": 1.3075715880680267e-07,
-      "max_bone_length_error_m": 1.5031942490750794e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.0688304454088211,
-            0.12600018084049225,
-            0.21217890083789825
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.14251482486724854,
-              0.12600019574165344,
-              0.15359199047088623
-            ],
-            [
-              0.06950248032808304,
-              0.12600013613700867,
-              0.08776892721652985
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.043333377689123154,
-            -0.1260000616312027,
-            0.07779992371797562
-          ],
-          "stance": true,
-          "plant_reference_m": 0.043333333333333335,
-          "sole_heel_toe_m": [
-            [
-              -0.009666633792221546,
-              -0.1260000765323639,
-              1.7824477538397332e-07
-            ],
-            [
-              0.21233342587947845,
-              -0.1260000467300415,
-              1.5178031276263937e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.75,
-      "image_sha256": "8c438a45c0ff0376b62a1a6340898e962f33bd09c2c212245309243fabf1e905",
-      "shadow_sha256": "bf06249c9248f934392154ce1ce61b9e11a5ded9b5fdf73a7a1b1962784e56b8"
-    },
-    "chod_4_10.png": {
-      "max_joint_gap_m": 3.03925246810483e-07,
-      "max_bone_length_error_m": 1.9381331695100812e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.08692969381809235,
-            0.12600009143352509,
-            0.20268858969211578
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.01904832385480404,
-              0.12600010633468628,
-              0.13746634125709534
-            ],
-            [
-              0.23629318177700043,
-              0.1260000467300415,
-              0.09176332503557205
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.02888890728354454,
-            -0.12600012123584747,
-            0.07779987156391144
-          ],
-          "stance": true,
-          "plant_reference_m": -0.02888888888888902,
-          "sole_heel_toe_m": [
-            [
-              -0.08188889920711517,
-              -0.12600013613700867,
-              1.181632995894688e-07
-            ],
-            [
-              0.14011111855506897,
-              -0.12600010633468628,
-              1.3966567280476738e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.8333333333333334,
-      "image_sha256": "d3186dec44082550df9f201acf6ff37496afd5760e400caafb4c696d2a5c751e",
-      "shadow_sha256": "fea363194d7165e9d79e3aea953ffad04f2087b2ed7e698ee4c9129c6f3177d0"
-    },
-    "chod_4_11.png": {
-      "max_joint_gap_m": 2.4586915969848633e-07,
-      "max_bone_length_error_m": 4.1235044495602224e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.20900069177150726,
-            0.12599991261959076,
-            0.14130577445030212
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.15339906513690948,
-              0.12599991261959076,
-              0.06534343957901001
-            ],
-            [
-              0.3752721846103668,
-              0.12599989771842957,
-              0.05783342942595482
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.10111118853092194,
-            -0.1260000616312027,
-            0.07780022919178009
-          ],
-          "stance": true,
-          "plant_reference_m": -0.10111111111111099,
-          "sole_heel_toe_m": [
-            [
-              -0.15411117672920227,
-              -0.1260000765323639,
-              4.929033821099438e-07
-            ],
-            [
-              0.0678887814283371,
-              -0.1260000318288803,
-              4.747090827095235e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.9166666666666666,
-      "image_sha256": "142f3831ab26120d06aef299a96d39d12e5ececa9dcc442a2bdc2504ee14d4a9",
-      "shadow_sha256": "76054ec6fd94968adf4691e947410b4235a64a27958bb66f5de97a7ccc06a48e"
-    },
-    "chod_5_00.png": {
-      "max_joint_gap_m": 2.682209014892578e-07,
-      "max_bone_length_error_m": 2.273486577331063e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.24435335397720337,
-            0.12599992752075195,
-            0.08640969544649124
-          ],
-          "stance": true,
-          "plant_reference_m": 0.26,
-          "sole_heel_toe_m": [
-            [
-              0.20700030028820038,
-              0.12599991261959076,
-              4.0190829508901516e-07
-            ],
-            [
-              0.42500534653663635,
-              0.12599991261959076,
-              0.04192708060145378
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.16990187764167786,
-            -0.12600016593933105,
-            0.084858238697052
-          ],
-          "stance": true,
-          "plant_reference_m": -0.17333333333333334,
-          "sole_heel_toe_m": [
-            [
-              -0.22613589465618134,
-              -0.12600018084049225,
-              0.00936298631131649
-            ],
-            [
-              -0.004333456978201866,
-              -0.12600013613700867,
-              1.4109525636740727e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.0,
-      "image_sha256": "0b0a9af189624744cb464d05a36ea9c5e3744877f2757d5b261103eb73596dc2",
-      "shadow_sha256": "d878ab9b6a2350ae6a1de4c4c62cfa4b96110f6311999180db76501789d594c5"
-    },
-    "chod_5_01.png": {
-      "max_joint_gap_m": 2.086495155832238e-07,
-      "max_bone_length_error_m": 3.416389391386332e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.18638956546783447,
-            0.12599997222423553,
-            0.07872848212718964
-          ],
-          "stance": true,
-          "plant_reference_m": 0.18777777777777777,
-          "sole_heel_toe_m": [
-            [
-              0.13477791845798492,
-              0.12599995732307434,
-              7.530492780460918e-07
-            ],
-            [
-              0.35674312710762024,
-              0.12599995732307434,
-              0.003938696347177029
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.22213110327720642,
-            -0.12600012123584747,
-            0.11585215479135513
-          ],
-          "stance": true,
-          "plant_reference_m": -0.24555555555555564,
-          "sole_heel_toe_m": [
-            [
-              -0.2921527624130249,
-              -0.12600013613700867,
-              0.05293344333767891
-            ],
-            [
-              -0.07655571401119232,
-              -0.12600009143352509,
-              6.30171712145966e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.08333333333333333,
-      "image_sha256": "bdf7dd55e71f9bdad12c9a7192069d604c826205f6d6c7f85e69f35465bc6510",
-      "shadow_sha256": "ba24cf4de1b23b00354a73ba3a4dbdb9e8bad9fd76d3bba6cef7d60290da1b4c"
-    },
-    "chod_5_02.png": {
-      "max_joint_gap_m": 2.8529497978904533e-07,
-      "max_bone_length_error_m": 1.516158718573024e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.11555583775043488,
-            0.12600000202655792,
-            0.077799953520298
-          ],
-          "stance": true,
-          "plant_reference_m": 0.11555555555555555,
-          "sole_heel_toe_m": [
-            [
-              0.06255580484867096,
-              0.12599998712539673,
-              9.394320699129821e-08
-            ],
-            [
-              0.28455594182014465,
-              0.12599998712539673,
-              7.740291607660765e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.1923256814479828,
-            -0.12600018084049225,
-            0.1742853820323944
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.26701295375823975,
-              -0.12600021064281464,
-              0.11698257178068161
-            ],
-            [
-              -0.05616657808423042,
-              -0.12600016593933105,
-              0.04750002920627594
-            ]
-          ]
-        }
-      },
-      "phase": 0.16666666666666666,
-      "image_sha256": "f3ac1552febd7806700192a59735a8b50cb021339fb520797e6a8c6f3cba80ce",
-      "shadow_sha256": "e60e572259135f9e664841cb8dc98ab843c654afd0767cbd30ce95d040541952"
-    },
-    "chod_5_03.png": {
-      "max_joint_gap_m": 1.8189185285171422e-07,
-      "max_bone_length_error_m": 1.527630024700244e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.043333396315574646,
-            0.1260000467300415,
-            0.07779994606971741
-          ],
-          "stance": true,
-          "plant_reference_m": 0.043333333333333335,
-          "sole_heel_toe_m": [
-            [
-              -0.00966663844883442,
-              0.1260000318288803,
-              9.216286400715035e-08
-            ],
-            [
-              0.21233350038528442,
-              0.12600001692771912,
-              5.24661736278631e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.06883064657449722,
-            -0.12600012123584747,
-            0.2121787816286087
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.14251503348350525,
-              -0.12600013613700867,
-              0.15359200537204742
-            ],
-            [
-              0.06950230896472931,
-              -0.1260000616312027,
-              0.08776885271072388
-            ]
-          ]
-        }
-      },
-      "phase": 0.25,
-      "image_sha256": "00f0f61de07b01eba6deacb0c5e06c2c7526b07c8179f22fa8e0b878f970b1f9",
-      "shadow_sha256": "204d57325e7b1b55c9326c1d6bef8dfc61dd3234f056aa9f887589b9757053b1"
-    },
-    "chod_5_04.png": {
-      "max_joint_gap_m": 2.5790741936372184e-07,
-      "max_bone_length_error_m": 1.1873441328746903e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.028888890519738197,
-            0.1260000616312027,
-            0.0777999684214592
-          ],
-          "stance": true,
-          "plant_reference_m": -0.02888888888888891,
-          "sole_heel_toe_m": [
-            [
-              -0.08188889175653458,
-              0.1260000616312027,
-              1.1217559148235523e-07
-            ],
-            [
-              0.14011117815971375,
-              0.1260000318288803,
-              5.097652433505573e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.08692950010299683,
-            -0.12600009143352509,
-            0.20268869400024414
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.019048135727643967,
-              -0.12600010633468628,
-              0.13746656477451324
-            ],
-            [
-              0.23629295825958252,
-              -0.1260000318288803,
-              0.09176356345415115
-            ]
-          ]
-        }
-      },
-      "phase": 0.3333333333333333,
-      "image_sha256": "35dc8bd6f21619bffce5208de19fc44a9cb1118670fce11b855a72ef82326a2c",
-      "shadow_sha256": "914dadc1558b2d6936ce62909dcb11992f2547bebdd8aff81a9e906bc42f8ed1"
-    },
-    "chod_5_05.png": {
-      "max_joint_gap_m": 1.8907453925087333e-07,
-      "max_bone_length_error_m": 2.51256601746519e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.10111118853092194,
-            0.12600010633468628,
-            0.0778001993894577
-          ],
-          "stance": true,
-          "plant_reference_m": -0.10111111111111115,
-          "sole_heel_toe_m": [
-            [
-              -0.15411119163036346,
-              0.12600010633468628,
-              3.3898615470207005e-07
-            ],
-            [
-              0.06788888573646545,
-              0.1260000765323639,
-              2.794411386730644e-07
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.20900054275989532,
-            -0.12600000202655792,
-            0.14130541682243347
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.15339890122413635,
-              -0.12600001692771912,
-              0.06534320116043091
-            ],
-            [
-              0.3752720057964325,
-              -0.12599998712539673,
-              0.05783315375447273
-            ]
-          ]
-        }
-      },
-      "phase": 0.4166666666666667,
-      "image_sha256": "0f3c0642e84f6af019ea2b48ab84ecf10d0cf63c4105462b796881a714507826",
-      "shadow_sha256": "b62bbbe3f5fc3b723dd7db284b8d6bdb8654d7f11af5555cb93b03b55f24d9e2"
-    },
-    "chod_5_06.png": {
-      "max_joint_gap_m": 2.819214311855159e-07,
-      "max_bone_length_error_m": 1.1356813062191051e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.16990186274051666,
-            0.12600015103816986,
-            0.08485817909240723
-          ],
-          "stance": true,
-          "plant_reference_m": -0.17333333333333334,
-          "sole_heel_toe_m": [
-            [
-              -0.22613589465618134,
-              0.12600013613700867,
-              0.009362801909446716
-            ],
-            [
-              -0.004333407152444124,
-              0.12600010633468628,
-              -5.998718677346915e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.2443532645702362,
-            -0.12600000202655792,
-            0.08640960603952408
-          ],
-          "stance": true,
-          "plant_reference_m": 0.26,
-          "sole_heel_toe_m": [
-            [
-              0.20700019598007202,
-              -0.12599998712539673,
-              4.102499246982916e-07
-            ],
-            [
-              0.4250051975250244,
-              -0.12600000202655792,
-              0.041927117854356766
-            ]
-          ]
-        }
-      },
-      "phase": 0.5,
-      "image_sha256": "983b84b6936ce0d418846f14febfbccaf1f18e748bd824906e2e507842fada3c",
-      "shadow_sha256": "1f73db1ad77daf7d7f05076526bb40fbe87b6cf450fd30a6f83c096e6e096731"
-    },
-    "chod_5_07.png": {
-      "max_joint_gap_m": 1.8612490973903913e-07,
-      "max_bone_length_error_m": 1.8850636462897086e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.2221311330795288,
-            0.12600018084049225,
-            0.11585225909948349
-          ],
-          "stance": true,
-          "plant_reference_m": -0.24555555555555564,
-          "sole_heel_toe_m": [
-            [
-              -0.2921528220176697,
-              0.12600016593933105,
-              0.05293343588709831
-            ],
-            [
-              -0.07655573636293411,
-              0.12600013613700867,
-              5.866710353075177e-07
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.18638958036899567,
-            -0.12599998712539673,
-            0.07872821390628815
-          ],
-          "stance": true,
-          "plant_reference_m": 0.18777777777777765,
-          "sole_heel_toe_m": [
-            [
-              0.13477793335914612,
-              -0.12599997222423553,
-              6.062043667043326e-07
-            ],
-            [
-              0.35674306750297546,
-              -0.12599998712539673,
-              0.003938554786145687
-            ]
-          ]
-        }
-      },
-      "phase": 0.5833333333333334,
-      "image_sha256": "35ddd735b272ef9e81b08ae1545a7efae98dd45bc6806d9496ac8158ffc85918",
-      "shadow_sha256": "11a80266d10e36997e3fabcf0841a7042dc19e614c953ff333f39493ced9b214"
-    },
-    "chod_5_08.png": {
-      "max_joint_gap_m": 1.8671101460071903e-07,
-      "max_bone_length_error_m": 1.26954352808184e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.1923256665468216,
-            0.12600018084049225,
-            0.1742856204509735
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.26701298356056213,
-              0.12600019574165344,
-              0.11698272079229355
-            ],
-            [
-              -0.05616659298539162,
-              0.12600015103816986,
-              0.04750017076730728
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.11555567383766174,
-            -0.12600009143352509,
-            0.07780008018016815
-          ],
-          "stance": true,
-          "plant_reference_m": 0.11555555555555569,
-          "sole_heel_toe_m": [
-            [
-              0.06255565583705902,
-              -0.1260000765323639,
-              3.5981238966087403e-07
-            ],
-            [
-              0.28455570340156555,
-              -0.1260000765323639,
-              3.151536134282651e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.6666666666666666,
-      "image_sha256": "a6cdc5f4ce8b9ae7f4e5b792b87fef9c152bb56c940696bdabb84db72b4313db",
-      "shadow_sha256": "df840a1a7612dd1481472f5a9b2410037a6ce1cbc8636948219046676e178603"
-    },
-    "chod_5_09.png": {
-      "max_joint_gap_m": 1.3075715880680267e-07,
-      "max_bone_length_error_m": 1.5031942490750794e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.0688304454088211,
-            0.12600018084049225,
-            0.21217890083789825
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.14251482486724854,
-              0.12600019574165344,
-              0.15359199047088623
-            ],
-            [
-              0.06950248032808304,
-              0.12600013613700867,
-              0.08776892721652985
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.043333377689123154,
-            -0.1260000616312027,
-            0.07779992371797562
-          ],
-          "stance": true,
-          "plant_reference_m": 0.043333333333333335,
-          "sole_heel_toe_m": [
-            [
-              -0.009666633792221546,
-              -0.1260000765323639,
-              1.7824477538397332e-07
-            ],
-            [
-              0.21233342587947845,
-              -0.1260000467300415,
-              1.5178031276263937e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.75,
-      "image_sha256": "65d4d32f06b6ec34e25240a5108aacf356af32300034b873b4466ee20812db89",
-      "shadow_sha256": "e5f34c64dce4e8030399fd9ea359b59dd1d82859a6d7648e69516347d35006b4"
-    },
-    "chod_5_10.png": {
-      "max_joint_gap_m": 3.03925246810483e-07,
-      "max_bone_length_error_m": 1.9381331695100812e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.08692969381809235,
-            0.12600009143352509,
-            0.20268858969211578
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.01904832385480404,
-              0.12600010633468628,
-              0.13746634125709534
-            ],
-            [
-              0.23629318177700043,
-              0.1260000467300415,
-              0.09176332503557205
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.02888890728354454,
-            -0.12600012123584747,
-            0.07779987156391144
-          ],
-          "stance": true,
-          "plant_reference_m": -0.02888888888888902,
-          "sole_heel_toe_m": [
-            [
-              -0.08188889920711517,
-              -0.12600013613700867,
-              1.181632995894688e-07
-            ],
-            [
-              0.14011111855506897,
-              -0.12600010633468628,
-              1.3966567280476738e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.8333333333333334,
-      "image_sha256": "3e0aaf21a5a8126796a92be32403760da2f2a5177866ee94e9255d247ea61883",
-      "shadow_sha256": "a248bbc675e931b9d743b33d51c455695f48824062f32cba73e628d4550b6d15"
-    },
-    "chod_5_11.png": {
-      "max_joint_gap_m": 2.4586915969848633e-07,
-      "max_bone_length_error_m": 4.1235044495602224e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.20900069177150726,
-            0.12599991261959076,
-            0.14130577445030212
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.15339906513690948,
-              0.12599991261959076,
-              0.06534343957901001
-            ],
-            [
-              0.3752721846103668,
-              0.12599989771842957,
-              0.05783342942595482
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.10111118853092194,
-            -0.1260000616312027,
-            0.07780022919178009
-          ],
-          "stance": true,
-          "plant_reference_m": -0.10111111111111099,
-          "sole_heel_toe_m": [
-            [
-              -0.15411117672920227,
-              -0.1260000765323639,
-              4.929033821099438e-07
-            ],
-            [
-              0.0678887814283371,
-              -0.1260000318288803,
-              4.747090827095235e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.9166666666666666,
-      "image_sha256": "ea96f4bd52840109c994e35f53df52918e05ca19c37933dd0b4cd0403045e9ec",
-      "shadow_sha256": "86176bde45997ebc18f3767dc2bbd1258660c6d967d7119c3764bc6fe621d5ea"
-    },
-    "chod_6_00.png": {
-      "max_joint_gap_m": 2.682209014892578e-07,
-      "max_bone_length_error_m": 2.273486577331063e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.24435335397720337,
-            0.12599992752075195,
-            0.08640969544649124
-          ],
-          "stance": true,
-          "plant_reference_m": 0.26,
-          "sole_heel_toe_m": [
-            [
-              0.20700030028820038,
-              0.12599991261959076,
-              4.0190829508901516e-07
-            ],
-            [
-              0.42500534653663635,
-              0.12599991261959076,
-              0.04192708060145378
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.16990187764167786,
-            -0.12600016593933105,
-            0.084858238697052
-          ],
-          "stance": true,
-          "plant_reference_m": -0.17333333333333334,
-          "sole_heel_toe_m": [
-            [
-              -0.22613589465618134,
-              -0.12600018084049225,
-              0.00936298631131649
-            ],
-            [
-              -0.004333456978201866,
-              -0.12600013613700867,
-              1.4109525636740727e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.0,
-      "image_sha256": "5e8e8027fa098f6edb09f98e8723557facf8d89969d26d93a40cb985d69982cf",
-      "shadow_sha256": "7776408e76b1f9849346a6ec91b43b57d360f185b61fd6ba22884aa58e73bf2c"
-    },
-    "chod_6_01.png": {
-      "max_joint_gap_m": 2.086495155832238e-07,
-      "max_bone_length_error_m": 3.416389391386332e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.18638956546783447,
-            0.12599997222423553,
-            0.07872848212718964
-          ],
-          "stance": true,
-          "plant_reference_m": 0.18777777777777777,
-          "sole_heel_toe_m": [
-            [
-              0.13477791845798492,
-              0.12599995732307434,
-              7.530492780460918e-07
-            ],
-            [
-              0.35674312710762024,
-              0.12599995732307434,
-              0.003938696347177029
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.22213110327720642,
-            -0.12600012123584747,
-            0.11585215479135513
-          ],
-          "stance": true,
-          "plant_reference_m": -0.24555555555555564,
-          "sole_heel_toe_m": [
-            [
-              -0.2921527624130249,
-              -0.12600013613700867,
-              0.05293344333767891
-            ],
-            [
-              -0.07655571401119232,
-              -0.12600009143352509,
-              6.30171712145966e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.08333333333333333,
-      "image_sha256": "5695c8afd453c5ece5ad29804ad06453f18cba96c4e7f0efddc3aacd96f1221f",
-      "shadow_sha256": "97b9a33e94ff5715004de2f4fbd9e344d34469737a008c29e6df500cdc6325ce"
-    },
-    "chod_6_02.png": {
-      "max_joint_gap_m": 2.8529497978904533e-07,
-      "max_bone_length_error_m": 1.516158718573024e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.11555583775043488,
-            0.12600000202655792,
-            0.077799953520298
-          ],
-          "stance": true,
-          "plant_reference_m": 0.11555555555555555,
-          "sole_heel_toe_m": [
-            [
-              0.06255580484867096,
-              0.12599998712539673,
-              9.394320699129821e-08
-            ],
-            [
-              0.28455594182014465,
-              0.12599998712539673,
-              7.740291607660765e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.1923256814479828,
-            -0.12600018084049225,
-            0.1742853820323944
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.26701295375823975,
-              -0.12600021064281464,
-              0.11698257178068161
-            ],
-            [
-              -0.05616657808423042,
-              -0.12600016593933105,
-              0.04750002920627594
-            ]
-          ]
-        }
-      },
-      "phase": 0.16666666666666666,
-      "image_sha256": "5c4dbbb7d383c335b3bd12ca2e6e314541480b0820994ce74531d5a50b15eaa3",
-      "shadow_sha256": "32dad4baa7f423eb0fcb58eb8534a464f9d8221d40350e17a2b8bdfdf23ac557"
-    },
-    "chod_6_03.png": {
-      "max_joint_gap_m": 1.8189185285171422e-07,
-      "max_bone_length_error_m": 1.527630024700244e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.043333396315574646,
-            0.1260000467300415,
-            0.07779994606971741
-          ],
-          "stance": true,
-          "plant_reference_m": 0.043333333333333335,
-          "sole_heel_toe_m": [
-            [
-              -0.00966663844883442,
-              0.1260000318288803,
-              9.216286400715035e-08
-            ],
-            [
-              0.21233350038528442,
-              0.12600001692771912,
-              5.24661736278631e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.06883064657449722,
-            -0.12600012123584747,
-            0.2121787816286087
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.14251503348350525,
-              -0.12600013613700867,
-              0.15359200537204742
-            ],
-            [
-              0.06950230896472931,
-              -0.1260000616312027,
-              0.08776885271072388
-            ]
-          ]
-        }
-      },
-      "phase": 0.25,
-      "image_sha256": "44f9f10e6d18e95e0c165f051601d157207a95ee9e9551169be9fb65466ad514",
-      "shadow_sha256": "a02e787fcaccfd4a8b0b21c7879407a7b3a1054357b8bd3410796715aa5983bf"
-    },
-    "chod_6_04.png": {
-      "max_joint_gap_m": 2.5790741936372184e-07,
-      "max_bone_length_error_m": 1.1873441328746903e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.028888890519738197,
-            0.1260000616312027,
-            0.0777999684214592
-          ],
-          "stance": true,
-          "plant_reference_m": -0.02888888888888891,
-          "sole_heel_toe_m": [
-            [
-              -0.08188889175653458,
-              0.1260000616312027,
-              1.1217559148235523e-07
-            ],
-            [
-              0.14011117815971375,
-              0.1260000318288803,
-              5.097652433505573e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.08692950010299683,
-            -0.12600009143352509,
-            0.20268869400024414
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.019048135727643967,
-              -0.12600010633468628,
-              0.13746656477451324
-            ],
-            [
-              0.23629295825958252,
-              -0.1260000318288803,
-              0.09176356345415115
-            ]
-          ]
-        }
-      },
-      "phase": 0.3333333333333333,
-      "image_sha256": "dd6a2f85d406b82d65effd10ab63e04bef042c591f8be4cf3238489e439d31ef",
-      "shadow_sha256": "85b30812d5c21f3d7e8d562ad885f7d75ed2505c0a254bde3abfa093a23ec8a7"
-    },
-    "chod_6_05.png": {
-      "max_joint_gap_m": 1.8907453925087333e-07,
-      "max_bone_length_error_m": 2.51256601746519e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.10111118853092194,
-            0.12600010633468628,
-            0.0778001993894577
-          ],
-          "stance": true,
-          "plant_reference_m": -0.10111111111111115,
-          "sole_heel_toe_m": [
-            [
-              -0.15411119163036346,
-              0.12600010633468628,
-              3.3898615470207005e-07
-            ],
-            [
-              0.06788888573646545,
-              0.1260000765323639,
-              2.794411386730644e-07
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.20900054275989532,
-            -0.12600000202655792,
-            0.14130541682243347
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.15339890122413635,
-              -0.12600001692771912,
-              0.06534320116043091
-            ],
-            [
-              0.3752720057964325,
-              -0.12599998712539673,
-              0.05783315375447273
-            ]
-          ]
-        }
-      },
-      "phase": 0.4166666666666667,
-      "image_sha256": "80a62ed1e66d42e277b20c67f3c2ede0c0b8a8f06eba367d3e1bb8212b73b6d5",
-      "shadow_sha256": "1b4deb52373dc7959816c7ce97d6f453a5ec4262b9d7d8fb46e8bbb6d562e6bf"
-    },
-    "chod_6_06.png": {
-      "max_joint_gap_m": 2.819214311855159e-07,
-      "max_bone_length_error_m": 1.1356813062191051e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.16990186274051666,
-            0.12600015103816986,
-            0.08485817909240723
-          ],
-          "stance": true,
-          "plant_reference_m": -0.17333333333333334,
-          "sole_heel_toe_m": [
-            [
-              -0.22613589465618134,
-              0.12600013613700867,
-              0.009362801909446716
-            ],
-            [
-              -0.004333407152444124,
-              0.12600010633468628,
-              -5.998718677346915e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.2443532645702362,
-            -0.12600000202655792,
-            0.08640960603952408
-          ],
-          "stance": true,
-          "plant_reference_m": 0.26,
-          "sole_heel_toe_m": [
-            [
-              0.20700019598007202,
-              -0.12599998712539673,
-              4.102499246982916e-07
-            ],
-            [
-              0.4250051975250244,
-              -0.12600000202655792,
-              0.041927117854356766
-            ]
-          ]
-        }
-      },
-      "phase": 0.5,
-      "image_sha256": "b29d1a6697facee3469131b1a733149f3b5210b0c4cceb0edc7efa2f699b4cab",
-      "shadow_sha256": "1eef5e4fed107f81d9f9e639246dd288a130f237735250f1a8205f27d773ab03"
-    },
-    "chod_6_07.png": {
-      "max_joint_gap_m": 1.8612490973903913e-07,
-      "max_bone_length_error_m": 1.8850636462897086e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.2221311330795288,
-            0.12600018084049225,
-            0.11585225909948349
-          ],
-          "stance": true,
-          "plant_reference_m": -0.24555555555555564,
-          "sole_heel_toe_m": [
-            [
-              -0.2921528220176697,
-              0.12600016593933105,
-              0.05293343588709831
-            ],
-            [
-              -0.07655573636293411,
-              0.12600013613700867,
-              5.866710353075177e-07
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.18638958036899567,
-            -0.12599998712539673,
-            0.07872821390628815
-          ],
-          "stance": true,
-          "plant_reference_m": 0.18777777777777765,
-          "sole_heel_toe_m": [
-            [
-              0.13477793335914612,
-              -0.12599997222423553,
-              6.062043667043326e-07
-            ],
-            [
-              0.35674306750297546,
-              -0.12599998712539673,
-              0.003938554786145687
-            ]
-          ]
-        }
-      },
-      "phase": 0.5833333333333334,
-      "image_sha256": "87922dbd2ba1b492e3f89f4d7f841da7047cd3b2d0022b75e3e491f019bded2c",
-      "shadow_sha256": "671a92fb3cc2f6fad2f6b0668db58e6ee347a2103366ca61ebfde562bcd5b084"
-    },
-    "chod_6_08.png": {
-      "max_joint_gap_m": 1.8671101460071903e-07,
-      "max_bone_length_error_m": 1.26954352808184e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.1923256665468216,
-            0.12600018084049225,
-            0.1742856204509735
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.26701298356056213,
-              0.12600019574165344,
-              0.11698272079229355
-            ],
-            [
-              -0.05616659298539162,
-              0.12600015103816986,
-              0.04750017076730728
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.11555567383766174,
-            -0.12600009143352509,
-            0.07780008018016815
-          ],
-          "stance": true,
-          "plant_reference_m": 0.11555555555555569,
-          "sole_heel_toe_m": [
-            [
-              0.06255565583705902,
-              -0.1260000765323639,
-              3.5981238966087403e-07
-            ],
-            [
-              0.28455570340156555,
-              -0.1260000765323639,
-              3.151536134282651e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.6666666666666666,
-      "image_sha256": "a56cef66b32f1d31af3c8f7d37458397305f875b0750f3b4c2d2725f0089be3d",
-      "shadow_sha256": "631ecc528f2b4a70a79dd2c57fba7c4cfb80191b617917f20afc70c8590b1813"
-    },
-    "chod_6_09.png": {
-      "max_joint_gap_m": 1.3075715880680267e-07,
-      "max_bone_length_error_m": 1.5031942490750794e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.0688304454088211,
-            0.12600018084049225,
-            0.21217890083789825
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.14251482486724854,
-              0.12600019574165344,
-              0.15359199047088623
-            ],
-            [
-              0.06950248032808304,
-              0.12600013613700867,
-              0.08776892721652985
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.043333377689123154,
-            -0.1260000616312027,
-            0.07779992371797562
-          ],
-          "stance": true,
-          "plant_reference_m": 0.043333333333333335,
-          "sole_heel_toe_m": [
-            [
-              -0.009666633792221546,
-              -0.1260000765323639,
-              1.7824477538397332e-07
-            ],
-            [
-              0.21233342587947845,
-              -0.1260000467300415,
-              1.5178031276263937e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.75,
-      "image_sha256": "5ca535bfa445ad00c9c78340d2e551e355a08845096cfcf650338aaf8b7eb699",
-      "shadow_sha256": "98ade5efa1b7fd51f0823d654c189a45c759eb1ae58affff684387a470ffb41d"
-    },
-    "chod_6_10.png": {
-      "max_joint_gap_m": 3.03925246810483e-07,
-      "max_bone_length_error_m": 1.9381331695100812e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.08692969381809235,
-            0.12600009143352509,
-            0.20268858969211578
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.01904832385480404,
-              0.12600010633468628,
-              0.13746634125709534
-            ],
-            [
-              0.23629318177700043,
-              0.1260000467300415,
-              0.09176332503557205
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.02888890728354454,
-            -0.12600012123584747,
-            0.07779987156391144
-          ],
-          "stance": true,
-          "plant_reference_m": -0.02888888888888902,
-          "sole_heel_toe_m": [
-            [
-              -0.08188889920711517,
-              -0.12600013613700867,
-              1.181632995894688e-07
-            ],
-            [
-              0.14011111855506897,
-              -0.12600010633468628,
-              1.3966567280476738e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.8333333333333334,
-      "image_sha256": "c5fa1a611502e35a451b84d4782f5ac52d7609c7af9ca11d8fba6822ea91d389",
-      "shadow_sha256": "2c1c12ce1a02b429cdb134bd07f1ce4491aa25a0ddf7a5cc18582996a2a9173c"
-    },
-    "chod_6_11.png": {
-      "max_joint_gap_m": 2.4586915969848633e-07,
-      "max_bone_length_error_m": 4.1235044495602224e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.20900069177150726,
-            0.12599991261959076,
-            0.14130577445030212
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.15339906513690948,
-              0.12599991261959076,
-              0.06534343957901001
-            ],
-            [
-              0.3752721846103668,
-              0.12599989771842957,
-              0.05783342942595482
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.10111118853092194,
-            -0.1260000616312027,
-            0.07780022919178009
-          ],
-          "stance": true,
-          "plant_reference_m": -0.10111111111111099,
-          "sole_heel_toe_m": [
-            [
-              -0.15411117672920227,
-              -0.1260000765323639,
-              4.929033821099438e-07
-            ],
-            [
-              0.0678887814283371,
-              -0.1260000318288803,
-              4.747090827095235e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.9166666666666666,
-      "image_sha256": "676e15de73c253e42693eea27615c7f83c8a61487c541533f72a47afabffaf93",
-      "shadow_sha256": "d8a0c9283fddf850f683a671cc488421aae7ba58628ebdaf878f7304197ae153"
-    },
-    "chod_7_00.png": {
-      "max_joint_gap_m": 2.682209014892578e-07,
-      "max_bone_length_error_m": 2.273486577331063e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.24435335397720337,
-            0.12599992752075195,
-            0.08640969544649124
-          ],
-          "stance": true,
-          "plant_reference_m": 0.26,
-          "sole_heel_toe_m": [
-            [
-              0.20700030028820038,
-              0.12599991261959076,
-              4.0190829508901516e-07
-            ],
-            [
-              0.42500534653663635,
-              0.12599991261959076,
-              0.04192708060145378
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.16990187764167786,
-            -0.12600016593933105,
-            0.084858238697052
-          ],
-          "stance": true,
-          "plant_reference_m": -0.17333333333333334,
-          "sole_heel_toe_m": [
-            [
-              -0.22613589465618134,
-              -0.12600018084049225,
-              0.00936298631131649
-            ],
-            [
-              -0.004333456978201866,
-              -0.12600013613700867,
-              1.4109525636740727e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.0,
-      "image_sha256": "ebf05cdc0542c0fce23cd37982f11864662294acea1507e5eb7ba3e63996c0fe",
-      "shadow_sha256": "712a7729b063363f6a5dd5fc85cde88fffefe7f9ed2434a494d7988bb4223373"
-    },
-    "chod_7_01.png": {
-      "max_joint_gap_m": 2.086495155832238e-07,
-      "max_bone_length_error_m": 3.416389391386332e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.18638956546783447,
-            0.12599997222423553,
-            0.07872848212718964
-          ],
-          "stance": true,
-          "plant_reference_m": 0.18777777777777777,
-          "sole_heel_toe_m": [
-            [
-              0.13477791845798492,
-              0.12599995732307434,
-              7.530492780460918e-07
-            ],
-            [
-              0.35674312710762024,
-              0.12599995732307434,
-              0.003938696347177029
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.22213110327720642,
-            -0.12600012123584747,
-            0.11585215479135513
-          ],
-          "stance": true,
-          "plant_reference_m": -0.24555555555555564,
-          "sole_heel_toe_m": [
-            [
-              -0.2921527624130249,
-              -0.12600013613700867,
-              0.05293344333767891
-            ],
-            [
-              -0.07655571401119232,
-              -0.12600009143352509,
-              6.30171712145966e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.08333333333333333,
-      "image_sha256": "41ca25e0c508536324a6f53c6743646ec5abee722c7ed436b850d5253c8b01d4",
-      "shadow_sha256": "682f83b736c2cb27bf345cf495215df9c8f2b5885715af617d1f69e3b123f397"
-    },
-    "chod_7_02.png": {
-      "max_joint_gap_m": 2.8529497978904533e-07,
-      "max_bone_length_error_m": 1.516158718573024e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.11555583775043488,
-            0.12600000202655792,
-            0.077799953520298
-          ],
-          "stance": true,
-          "plant_reference_m": 0.11555555555555555,
-          "sole_heel_toe_m": [
-            [
-              0.06255580484867096,
-              0.12599998712539673,
-              9.394320699129821e-08
-            ],
-            [
-              0.28455594182014465,
-              0.12599998712539673,
-              7.740291607660765e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.1923256814479828,
-            -0.12600018084049225,
-            0.1742853820323944
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.26701295375823975,
-              -0.12600021064281464,
-              0.11698257178068161
-            ],
-            [
-              -0.05616657808423042,
-              -0.12600016593933105,
-              0.04750002920627594
-            ]
-          ]
-        }
-      },
-      "phase": 0.16666666666666666,
-      "image_sha256": "0d64d91a15275dfe9ee0cf3e59f0bffadc57e4fe48f0ecad0899e6c3035dc5af",
-      "shadow_sha256": "3d4f317f7edfe855e43b7b0a92bdf1b02ed1f21e96a720bdb7dc1def469e8679"
-    },
-    "chod_7_03.png": {
-      "max_joint_gap_m": 1.8189185285171422e-07,
-      "max_bone_length_error_m": 1.527630024700244e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.043333396315574646,
-            0.1260000467300415,
-            0.07779994606971741
-          ],
-          "stance": true,
-          "plant_reference_m": 0.043333333333333335,
-          "sole_heel_toe_m": [
-            [
-              -0.00966663844883442,
-              0.1260000318288803,
-              9.216286400715035e-08
-            ],
-            [
-              0.21233350038528442,
-              0.12600001692771912,
-              5.24661736278631e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.06883064657449722,
-            -0.12600012123584747,
-            0.2121787816286087
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.14251503348350525,
-              -0.12600013613700867,
-              0.15359200537204742
-            ],
-            [
-              0.06950230896472931,
-              -0.1260000616312027,
-              0.08776885271072388
-            ]
-          ]
-        }
-      },
-      "phase": 0.25,
-      "image_sha256": "b32d3ab02d6f3f57aa0bc26430ac7c5aad58f8f291817654d22d37d948b4aaa2",
-      "shadow_sha256": "c34d5ca166737889e3e3d3040dc17d164ce15285f9d90455c21ea92b1546b749"
-    },
-    "chod_7_04.png": {
-      "max_joint_gap_m": 2.5790741936372184e-07,
-      "max_bone_length_error_m": 1.1873441328746903e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.028888890519738197,
-            0.1260000616312027,
-            0.0777999684214592
-          ],
-          "stance": true,
-          "plant_reference_m": -0.02888888888888891,
-          "sole_heel_toe_m": [
-            [
-              -0.08188889175653458,
-              0.1260000616312027,
-              1.1217559148235523e-07
-            ],
-            [
-              0.14011117815971375,
-              0.1260000318288803,
-              5.097652433505573e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.08692950010299683,
-            -0.12600009143352509,
-            0.20268869400024414
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.019048135727643967,
-              -0.12600010633468628,
-              0.13746656477451324
-            ],
-            [
-              0.23629295825958252,
-              -0.1260000318288803,
-              0.09176356345415115
-            ]
-          ]
-        }
-      },
-      "phase": 0.3333333333333333,
-      "image_sha256": "9e08d5a45f62718e590c4e955e5c2f1ecf42ca0796a469e4c07d933403b67b34",
-      "shadow_sha256": "e5f2b46ffb674d38ed0a9a5acec6ebea77c2fe7071be915affd0ce3247c21587"
-    },
-    "chod_7_05.png": {
-      "max_joint_gap_m": 1.8907453925087333e-07,
-      "max_bone_length_error_m": 2.51256601746519e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.10111118853092194,
-            0.12600010633468628,
-            0.0778001993894577
-          ],
-          "stance": true,
-          "plant_reference_m": -0.10111111111111115,
-          "sole_heel_toe_m": [
-            [
-              -0.15411119163036346,
-              0.12600010633468628,
-              3.3898615470207005e-07
-            ],
-            [
-              0.06788888573646545,
-              0.1260000765323639,
-              2.794411386730644e-07
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.20900054275989532,
-            -0.12600000202655792,
-            0.14130541682243347
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.15339890122413635,
-              -0.12600001692771912,
-              0.06534320116043091
-            ],
-            [
-              0.3752720057964325,
-              -0.12599998712539673,
-              0.05783315375447273
-            ]
-          ]
-        }
-      },
-      "phase": 0.4166666666666667,
-      "image_sha256": "32f329fce7516c94bf2fbb426f408f7620ec338b7444040aa4e39442150b4280",
-      "shadow_sha256": "d39418d6322eccf302706a1fb23e075fedfa6a0a6b9985cd40a795b6073328d2"
-    },
-    "chod_7_06.png": {
-      "max_joint_gap_m": 2.819214311855159e-07,
-      "max_bone_length_error_m": 1.1356813062191051e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.16990186274051666,
-            0.12600015103816986,
-            0.08485817909240723
-          ],
-          "stance": true,
-          "plant_reference_m": -0.17333333333333334,
-          "sole_heel_toe_m": [
-            [
-              -0.22613589465618134,
-              0.12600013613700867,
-              0.009362801909446716
-            ],
-            [
-              -0.004333407152444124,
-              0.12600010633468628,
-              -5.998718677346915e-08
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.2443532645702362,
-            -0.12600000202655792,
-            0.08640960603952408
-          ],
-          "stance": true,
-          "plant_reference_m": 0.26,
-          "sole_heel_toe_m": [
-            [
-              0.20700019598007202,
-              -0.12599998712539673,
-              4.102499246982916e-07
-            ],
-            [
-              0.4250051975250244,
-              -0.12600000202655792,
-              0.041927117854356766
-            ]
-          ]
-        }
-      },
-      "phase": 0.5,
-      "image_sha256": "b04430a934b2b74e2c8c6656e8350a68daff0a93b426776679daefe8b4982b56",
-      "shadow_sha256": "286a2705ec75fed03c479c14cbfb8562a55f38c57f6c7934316fdcbddcbd3954"
-    },
-    "chod_7_07.png": {
-      "max_joint_gap_m": 1.8612490973903913e-07,
-      "max_bone_length_error_m": 1.8850636462897086e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.2221311330795288,
-            0.12600018084049225,
-            0.11585225909948349
-          ],
-          "stance": true,
-          "plant_reference_m": -0.24555555555555564,
-          "sole_heel_toe_m": [
-            [
-              -0.2921528220176697,
-              0.12600016593933105,
-              0.05293343588709831
-            ],
-            [
-              -0.07655573636293411,
-              0.12600013613700867,
-              5.866710353075177e-07
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.18638958036899567,
-            -0.12599998712539673,
-            0.07872821390628815
-          ],
-          "stance": true,
-          "plant_reference_m": 0.18777777777777765,
-          "sole_heel_toe_m": [
-            [
-              0.13477793335914612,
-              -0.12599997222423553,
-              6.062043667043326e-07
-            ],
-            [
-              0.35674306750297546,
-              -0.12599998712539673,
-              0.003938554786145687
-            ]
-          ]
-        }
-      },
-      "phase": 0.5833333333333334,
-      "image_sha256": "bf43b73563cfab33e1a93bc6384dc777703fbc578d2ddd607d920a0da70df427",
-      "shadow_sha256": "842f274436e97e76097a8c4fdd71e4d741ee99a486431f1bc40b53a52b6b91e3"
-    },
-    "chod_7_08.png": {
-      "max_joint_gap_m": 1.8671101460071903e-07,
-      "max_bone_length_error_m": 1.26954352808184e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.1923256665468216,
-            0.12600018084049225,
-            0.1742856204509735
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.26701298356056213,
-              0.12600019574165344,
-              0.11698272079229355
-            ],
-            [
-              -0.05616659298539162,
-              0.12600015103816986,
-              0.04750017076730728
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.11555567383766174,
-            -0.12600009143352509,
-            0.07780008018016815
-          ],
-          "stance": true,
-          "plant_reference_m": 0.11555555555555569,
-          "sole_heel_toe_m": [
-            [
-              0.06255565583705902,
-              -0.1260000765323639,
-              3.5981238966087403e-07
-            ],
-            [
-              0.28455570340156555,
-              -0.1260000765323639,
-              3.151536134282651e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.6666666666666666,
-      "image_sha256": "1f3351f00748bfd1a426b4d3caf3836e06a8b1d41f185b21266c35df7f90315f",
-      "shadow_sha256": "52075b3013996b230f7c37e756e0554066e0ce99ed03ec710dbc40ff61cac6ae"
-    },
-    "chod_7_09.png": {
-      "max_joint_gap_m": 1.3075715880680267e-07,
-      "max_bone_length_error_m": 1.5031942490750794e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            -0.0688304454088211,
-            0.12600018084049225,
-            0.21217890083789825
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              -0.14251482486724854,
-              0.12600019574165344,
-              0.15359199047088623
-            ],
-            [
-              0.06950248032808304,
-              0.12600013613700867,
-              0.08776892721652985
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            0.043333377689123154,
-            -0.1260000616312027,
-            0.07779992371797562
-          ],
-          "stance": true,
-          "plant_reference_m": 0.043333333333333335,
-          "sole_heel_toe_m": [
-            [
-              -0.009666633792221546,
-              -0.1260000765323639,
-              1.7824477538397332e-07
-            ],
-            [
-              0.21233342587947845,
-              -0.1260000467300415,
-              1.5178031276263937e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.75,
-      "image_sha256": "808c546310f0f18db339f4966da2152d314b9ee457cf166cd0db4c897a972f93",
-      "shadow_sha256": "67e46f93f6e534b90a5bf08d288feeb3c8f48d86a5e60d0c010ffd755c621a24"
-    },
-    "chod_7_10.png": {
-      "max_joint_gap_m": 3.03925246810483e-07,
-      "max_bone_length_error_m": 1.9381331695100812e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.08692969381809235,
-            0.12600009143352509,
-            0.20268858969211578
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.01904832385480404,
-              0.12600010633468628,
-              0.13746634125709534
-            ],
-            [
-              0.23629318177700043,
-              0.1260000467300415,
-              0.09176332503557205
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.02888890728354454,
-            -0.12600012123584747,
-            0.07779987156391144
-          ],
-          "stance": true,
-          "plant_reference_m": -0.02888888888888902,
-          "sole_heel_toe_m": [
-            [
-              -0.08188889920711517,
-              -0.12600013613700867,
-              1.181632995894688e-07
-            ],
-            [
-              0.14011111855506897,
-              -0.12600010633468628,
-              1.3966567280476738e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.8333333333333334,
-      "image_sha256": "446ed370bbc49c136181d9f478abd1ce9068e52a05fc950f5d4bd4fc9416da41",
-      "shadow_sha256": "f8776419743c5f2aca503daa9a92cdcd540366be0b9158846aa814f2457ba207"
-    },
-    "chod_7_11.png": {
-      "max_joint_gap_m": 2.4586915969848633e-07,
-      "max_bone_length_error_m": 4.1235044495602224e-07,
-      "feet": {
-        "L": {
-          "ankle_m": [
-            0.20900069177150726,
-            0.12599991261959076,
-            0.14130577445030212
-          ],
-          "stance": false,
-          "plant_reference_m": null,
-          "sole_heel_toe_m": [
-            [
-              0.15339906513690948,
-              0.12599991261959076,
-              0.06534343957901001
-            ],
-            [
-              0.3752721846103668,
-              0.12599989771842957,
-              0.05783342942595482
-            ]
-          ]
-        },
-        "R": {
-          "ankle_m": [
-            -0.10111118853092194,
-            -0.1260000616312027,
-            0.07780022919178009
-          ],
-          "stance": true,
-          "plant_reference_m": -0.10111111111111099,
-          "sole_heel_toe_m": [
-            [
-              -0.15411117672920227,
-              -0.1260000765323639,
-              4.929033821099438e-07
-            ],
-            [
-              0.0678887814283371,
-              -0.1260000318288803,
-              4.747090827095235e-07
-            ]
-          ]
-        }
-      },
-      "phase": 0.9166666666666666,
-      "image_sha256": "c197e1349d1f9f4700874ff0c84c3621a5d1dade11df13e3d24e3ef190065ba7",
-      "shadow_sha256": "09b986c49f4e3cfc0588b122309421b9bc6071d24928a37d94bd1baa4ad4c422"
+      "image_sha256": "f252aadc8d23ce1cb0df1b5657629f65b1862fd5fee1a3a8551edf396fd3721f",
+      "shadow_sha256": "a53c2637a678887188a1ab0bdbbde3ad5f6d9db2ec995d7d50f1f6b834318ef7"
     }
   }
 }

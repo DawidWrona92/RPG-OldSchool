@@ -4,62 +4,6 @@
   "authoritative_source": "source/bohater.blend",
   "source_sha256": "bf6a8221718b7484565f562a3fb731ec6f224414ff6bf4a28598b4d7178be7f3",
   "textures_packed": true,
-  "materials": {
-    "Znoszony len": [
-      "linen_shirt_worn",
-      1.0,
-      0.88,
-      0.00032
-    ],
-    "Mokry płaszcz / ciemnobrązowa wełna": [
-      "wool_cloak_dark_brown",
-      0.85,
-      0.91,
-      0.0005
-    ],
-    "Przetarta warstwa naramienna": [
-      "wool_cloak_dark_brown",
-      0.96,
-      0.89,
-      0.0005
-    ],
-    "Skóra / kaftan i sakwa": [
-      "leather_vest_weathered_brown",
-      0.85,
-      0.54,
-      0.00028
-    ],
-    "Przetarte brzegi skóry": [
-      "leather_vest_weathered_brown",
-      1.1,
-      0.67,
-      0.00028
-    ],
-    "Skóra butów / wilgoć": [
-      "leather_boots_dark_mud",
-      0.9,
-      0.48,
-      0.0003
-    ],
-    "Spodnie / brunatna wełna": [
-      "wool_trousers_charcoal",
-      0.87,
-      0.9,
-      0.00035
-    ],
-    "Plecak / postarzana skóra": [
-      "leather_backpack_aged",
-      0.82,
-      0.62,
-      0.0003
-    ],
-    "Posłanie / zszarzałe płótno": [
-      "canvas_bedroll_ashen",
-      0.91,
-      0.91,
-      0.00045
-    ]
-  },
   "texture_files_sha256": {
     "iron_hardware_blackened_metallic.png": "dc946ee2fd30937f7f77c8733591b8b35ee9ed52291c96f4f04fde20fa0999cf",
     "skin_traveler_weathered_basecolor.png": "4f364846fa248b2436c1f3a304405b57d9f30a5edd6f65566123696e41f9b69d",
@@ -120,7 +64,78 @@
   "polish_recipe": "polish_player.py",
   "carry_recipe": "adjust_carry.py",
   "chunk03_commit": "ff74eb7",
-  "chunk03_assignments": {
+  "mask_policy": "mesh boundary distance × edge breakup; low garment mask × local mud alpha; low mask × wetness; trim only existing seam tubes",
+  "carry_axis": [
+    0.4,
+    -0.4,
+    -0.82
+  ],
+  "right_hand_carry": [
+    0.01,
+    -0.4,
+    1.07
+  ],
+  "groom_recipe": "groom_player.py",
+  "shirt_note": "lower linen tucked inside belt/trousers; removed light crotch patch",
+  "fine_groom_recipe": "refine_groom.py",
+  "finish_groom_recipe": "finish_groom.py",
+  "historical_pass1_materials": {
+    "Znoszony len": [
+      "linen_shirt_worn",
+      1.0,
+      0.88,
+      0.00032
+    ],
+    "Mokry płaszcz / ciemnobrązowa wełna": [
+      "wool_cloak_dark_brown",
+      0.85,
+      0.91,
+      0.0005
+    ],
+    "Przetarta warstwa naramienna": [
+      "wool_cloak_dark_brown",
+      0.96,
+      0.89,
+      0.0005
+    ],
+    "Skóra / kaftan i sakwa": [
+      "leather_vest_weathered_brown",
+      0.85,
+      0.54,
+      0.00028
+    ],
+    "Przetarte brzegi skóry": [
+      "leather_vest_weathered_brown",
+      1.1,
+      0.67,
+      0.00028
+    ],
+    "Skóra butów / wilgoć": [
+      "leather_boots_dark_mud",
+      0.9,
+      0.48,
+      0.0003
+    ],
+    "Spodnie / brunatna wełna": [
+      "wool_trousers_charcoal",
+      0.87,
+      0.9,
+      0.00035
+    ],
+    "Plecak / postarzana skóra": [
+      "leather_backpack_aged",
+      0.82,
+      0.62,
+      0.0003
+    ],
+    "Posłanie / zszarzałe płótno": [
+      "canvas_bedroll_ashen",
+      0.91,
+      0.91,
+      0.00045
+    ]
+  },
+  "historical_chunk03_assignments": {
     "Anatomiczna głowa, szyja i odkryte przedramiona": "Skóra podróżnika / Chunk03",
     "Brew / naturalny łuk": "Włosy umbra / Chunk03",
     "Brew / naturalny łuk.001": "Włosy umbra / Chunk03",
@@ -192,19 +207,1557 @@
     "Włosy / boczne nieregularne pasmo.021": "Włosy umbra / Chunk03",
     "Włosy / krótki nieregularny obrys": "Włosy umbra / Chunk03"
   },
-  "mask_policy": "mesh boundary distance × edge breakup; low garment mask × local mud alpha; low mask × wetness; trim only existing seam tubes",
-  "carry_axis": [
-    0.4,
-    -0.4,
-    -0.82
-  ],
-  "right_hand_carry": [
-    0.01,
-    -0.4,
-    1.07
-  ],
-  "groom_recipe": "groom_player.py",
-  "shirt_note": "lower linen tucked inside belt/trousers; removed light crotch patch",
-  "fine_groom_recipe": "refine_groom.py",
-  "finish_groom_recipe": "finish_groom.py"
+  "object_materials": {
+    "Anatomiczna głowa, szyja i odkryte przedramiona": [
+      {
+        "material": "Skóra podróżnika / Chunk03",
+        "texture_set": "skin_traveler_weathered"
+      }
+    ],
+    "Brew / łuk nad okiem": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Brew / łuk nad okiem.001": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "But / nosek L": [
+      {
+        "material": "Skóra butów / wilgoć",
+        "texture_set": "leather_boots_dark_mud"
+      }
+    ],
+    "But / nosek R": [
+      {
+        "material": "Skóra butów / wilgoć",
+        "texture_set": "leather_boots_dark_mud"
+      }
+    ],
+    "But / organiczna cholewka L": [
+      {
+        "material": "Skóra butów / wilgoć",
+        "texture_set": "leather_boots_dark_mud"
+      }
+    ],
+    "But / organiczna cholewka R": [
+      {
+        "material": "Skóra butów / wilgoć",
+        "texture_set": "leather_boots_dark_mud"
+      }
+    ],
+    "Głowica miecza": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Jelec": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Język sprzączki": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Kaftan / przetarty brzeg": [
+      {
+        "material": "Szew krawędzi / trim Chunk03",
+        "texture_set": "procedural"
+      }
+    ],
+    "Kaftan / przetarty brzeg.001": [
+      {
+        "material": "Szew krawędzi / trim Chunk03",
+        "texture_set": "procedural"
+      }
+    ],
+    "Kaftan / szew boku": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Kaftan / szew boku.001": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Kaftan / zszywane otwarte połacie": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Klapa plecaka": [
+      {
+        "material": "Plecak / postarzana skóra",
+        "texture_set": "leather_backpack_aged"
+      }
+    ],
+    "Krótki płaszcz / miękkie fałdy": [
+      {
+        "material": "Mokry płaszcz / ciemnobrązowa wełna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Lniana koszula / luźne rękawy": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Lniana tunika / krój i pionowe fałdy": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Miecz / głownia z grzbietem": [
+      {
+        "material": "Stal głowni / Chunk03",
+        "texture_set": "steel_sword_weathered"
+      }
+    ],
+    "Miękki kołnierz lnu": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Naramienna warstwa płaszcza": [
+      {
+        "material": "Przetarta warstwa naramienna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Obszycie buta L": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Obszycie buta L.001": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Obszycie buta L.002": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Obszycie buta R": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Obszycie buta R.001": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Obszycie buta R.002": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Obszycie warstwy naramiennej": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Oko": [
+      {
+        "material": "Oko / ciepła kość słoniowa",
+        "texture_set": "procedural"
+      }
+    ],
+    "Oko.001": [
+      {
+        "material": "Oko / ciepła kość słoniowa",
+        "texture_set": "procedural"
+      }
+    ],
+    "Okucie pochwy": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Opuszczony kaptur / warstwy tkaniny": [
+      {
+        "material": "Mokry płaszcz / ciemnobrązowa wełna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Owijka nadgarstka L": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Owijka nadgarstka R": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Palec zgięty na rękojeści": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Palec zgięty na rękojeści.001": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Palec zgięty na rękojeści.002": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Palec zgięty na rękojeści.003": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Pas naramienny / nośny": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Pas skórzany": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Plecak / kieszeń boczna": [
+      {
+        "material": "Plecak / postarzana skóra",
+        "texture_set": "leather_backpack_aged"
+      }
+    ],
+    "Plecak / kieszeń boczna.001": [
+      {
+        "material": "Plecak / postarzana skóra",
+        "texture_set": "leather_backpack_aged"
+      }
+    ],
+    "Plecak / pionowy rzemień": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Plecak / pionowy rzemień.001": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Plecak / sprzączka": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Plecak / sprzączka.001": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Plecak / szelka połączona z korpusem": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Plecak / szelka połączona z korpusem.001": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Plecak / szew klinu": [
+      {
+        "material": "Szew krawędzi / trim Chunk03",
+        "texture_set": "procedural"
+      }
+    ],
+    "Plecak / szew klinu.001": [
+      {
+        "material": "Szew krawędzi / trim Chunk03",
+        "texture_set": "procedural"
+      }
+    ],
+    "Plecak podróżny": [
+      {
+        "material": "Plecak / postarzana skóra",
+        "texture_set": "leather_backpack_aged"
+      }
+    ],
+    "Podeszwa L": [
+      {
+        "material": "Spodnie / brunatna wełna",
+        "texture_set": "wool_trousers_charcoal"
+      }
+    ],
+    "Podeszwa R": [
+      {
+        "material": "Spodnie / brunatna wełna",
+        "texture_set": "wool_trousers_charcoal"
+      }
+    ],
+    "Podwinięty rękaw L": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Podwinięty rękaw L.001": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Podwinięty rękaw L.002": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Podwinięty rękaw R": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Podwinięty rękaw R.001": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Podwinięty rękaw R.002": [
+      {
+        "material": "Znoszony len",
+        "texture_set": "linen_shirt_worn"
+      }
+    ],
+    "Posłanie / brzeg płótna": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Posłanie / brzeg płótna.001": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Prawa rękawica / dłoń": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Pusta pochwa przy lewym biodrze": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Płaszcz / boczny szew": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Płaszcz / boczny szew.001": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Rzemień posłania": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Rzemień posłania.001": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Rękojeść": [
+      {
+        "material": "Rzemienie / Chunk03",
+        "texture_set": "leather_straps_worn"
+      }
+    ],
+    "Sakwa / sznur": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sakwa / sznur.001": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sakwa przy pasie": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Sakwa przy pasie.001": [
+      {
+        "material": "Skóra / kaftan i sakwa",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Spirala posłania": [
+      {
+        "material": "Mokry płaszcz / ciemnobrązowa wełna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Spirala posłania.001": [
+      {
+        "material": "Mokry płaszcz / ciemnobrązowa wełna",
+        "texture_set": "wool_cloak_dark_brown"
+      }
+    ],
+    "Spodnie / marszczenia kolan": [
+      {
+        "material": "Spodnie / brunatna wełna",
+        "texture_set": "wool_trousers_charcoal"
+      }
+    ],
+    "Sprzączka pasa": [
+      {
+        "material": "Żelazo okuć / Chunk03",
+        "texture_set": "iron_hardware_blackened"
+      }
+    ],
+    "Szew pasa naramiennego": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Szlif ostrza": [
+      {
+        "material": "Szlif krawędzi / Chunk03",
+        "texture_set": "steel_sword_weathered"
+      }
+    ],
+    "Szlif ostrza.001": [
+      {
+        "material": "Szlif krawędzi / Chunk03",
+        "texture_set": "steel_sword_weathered"
+      }
+    ],
+    "Sznur buta L": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.001": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.002": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.003": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.004": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.005": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.006": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.007": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.008": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta L.009": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.001": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.002": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.003": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.004": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.005": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.006": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.007": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.008": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Sznur buta R.009": [
+      {
+        "material": "Konopna nić",
+        "texture_set": "procedural"
+      }
+    ],
+    "Tęczówka": [
+      {
+        "material": "Tęczówka / ciemny brąz",
+        "texture_set": "procedural"
+      }
+    ],
+    "Tęczówka.001": [
+      {
+        "material": "Tęczówka / ciemny brąz",
+        "texture_set": "procedural"
+      }
+    ],
+    "Wiązanie kaftana": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Wiązanie kaftana.001": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Wiązanie kaftana.002": [
+      {
+        "material": "Przetarte brzegi skóry",
+        "texture_set": "leather_vest_weathered_brown"
+      }
+    ],
+    "Włosy / krótki nieregularny obrys": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka": [
+      {
+        "material": "Włosy / delikatna jaśniejsza odmiana",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.001": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.002": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.003": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.004": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.005": [
+      {
+        "material": "Włosy / delikatna jaśniejsza odmiana",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.006": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.007": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.008": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.009": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.010": [
+      {
+        "material": "Włosy / delikatna jaśniejsza odmiana",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.011": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.012": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.013": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.014": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.015": [
+      {
+        "material": "Włosy / delikatna jaśniejsza odmiana",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.016": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.017": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.018": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.019": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.020": [
+      {
+        "material": "Włosy / delikatna jaśniejsza odmiana",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.021": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.022": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.023": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.024": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.025": [
+      {
+        "material": "Włosy / delikatna jaśniejsza odmiana",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / nieregularna grzywka.026": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu": [
+      {
+        "material": "Włosy / delikatna jaśniejsza odmiana",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.001": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.002": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.003": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.004": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.005": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.006": [
+      {
+        "material": "Włosy / delikatna jaśniejsza odmiana",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.007": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.008": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.009": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.010": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.011": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.012": [
+      {
+        "material": "Włosy / delikatna jaśniejsza odmiana",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.013": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.014": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.015": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.016": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.017": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.018": [
+      {
+        "material": "Włosy / delikatna jaśniejsza odmiana",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.019": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.020": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.021": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.022": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / pasmo przy uchu.023": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.001": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.002": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.003": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.004": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.005": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.006": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.007": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.008": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.009": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.010": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.011": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.012": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / postrzępiony kark.013": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włosy / włókna nasady i skroni": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Włókna fryzury i zarostu / głowa": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      },
+      {
+        "material": "Zarost / drobne włókna brunatne",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / policzki żuchwa i podbródek": [
+      {
+        "material": "Zarost / krótka broda z przejściem",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.001": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.002": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.003": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.004": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.005": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.006": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.007": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.008": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.009": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.010": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.011": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.012": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.013": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.014": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.015": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.016": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zarost / wąs.017": [
+      {
+        "material": "Włosy umbra / Chunk03",
+        "texture_set": "hair_dark_umber"
+      }
+    ],
+    "Zrolowane posłanie": [
+      {
+        "material": "Posłanie / zszarzałe płótno",
+        "texture_set": "canvas_bedroll_ashen"
+      }
+    ]
+  },
+  "packed_images": {
+    "canvas_bedroll_ashen_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "canvas_bedroll_ashen_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "canvas_bedroll_ashen_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "edge_wear_breakup_mask.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "hair_dark_umber_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "hair_dark_umber_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "hair_dark_umber_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "iron_hardware_blackened_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "iron_hardware_blackened_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "iron_hardware_blackened_metallic.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "iron_hardware_blackened_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_backpack_aged_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_backpack_aged_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_backpack_aged_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_boots_dark_mud_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_boots_dark_mud_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_boots_dark_mud_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_straps_worn_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_straps_worn_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_straps_worn_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_vest_weathered_brown_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_vest_weathered_brown_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "leather_vest_weathered_brown_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "linen_shirt_worn_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "linen_shirt_worn_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "linen_shirt_worn_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "mud_spatter_decal_rgba.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "skin_traveler_weathered_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "skin_traveler_weathered_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "skin_traveler_weathered_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "steel_sword_weathered_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "steel_sword_weathered_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "steel_sword_weathered_metallic.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "steel_sword_weathered_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "stitching_trim_strip_rgba.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        1024,
+        256
+      ]
+    },
+    "wetness_breakup_mask.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "wool_cloak_dark_brown_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "wool_cloak_dark_brown_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "wool_cloak_dark_brown_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "wool_trousers_charcoal_basecolor.png": {
+      "packed": true,
+      "color_space": "sRGB",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "wool_trousers_charcoal_height.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    "wool_trousers_charcoal_roughness.png": {
+      "packed": true,
+      "color_space": "Non-Color",
+      "size": [
+        512,
+        512
+      ]
+    }
+  },
+  "actions": {
+    "chod": [
+      1.0,
+      25.0
+    ],
+    "chod / Klapa plecaka": [
+      1.0,
+      25.0
+    ],
+    "chod / Krótki płaszcz / miękkie fałdy": [
+      1.0,
+      25.0
+    ],
+    "chod / Naramienna warstwa płaszcza": [
+      1.0,
+      25.0
+    ],
+    "chod / Plecak podróżny": [
+      1.0,
+      25.0
+    ],
+    "chod / Zrolowane posłanie": [
+      1.0,
+      25.0
+    ],
+    "spoczynek": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Klapa plecaka": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Krótki płaszcz / miękkie fałdy": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Naramienna warstwa płaszcza": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Plecak podróżny": [
+      1.0,
+      81.0
+    ],
+    "spoczynek / Zrolowane posłanie": [
+      1.0,
+      81.0
+    ]
+  },
+  "source_policy": "Canonical artistic blend; render reads saved geometry/actions and never writes blend; recipes are explicit one-time edits only."
 }
