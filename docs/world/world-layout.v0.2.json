@@ -1,7 +1,7 @@
 {
   "schema": "welesza.world-layout-proposal.v2",
   "version": "0.2.0",
-  "status": "PROPOSAL_NOT_CANON",
+  "status": "ACCEPTED_FOR_GREYBOX",
   "scope": "complete currently documented demo valley; future full-game beyond dry road unspecified",
   "orientation": "x increases east, y increases south; abstract planning units",
   "bounds": [

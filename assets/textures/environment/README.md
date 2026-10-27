@@ -26,4 +26,4 @@ Każda nazwa jednoznacznie opisuje motyw. Szczegółowa tabela i dane źródłow
 - Tekstura koloru nie zastępuje geometrii korzeni, kamieni, traw i drzew.
 - Różnice oświetlenia powinny wynikać także z renderingu sceny, a nie samego przyciemniania albedo.
 
-**Status:** biblioteka eksperymentalna; ocena po renderze w docelowej kamerze gry. Kierunek artystyczny Niemiru: `docs/art/niemir/NIEMIR_ART_DIRECTION.md`.
+**Status: [DECYZJA AUTORA] zaakceptowana do produkcji** (27 października 2026 r.). Tekstury wygenerowane przez AI zostają, bo autor ocenił ich jakość jako wysoką; ograniczenia wyżej (brak pomiarowego PBR i potwierdzonej bezszwowości) nadal obowiązują. Kierunek artystyczny Niemiru: `docs/art/niemir/NIEMIR_ART_DIRECTION.md`.

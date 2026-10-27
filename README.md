@@ -40,7 +40,7 @@ Grafy `docs/graphs/` są **dokumentacją planowanego układu i zdarzeń**, nie w
 
 ## Mapa ciągłego świata — v0.2
 
-[**Projekt całej doliny Niemiru**](docs/world/README.md): 28 miejsc, 30 tras, 12 sektorów i kontrakt eksploracji bez ekranów ładowania. Układ jest **propozycją do greyboxu**, a nie zatwierdzonymi współrzędnymi świata; warianty anomalii pozostają do decyzji autora. [Mapa SVG](docs/world/WORLD_MAP.svg) · [karty sektorów](docs/world/SECTORS.md) · [bezszwowy streaming](docs/world/STREAMING.md) · [warianty anomalii i latarni](docs/world/VARIANTS.md) · [testy grafu](docs/world/WORLD_QA.md) · [pierwszy greybox](docs/world/GREYBOX.md).
+[**Projekt całej doliny Niemiru**](docs/world/README.md): 28 miejsc, 30 tras, 12 sektorów i kontrakt eksploracji bez ekranów ładowania. Układ jest **zaakceptowaną podstawą do greyboxu** (decyzja autora, 27.10.2026); metry powstaną w prototypie, a warianty anomalii pozostają do decyzji autora. [Mapa SVG](docs/world/WORLD_MAP.svg) · [karty sektorów](docs/world/SECTORS.md) · [bezszwowy streaming](docs/world/STREAMING.md) · [warianty anomalii i latarni](docs/world/VARIANTS.md) · [testy grafu](docs/world/WORLD_QA.md) · [pierwszy greybox](docs/world/GREYBOX.md).
 
 Walidator mapy i 16 testów regresyjnych są na `main`:
 

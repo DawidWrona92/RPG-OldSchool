@@ -7,13 +7,30 @@ wprost z elementów widocznych na koncepcjach i potrzeb pierwszej lokacji
 
 ## Założenia produkcyjne
 
-- Pipeline: Blender (Cycles CPU, headless) → prerender RGBA + osobna warstwa cienia,
-  kontrakt jak w `assets/environment/stones-mistral-01` (kamera izometryczna 30°,
-  60 px/m, chłodne światło bazowe).
-- Wszystkie assety proceduralne lub modelowane ręcznie — bez zewnętrznych
-  bibliotek i tekstur AI, pełna kontrola prawna.
+- Pipeline: Blender 4.3 (Cycles CPU, headless) → prerender RGBA + osobna warstwa cienia,
+  zgodnie z [kontraktem renderu](../../art/KONTRAKT-RENDERU.md): kamera ortograficzna 30°,
+  60 px/m, te same trzy światła co bohater.
+- Geometria proceduralna lub modelowana ręcznie. Tekstury z biblioteki
+  [`assets/textures/environment/`](../../../assets/textures/environment/README.md)
+  (wygenerowane przez AI) są **dozwolone** — decyzja autora z 27 października 2026 r.
+  Inne zewnętrzne zasoby tylko z jasną licencją i zapisanym źródłem.
 - Każdy asset: warianty rotacji, punkt osadzenia, uproszczona kolizja (dane
   orientacyjne), metadane JSON.
+
+### Do poprawy w `stones-mistral-01` (stan gałęzi z 27 października 2026 r.)
+
+Odczytano z `welesza_env_01.blend` i `source/build_env.py` na gałęzi `vibe/environment-stones-mistral`:
+
+| Parametr | Na gałęzi | Wymaga kontrakt |
+|---|---|---|
+| Wersja Blendera pliku | 5.0 (nie otworzy się w 4.3) | 4.3 |
+| Kamera | perspektywiczna, obiektyw 50 mm | ortograficzna, skala 3,2 m, obrót (60°; 0; 90°) |
+| Klatka | 512×512 (asset), 960×540 (scena) | 384 → 192×192, większa tylko dla dużych obiektów, z kotwicą w JSON |
+| Światło | słońce 6,5 + powierzchniowe 320 W | trzy światła powierzchniowe z kontraktu |
+| Kolor | AgX „Base Contrast”, ekspozycja 0 | AgX „Medium High Contrast”, ekspozycja −0,2 |
+| Próbki | 256 | 64 (cień 16), seed 1703 |
+
+Modele i materiały można zachować. Blender 4.3 nie otworzy pliku z 5.0, więc scenę trzeba odtworzyć skryptem `build_env.py` uruchomionym w 4.3, z kamerą i światłem z kontraktu.
 
 ## Priorytet 1 — lokacja przy wozie (wioska → trakt)
 

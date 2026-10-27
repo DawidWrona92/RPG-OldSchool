@@ -1,10 +1,10 @@
 # Welesza — mapa ciągłego świata doliny Niemiru (v0.2)
 
-**Status: PROPOZYCJA DO ZATWIERDZENIA / GREYBOXU.**
+**Status: [DECYZJA AUTORA] ZAAKCEPTOWANA PODSTAWA DO GREYBOXU** (27 października 2026 r.). Metry i ostateczna geometria powstaną w greyboxie; warianty anomalii i latarni pozostają do decyzji ([VARIANTS.md](VARIANTS.md)).
 **Zakres:** cała mapa **obecnie opisanego grywalnego świata (demo / pierwszy rozdział)**: Niemir, wszystkie leśne trasy, trzy słupy, obóz węglarzy, leśne ruiny, bossowie, cztery zadania poboczne, wyjście z doliny. Nie projektujemy na siłę dalszych krain pełnej gry, bo nie ma jeszcze zatwierdzonej fabuły poza suchym szlakiem.
 **Warunek autorski:** brak ekranów ładowania podczas przemieszczania, także pomiędzy bramą, lasem, ruinami i komorą latarni.
 
-> **v0.2 — korekta po review PM.** Status: proponowana topologia znanego demo, bez zatwierdzonych metrów, anomalii ani mechanizmu latarni.
+> **v0.2 — korekta po review PM.** Topologia znanego demo zaakceptowana przez autora; bez zatwierdzonych metrów, anomalii ani mechanizmu latarni.
 > Pierwszy wóz: **przed zmierzchem**, następnie nocleg i powrót rano.
 > Mapa SVG przedstawia jedynie opcję **A** dla anomalii; opis B: [VARIANTS.md](VARIANTS.md).
 
@@ -105,7 +105,7 @@ Trzy kamienne słupy w dowolnej kolejności. Nie wymagamy zabicia każdego napot
 - [Dane pierwszej wyprawy](../graphs/layout-first-expedition.json).
 - [Przewodnik artystyczny osady Niemir](../art/niemir/NIEMIR_ART_DIRECTION.md).
 
-Nie zmieniamy nazw i treści uzgodnionych zadań ani NPC. Kierunki geograficzne, współrzędne, podział sektorów i ostateczne trasy pozostają **propozycją projektową**, nie nowym zatwierdzonym kanonem.
+Nie zmieniamy nazw i treści uzgodnionych zadań ani NPC. Układ miejsc, tras i sektorów jest **zaakceptowaną podstawą do greyboxu**; współrzędne i długości tras mogą się zmienić po pomiarach w prototypie i nie ustanawiają nowych faktów fabularnych.
 
 ## 10. Zmiany i zgodność w v0.2
 
