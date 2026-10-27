@@ -1,6 +1,6 @@
 # Pakiet 04 — brief do późniejszych obrazów
 
-Status: propozycja briefu, nie zatwierdzony styl graficzny. Nie wygenerowano ilustracji. Materiał przygotowuje następny etap po dostarczeniu przez autora repozytoriów z umiejętnościami rysowania.
+Status: brief planowanych kadrów ART-01–07. Powstała już odrębna [biblioteka 16 szkiców koncepcyjnych](koncepty/README.md); nie oznacza to ukończenia wszystkich ujęć ART-01–07. Uzgodniony kierunek wizualny osady opisuje [przewodnik Niemiru](art/niemir/NIEMIR_ART_DIRECTION.md).
 
 Podstawa: [mapa](pakiet-04-mapa.md), [początek](pakiet-04-poczatek.md), [bestiariusz](bestiariusz-demo.md). Obraz ma pokazywać konkretne miejsce albo decyzję gracza, nie tylko dekoracyjny nastrój.
 
@@ -12,7 +12,7 @@ Podstawa: [mapa](pakiet-04-mapa.md), [początek](pakiet-04-poczatek.md), [bestia
 - Magia nie ma stale świecących run na każdej powierzchni. Zapalona latarnia i odsłonięty trakt powinny być wyjątkowym wydarzeniem.
 - Nazewnictwo słowiańskie nie wymaga dekorowania wszystkiego takim samym zestawem symboli. Rekwizyty wynikają z funkcji domu, pracy lub konkretnego obyczaju.
 - Materiał i epoka są umowne: drewno, stary kamień, żelazo, wełna, len, skóra. Unikamy nieuzgodnionej broni palnej i architektury monumentalnego miasta.
-- Proponowana relacja barw: ziemia, zgaszona zieleń, mokry kamień i oszczędne ciepłe światło. Dokładną paletę, styl 2D/3D i stopień malarskości wybierzemy na obrazach porównawczych.
+- Obowiązujący kierunek barw: ziemia, zgaszona zieleń, mokry kamień i oszczędne ciepłe światło. Technika wykonania oraz stopień szczegółowości materiałów pozostają otwarte.
 
 ## Pierwsza seria obrazów
 
@@ -36,4 +36,4 @@ Obraz koncepcyjny nie jest finalnym assetem gry, dowodem przechodniości areny a
 
 ## Przekazanie do kolejnego etapu
 
-Autor dostarcza repozytoria skilli rysowania. Najpierw sprawdzamy ich instrukcje, zgodność z potrzebnym typem obrazu i sposób użycia. Potem przygotowujemy małą serię porównawczą według powyższych kadrów, bez automatycznego zmieniania zatwierdzonej fabuły. Na tym etapie nie instalujemy nowych narzędzi ani nie wybieramy z góry stylu za autora.
+Wykorzystać zatwierdzony język wizualny ze szkiców oraz przewodnika osady do przygotowania ART-01–07. Dokument nie narzuca silnika, renderera ani formatu sprite'ów. Po wykonaniu obrazów należy sprawdzić spójność z dokumentacją fabuły i mapy.
