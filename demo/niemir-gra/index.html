@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niemir — gra</title>
+<style>
+:root { --bg:#07090f; --accent:#ffb347; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { min-height:100vh; display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(1200px 700px at 50% 20%, #10141f 0%, var(--bg) 70%);
+  font-family:"Courier New", ui-monospace, monospace; color:#c8d3e0; }
+.stage { width:min(96vw, 1100px); text-align:center; padding:16px 0 24px; }
+h1 { font-size:18px; letter-spacing:5px; text-transform:uppercase; color:var(--accent); margin-bottom:12px; text-shadow:0 0 14px rgba(255,179,71,.3); }
+.frame { position:relative; display:inline-block; width:100%; border:3px solid #2a2233; border-radius:4px;
+  box-shadow:0 0 0 2px #0b0d14, 0 18px 60px rgba(0,0,0,.8); overflow:hidden; }
+canvas { display:block; width:100%; image-rendering:pixelated; background:#0a0e18; }
+.foot { margin-top:10px; font-size:12px; color:#6d7c92; }
+</style>
+</head>
+<body>
+<main class="stage">
+  <h1>Niemir</h1>
+  <div class="frame">
+    <canvas id="game" width="480" height="270"></canvas>
+  </div>
+  <p class="foot">Cały świat rysowany proceduralnie, piksel po pikselu. Kamera podąża za bohaterem.</p>
+</main>
+<script src="game.js"></script>
+</body>
+</html>
