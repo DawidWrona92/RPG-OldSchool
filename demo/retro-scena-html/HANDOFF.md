@@ -10,6 +10,11 @@ kontur, światło z lewej-górnej, kotwica u stóp, kaflowa przestrzeń).
 - `style.css` — rama, HUD sterowania, pixelated rendering.
 - `game.js` — świat, postacie, para z ust, sterowanie.
 
+## Jak odpalić
+
+- **Najprościej**: pobierz `niemir-scena.html` i otwórz dwuklikiem w przeglądarce — to samodzielny plik (CSS/JS wbudowane), nie wymaga serwera ani zależności.
+- Alternatywnie otwórz `index.html` (używa `style.css` + `game.js` z katalogu) — działa też z dysku lub przez `python3 -m http.server`.
+
 ## Sterowanie
 
 - `W A S D` lub strzałki — chodzenie.
