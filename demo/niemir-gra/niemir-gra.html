@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niemir — gra</title>
+<style>
+:root { --bg:#07090f; --accent:#ffb347; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { min-height:100vh; display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(1200px 700px at 50% 20%, #10141f 0%, var(--bg) 70%);
+  font-family:"Courier New", ui-monospace, monospace; color:#c8d3e0; }
+.stage { width:min(96vw, 1100px); text-align:center; padding:16px 0 24px; }
+h1 { font-size:18px; letter-spacing:5px; text-transform:uppercase; color:var(--accent); margin-bottom:12px; text-shadow:0 0 14px rgba(255,179,71,.3); }
+.frame { position:relative; display:inline-block; width:100%; border:3px solid #2a2233; border-radius:4px;
+  box-shadow:0 0 0 2px #0b0d14, 0 18px 60px rgba(0,0,0,.8); overflow:hidden; }
+canvas { display:block; width:100%; image-rendering:pixelated; background:#0a0e18; }
+.foot { margin-top:10px; font-size:12px; color:#6d7c92; }
+</style>
+</head>
+<body>
+<main class="stage">
+  <h1>Niemir</h1>
+  <div class="frame">
+    <canvas id="game" width="480" height="270"></canvas>
+  </div>
+  <p class="foot">Cały świat rysowany proceduralnie, piksel po pikselu. Kamera podąża za bohaterem.</p>
+</main>
+<script>
+'use strict';
+/* NIEMIR — proceduralna gra pixel-art 1:1
+   Wszystko rysowane kodem: pełna kontrola nad każdym pikselem. */
+
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+ctx.imageSmoothingEnabled = false;
+
+const VIEW_W = canvas.width, VIEW_H = canvas.height;   // 480x270 — kamera "blisko" bohatera
+const WORLD_W = 1536, WORLD_H = 864;
+
+// deterministiczny PRNG — świat zawsze identyczny
+let _s = 1234567;
+function rnd() { _s = (_s * 1103515245 + 12345) & 0x7fffffff; return _s / 0x7fffffff; }
+
+const COL = {
+  night:'#0a0e18', forest0:'#0c1712', forest1:'#12241a', forest2:'#1a3325',
+  trunk:'#241a12', trunkL:'#3a2a1a',
+  grass0:'#1b2a1a', grass1:'#22331e', grass2:'#16220f', dirt0:'#3a2e22', dirt1:'#4d3d2c', dirt2:'#2a2118',
+  road0:'#463826', road1:'#584834', road2:'#332818',
+  water0:'#14304a', water1:'#2a5578', water2:'#0b1a2a',
+  wood0:'#4a3624', wood1:'#6b4f33', wood2:'#2e2116', stake:'#5c4530',
+  roof0:'#4a3520', roof1:'#6b4f2c', straw0:'#7a6a3a', straw1:'#5a4c28',
+  skin:'#c8996f', skinD:'#9a6f4a', hair:'#4c3a22',
+  heroTunic:'#7a5a2e', heroTunicD:'#57401f', heroTunicL:'#97713c', pants:'#3a2f1e', boot:'#221c12',
+  shield:'#6d5a34', shieldD:'#4a3c20', shieldE:'#8a7444', blade:'#b9c2cf', bladeD:'#7f8798', hilt:'#5c4322',
+  armor0:'#5a6270', armor1:'#7f8798', armor2:'#3c4350', plume:'#a83232',
+  tunic0:'#6a4c2a', tunic1:'#4d361e', dress:'#d8d5c8', dressD:'#a8a696', apron:'#8c2f2f',
+  horse0:'#5a4028', horse1:'#6d5030', horseD:'#3d2b18', mane:'#241a10',
+  chicken:'#e8e4d8', chickenD:'#b8b4a8', comb:'#c23a2a',
+  window:'#ffb35c', lantern:'#ffd27a', smoke:'#8a93a8',
+  breath:'rgba(220,235,255,'
+};
+
+const keys = {};
+addEventListener('keydown', e => {
+  keys[e.key.toLowerCase()] = true;
+  if (['arrowup','arrowdown','arrowleft','arrowright',' '].includes(e.key.toLowerCase())) e.preventDefault();
+});
+addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
+
+function px(x, y, w, h, c) { ctx.fillStyle = c; ctx.fillRect(x|0, y|0, w, h); }
+
+// ---------- świat statyczny: budynki, palisada, płoty, drzewa ----------
+const buildings = [
+  { x: 150, y: 210, w: 150, h: 100, roof: 'straw', chimney: true,  windows: [[40, 40], [95, 55]] },
+  { x: 340, y: 150, w: 110, h: 80,  roof: 'wood',  chimney: false, windows: [[35, 35]] },
+  { x: 1000, y: 170, w: 120, h: 85, roof: 'wood',  chimney: true,  windows: [[40, 38], [78, 38]] },
+  { x: 1160, y: 230, w: 170, h: 110, roof: 'straw', chimney: true, windows: [[45, 50], [110, 42]] },
+  { x: 1220, y: 400, w: 140, h: 95, roof: 'straw', chimney: false, windows: [[50, 45]] }
+];
+const GATE = { x: 640, w: 120, towerH: 90, wallY: 120, wallH: 70 };   // brama na środku
+const ROAD = { x0: 690, x1: 760 };                                    // droga przez bramę
+const STREAM = { y: 740, h: 70 };
+const BRIDGE = { x: 680, w: 90 };
+const fences = [
+  { x: 60,  y: 330, w: 220, h: 6 },
+  { x: 320, y: 500, w: 240, h: 6 },
+  { x: 950, y: 560, w: 260, h: 6 }
+];
+// drzewa (deterministycznie w pasach lasu)
+const trees = [];
+(function genTrees() {
+  const zones = [
+    { x0: 0, x1: WORLD_W, y0: 30, y1: GATE.wallY - 10, n: 90, dense: true },
+    { x0: 0, x1: 200, y0: GATE.wallY, y1: 700, n: 40, dense: false },
+    { x0: WORLD_W-220, x1: WORLD_W, y0: GATE.wallY, y1: 700, n: 40, dense: false }
+  ];
+  for (const z of zones) for (let i = 0; i < z.n; i++) {
+    trees.push({
+      x: z.x0 + rnd() * (z.x1 - z.x0),
+      y: z.y0 + rnd() * (z.y1 - z.y0),
+      s: 0.8 + rnd() * 0.7
+    });
+  }
+  // wygeneruj kolizje budynków i obiektów
+})();
+
+// ---------- kolizje ----------
+const solids = [];
+for (const b of buildings) solids.push({ x: b.x, y: b.y + 30, w: b.w, h: b.h - 30 });
+solids.push({ x: GATE.x - 60, y: GATE.wallY, w: 40, h: GATE.wallH + 60 });          // lewa wieża
+solids.push({ x: GATE.x + GATE.w + 20, y: GATE.wallY, w: 40, h: GATE.wallH + 60 }); // prawa wieża
+for (const f of fences) solids.push({ x: f.x, y: f.y, w: f.w, h: f.h + 8 });
+// strumień: nieprzejezdny poza mostem
+solids.push({ x: 0, y: STREAM.y + 8, w: BRIDGE.x, h: STREAM.h - 16 });
+solids.push({ x: BRIDGE.x + BRIDGE.w, y: STREAM.y + 8, w: WORLD_W - BRIDGE.x - BRIDGE.w, h: STREAM.h - 16 });
+// granice świata
+const MARGIN = 26;
+
+function collide(nx, ny) {
+  if (nx < MARGIN || nx > WORLD_W - MARGIN || ny < GATE.wallY + GATE.wallH + 40 || ny > WORLD_H - 12) return true;
+  const hw = 7, hh = 10; // bok bohatera
+  for (const s of solids) {
+    if (nx + hw > s.x && nx - hw < s.x + s.w && ny > s.y && ny - 40 < s.y + s.h) return true;
+  }
+  return false;
+}
+
+// ---------- postacie ----------
+function makeWalker(x, y) {
+  return { x, y, facing: 'right', moving: false, walkT: 0, breathPhase: rnd() * 6.28 };
+}
+
+const hero = Object.assign(makeWalker(725, 660), { speed: 1.5, runSpeed: 2.6 });
+
+const npcs = [
+  { kind: 'guard', walker: Object.assign(makeWalker(700, 300), {}), patrol: [
+      { x: 620, y: 290 }, { x: 790, y: 310 }, { x: 700, y: 330 } ], wp: 0, wait: 0 },
+  { kind: 'villager', walker: Object.assign(makeWalker(500, 600), {}), patrol: [
+      { x: 430, y: 560 }, { x: 620, y: 640 }, { x: 500, y: 600 } ], wp: 0, wait: 0 },
+  { kind: 'villager', walker: Object.assign(makeWalker(1050, 480), {}), patrol: [
+      { x: 980, y: 460 }, { x: 1180, y: 520 }, { x: 1050, y: 480 } ], wp: 0, wait: 0 },
+  { kind: 'woman', walker: Object.assign(makeWalker(240, 330), {}), patrol: null },
+  { kind: 'smith', walker: Object.assign(makeWalker(1180, 360), {}), patrol: null, hammer: 0 },
+  { kind: 'horse', walker: Object.assign(makeWalker(150, 420), {}), patrol: null, tail: 0 },
+  { kind: 'chicken', walker: Object.assign(makeWalker(600, 700), {}), patrol: null, peck: 0 },
+  { kind: 'chicken', walker: Object.assign(makeWalker(640, 720), {}), patrol: null, peck: 2 }
+];
+
+// ---------- efekty ----------
+const smokes = [];
+for (const b of buildings) if (b.chimney) smokes.push({ x: b.x + b.w - 28, y: b.y - 14, puffs: [] });
+const lanterns = [ { x: GATE.x - 44, y: GATE.wallY + GATE.wallH + 20 }, { x: GATE.x + GATE.w + 42, y: GATE.wallY + GATE.wallH + 20 }, { x: 850, y: 620 } ];
+
+function breathBob(t, phase) {
+  return (Math.sin(t / 1000 * 4.4 + phase) + 1) / 2 > 0.5 ? 1 : 0;
+}
+
+function drawBreath(x, y, t, phase, facing) {
+  const cycle = ((t / 1000) * 0.55 + phase) % 1;
+  if (cycle > 0.45) return;
+  const k = cycle / 0.45;
+  const drift = k * 8, rise = Math.sin(k * Math.PI) * 4, size = 1 + (k * 2 | 0);
+  const a = (1 - k) * 0.45;
+  const dir = facing === 'left' ? -1 : 1;
+  ctx.globalAlpha = a;
+  px(x + dir * (4 + drift), y - rise, size, Math.max(1, size - 1), COL.breath + '1)');
+  ctx.globalAlpha = a * 0.6;
+  px(x + dir * (5 + drift), y - rise - 1, size, 1, COL.breath + '1)');
+  ctx.globalAlpha = 1;
+}
+
+function drawLegs(x, y, walkT, moving, pantsC, bootC) {
+  const st = moving ? Math.sin(walkT / 70) : 0;
+  const l1 = Math.round(st * 2), l2 = -l1;
+  px(x - 5, y - 9, 4, 9 + l1, pantsC);
+  px(x + 1, y - 9, 4, 9 + l2, pantsC);
+  px(x - 5, y - 2 + l1, 4, 2, bootC);
+  px(x + 1, y - 2 + l2, 4, 2, bootC);
+}
+
+function drawHumanoid(x, y, t, w, style) {
+  const b = breathBob(t, w.breathPhase);
+  const bob = w.moving ? (Math.sin(w.walkT / 70) > 0 ? 1 : 0) : b;
+  drawLegs(x, y, w.walkT, w.moving, style.pants, style.boot);
+  if (style.kind === 'hero') {
+    px(x - 6, y - 26 + bob, 12, 17, style.tunic);
+    px(x - 6, y - 26 + bob, 4, 17, style.tunicL);
+    px(x + 4, y - 26 + bob, 2, 17, style.tunicD);
+    px(x - 6, y - 12 + bob, 12, 2, style.belt || COL.boot);
+    px(x - 3, y - 32 + bob, 7, 6, COL.skin);
+    px(x - 3, y - 27 + bob, 7, 1, COL.skinD);
+    px(x - 4, y - 34 + bob, 9, 3, COL.hair);
+    px(x - 4, y - 32 + bob, 2, 7, COL.hair);
+    px(x + 4, y - 32 + bob, 2, 7, COL.hair);
+    px(w.facing === 'left' ? x - 2 : x + 2, y - 30 + bob, 1, 1, '#0c0d12');
+    const shx = w.facing === 'left' ? x + 6 : x - 13;
+    px(shx, y - 25 + bob, 8, 11, COL.shield);
+    px(shx, y - 25 + bob, 8, 1, COL.shieldE);
+    px(shx + 1, y - 22 + bob, 6, 5, COL.shieldD);
+    const swx = w.facing === 'left' ? x - 10 : x + 9;
+    px(swx, y - 24 + bob, 1, 3, COL.hilt);
+    px(swx, y - 21 + bob, 2, 13, COL.blade);
+    px(swx + 1, y - 21 + bob, 1, 13, COL.bladeD);
+  } else if (style.kind === 'guard') {
+    px(x - 6, y - 26 + bob, 12, 17, style.t0);
+    px(x - 6, y - 26 + bob, 4, 17, style.t1);
+    px(x + 4, y - 26 + bob, 2, 17, style.t2);
+    px(x - 8, y - 25 + bob, 2, 13, '#5c1f24');
+    px(x - 3, y - 32 + bob, 7, 6, COL.skin);
+    px(x - 4, y - 34 + bob, 9, 3, style.t2);
+    px(x - 4, y - 36 + bob, 9, 2, style.t1);
+    px(x - 2, y - 38 + bob, 5, 2, COL.plume);
+    px(x + 2, y - 30 + bob, 1, 1, '#0c0d12');
+    const spx2 = x + 9;
+    px(spx2, y - 40 + bob, 1, 40, COL.trunkL);
+    px(spx2 - 1, y - 43 + bob, 3, 3, '#9aa4b5');
+  } else if (style.kind === 'woman') {
+    px(x - 6, y - 10, 12, 10, COL.dress);
+    px(x - 6, y - 3, 12, 3, COL.dressD);
+    px(x - 4, y - 10, 8, 7, COL.apron);
+    px(x - 5, y - 26 + bob, 11, 16, COL.dress);
+    px(x - 5, y - 13 + bob, 11, 3, COL.dressD);
+    px(x - 3, y - 32 + bob, 7, 6, COL.skin);
+    px(x - 4, y - 34 + bob, 9, 3, '#7a4a28');
+    px(x - 1, y - 30 + bob, 1, 1, '#0c0d12');
+    px(x + 2, y - 30 + bob, 1, 1, '#0c0d12');
+  } else if (style.kind === 'smith') {
+    px(x - 6, y - 26 + bob, 12, 17, '#59422e');
+    px(x - 6, y - 26 + bob, 4, 17, '#6d5438');
+    px(x - 3, y - 32 + bob, 7, 6, COL.skin);
+    px(x - 4, y - 34 + bob, 9, 2, '#241a10');
+    px(x - 1, y - 30 + bob, 1, 1, '#0c0d12');
+    const h = Math.sin(t / 260) * 5;
+    px(x + 8, y - 24 + bob - h, 6, 3, '#5c5c66');
+    px(x + 10, y - 21 + bob - h, 1, 7, '#4a3820');
+  } else { // villager
+    px(x - 6, y - 26 + bob, 12, 17, style.t0 || COL.tunic0);
+    px(x - 6, y - 26 + bob, 4, 17, style.t1 || '#7d5a32');
+    px(x - 3, y - 32 + bob, 7, 6, COL.skin);
+    px(x - 4, y - 34 + bob, 9, 2, style.hat || '#4a3a24');
+    px(w.facing === 'left' ? x - 1 : x + 2, y - 30 + bob, 1, 1, '#0c0d12');
+    px(x + 8, y - 30 + bob, 1, 30, '#4a3820'); // kij
+  }
+  drawBreath(x, y - 28 + bob, t, w.breathPhase + 0.3, w.facing);
+}
+
+const STYLES = {
+  hero:   { kind:'hero', tunic: COL.heroTunic, tunicD: COL.heroTunicD, tunicL: COL.heroTunicL, pants: COL.pants, boot: COL.boot },
+  guard:  { kind:'guard', t0: COL.armor0, t1: COL.armor1, t2: COL.armor2, pants: '#3c4350', boot: '#22282f' },
+  villager:{ kind:'villager', pants: '#3a2f1e', boot: '#221c12' },
+  woman:  { kind:'woman' },
+  smith:  { kind:'smith' }
+};
+
+function drawHorse(x, y, t) {
+  const tail = Math.sin(t / 500) > 0 ? 0 : 1;
+  ctx.globalAlpha = 0.3; px(x - 20, y, 40, 2, '#000'); ctx.globalAlpha = 1;
+  px(x - 18, y - 18, 36, 16, COL.horse0);
+  px(x - 18, y - 18, 36, 4, COL.horse1);
+  px(x - 18, y - 4, 4, 5, COL.horseD);
+  px(x + 10, y - 4, 4, 5, COL.horseD);
+  px(x + 12, y - 34, 10, 18, COL.horse0);
+  px(x + 12, y - 34, 10, 5, COL.mane);
+  px(x + 18, y - 28, 5, 4, COL.horseD);
+  px(x + 14, y - 40, 4, 7, COL.mane);
+  px(x - 21, y - 20 + tail, 3, 11, COL.mane);
+}
+
+function drawChicken(x, y, t, phase) {
+  const peck = Math.sin(t / 260 + phase) > 0.6 ? 1 : 0;
+  px(x, y - 6, 7, 5, COL.chicken);
+  px(x, y - 6, 7, 1, COL.chickenD);
+  px(x + 6, y - 7 + peck, 3, 3, COL.chicken);
+  px(x + 8, y - 6 + peck, 2, 1, COL.comb);
+  px(x + 6, y - 7 + peck, 1, 1, '#e8a030');
+  px(x + 1, y, 1, 1, COL.comb);
+  px(x + 5, y, 1, 1, COL.comb);
+}
+
+// ---------- świat: rysowanie tła ----------
+let groundPattern = null;
+function buildGround() {
+  // deterministyczna mapa gruntu (trawa/droga/ziemia) — rysowana raz do offscreen
+  const off = document.createElement('canvas');
+  off.width = WORLD_W; off.height = WORLD_H;
+  const o = off.getContext('2d');
+  let s0 = 999; const r = () => { s0 = (s0 * 1103515245 + 12345) & 0x7fffffff; return s0 / 0x7fffffff; };
+  o.fillStyle = COL.grass0; o.fillRect(0, 0, WORLD_W, WORLD_H);
+  for (let i = 0; i < 14000; i++) {
+    const x = r() * WORLD_W | 0, y = r() * WORLD_H | 0;
+    o.fillStyle = r() > 0.5 ? COL.grass1 : COL.grass2;
+    o.fillRect(x, y, 2, 1);
+  }
+  // droga: od bramy na dół, lekko się rozszerzająca
+  for (let y = GATE.wallY; y < WORLD_H; y++) {
+    const spread = 1 + (y - GATE.wallY) / 300;
+    const x0 = 725 - 35 * spread, x1 = 725 + 35 * spread;
+    o.fillStyle = COL.road0; o.fillRect(x0, y, x1 - x0, 1);
+    if ((y & 3) === 0) { o.fillStyle = COL.road1; o.fillRect(x0 + 4 + (y * 7 % 40), y, 12, 1); }
+    if ((y & 7) === 3) { o.fillStyle = COL.road2; o.fillRect(x1 - 18 - (y * 5 % 30), y, 10, 1); }
+  }
+  // plac przed bramą
+  o.fillStyle = COL.dirt0; o.fillRect(560, 250, 340, 120);
+  for (let i = 0; i < 600; i++) {
+    o.fillStyle = r() > 0.5 ? COL.dirt1 : COL.dirt2;
+    o.fillRect(560 + r() * 340 | 0, 250 + r() * 120 | 0, 3, 1);
+  }
+  // strumień
+  o.fillStyle = COL.water2; o.fillRect(0, STREAM.y, WORLD_W, STREAM.h);
+  o.fillStyle = COL.water0; o.fillRect(0, STREAM.y + 6, WORLD_W, STREAM.h - 14);
+  for (let x = 0; x < WORLD_W; x += 26) {
+    o.fillStyle = COL.water1; o.fillRect(x + ((x / 26) | 0) % 9, STREAM.y + 12 + (x % 30), 12, 1);
+    o.fillRect(x + 8, STREAM.y + 40 + (x % 17), 9, 1);
+  }
+  // mostek
+  o.fillStyle = COL.wood0; o.fillRect(BRIDGE.x, STREAM.y - 4, BRIDGE.w, STREAM.h + 8);
+  o.fillStyle = COL.wood1; o.fillRect(BRIDGE.x, STREAM.y - 4, BRIDGE.w, 2);
+  o.fillStyle = COL.wood2; o.fillRect(BRIDGE.x, STREAM.y + STREAM.h + 2, BRIDGE.w, 2);
+  for (let i = 0; i < 7; i++) o.fillRect(BRIDGE.x + 4 + i * 13, STREAM.y - 4, 2, STREAM.h + 8);
+  return off;
+}
+
+function drawTree(tr) {
+  const s = tr.s;
+  const x = tr.x | 0, y = tr.y | 0;
+  px(x - 2 * s, y - 14 * s, 4 * s, 26 * s, COL.trunk);
+  px(x - 2 * s, y - 14 * s, 1, 26 * s, COL.trunkL);
+  px(x - 12 * s, y - 34 * s, 24 * s, 16 * s, COL.forest2);
+  px(x - 9 * s, y - 42 * s, 18 * s, 14 * s, COL.forest1);
+  px(x - 5 * s, y - 48 * s, 10 * s, 9 * s, COL.forest0);
+}
+
+function drawBuilding(b, t) {
+  const x = b.x, y = b.y;
+  // ściana
+  px(x, y, b.w, b.h, COL.wood0);
+  for (let i = 0; i < b.h; i += 6) { px(x, y + i, b.w, 1, COL.wood2); }
+  px(x, y, 3, b.h, COL.wood1);
+  // dach
+  if (b.roof === 'straw') {
+    px(x - 8, y - 22, b.w + 16, 14, COL.straw0);
+    px(x - 6, y - 12, b.w + 12, 12, COL.straw1);
+    px(x - 8, y - 22, b.w + 16, 2, '#8f7f4a');
+  } else {
+    px(x - 6, y - 18, b.w + 12, 18, COL.roof0);
+    px(x - 6, y - 18, b.w + 12, 3, COL.roof1);
+    for (let i = 0; i < b.w + 12; i += 8) px(x - 6 + i, y - 18, 1, 18, COL.roof0);
+  }
+  // okna z migotaniem
+  for (const [wx, wy] of b.windows) {
+    const fl = 0.65 + 0.35 * Math.sin(t / 170 + wx * 3 + b.x);
+    px(x + wx, y + wy, 10, 9, COL.window);
+    ctx.globalAlpha = 0.35 * fl;
+    px(x + wx - 3, y + wy - 3, 16, 15, COL.lantern);
+    ctx.globalAlpha = 1;
+    px(x + wx + 4, y + wy, 1, 9, COL.wood2); px(x + wx, y + wy + 4, 10, 1, COL.wood2);
+  }
+  // drzwi
+  px(x + 12, y + b.h - 26, 16, 26, COL.wood2);
+  px(x + 12, y + b.h - 26, 16, 1, COL.wood1);
+  // komin
+  if (b.chimney) {
+    px(x + b.w - 30, y - 30, 9, 12, COL.wood2);
+    px(x + b.w - 32, y - 32, 13, 3, COL.wood1);
+  }
+}
+
+function drawPalisade(t) {
+  const y0 = GATE.wallY, h = GATE.wallH;
+  // palisada po obu stronach bramy
+  for (let x = 8; x < WORLD_W - 8; x += 9) {
+    if (x > GATE.x - 58 && x < GATE.x + GATE.w + 58) continue;
+    px(x, y0 + 6, 6, h - 6, COL.wood0);
+    px(x, y0 + 6, 2, h - 6, COL.wood1);
+    px(x, y0 + 2, 6, 5, COL.stake);       // zaostrzony pale
+    px(x + 2, y0, 2, 3, COL.stake);
+  }
+  // wieże bramne
+  for (const tx of [GATE.x - 60, GATE.x + GATE.w + 12]) {
+    px(tx, y0 - 30, 48, h + 40, COL.wood0);
+    px(tx, y0 - 30, 4, h + 40, COL.wood1);
+    px(tx + 44, y0 - 30, 4, h + 40, COL.wood2);
+    px(tx - 6, y0 - 44, 60, 16, COL.roof0);
+    px(tx - 4, y0 - 44, 56, 3, COL.roof1);
+    px(tx + 18, y0 - 14, 10, 11, COL.window);
+    ctx.globalAlpha = 0.3;
+    px(tx + 15, y0 - 17, 16, 17, COL.lantern);
+    ctx.globalAlpha = 1;
+  }
+  // brama (otwarta skrzydła)
+  px(GATE.x, y0 + 8, 18, 64, COL.wood2);
+  px(GATE.x + GATE.w - 18, y0 + 8, 18, 64, COL.wood2);
+  px(GATE.x, y0 + 8, 18, 2, COL.wood1);
+  px(GATE.x + GATE.w - 18, y0 + 8, 18, 2, COL.wood1);
+  // sztandar
+  px(GATE.x + GATE.w / 2 - 1, y0 - 36, 2, 20, '#3a3a44');
+  const wav = Math.sin(t / 300) * 2 | 0;
+  px(GATE.x + GATE.w / 2 + 1, y0 - 36, 14 + wav, 10, '#8c2f2f');
+  px(GATE.x + GATE.w / 2 + 5, y0 - 33, 4, 4, '#d8d5c8');
+}
+
+function drawFence(f) {
+  px(f.x, f.y, f.w, 3, COL.wood1);
+  px(f.x, f.y + 5, f.w, 3, COL.wood1);
+  for (let i = 0; i < f.w; i += 24) {
+    px(f.x + i, f.y - 4, 4, 15, COL.wood0);
+    px(f.x + i, f.y - 4, 1, 15, COL.wood1);
+  }
+}
+
+function updateSmoke(dt, t) {
+  for (const s of smokes) {
+    if (rnd() < dt / 900) s.puffs.push({ age: 0, x: 0, y: 0, drift: rnd() * 2 - 1 });
+    for (const p of s.puffs) { p.age += dt / 1000; }
+    s.puffs = s.puffs.filter(p => p.age < 4);
+  }
+}
+function drawSmoke(t) {
+  for (const s of smokes) {
+    let i = 0;
+    for (const p of s.puffs) {
+      const y = s.y - p.age * 16;
+      const x = s.x + p.drift * p.age * 6 + Math.sin(t / 800 + i) * 2;
+      const sz = 2 + (p.age * 3 | 0);
+      ctx.globalAlpha = 0.35 * (1 - p.age / 4);
+      px(x, y, sz, sz - 1, COL.smoke);
+      i++;
+    }
+    ctx.globalAlpha = 1;
+  }
+}
+
+function drawLantern(l, t) {
+  const fl = 0.7 + 0.3 * Math.sin(t / 160 + l.x);
+  px(l.x - 1, l.y, 3, 18, COL.wood2);
+  px(l.x - 3, l.y - 6, 7, 7, COL.wood2);
+  px(l.x - 2, l.y - 5, 5, 5, COL.lantern);
+  ctx.globalAlpha = 0.35 * fl;
+  px(l.x - 6, l.y - 8, 13, 13, COL.lantern);
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = 'rgba(255,190,90,0.06)';
+  ctx.beginPath(); ctx.arc(l.x, l.y - 2, 34, 0, 6.28); ctx.fill();
+}
+
+// ---------- kamera ----------
+const cam = { x: hero.x, y: hero.y };
+function updateCamera() {
+  cam.x += (hero.x - cam.x) * 0.12;
+  cam.y += (hero.y - 26 - cam.y) * 0.12;
+  cam.x = Math.max(VIEW_W / 2, Math.min(WORLD_W - VIEW_W / 2, cam.x));
+  cam.y = Math.max(VIEW_H / 2, Math.min(WORLD_H - VIEW_H / 2, cam.y));
+}
+
+// ---------- update ----------
+function updateWalker(w, dt, speed) {
+  // animacja
+  if (w.moving) w.walkT += dt;
+}
+function updateHero(dt) {
+  const left = keys['a'] || keys['arrowleft'];
+  const right = keys['d'] || keys['arrowright'];
+  const up = keys['w'] || keys['arrowup'];
+  const down = keys['s'] || keys['arrowdown'];
+  const run = keys['shift'];
+  const sp = (run ? hero.runSpeed : hero.speed) * dt / 16;
+  let dx = (right ? 1 : 0) - (left ? 1 : 0);
+  let dy = (down ? 1 : 0) - (up ? 1 : 0);
+  if (dx && dy) { dx *= 0.707; dy *= 0.707; }
+  hero.moving = !!(dx || dy);
+  if (hero.moving) {
+    hero.walkT += dt * (run ? 1.6 : 1);
+    if (dx < 0) hero.facing = 'left';
+    if (dx > 0) hero.facing = 'right';
+    if (!collide(hero.x + dx * sp, hero.y)) hero.x += dx * sp;
+    if (!collide(hero.x, hero.y + dy * sp)) hero.y += dy * sp;
+  }
+}
+
+function updateNpc(n, dt) {
+  const w = n.walker;
+  if (n.patrol) {
+    if (n.wait > 0) { n.wait -= dt; w.moving = false; }
+    else {
+      const wp = n.patrol[n.wp];
+      const dx = wp.x - w.x, dy = wp.y - w.y;
+      const dist = Math.hypot(dx, dy);
+      if (dist < 2) { n.wp = (n.wp + 1) % n.patrol.length; n.wait = 1500 + rnd() * 1500; w.moving = false; }
+      else {
+        const sp = 0.5 * dt / 16;
+        w.x += dx / dist * sp; w.y += dy / dist * sp;
+        if (dx > 0.3) w.facing = 'right';
+        if (dx < -0.3) w.facing = 'left';
+        w.moving = true; w.walkT += dt;
+      }
+    }
+  } else {
+    w.moving = false;
+  }
+}
+
+let last = performance.now();
+function update(dt, t) {
+  updateHero(dt);
+  for (const n of npcs) updateNpc(n, dt);
+  updateSmoke(dt, t);
+  updateCamera();
+}
+
+// ---------- render ----------
+let groundCanvas = null;
+function render(t) {
+  if (!groundCanvas) groundCanvas = buildGround();
+  ctx.fillStyle = COL.night;
+  ctx.fillRect(0, 0, VIEW_W, VIEW_H);
+  const cx = cam.x - VIEW_W / 2, cy = cam.y - VIEW_H / 2;
+  ctx.save();
+  ctx.translate(-cx | 0, -cy | 0);
+  // tło = gotowy grunt (trawa/droga/strumień/mostek)
+  ctx.drawImage(groundCanvas, 0, 0);
+
+  // obiekty sortowane po y
+  const objs = [];
+  for (const tr of trees) objs.push({ y: tr.y, d: () => drawTree(tr) });
+  for (const b of buildings) objs.push({ y: b.y + b.h, d: () => drawBuilding(b, t) });
+  objs.push({ y: GATE.wallY + GATE.wallH, d: () => drawPalisade(t) });
+  for (const f of fences) objs.push({ y: f.y + 10, d: () => drawFence(f) });
+  for (const l of lanterns) objs.push({ y: l.y + 16, d: () => drawLantern(l, t) });
+  for (const n of npcs) {
+    const w = n.walker;
+    if (n.kind === 'horse') objs.push({ y: w.y, d: () => drawHorse(w.x, w.y, t) });
+    else if (n.kind === 'chicken') objs.push({ y: w.y, d: () => drawChicken(w.x, w.y, t, w.breathPhase * 3) });
+    else objs.push({ y: w.y, d: () => drawHumanoid(w.x | 0, w.y | 0, t, w, STYLES[n.kind]) });
+  }
+  objs.push({ y: hero.y, d: () => drawHumanoid(hero.x | 0, hero.y | 0, t, hero, STYLES.hero) });
+  objs.sort((a, b) => a.y - b.y);
+  for (const o of objs) o.d();
+  drawSmoke(t);
+
+  // nocna poświata (winieta wokół bohatera/latarni jest w drawLantern)
+  ctx.restore();
+
+  // HUD
+  ctx.font = 'bold 10px "Courier New", monospace';
+  ctx.textAlign = 'left';
+  ctx.fillStyle = 'rgba(255,255,255,0.8)';
+  ctx.fillText('NIEMIR', 8, 14);
+  const hud = 'WASD/strzałki — ruch · Shift — bieg';
+  ctx.fillStyle = 'rgba(200,215,235,0.55)';
+  ctx.fillText(hud, 8, VIEW_H - 8);
+  ctx.textAlign = 'left';
+}
+
+function loop(t) {
+  const dt = Math.min(50, t - last); last = t;
+  update(dt, t);
+  render(t);
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+</script>
+</body>
+</html>
