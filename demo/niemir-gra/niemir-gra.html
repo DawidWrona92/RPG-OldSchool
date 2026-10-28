@@ -170,7 +170,7 @@ function drawBreath(x, y, t, phase, facing) {
   ctx.globalAlpha = 1;
 }
 
-function drawLegs(x, y, walkT, moving, pantsC, bootC) {
+function drawLegs(x, y, walkT, moving, pantsC, bootC, wide) {
   const st = moving ? Math.sin(walkT / 70) : 0;
   const l1 = Math.round(st * 3), l2 = -l1;
   // nogi z kolanem i butem z czubkiem (high-quality)
@@ -189,64 +189,81 @@ function drawLegs(x, y, walkT, moving, pantsC, bootC) {
 function drawHumanoid(x, y, t, w, style) {
   const b = breathBob(t, w.breathPhase);
   const bob = w.moving ? (Math.sin(w.walkT / 70) > 0 ? 2 : 0) : b;
-  drawLegs(x, y, w.walkT, w.moving, style.pants, style.boot);
+  drawLegs(x, y, w.walkT, w.moving, style.pants, style.boot, style.kind === 'hero');
   if (style.kind === 'hero') {
-    // === HIGH-QUALITY HERO: płaszcz z kapturem, szara zbroja, miecz i tarcza ===
+    // === HERO wg referencji: barczysty, wielka OKRĄGŁA tarcza z przodu lewej strony,
+    // płaszcz za plecami, kaptur, twarz w cieniu, krótki miecz nisko przy boku ===
     const dir = w.facing === 'left' ? -1 : 1;
-    const breath = w.moving ? 0 : Math.sin(t / 1000 * 4.4 + w.breathPhase) > 0 ? 1 : 0;
-    const swx = w.facing === 'left' ? x - 14 : x + 11;
-    const shx = w.facing === 'left' ? x + 8 : x - 16;
-    // PŁASZCZ — ZA postacią, szeroki: od kaptura pod kolana, wystaje ponad tarczę
     const back = -dir;
-    const flare = breath;
+    const breath = w.moving ? 0 : Math.sin(t / 1000 * 4.4 + w.breathPhase) > 0 ? 1 : 0;
     const swayC = w.moving ? Math.round(Math.sin(w.walkT / 70) * 1) : 0;
-    const cx0 = x + back * 12 - 5 + swayC;
-    px(cx0, y - 36 + bob, 10 + flare, 26, '#5c422a');      // korpus płaszcza (wysoki)
-    px(cx0, y - 36 + bob, 3, 26, '#6b4f33');               // jaśniejszy brzeg
-    px(cx0 - 1, y - 12 + bob, 12 + flare, 4, '#4a341f');   // falujący dół
-    px(cx0, y - 8 + bob, 10, 2, '#5c422a');               // druga warstwa dołu
-    px(cx0 + 2, y - 30 + bob, 1, 20, '#4a341f');           // fałda pionowa
-    px(cx0 + 6, y - 32 + bob, 1, 22, '#4a341f');           // fałda pionowa
-    // bark płaszcza (łączy się z kapturem)
-    px(x + back * 7 - 4, y - 34 + bob, 8, 4, '#5c422a');
-    // szara zbroja (napierśnik) — teraz NA płaszczem, z przodu
-    px(x - 7, y - 30 + bob, 14, 18, COL.armor2);
-    px(x - 7, y - 30 + bob, 14, 3, COL.armor1);
-    px(x - 7, y - 14 + bob, 14, 2, COL.armor0);
-    // fałdy zbroi
-    px(x - 7, y - 24 + bob, 14, 1, COL.armor0);
-    px(x - 7, y - 19 + bob, 14, 1, COL.armor0);
+
+    // 1) PŁASZCZ — po stronie TYLNEJ (back), od barku do połowy łydki, falujący
+    const cx0 = x + back * 9 - 5 + swayC;
+    px(cx0, y - 33 + bob, 10 + breath, 24, '#4f3823');
+    px(cx0 + back, y - 33 + bob, 3, 24, '#5f4529');
+    px(cx0 - 1, y - 13 + bob, 12 + breath, 4, '#3d2b1a');
+    px(cx0 + 1, y - 10 + bob, 9, 3, '#4f3823');
+    px(cx0 + 3, y - 31 + bob, 1, 18, '#3d2b1a');
+    px(cx0 + 6, y - 31 + bob, 1, 16, '#3d2b1a');
+    // czerwona klamra peleryny na piersi (z przodu)
+    px(x + dir * 4 - 2, y - 30 + bob, 5, 4, '#8c3030');
+    px(x + dir * 4 - 2, y - 30 + bob, 5, 1, '#a83c3c');
+    px(x + dir * 4 - 1, y - 29 + bob, 3, 2, '#b84444');
+
+    // 2) TOR — barczysty: szerszy napierśnik
+    px(x - 10, y - 30 + bob, 20, 17, '#434b57');
+    px(x - 10, y - 30 + bob, 20, 3, '#5f6a79');
+    px(x - 10, y - 16 + bob, 20, 3, '#343b45');
+    px(x - 10, y - 24 + bob, 20, 1, '#343b45');
+    px(x - 10, y - 20 + bob, 20, 1, '#343b45');
     // pas
-    px(x - 7, y - 14 + bob, 14, 2, COL.boot);
-    px(x - 7, y - 14 + bob, 5, 2, '#5c4322');
-    // głowa (mniejsza, proporcjonalna)
-    px(x - 3, y - 35 + bob, 8, 6, COL.skin);
-    px(x - 3, y - 30 + bob, 8, 1, COL.skinD);
-    // KAPTUR — wyraźny, ze spiczastym czubkiem i opadającymi barkami
-    px(x - 6, y - 38 + bob, 13, 5, '#5c422a');
-    px(x - 6, y - 38 + bob, 13, 1, '#7d5f3a');
-    px(x - 2, y - 41 + bob, 5, 3, '#5c422a');          // czubek kaptura
-    px(x - 1, y - 41 + bob, 3, 1, '#7d5f3a');
-    px(x + back * 6 - 4, y - 35 + bob, 4, 9, '#5c422a'); // tył kaptura opada na plecy
-    px(x + back * 6 - 4, y - 35 + bob, 1, 9, '#4a341f');
-    px(x - 4, y - 33 + bob, 3, 2, '#3f2e18');           // cień twarzy pod kapturem
-    // oko
-    px(w.facing === 'left' ? x - 2 : x + 2, y - 32 + bob, 1, 1, '#0c0d12');
-    // TARCZA (lewa ręka): brązowa z jasnym rantem i umbem
-    px(shx, y - 27 + bob, 9, 13, COL.shield);
-    px(shx, y - 27 + bob, 9, 1, COL.shieldE);
-    px(shx, y - 15 + bob, 9, 1, COL.shieldE);
-    px(shx - 1, y - 26 + bob, 1, 11, COL.shieldE);
-    px(shx + 9, y - 26 + bob, 1, 11, COL.shieldE);
-    px(shx + 1, y - 25 + bob, 7, 9, COL.shieldD);
-    px(shx + 3, y - 23 + bob, 3, 4, COL.shieldE);  // umbo
-    // MIECZ (prawa ręka): głownia z refleksem, jelce, rękojeść
+    px(x - 10, y - 14 + bob, 20, 2, '#2a2016');
+    px(x - 1, y - 14 + bob, 4, 2, '#6b5230');
+
+    // 3) GŁOWA — kaptur materiałowy, twarz głęboko w cieniu
+    px(x - 6, y - 42 + bob, 13, 4, '#4f3823');
+    px(x - 7, y - 38 + bob, 15, 9, '#4f3823');
+    px(x - 7, y - 38 + bob, 15, 1, '#5f4529');
+    px(x - 4, y - 44 + bob, 9, 2, '#4f3823');
+    px(x + back * 6 - 5, y - 37 + bob, 5, 11, '#4f3823');
+    px(x + back * 6 - 5, y - 37 + bob, 1, 11, '#3d2b1a');
+    // szpara twarzy — wąska, w głębokim cieniu
+    const fx0 = dir > 0 ? x - 1 : x - 5;
+    px(fx0, y - 35 + bob, 6, 5, '#241a10');
+    px(dir > 0 ? x + 1 : x - 3, y - 34 + bob, 2, 2, '#e8d5b0');  // oko
+
+    // 4) TARCZA — WIELKA, okrągła, z przodu (po stronie patrzenia na lewo od torsu)
+    const shc = x + back * 12;
+    const shy = y - 24 + bob;
+    // pełny okrąg 16x16 (pixel-koło)
+    const R = 8;
+    for (let dy = -R; dy <= R; dy++) {
+      const half = Math.floor(Math.sqrt(R * R - dy * dy));
+      px(shc - half, shy + dy, half * 2, 1, '#5c4a2e');
+    }
+    // rant (jaśniejszy obwód)
+    for (let dy = -R; dy <= R; dy++) {
+      const half = Math.floor(Math.sqrt(R * R - dy * dy));
+      if (half > 0) { px(shc - half, shy + dy, 1, 1, '#8a7444'); px(shc + half - 1, shy + dy, 1, 1, '#8a7444'); }
+    }
+    px(shc - R, shy, R * 2, 1, '#8a7444');
+    px(shc - R, shy + R * 2 - 1, R * 2, 1, '#8a7444');
+    // umbo (centralny wypukły punkt) + promienie
+    px(shc - 2, shy - 2, 5, 5, '#7d6740');
+    px(shc - 1, shy - 1, 3, 3, '#9c8248');
+    px(shc - 4, shy, 1, 1, '#8a7444'); px(shc + 4, shy, 1, 1, '#8a7444');
+    px(shc, shy - 4, 1, 1, '#8a7444'); px(shc, shy + 4, 1, 1, '#8a7444');
+
+    // 5) MIECZ — krótki, trzymany nisko, ostrze skierowane w dół (jak w referencji)
+    const swx = x + dir * 12;
     const sway = w.moving ? Math.round(Math.sin(w.walkT / 70) * 2) : 0;
-    px(swx, y - 26 + bob + sway, 1, 2, COL.hilt);      // rękojeść
-    px(swx - 1, y - 28 + bob + sway, 3, 1, COL.hilt);  // jelce
-    px(swx, y - 40 + bob + sway, 2, 12, COL.blade);    // głownia
-    px(swx + 1, y - 40 + bob + sway, 1, 12, COL.bladeD);
-    px(swx, y - 42 + bob + sway, 1, 2, COL.blade);      // sztych
+    px(swx - 1, y - 18 + bob + sway, 3, 1, '#5c4322');   // jelce
+    px(swx, y - 20 + bob + sway, 1, 2, '#5c4322');      // rękojeść
+    px(swx, y - 16 + bob + sway, 2, 10, '#b9c2cf');     // głownia w dół
+    px(swx + 1, y - 16 + bob + sway, 1, 10, '#7f8798');
+    // ręka na tarczy/dolna ręka
+    px(x + dir * 8 - 1, y - 17 + bob + sway, 3, 2, '#4f3823');
   } else if (style.kind === 'guard') {
     px(x - 6, y - 26 + bob, 12, 17, style.t0);
     px(x - 6, y - 26 + bob, 4, 17, style.t1);
